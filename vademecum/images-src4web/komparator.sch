@@ -1,0 +1,159 @@
+v 20130925 2
+C 42100 49100 1 0 0 comparator-1.sym
+C 41300 49900 1 0 0 terminal-end_line.sym
+{
+T 41525 49950 5 10 1 1 0 6 1
+refdes=Vin1
+T 41610 50900 5 10 0 0 0 0 1
+footprint=CONNECTOR 1 1
+}
+C 41300 49500 1 0 0 terminal-end_line.sym
+{
+T 41525 49550 5 10 1 1 0 6 1
+refdes=Vin2
+T 41610 50500 5 10 0 0 0 0 1
+footprint=CONNECTOR 1 1
+}
+N 42000 50000 42200 50000 4
+N 42000 49600 42200 49600 4
+C 44000 50000 1 90 0 resistor-2.sym
+{
+T 43700 50200 5 10 0 1 90 0 1
+refdes=R?
+}
+C 43700 51100 1 0 0 net-pwr-1.sym
+{
+T 43900 51450 5 9 1 1 0 5 1
+value=Vcc
+}
+N 43900 51100 43900 50900 4
+N 43600 49800 44200 49800 4
+N 43900 49800 43900 50000 4
+C 44900 49700 1 0 1 terminal-end_line.sym
+{
+T 44675 49750 5 10 1 1 0 0 1
+refdes=Vout
+T 44590 50700 5 10 0 0 0 6 1
+footprint=CONNECTOR 1 1
+}
+T 41200 47700 9 10 1 0 0 0 6
+Podstawowy układ pracy:
+	Vin1 > Vin2 => Vout = 0
+	Vin1 < Vin2 => Vout = Vcc
+pozwala na konwersję poziomów - możemy
+porównywać napięcia o innych poziomach
+(także wyższych) niż poziom napięcia wyjściowego
+C 47500 50000 1 0 0 comparator-1.sym
+C 48600 51700 1 180 0 resistor-2.sym
+{
+T 48200 51300 5 10 1 1 0 0 1
+refdes=R3
+}
+N 49000 50700 49700 50700 4
+C 49600 50800 1 90 0 resistor-2.sym
+{
+T 49300 51000 5 10 0 1 90 0 1
+refdes=R?
+}
+C 49300 51800 1 0 0 net-pwr-1.sym
+{
+T 49500 52150 5 9 1 1 0 5 1
+value=Vcc
+}
+N 49500 51800 49500 51700 4
+N 49500 50700 49500 50800 4
+C 50400 50600 1 0 1 terminal-end_line.sym
+{
+T 50090 51600 5 10 0 0 0 6 1
+footprint=CONNECTOR 1 1
+T 50175 50650 5 10 1 1 0 0 1
+refdes=Vout
+}
+C 47400 50600 1 180 0 resistor-2.sym
+{
+T 47000 50200 5 10 1 1 0 0 1
+refdes=R2
+}
+N 46400 50500 46500 50500 4
+N 47400 50500 47600 50500 4
+T 48600 50200 9 10 1 0 0 0 1
+z histerezą
+C 45700 50800 1 0 0 terminal-end_line.sym
+{
+T 46010 51800 5 10 0 0 0 0 1
+footprint=CONNECTOR 1 1
+T 45925 50850 5 10 1 1 0 6 1
+refdes=Vin1
+}
+C 45700 50400 1 0 0 terminal-end_line.sym
+{
+T 46010 51400 5 10 0 0 0 0 1
+footprint=CONNECTOR 1 1
+T 45925 50450 5 10 1 1 0 6 1
+refdes=Vin2
+}
+C 47400 51000 1 180 0 resistor-2.sym
+{
+T 47000 51200 5 10 1 1 180 6 1
+refdes=R1
+}
+N 47400 50900 47600 50900 4
+N 46400 50900 46500 50900 4
+N 47500 50900 47500 51600 4
+N 47500 51600 47700 51600 4
+N 48600 51600 49100 51600 4
+N 49100 51600 49100 50700 4
+T 47500 46500 9 10 1 0 0 0 1
+dyskryminator okienkowy
+C 47400 47900 1 0 0 comparator-1.sym
+C 46400 47900 1 0 0 terminal-end_line.sym
+{
+T 46475 48150 5 10 1 1 180 6 1
+refdes=Vin
+T 46710 48900 5 10 0 0 0 0 1
+footprint=CONNECTOR 1 1
+}
+N 47100 48000 47300 48000 4
+N 47300 47600 47300 48400 4
+N 47300 48400 47500 48400 4
+N 47500 47600 47300 47600 4
+C 47300 48600 1 90 0 net-pwr-1.sym
+{
+T 46950 48800 5 9 1 1 90 5 1
+value=Vref1
+T 47200 48850 5 5 0 0 90 0 1
+net=Vref1:1
+}
+N 47500 48800 47300 48800 4
+N 47500 47200 47300 47200 4
+C 49600 48100 1 90 0 resistor-2.sym
+{
+T 49300 48300 5 10 0 1 90 0 1
+refdes=R?
+}
+C 49300 49100 1 0 0 net-pwr-1.sym
+{
+T 49500 49450 5 9 1 1 0 5 1
+value=Vcc
+}
+N 49500 49100 49500 49000 4
+N 49500 48000 49500 48100 4
+C 50400 47900 1 0 1 terminal-end_line.sym
+{
+T 50090 48900 5 10 0 0 0 6 1
+footprint=CONNECTOR 1 1
+T 50175 47950 5 10 1 1 0 0 1
+refdes=Vout
+}
+N 48900 48600 49100 48600 4
+N 49100 48600 49100 47400 4
+N 48900 47400 49100 47400 4
+N 49100 48000 49700 48000 4
+C 47400 46700 1 0 0 comparator-1.sym
+C 47300 47000 1 90 0 net-pwr-1.sym
+{
+T 46950 47200 5 9 1 1 90 5 1
+value=Vref2
+T 47200 47250 5 5 0 0 90 0 1
+net=Vref1:1
+}

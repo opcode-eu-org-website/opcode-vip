@@ -1,0 +1,69 @@
+
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl">
+<head>
+	<meta http-equiv="ContentType" content="application/xhtml+xml; charset=utf-8" />
+</head><body>
+
+<div id="xyz">
+	<p>
+		<b id="abc">Lorem <i>ipsum</i></b> dolor sit amet, <i>consectetur</i> adipiscing elit.
+			<ul class="typA typX">
+				<li>Sed congue, eros quis ultricies ornare,</li>
+				<li>massa sem auctor arcu, et semper ex arcu id augue.</li>
+				<li>Fusce pretium <i><b>turpis</b></i> massa, maximus <i>dapibus</i> sit amet.</li>
+				<li>Nulla fermentum molestie finibus.</li>
+			</ul>Etiam accumsan <i>tempus</i> ante at congue.</p>
+	<p data-abc="123" data-zz="0" class="az" id="q23y">
+		Sed feugiat vestibulum sapien eget iaculis.<br />
+		Integer quis magna nec lacus tempor sagittis.
+	</p>
+</div>
+
+<script type="text/javascript">//<![CDATA[
+function fff() {
+	console.log("wszystkie elementy <i> w dokumencie:");
+	var a = document.getElementsByTagName("i");
+	for (var j = 0; j < a.length; j++) {
+		console.log(a[j].innerHTML + "\n");
+	}
+
+	// modyfikacja zawartości elementu o id="abc"
+	var b = document.querySelector("#abc");
+	b.innerHTML = "ABC <u>ABC</u> ABC";
+
+	// potomkowie rodzica wskazanego elementu 
+	var child = b.parentNode.firstElementChild
+	while (child) {
+		console.log("potomek jest węzłem: " + child.nodeName + "\n");
+		if (child.nodeName == "ul") {
+			// jeżeli jest to lista <ul> 
+			// która posiada (wśród klass podanych w atrybucie class) klasę "typA"
+			// to ją usuń i dodaj klasę "typB"
+			if (child.classList.contains('typA')) {
+				child.classList.remove('typA');
+				child.classList.add('typB');
+			}
+		}
+		child = child.nextElementSibling;
+	}
+	
+	var c = document.querySelector("#xyz");
+	// drugi potomek typu <p> elementu określonego w zmiennej c
+	var d = c.querySelector("p:nth-of-type(2)");
+	console.log("ma atrybuty:")
+	for (var i = 0; i < d.attributes.length; ++i) {
+		console.log(" " + d.attributes[i].name + " = " + d.attributes[i].value + "\n");
+	}
+	
+	// można też pytać o konkretny atrybut
+	console.log("abc => " + d.getAttribute("data-abc"));
+	// oraz ustawić (zarówno dodać nowy jak i zmienić istniejący) 
+	d.setAttribute("data-def", "tyui");
+}
+
+addEventListener('DOMContentLoaded', fff, false);
+//]]></script>
+
+</body></html>
