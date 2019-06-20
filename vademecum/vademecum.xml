@@ -19,7 +19,7 @@
 		<a href="vademecum.pdf"><img src="lib/pdfFile.svg" alt="Pobierz jako PDF" title="Pobierz jako PDF"/></a>
 	</p>
 </div>
-<p id="updateInfo">(aktualizacja: 2019-05-13)</p>
+<p id="updateInfo">(aktualizacja: 2019-06-20)</p>
 
 <section>
 	<p>
@@ -277,6 +277,14 @@
 				<dt><dfn>PNP</dfn></dt>
 				<dd>Podobnie jak w NPE tyle że prąd przepływający pomiędzy emiterem a kolektorem jest funkcją prądu przepływającego pomiędzy emiterem a bazą.</dd>
 			</dl>
+			<p>
+				Spadek napięcia pomiędzy bazą a emiterem <m>U_{BE}</m> w tranzystorze NPN (między emiterem a bazą w PNP) wynosi nie więcej niż około 0.7V.
+				Utrzymanie takiej wartości spadku napięcia podowduje powstanie określonego prądu bazy.
+				Jeżeli spadek ten wynosi dużo mniej (np. zero), to prąd bazy nie płynie, a więc tranzystor nie przewodzi.
+			</p><p>
+				Zatem w układzie przedstawionym obok zmiana <m>V_{ster}</m> spowoduje taką zmianę prądu bazy <m>I_B</m> aby na <m>R_b</m> odłożyło się napięcie <m>V_{ster} - 0.7V</m>.
+				Z tego też względu konieczne jest stosowanie rezystancji pomiędzy bazą a napięciami sterującymi innymi od napięcia emitera.
+			</p>
 			
 			<div style="clear:both;"></div>
 			<img src="img/jfet.svg" class="right_img" style="height:220px; margin-bottom:10px" alt="podłączenie JFET" />
