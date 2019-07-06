@@ -19,7 +19,7 @@
 		<a href="vademecum.pdf"><img src="lib/pdfFile.svg" alt="Pobierz jako PDF" title="Pobierz jako PDF"/></a>
 	</p>
 </div>
-<p id="updateInfo">(aktualizacja: 2019-06-20)</p>
+<p id="updateInfo">(aktualizacja: 2019-07-05)</p>
 
 <section>
 	<p>
@@ -2370,6 +2370,7 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 						</dd>
 				</dl>
 				<p>Większość poleceń obsługuje także opcje <code>--help</code> lub <code>-h</code>, które wyświetlają informację na temat ich użycia. W tym miejscu warto też zauważyć że typowo opcje krótkie (pojedyncza litera) poprzedzane są pojedynczym myślnikiem (i po jednym myślniku może wystąpić kilka kolejnych opcji), natomiast opcje długie poprzedzane są dwoma myślnikami.</p>
+				<p>Zarówno w tekstach pomocy jak i w tym dokumencie stosowana jest konwencja polegająca na oznaczaniu opcjonalnych argumentów poprzez umieszczanie ich w nawiasach kwadartowych (jeżeli podajemy ten argument do komendy nie obejmujemy go już tymi nawiasami) oraz rozdzielaniu alternatywnych opcji przy pomocy~<code>|</code>. Np. <code>a [b] c|d</code> oznacza iż polecenie <code>a</code> wymaga argumentu postaci <code>c</code> albo <code>d</code>, który może być poprzedzony argumentem <code>b</code>.</p>
 			</section>
 			<section>
 				<h5>Powłoka (i okolice)</h5>
@@ -2478,7 +2479,7 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 				<dl class="cmdlist">
 					<dt><dfn>cd</dfn> <var>[ścieżka]</var></dt>
 						<dd>zmiana bieżącego katalogu,<br />
-							warto zauważyć iż katalog bieżący oznaczamy kropką <code>.</code>, nadrzędny oznaczamy dwiema kropkami <code>..</code>,<br />
+							warto zauważyć, iż katalogi w ścieżce oddzielamy ukośnikami <code>/</code>, bieżący katalog oznaczamy kropką <code>.</code>, nadrzędny oznaczamy dwiema kropkami <code>..</code>,<br />
 							ścieżki zaczynające się od ukośnika <code>/</code> oznaczają ścieżki bezwzględne (od korzenia systemu plików), pozostałe oznaczają ścieżkę względną (wyrażoną względem bierzącego katalogu),<br />
 							katalog domowy oznacza się tyldą <code>~</code>
 						</dd>
@@ -2516,12 +2517,12 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 							<code><var>warunek</var> -o <var>warunek</var></code> łączy warunki sumą logiczną OR zamiast domyślnego iloczynu logicznego AND<br />
 							<code>! <var>warunek</var></code> negacja warunku<br />
 							
-							<code>-mtime <var>[+-]n</var></code> pliki których modyfikacja odbyła się <var>n</var>*24 godziny temu<br />
-							<code>-mmin <var>[+-]n</var></code> pliki których modyfikacja odbyła się <var>n</var> minut temu<br />
-							<code>-ctime <var>[+-]n</var></code> pliki które zostały utworzone <var>n</var>*24 godziny temu<br />
-							<code>-cmin <var>[+-]n</var></code> pliki które zostały utworzone <var>n</var> minut temu<br />
-							<code>-size <var>[+-]n[c|k|M|G]</var></code> pliki których rozmiar wynosi <var>n</var> (c - bajtów, k - kilobajtów, M - Megabajtów, G - gigabajtów)<br />
-						 w powyższych testach <var>+</var> oznacza więcej niż, <var>-</var> oznacza mniej niż<br />
+							<code>-mtime <var>[+|-]n</var></code> pliki których modyfikacja odbyła się <var>n</var>*24 godziny temu<br />
+							<code>-mmin <var>[+|-]n</var></code> pliki których modyfikacja odbyła się <var>n</var> minut temu<br />
+							<code>-ctime <var>[+|-]n</var></code> pliki które zostały utworzone <var>n</var>*24 godziny temu<br />
+							<code>-cmin <var>[+|-]n</var></code> pliki które zostały utworzone <var>n</var> minut temu<br />
+							<code>-size <var>[+|-]n[c|k|M|G]</var></code> pliki których rozmiar wynosi <var>n</var> (c - bajtów, k - kilobajtów, M - Megabajtów, G - gigabajtów)<br />
+						w powyższych testach <var>+</var> oznacza więcej niż, <var>-</var> oznacza mniej niż, uwaga: porównywaniu podlegają liczby całkowite, np. +1 oznaczacza <m>&gt;1</m> w liczbach całkowitych tzn. <m>\ge2</m><br />
 							
 							<code>-exec <var>polecenie \{\}</var> \;</code> dla każdego znalezionego pliku wykonaj <var>polecenie</var> podstawiając ścieżkę do tego pliku pod <var>\{\}</var> (zastosowane odwrotne ukośniki służą zabezpieczeniu nawiasów klamrowych i średnika przed zinterpretowaniem ich przez powłokę)<br />
 							<code>-execdir <var>polecenie \{\}</var> \;</code>, podobnie jak <code>-exec</code> tyle że polecenie zostanie uruchomione w katalogu w którym znajduje się wyszukany plik
@@ -2740,7 +2741,7 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 						<dd>usuwa powtarzające się linie z posortowanego pliku, przydatne opcje:<br />
 							<code>-c</code> wypisz liczbę powtórzeń<br />
 							<code>-d</code> wypisz tylko linie z 2 lub więcej wystąpieniami<br />
-							<code>-d</code> wypisz tylko linie z 1 wystąpieniem
+							<code>-u</code> wypisz tylko linie z 1 wystąpieniem
 						</dd>
 					<!-- END: paste join comm uniq -->
 					
