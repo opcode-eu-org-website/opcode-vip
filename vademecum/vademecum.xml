@@ -19,7 +19,7 @@
 		<a href="vademecum.pdf"><img src="lib/pdfFile.svg" alt="Pobierz jako PDF" title="Pobierz jako PDF"/></a>
 	</p>
 </div>
-<p id="updateInfo">(aktualizacja: 2019-07-05)</p>
+<p id="updateInfo">(aktualizacja: 2019-07-22)</p>
 
 <section>
 	<p>
@@ -1144,6 +1144,7 @@
 		<!-- END: Elektronika - Typy transmisji -->
 	</section>
 	<section>
+		<!-- BEGIN: Elektronika - Układy programowalne -->
 		<h3>Układy programowalne</h3>
 		<p>Układy programowalne można podzielić na dwa rodzaje:
 			<dl>
@@ -1193,6 +1194,7 @@
 				i wiele innych
 			</p>
 		</section>
+		<!-- END: Elektronika - Układy programowalne -->
 		<!-- TODO: więcej o architekturach komputerów -->
 	</section>
 </section>
@@ -1450,6 +1452,15 @@
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych/Zasięg_zmiennej.cpp" />
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych/Zasięg_zmiennej.py" />
 			</div></div>
+		</section>
+		
+		<section>
+			<h4>Kolejność bajtów</h4>
+			
+			<div class="demo_codes"><div>
+				<insertSourceCode file="code-src/zmienne_i_struktury_danych/Endianness.c" />
+			</div></div>
+			<p>Fakt, że różne komputery ten sam ciąg zero-jedynkowy mogą interpretować jako różne liczby (w zależności od architektury <em>big endian</em> vs <em>little endian</em>), powoduje że przy wymianie danych między systemami konieczne jest ustalenie sposobu tej interpretacji (np. protokoły sieciowe takie jak IP używają <em>big endian</em>) lub zawarcie tej informacji w wymienianych danych (kodowania Unicode UTF-16 i UTF-32 zawierają na początku danych znacznik BOM).</p>
 		</section>
 		
 		<section>
