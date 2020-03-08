@@ -1,5 +1,5 @@
 
-/*  PLIK: py_api.cpp      kompilacja:
+/*  PLIK: py_run.cpp      kompilacja:
 		g++ -I/usr/include/python3.5m/ py_run.cpp -lpython3.5m -lboost_python-py35
 	uwaga: - kolejność argumentów może być istotna
 	       - plik używa "py_api.cpp" z poprzedniego przykładu

@@ -24,7 +24,7 @@ print("Standardowe wyjście z komendy to: " + res.stdout.decode())
 
 # jeżeli chcemy korzystać np. z znaków uogólniających powłoki lub podać
 # komendę jako pojedynczy napis (a nie listę argumentów) to można użyć
-# opjci shell=True:
+# opcji shell=True:
 subprocess.run(["ls -ld /etc/pa*"], shell=True)
 # jeżeli potrzebujemy tylko rozbicia napisu na listę argumentów można
 # użyć shlex.split()
