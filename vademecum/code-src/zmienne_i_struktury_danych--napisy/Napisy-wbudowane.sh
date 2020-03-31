@@ -15,7 +15,7 @@ echo $a $b $c
 
 # ${#str}    zwróci długość napisu w zmiennej str
 # ${str:n}   zwróci pod-napis $str od n do końca
-# ${str:n:m} zwróci pod-napis $str od n do m
+# ${str:n:m} zwróci pod-napis $str od n o długości m
 x=abcdefg
 echo ${#x} ${x:2} ${x:0:3} ${x:0:$((${#x}-2))}
 
