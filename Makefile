@@ -9,6 +9,14 @@ export PATH := $(shell realpath $(MAINDIR)/TextUtils/convert):$(PATH)
 all: | check-submodules
 	cd vademecum; $(MAKE) -f ../Makefile buildAll
 
+installDependencies:
+	cd $(MAINDIR)/TextUtils && make installDependencies
+	@ if ! which sch2img.sh > /dev/null; then \
+		echo "Cant't find sch2img.sh in PATH"; \
+		echo "You should download and install EDA libs (with dependencies!) from https://bitbucket.org/OpCode-eu-org/eda-libs"; \
+		return 3; \
+	fi
+
 upload:
 	cd $(OUTDIR); ln -sf vademecum.xhtml index.xhtml
 	cd $(OUTDIR); rsync -rLc --delete -v -e "ssh" ./ www.opcode.eu.org:/srv/WebPages/vip/
