@@ -2271,11 +2271,14 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 	<h2>Systemy operacyjne</h2>
 	<section>
 		<h3>Co robi system operacyjny?</h3>
+		<!-- BEGIN: Co robi system operacyjny -->
 		<p>System operacyjny jest oprogramowaniem odpowiedzialnym za zarządzanie zasobami systemu komputerowego (sprzętem, ale nie tylko) oraz uruchomionymi na nim aplikacjami. Do najistotniejszych zadań systemu operacyjnego zalicza się podział czasu procesora i szeregowanie zadań oraz zarządzanie pamięcią - w szczególności obsługa pamięci wirtualnej, najczęściej z wykorzystaniem mechanizmu stronicowania.</p>
 		
-		<p>Oprócz tego system zajmuje się także zarządzaniem plikami, wejściem/wyjściem (najczęściej jest ono realizowane w oparciu o przerwania (IRQ), ale znane są także modele programowego we/wy polegającego na aktywnym czekaniu), obsługą urządzeń (wejście/wyjście, sterowniki, dostęp), obsługą sieci (stos protokołów sieciowych), itd. Część zadań realizowana jest z minimalnym udziałem procesora (a więc także i systemu) jest to na przykład transfer danych w trybie DMA polegający na tym iż dane kopiowane są całymi blokami bez udziału procesora do/z pamięci (system zajmuje się tylko inicjacją transmisji). Należy tu jednocześnie zaznaczyć iż w przypadku nie stosowania tej technologii dane też kopiowane są pomiędzy dyskiem a procesorem całymi blokami (minimum sektor) gdyż dysk (w odróżnieniu od pamięci operacyjnej) nie jest bezpośrednio dostępny dla procesora.</p>
+		<p>Oprócz tego system zajmuje się także zarządzaniem plikami, wejściem/wyjściem (najczęściej jest ono realizowane w oparciu o przerwania (IRQ), ale znane są także modele programowego we/wy polegającego na aktywnym czekaniu), obsługą urządzeń (wejście/wyjście, sterowniki, dostęp), obsługą sieci (stos protokołów sieciowych), itd.
+			Część zadań realizowana jest z minimalnym udziałem procesora (a więc także i systemu) jest to na przykład transfer danych w trybie DMA polegający na tym iż dane kopiowane są całymi blokami bez udziału procesora do/z pamięci (system zajmuje się tylko inicjacją transmisji). Należy tu jednocześnie zaznaczyć iż w przypadku nie stosowania tej technologii dane też kopiowane są pomiędzy dyskiem a procesorem całymi blokami (minimum sektor) gdyż dysk (w odróżnieniu od pamięci operacyjnej) nie jest bezpośrednio dostępny dla procesora.</p>
 		
 		<p>Współczesne systemy korzystają z co najmniej dwóch poziomów pracy - uprzywilejowanego poziomu "nadzorcy" w którym działa jądro systemu operacyjnego oraz trybu użytkownika. Operacje I/O muszą odbywać się w trybie uprzywilejowanym. Również pamięć posiada obszar chroniony, w którym umieszczany jest m.in. tablica wektorów przerwań (inaczej zmiana adresu w tym wektorze mogłaby doprowadzić do przejęcia systemu w trybie uprzywilejowanym).</p>
+		<!-- END: Co robi system operacyjny -->
 		
 		<section>
 			<h4>Procesy i szeregowanie zadań</h4>
@@ -2301,13 +2304,15 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 		
 		<section>
 			<h4>Zarządzanie pamięcią</h4>
+			<!-- BEGIN: Zarządzanie pamięcią -->
 			
 			<p>Drugą podstawową funkcją systemu operacyjnego, wspomnianą na początku, jest zarządzanie pamięcią. Zarządzanie pamięcią polega na odpowiednim mapowaniu adresów logicznych (używanych przez procesy) na adresy fizyczne (używane przez procesor), korzysta ono z wsparcia sprzętowego ze strony procesora.
 				Jest to najczęściej realizowane w oparciu o wspomniany mechanizm stronicowania. Polega to na podziale pamięci dostępnej pamięci fizycznej na jednakowe bloki zwane ramkami oraz podziale pamięci logicznej na jednakowe bloki (o tej całej wielkości co ramki) zwane stronami. Strony które są wykorzystywane przez program są mapowane na dowolne ramki pamięci fizycznej (w przypadku gdy dana strona nie zamapowana - w zależności od okoliczności błąd braku strony lub błąd ochrony strony).
 				Rozwiązuje to problem fragmentacji zewnętrznej, polegającej na braku spójnego obszaru pamięci o żądanej długości pomimo iż łączna ilość wolnej pamięci jest dostateczna, jednak nie rozwiązuje problemu fragmentacji wewnętrznej, polegającej na przydzielaniu zbyt dużych fragmentów pamięci dla procesu (a wręcz można powiedzieć że go pogłębia).
 				Mechanizm ten wymaga trzymania tablicy wolnych ramek, tablicy stron dla każdego procesu (zawierającej przypisania mapowań stron danego procesu na ramki) oraz wykonywania tłumaczenia adresów logicznych (strona + przesunięcie na stronie). Także sama tablica stron procesu procesu może być stronicowania (mamy tablicę która informuje nas że przypisania stron w danym zakresie adresów są przechowywane w jakiejś ramce).</p>
 			
-			<p>Strony i ramki mogą być współdzielone pomiędzy procesami (np. przy rozgałęzianiu procesu strony są kopiowane dopiero gdy zajdzie taka potrzeba). W przypadku braku miejsca w pamięci fizycznej wybrane strony nieaktywnego aktualnie procesu mogą być umieszczane na dysku (swap). Niekiedy może to powodować szamotanie procesu polegające na zbyt dużej liczbie wymian stron. Zawsze jednak prowadzi to do konieczności ustalania które strony najlepiej jest przenieść na dysk. Optymalne byłoby przenoszenie tych które najdłużej nie będą potrzebne (jednak z oczywistych względów jet to praktycznie nie do zrealizowania). Stosuje się różne algorytmy tego wyboru:</p>
+			<p>Strony i ramki mogą być współdzielone pomiędzy procesami (np. przy rozgałęzianiu procesu strony są kopiowane dopiero gdy zajdzie taka potrzeba). W przypadku braku miejsca w pamięci fizycznej wybrane strony nieaktywnego aktualnie procesu mogą być umieszczane na dysku (swap).
+				Niekiedy może to powodować szamotanie procesu polegające na zbyt dużej liczbie wymian stron. Zawsze jednak prowadzi to do konieczności ustalania które strony najlepiej jest przenieść na dysk. Optymalne byłoby przenoszenie tych które najdłużej nie będą potrzebne (jednak z oczywistych względów jet to praktycznie nie do zrealizowania). Stosuje się różne algorytmy tego wyboru:</p>
 			<ul>
 				<li>FIFO - usuwamy najdłużej będącą w pamięci</li>
 				<li>LRU - usuwanie tej do której najdawniej się odwoływano (licznik czasu, bit odniesienia, bit odniesienia w określonym czasie, bit modyfikacji)</li>
@@ -2316,19 +2321,22 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 			</ul>
 			
 			<p>Alternatywną (i mniej wymagającą) wobec stronicowanie metodą zarządzania pamięcią jest segmentacja. W przypadku architektury x86 jest ona zawsze wykorzystywana jednak może być przykryta dużym segmentem na którym wykorzystujemy stronicowaniem. Wspomniany już mechanizm pamięci wirtualnej często rozumiany jest tylko jako stronicowaniem (lub segmentacja) na żądanie. Polega to na tym iż strony mapowane są na ramki dopiero w momencie zapisu do segmentu pamięci należącego do </p>
+			<!-- END: Zarządzanie pamięcią -->
 		</section>
 	</section>
 	<section>
 		<h3>Proces uruchamiania komputera</h3>
+		<!-- BEGIN: Proces uruchamiania komputera -->
 		<p>Po otrzymaniu sygnału resetu (także przy uruchamianiu systemu - "Power-on Reset") procesor po inicjalizacji rejestrów zaczyna wykonywanie kodu znajdującego się pod jakimś ustalonym adresem (typowo w wbudowanej lub zewnętrznej pamięci typu ROM lub Flash). W zależności od danej architektury / procesrora może to być m.in.: bezpośrednio kod programu użytkownika, wbudowany bootloader danego procesora umożliwiający dalsze ładowanie np. z karty SD, zewnętrzny niskopoziomowy bootloader (np. u-boot).</p>
 		
-		<p>W przypadku architektur zgodnych z x86 jest to BIOS, który po zakończeniu procesu inicjalizacji sprzętu i testów rozruchowych ładuje do pamięci kod znajdujący się w pierwszym sektorze dysku twardego (sektorze rozruchowym rozpoczynającym się od adresu zerowego) i uruchamia go (przekazuje do niego kontrolę).</p>
+		<p>W przypadku architektur zgodnych z x86 jest to BIOS, który po zakończeniu procesu inicjalizacji sprzętu i testów rozruchowych ładuje do pamięci kod znajdujący się w pierwszym sektorze dysku twardego (sektorze rozruchowym rozpoczynającym się od adresu zerowego) i uruchamia go (przekazuje do niego kontrolę). Znajduje się tam kod (lub tylko początek kodu) programu rozruchowego, którego zadaniem jest załadowanie systemu operacyjnego. W przypadku współczesnych systemów linuxowych jest to zazwyczaj GRUB.</p>
 		
 		<p>W przypadku sektorów rozruchowych typu MBR (i kompatybilnych z nim), kod ten może liczyć maksymalnie 446 bajtów (gdyż na kolejnych pozycjach znajduje się tablica partycji) i jego zadaniem jest załadowanie i uruchomienie pozostałej części programu rozruchowego (musi znać jej położenie na dysku). Pozostała część programu rozruchowego może znajdować się tuż za MBR (w przerwie pomiędzy MBR a pierwszą partycją - dla tablicy partycji MBR/msdos), w dedykowanej partycji BIOS boot partition (dla tablicy partycji GPT) lub w partycji oznaczonej jako bootowalna. Część ta zawiera moduły pozwalające na dostęp do systemu plików zawierającego konfigurację, obraz jądra, itp oraz informację o jego położeniu (dysk, partycja, ścieżka).</p>
 		
 		<p>W przypadku komputerów opartych na UEFI firmware odpowiedzialny jest za zinterpretowanie tablicy partycji (GPT) i załadowanie programu rozruchowego z pliku znajdującego się na specjalnej partycji EFI (EFI System partition) z systemem plików FAT32. W pliku tym umieszczana jest całość (obie opisane powyżej części programu rozruchowego).</p>
 		
 		<p>Start systemu rozpoczyna się od załadowania do pamięci obrazu jądra wraz z parametrami oraz (opcjonalnie) initrd i przekazania kontroli do jądra przez program rozruchowy (np. GRUB). W przypadku jądra linuxowego i korzystania z initrd obraz ten przekształcany jest na RAM-dysk w trybie zapisu-odczytu i montowany jako rootfs z którego uruchamiany jest <code>/sbin/init</code> (którego podstawowym zadaniem jest zamontowanie właściwego rootfs). Po jego zakończeniu (lub od razu gdy nie używamy initrd) uruchamiany jest program wskazany w opcji <code>init=</code> jądra (domyślnie typowo <code>/sbin/init</code>) z rootfs wskazanego w opcji <code>root=</code> jądra. W opcji <code>init=</code> można wskazać dowolny program lub skrypt (uruchomiony zostanie z prawami root'a).</p>
+		<!-- END: Proces uruchamiania komputera -->
 	</section>
 	<section>
 		<h3>Systemy "unix-owate"</h3>
