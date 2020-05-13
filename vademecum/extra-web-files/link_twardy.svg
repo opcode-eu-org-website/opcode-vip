@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="181.1747mm"
+   height="67.363991mm"
+   viewBox="0 0 181.1747 67.363991"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="link_twardy.svg">
+  <defs
+     id="defs2">
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker3812"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#0000ff;fill-opacity:1;fill-rule:evenodd;stroke:#0000ff;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path3810"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path1048"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend-7"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path1048-0"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend-6"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path1048-2"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend-75"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path1048-9"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#ff0000;fill-opacity:1;fill-rule:evenodd;stroke:#ff0000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="153.78024"
+     inkscape:cy="126.92731"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-12.564353,-105.03863)">
+    <rect
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.5291667;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect815"
+       width="31.321478"
+       height="49.686615"
+       x="12.828937"
+       y="110.71313" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.58611107px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="12.569774"
+       y="108.7223"
+       id="text819"><tspan
+         sodipodi:role="line"
+         x="12.569774"
+         y="108.7223"
+         style="font-size:4.58611107px;stroke-width:0.26458332"
+         id="tspan821">katalog*</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.46944451px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="63.863392"
+       y="165.71535"
+       id="text827"><tspan
+         sodipodi:role="line"
+         x="63.863392"
+         y="165.71535"
+         style="font-size:2.46944451px;stroke-width:0.26458332"
+         id="tspan933">**) dokładniej „miejsca” w</tspan><tspan
+         sodipodi:role="line"
+         x="63.863392"
+         y="168.80215"
+         style="font-size:2.46944451px;stroke-width:0.26458332"
+         id="tspan959">systemie plików określane</tspan><tspan
+         sodipodi:role="line"
+         x="63.863392"
+         y="171.88896"
+         style="font-size:2.46944451px;stroke-width:0.26458332"
+         id="tspan954">za pomocą <tspan
+   style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic'"
+   id="tspan927">i-nodów</tspan></tspan></text>
+    <g
+       id="g894"
+       transform="matrix(1.0104343,0,0,1.0599473,-14.197587,-7.9382182)"
+       style="stroke-width:0.96628183">
+      <rect
+         y="116.6166"
+         x="79.764442"
+         height="38.358849"
+         width="29.47068"
+         id="rect862"
+         style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.51132411;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <ellipse
+         ry="4.2522321"
+         rx="14.788318"
+         cy="116.61086"
+         cx="94.541298"
+         id="path843"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.51132411;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <ellipse
+         ry="4.2522321"
+         rx="14.788319"
+         cy="154.97964"
+         cx="94.546593"
+         id="path843-6"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.51132411;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    </g>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot879"
+       style="font-style:normal;font-weight:normal;font-size:12px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"><flowRegion
+         id="flowRegion881"><rect
+           id="rect883"
+           width="106.06602"
+           height="23.738585"
+           x="299.00516"
+           y="397.23016" /></flowRegion><flowPara
+         id="flowPara885" /></flowRoot>    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.58611107px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="64.946495"
+       y="108.7223"
+       id="text889"><tspan
+         sodipodi:role="line"
+         id="tspan887"
+         x="64.946495"
+         y="108.7223"
+         style="stroke-width:0.26458332">zawartość dysku**</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.46944451px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="14.523332"
+       y="165.00005"
+       id="text827-7"><tspan
+         sodipodi:role="line"
+         x="14.523332"
+         y="165.00005"
+         style="font-size:2.46944451px;stroke-width:0.26458332"
+         id="tspan839-5">*) na katalog patrzymy jak</tspan><tspan
+         sodipodi:role="line"
+         x="14.523332"
+         y="168.08685"
+         style="font-size:2.46944451px;stroke-width:0.26458332"
+         id="tspan829-3">na plikzawierający informacje</tspan><tspan
+         sodipodi:role="line"
+         x="14.523332"
+         y="171.17366"
+         style="font-size:2.46944451px;stroke-width:0.26458332"
+         id="tspan837-5">o zawartości tego katalogu</tspan></text>
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.52916664;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect980"
+       width="31.32148"
+       height="7.5555463"
+       x="12.828937"
+       y="110.71313" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.88055563px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="14.611503"
+       y="115.41624"
+       id="text984"><tspan
+         sodipodi:role="line"
+         id="tspan982"
+         x="14.611503"
+         y="115.41624"
+         style="stroke-width:0.26458332">plik1.txt</tspan><tspan
+         sodipodi:role="line"
+         x="14.611503"
+         y="120.26693"
+         style="stroke-width:0.26458332"
+         id="tspan986" /></text>
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.52916664;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect980-6"
+       width="31.32148"
+       height="7.5555468"
+       x="12.828937"
+       y="118.26868" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.88055563px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="14.611503"
+       y="122.97179"
+       id="text984-2"><tspan
+         sodipodi:role="line"
+         id="tspan982-9"
+         x="14.611503"
+         y="122.97179"
+         style="stroke-width:0.26458332">plik2.txt</tspan><tspan
+         sodipodi:role="line"
+         x="14.611503"
+         y="127.82248"
+         style="stroke-width:0.26458332"
+         id="tspan986-1" /></text>
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.52916664;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect980-2"
+       width="29.826572"
+       height="10.094607"
+       x="66.399094"
+       y="126.20621" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.88055563px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="69.022354"
+       y="130.22382"
+       id="text1029"><tspan
+         sodipodi:role="line"
+         id="tspan1027"
+         x="69.022354"
+         y="130.22382"
+         style="stroke-width:0.26458332">Ala ma kota</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 41.293143,114.98944 c 6.815373,0 11.809969,8.76979 11.809969,8.76979 3.527447,5.08224 7.766775,6.38123 14.382443,6.33094"
+       id="path1043"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.52916664;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect980-2-3"
+       width="29.826571"
+       height="10.094607"
+       x="66.399101"
+       y="136.30081" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.88055563px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="69.022362"
+       y="140.31842"
+       id="text1029-6"><tspan
+         sodipodi:role="line"
+         id="tspan1027-0"
+         x="69.022362"
+         y="140.31842"
+         style="stroke-width:0.26458332">Kot ma Alę</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend-6)"
+       d="m 41.463259,122.23923 c 6.815373,0 9.949155,6.65595 9.949155,6.65595 2.440765,5.55471 9.831399,8.97311 15.979345,9.92508"
+       id="path1043-6"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.88055563px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="79.482582"
+       y="123.70407"
+       id="text2560"><tspan
+         sodipodi:role="line"
+         id="tspan2558"
+         x="79.482582"
+         y="123.70407"
+         style="stroke-width:0.26458332">...</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.88055563px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="79.482582"
+       y="148.83923"
+       id="text2560-1"><tspan
+         sodipodi:role="line"
+         id="tspan2558-8"
+         x="79.482582"
+         y="148.83923"
+         style="stroke-width:0.26458332">...</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.88055563px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="25.846218"
+       y="130.27382"
+       id="text2560-7"><tspan
+         sodipodi:role="line"
+         id="tspan2558-9"
+         x="25.846218"
+         y="130.27382"
+         style="stroke-width:0.26458332">...</tspan></text>
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.5291667;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect980-6-2"
+       width="31.321478"
+       height="7.5555472"
+       x="12.838952"
+       y="133.10623" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.88055563px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.5291667;stroke-miterlimit:4;stroke-dasharray:none"
+       x="14.621518"
+       y="137.95108"
+       id="text984-2-0"><tspan
+         sodipodi:role="line"
+         id="tspan982-9-2"
+         x="14.621518"
+         y="137.95108"
+         style="fill:#ff0000;fill-opacity:1;stroke-width:0.5291667;stroke-miterlimit:4;stroke-dasharray:none">link1.txt</tspan><tspan
+         sodipodi:role="line"
+         x="14.621518"
+         y="142.80177"
+         style="fill:#ff0000;fill-opacity:1;stroke-width:0.5291667;stroke-miterlimit:4;stroke-dasharray:none"
+         id="tspan986-1-3" /></text>
+    <path
+       style="fill:none;stroke:#ff0000;stroke-width:0.26458332;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend-75)"
+       d="m 41.52197,137.33165 c 6.815373,0 11.576109,2.52235 11.576109,2.52235 5.799237,2.16744 7.666548,2.37184 14.215399,2.88985"
+       id="path1043-2"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.52916676;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect980-6-2-2"
+       width="31.321478"
+       height="12.433216"
+       x="12.838952"
+       y="140.66177" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.88055563px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.52916676;stroke-miterlimit:4;stroke-dasharray:none"
+       x="14.621518"
+       y="145.50662"
+       id="text984-2-0-8"><tspan
+         sodipodi:role="line"
+         id="tspan982-9-2-9"
+         x="14.621518"
+         y="145.50662"
+         style="fill:#0000ff;fill-opacity:1;stroke-width:0.52916676;stroke-miterlimit:4;stroke-dasharray:none">link2.txt</tspan><tspan
+         sodipodi:role="line"
+         x="14.621518"
+         y="150.35732"
+         style="fill:#0000ff;fill-opacity:1;stroke-width:0.52916676;stroke-miterlimit:4;stroke-dasharray:none"
+         id="tspan986-1-3-7" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.88055563px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#0000ed;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="18.909321"
+       y="150.60312"
+       id="text3717"><tspan
+         sodipodi:role="line"
+         id="tspan3715"
+         x="18.909321"
+         y="150.60312"
+         style="fill:#0000ed;fill-opacity:1;stroke-width:0.26458332">→./plik1.txt</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.58611107px;line-height:1.25;font-family:Courier;-inkscape-font-specification:'Courier Bold';letter-spacing:0px;word-spacing:0px;fill:#0000fe;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="119.19185"
+       y="148.56256"
+       id="text3729"><tspan
+         sodipodi:role="line"
+         id="tspan3727"
+         x="119.19185"
+         y="148.56256"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.58611107px;font-family:Courier;-inkscape-font-specification:'Courier Bold';fill:#0000fe;fill-opacity:1;stroke-width:0.26458332">ln -s ./plik1.txt link2.txt</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.58611107px;line-height:1.25;font-family:Courier;-inkscape-font-specification:'Courier Bold';letter-spacing:0px;word-spacing:0px;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="119.19185"
+       y="116.03857"
+       id="text3733"><tspan
+         sodipodi:role="line"
+         id="tspan3731"
+         x="119.19185"
+         y="116.03857"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.58611107px;font-family:Courier;-inkscape-font-specification:'Courier Bold';fill:#ff0000;fill-opacity:1;stroke-width:0.26458332">ln plik2.txt link1.txt</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.88055563px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="119.43247"
+       y="122.42086"
+       id="text3737"><tspan
+         sodipodi:role="line"
+         id="tspan3735"
+         x="119.43247"
+         y="122.42086"
+         style="stroke-width:0.26458332">powoduje utworzenie linku twardego</tspan><tspan
+         sodipodi:role="line"
+         x="119.43247"
+         y="127.27155"
+         style="stroke-width:0.26458332"
+         id="tspan3739"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier"
+   id="tspan3798">link1.txt</tspan>, czyli wpisu w katalogu</tspan><tspan
+         sodipodi:role="line"
+         x="119.43247"
+         y="132.17992"
+         style="stroke-width:0.26458332"
+         id="tspan3741">wskazujacego na te same dane</tspan><tspan
+         sodipodi:role="line"
+         x="119.43247"
+         y="137.03061"
+         style="stroke-width:0.26458332"
+         id="tspan3782">(ten sam i-node) co <tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier"
+   id="tspan3800">plik2.txt</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.88055563px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="119.43247"
+       y="154.79672"
+       id="text3737-9"><tspan
+         sodipodi:role="line"
+         id="tspan3735-9"
+         x="119.43247"
+         y="154.79672"
+         style="stroke-width:0.26458332">powoduje utworzenie linku</tspan><tspan
+         sodipodi:role="line"
+         x="119.43247"
+         y="159.64742"
+         style="stroke-width:0.26458332"
+         id="tspan3767">symbolicznego <tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier"
+   id="tspan3788">link2.txt</tspan>, czyli wpisu</tspan><tspan
+         sodipodi:role="line"
+         x="119.43247"
+         y="164.55577"
+         style="stroke-width:0.26458332"
+         id="tspan3769">w katalogu wskazującego na podaną</tspan><tspan
+         sodipodi:role="line"
+         x="119.43247"
+         y="169.40646"
+         style="stroke-width:0.26458332"
+         id="tspan3794">ścieżkę (<tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier"
+   id="tspan3796">./plik1.txt</tspan>)</tspan><tspan
+         sodipodi:role="line"
+         x="119.43247"
+         y="174.31482"
+         style="stroke-width:0.26458332"
+         id="tspan3741-8" /></text>
+  </g>
+</svg>

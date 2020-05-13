@@ -19,7 +19,7 @@
 		<a href="vademecum.pdf"><img src="lib/pdfFile.svg" alt="Pobierz jako PDF" title="Pobierz jako PDF"/></a>
 	</p>
 </div>
-<p id="updateInfo">(aktualizacja: 2020-03-21)</p>
+<p id="updateInfo">(aktualizacja: 2020-05-13)</p>
 
 <section>
 	<p>
@@ -237,7 +237,9 @@
 				<dd>jest to szeregowe połączenie rezystora i kondensatora. Obwód taki charakteryzuje się stałą czasową <m>\tau = RC</m>. Napięcie na kondensatorze w trakcie jego ładowania dane jest zależnością <m>U_C(t) = U_{we} \cdot (1 - e^{-\sfrac{t}{\tau}})</m>, a w trakcie rozładowywania <m>U_C(t) = U_C(0) \cdot (e^{-\sfrac{t}{\tau}})</m>. W przypadku wyjścia na zaciskach rezystora stanowi filtr górnoprzepustowy, a w przypadku wyjścia na zaciskach kondensatora stanowi filtr dolnoprzepustowy, częstotliwość graniczna (zapewniająca tłumienie większe niż 3dB) takich filtrów wynosi <m>f_{gr} = \sfrac{1}{2\pi\tau}</m>.</dd>
 			</dl>
 		</section>
+	<!-- END: Elektronika - intro -->
 		
+	<!-- BEGIN: Elektronika - Dioda -->
 		<section>
 			<h4>Dioda</h4>
 			<img src="img/diody.svg" class="right_img" style="height:120px; margin-bottom:10px" alt="symbole diód" />
@@ -257,7 +259,7 @@
 			</p>
 		</section>
 	</section>
-	<!-- END: Elektronika - intro -->
+	<!-- END: Elektronika - Dioda -->
 	
 	<section><!-- BEGIN: Elektronika - Tranzystory -->
 		<h3>Tranzystor</h3>
@@ -405,9 +407,10 @@
 				</p>
 			</section>
 			<section>
+				<!-- BEGIN: Elektronika - mostek H -->
 				<h5>(pół)mostek H</h5>
 				<img src="img/mostek_H.svg" class="right_img" style="height:330px" alt="schemat mostka H oraz przykładowa konstrukcja półmostka" />
-				<p>Mostek H jest to układ (oparty o 4 przełączniki, których rolę mogą pełnić klucze tranzystorowe) pozwalający na zmianę polaryzacji zasilania podłączonego do niego odbiornika. Układ taki złożony jest z dwóch identycznych gałęzi (S1 + S2 oraz S3 + S4). Pojedyncza taka gałąź nazywana jest pół-mostkiem i składa się z dwóch kluczy które powinny być sterowane przeciwstawnie (aby wyeliminować możliwość zwarcia zasilania z masą). Układ pół-mostka może być wykorzystywany także samodzielnie jako uniwersalny układ klucza pozwalającego na załączanie odbiornika zarówno od strony napięcia dodatniego jak i od strony masy (w zależności od sposobu jego podłączenia) lub przełączania dwóch odbiorników (jednego umieszczonego pomiędzy zasilaniem a wyjściem mostka, a drugiego pomiędzy wyjściem a masą).</p>
+				<p>Mostek H jest to układ (oparty o 4 przełączniki, których rolę mogą pełnić klucze tranzystorowe) pozwalający na zmianę polaryzacji zasilania podłączonego do niego odbiornika. Układ taki złożony jest z dwóch identycznych gałęzi (S1 + S2 oraz S3 + S4, każda włączona pomiędzy dwoma biegunami zasilania). Pojedyncza taka gałąź nazywana jest pół-mostkiem i składa się z dwóch kluczy które powinny być sterowane przeciwstawnie (aby wyeliminować możliwość zwarcia zasilania z masą). Układ pół-mostka może być wykorzystywany także samodzielnie jako uniwersalny układ klucza pozwalającego na załączanie odbiornika zarówno od strony napięcia dodatniego jak i od strony masy (w zależności od sposobu jego podłączenia) lub przełączania dwóch odbiorników (jednego umieszczonego pomiędzy zasilaniem a wyjściem mostka, a drugiego pomiędzy wyjściem a masą).</p>
 				<p>
 					Na schemacie umieszczonym obok przedstawiona jest także przykładowa realizacja pół-mostka w oparciu o dwa klucze na tranzystorach MOSFET i sterujące nimi klucze NPN.
 					<br />
@@ -430,6 +433,7 @@
 					Niestety wiąże się to także z zastosowaniem  to zastosowaniem rezystora R12, który (tworząc dzielnik) powoduje iż układ nie będzie działał poprawnie dla niskich napięć zasilania toru prądowego - napięcie musi być większe od <m>2 U_{GS (th)}</m> zamiast od <m>U_{GS (th)}</m>. <!-- FIXME: układ z kluczem PNP,  a może dwa warianty szybki (PNP+NPN do sterowania MOSFETami) i zabezpieczony ? -->
 					Ponadto wymaga to zastosowania osobnych gałęzi sterujących dla poszczególnych tranzystorów MOSFET (dwóch kluczy NPN), ponieważ obecność Z21 w gałęzi sterującej P-MOSFETem (Q1) przy wyższym napięciu zasilania powodowała by przepływ prądu przez tą gałąź niezależnie od Q3 co mogłoby prowadzić do przewodzenia Q1.
 				</p>
+				<!-- END: Elektronika - mostek H -->
 			</section>
 		</section>
 		
@@ -2584,7 +2588,8 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 					<dt><dfn>ln</dfn> <var>źródło1 [źródło2 [...]]</var> <var>cel</var></dt>
 						<dd>tworzy link twardy do wskazanego pliku (lub plików) w wskazanej lokalizacji, w przypadku wskazania wielu plików źródłowych <var>cel</var> powinien być katalogiem, do ważniejszych opcji należy zaliczyć:<br />
 							<code>-s</code> tworzy dowiązania symboliczne zamiast twardych<br />
-							<code>-r</code> używa ścieżki względnej zamiast bezwzględnej przy tworzeniu dowiązań symbolicznych
+							<code>-r</code> używa ścieżki względnej zamiast bezwzględnej przy tworzeniu dowiązań symbolicznych<br />
+							<img src="link_twardy.svg" style="height:230px;margin-top:13px;margin-left:47px" alt="link twardy i symboliczny" />
 						</dd>
 					<dt><dfn>mv</dfn> <var>[opcje]</var> <var>źródło1 [źródło2 [...]]</var> <var>cel</var></dt>
 						<dd>przenosi wskazane pliki / katalogi do wskazanej lokalizacji, w przypadku przenoszenia wielu plików <var>cel</var> powinien być katalogiem, do ważniejszych opcji należy zaliczyć:<br />
@@ -2866,6 +2871,7 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 				</dl>
 			</section>
 			<!-- END: Użytkownicy, uprawnienia i procesy -->
+			<!-- BEGIN: Diagnostyka sieci -->
 			<section>
 				<h5>Diagnostyka sieci</h5>
 				
@@ -2880,22 +2886,25 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 				<h6>Dostępność i trasy do hostów</h6>
 				<dl class="cmdlist">
 					<dt><dfn>ping</dfn> <var>[opcje]</var> <var>host</var> lub <dfn>ping6</dfn> <var>[opcje]</var> <var>host</var></dt>
-						<dd>sprawdzanie dostępności hosta z użyciem protokołu ICMP (ping - dla adresów IPv4, ping6 - dla adresów IPv6), ważniejsze opcje:<br />
-							<code>-c <var>n</var></code> wykonaj <var>n</var> zapytań (domyślnie pyta do momentu przerwania (Ctrl-C, lub sygnał kill))<br />
+						<dd>sprawdzanie dostępności hosta z użyciem protokołu ICMP
+							(obecnie komenda <code>ping6</code> najczęściej jest równoważna poleceniu ping z opcją <code>-6</code> wymuszającą używanie jedynie IPv6,
+							na starszych systemach komenda ping może nie obsługiwać adresów IPv6 i wtedy konieczne jest stosowanie do nich polecenia <code>ping6</code>),
+							ważniejsze opcje:<br />
+							<code>-c <var>n</var></code> wykonaj <var>n</var> (domyślnie pyta do momentu przerwania przy pomocy np. Ctrl-C, lub sygnału wysłanego z uzyciem komendy <code>kill</code>)<br />
 							<code>-n</code> nie zamieniaj adresu IP hosta który odpowiedział na nazwę domenową
 						</dd>
-					<dt><dfn>tracepath</dfn> <var>[opcje]</var> <var>host</var> lub <dfn>tracepath6</dfn> <var>[opcje]</var> <var>host</var></dt>
-						<dd>sprawdzanie ścieżki do hosta (tracepath - dla adresów IPv4, tracepath6 - dla adresów IP, ważniejsze opcje:<br />
-							<code>-n</code> nie zamieniaj adresu IP hosta który odpowiedział na nazwę domenową
+					<dt><dfn>traceroute</dfn>, <dfn>traceroute6</dfn>, <dfn>tracepath</dfn>, <dfn>tracepath6</dfn>, <dfn>tcptraceroute</dfn> lub <dfn>tcptraceroute6</dfn></dt>
+						<dd>sprawdzanie ścieżki do hosta (wypisanie listy routerów przez które przechodzi pakiet w drodze do wskazanego hosta)<br />
+							Istnieją różne warianty tych poleceń (nawet pod tą samą nazwą), różnią się one stosowanymi mechanizmami i domyślnymi opcjami.
+							Generalnie wszystkie uruchamia się na zasadzie <code>polecenie [opcje] host</code>.
+							Warianty z <code>6</code> na końcu nazwy będą używały jedynie adresów IPv6, natomiast polecenia bez <code>6</code> na końcu nazwy mogą potrafić ich używać lub nie.
+							Wszystkie popularne warianty pozwalają na podanie opcji <code>-n</code> wyłączającej zamienianie adresu IP hosta który odpowiedział na jego nazwę domenową.<br />
+							Może zdarzyć się że śledzenie urwie się na jakimś hoście (np. z powodu jego konfiguracji lub błędów w jego oprogramowaniu sieciowym),
+							może się zdarzyć że przy użyciu innej komendy z tej grupy (lub zmianie opcji) uda się prześledzić dalszą trasę pakietu.
 						</dd>
-					<dt><dfn>traceroute</dfn> <var>[opcje]</var> <var>host</var> lub <dfn>traceroute6</dfn> <var>[opcje]</var> <var>host</var></dt>
-						<dd>sprawdzanie ścieżki do hosta (traceroute - (domyślnie) dla adresów IPv4, traceroute6 - dla adresów IP<br />
-							<code>-n</code> nie zamieniaj adresu IP hosta który odpowiedział na nazwę domenową
-						</dd>
-					<dt><dfn>tcptraceroute</dfn> lub <dfn>tcptraceroute6</dfn></dt>
-						<dd>tak jak traceroute, tyle że z wykorzystaniem pakietów TCP a nie UDP</dd>
 					<dt><dfn>mtr</dfn> <var>[opcje]</var> <var>host</var></dt>
-						<dd>sprawdzanie ścieżki do hosta (wraz z stratami pakietów i opóźnieniami na poszczególnych odcinkach) w trybie ciągłym (z ciągłym odświeżaniem)<br />
+						<dd>sprawdzanie ścieżki do hosta (czyli podobnie jak traceroute i tracepath) w trybie ciągłym (z ciągłym odświeżaniem)
+							wraz z wypisywaniem informacji o stratach pakietów i opóźnieniach na poszczególnych odcinkach, ważniejsze opcje<br />
 							<code>-n</code> nie zamieniaj adresu IP hosta który odpowiedział na nazwę domenową
 						</dd>
 					
@@ -2987,6 +2996,7 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 						<dd>pomiar prędkości połączenia sieciowego</dd>
 				</dl>
 			</section>
+			<!-- END: Diagnostyka sieci -->
 			<section>
 				<h5>Konfiguracja sieci</h5>
 				

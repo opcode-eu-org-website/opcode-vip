@@ -30,7 +30,7 @@ T 47550 47750 5 10 1 1 180 6 1
 refdes=out
 }
 T 44800 45900 9 10 1 0 0 0 1
-wzmacniacz odwracajacy
+wzmacniacz odwracający
 C 48800 46000 1 90 0 resistor-2.sym
 {
 T 49100 46300 5 10 1 1 180 0 1
@@ -63,7 +63,7 @@ T 50990 47600 5 10 0 0 180 0 1
 footprint=CONNECTOR 1 1
 }
 T 48500 45500 9 10 1 0 0 0 1
-wzmacniacz nie odwracajacy
+wzmacniacz nie odwracający
 C 48600 45700 1 0 0 net-gnd-1.sym
 N 45400 47500 45600 47500 4
 N 47000 47700 47200 47700 4
