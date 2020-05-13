@@ -2589,7 +2589,10 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 						<dd>tworzy link twardy do wskazanego pliku (lub plików) w wskazanej lokalizacji, w przypadku wskazania wielu plików źródłowych <var>cel</var> powinien być katalogiem, do ważniejszych opcji należy zaliczyć:<br />
 							<code>-s</code> tworzy dowiązania symboliczne zamiast twardych<br />
 							<code>-r</code> używa ścieżki względnej zamiast bezwzględnej przy tworzeniu dowiązań symbolicznych<br />
-							<img src="link_twardy.svg" style="height:230px;margin-top:13px;margin-left:47px" alt="link twardy i symboliczny" />
+							<img src="link_twardy_i_symboliczny.svg" style="height:230px;margin-top:13px;margin-left:47px" alt="link twardy i symboliczny" /><br />
+							Link twardy jest innym uchwytem do tych samych danych i może być używany także po skasowaniu oryginalnego pliku. Liczbę dowiązań do danego pliku pokazuje m.in. komenda <code>ls</code> z opcją <code>-l</code>.
+							Nie można utworzyć linków twardych do katalogów, ani do plików na innym zasobie dyskowym (innym systemie plików).<br />
+							Link symboliczny wskazuje na konkretną ścieżkę (względną lub bezwzględną – co może mieć znaczenie przy przenoszeniu takiego linku) do dowolnego (nawet nie istniejącego – wtedy mówimy o zerwanym linku) pliku lub katalogu.
 						</dd>
 					<dt><dfn>mv</dfn> <var>[opcje]</var> <var>źródło1 [źródło2 [...]]</var> <var>cel</var></dt>
 						<dd>przenosi wskazane pliki / katalogi do wskazanej lokalizacji, w przypadku przenoszenia wielu plików <var>cel</var> powinien być katalogiem, do ważniejszych opcji należy zaliczyć:<br />
