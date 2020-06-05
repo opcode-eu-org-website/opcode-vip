@@ -19,7 +19,7 @@
 		<a href="vademecum.pdf"><img src="lib/pdfFile.svg" alt="Pobierz jako PDF" title="Pobierz jako PDF"/></a>
 	</p>
 </div>
-<p id="updateInfo">(aktualizacja: 2020-05-13)</p>
+<p id="updateInfo">(aktualizacja: 2020-06-05)</p>
 
 <section>
 	<p>
@@ -2788,7 +2788,7 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 				</p>
 				<p>
 					Rozszerzeniem podstawowych uprawnień opisanych powyżej jest mechanizm Filesystem Access Control List (ACL, fACL).<br />
-					Jest on opcjonalnym mechanizmem który (na wspierających go systemach plików) pozwala na definiowanie uprawnień do pliku dla dodatkowych użytkowników i grup - plik ma nadal swojego właściciela, grupę i wszystkich pozostałych, ale przed prawami dla "others" wchodzą prawa użytkowników i grup definiowanych w ACL (w najpopularniejszej minimalnej wersji według schematu rwx). Wypadkowe prawa obliczane są jako suma wynikła z praw użytkownika i grup do których należy.<br />
+					Jest on opcjonalnym mechanizmem który (na wspierających go systemach plików) pozwala na definiowanie indywidualnych uprawnień do pliku dla poszczególnych użytkowników i grup - plik ma nadal swojego właściciela, grupę i wszystkich pozostałych, ale przed prawami dla "others" wchodzą prawa użytkowników i grup definiowanych w ACL. Wypadkowe prawa obliczane są jako suma wynikła z praw użytkownika i grup do których należy.<br />
 					ACL pozwala ponadto definiować uprawnienia domyślne dla nowo powstałych plików w katalogu (są one opcją katalogu).
 				</p>
 				<p>Wszystkie poniższe komendy przyjmują opcję <code>-R</code> powodującą rekursywne wykonywanie zmian na drzewku katalogów/plików rozpoczynającym się w podanej ścieżce.</p>
@@ -2804,9 +2804,14 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 						<dd>dczyt uprawnień związanych z listami kontroli dostępu fACL</dd>
 					<dt><dfn>setfacl</dfn> <var>[opcje]</var> <var>[ścieżka]</var></dt>
 						<dd>ustawianie uprawnień związanych z listami kontroli dostępu fACL</dd>
-						
-					<dt><dfn>chattr</dfn></dt>
-						<dd>zmienia atrybuty plików związanych z systemem plików (np. zabrania jakiejkolwiek modyfikacji pliku)</dd>
+				</dl>
+				
+				Dodatkowo należy wspomnieć też o poleceniach takich jak:
+				<dl class="cmdlist">
+					<dt><dfn>lsattr</dfn> / <dfn>chattr</dfn></dt>
+						<dd>wyświetla / modyfikuje atrybuty plików związanych z systemem plików (np. zabrania jakiejkolwiek modyfikacji pliku)</dd>
+					<dt><dfn>getcap</dfn> / <dfn>setcap</dfn></dt>
+						<dd>wyświetla / modyfikuje atrybuty plików związanych z właściwościami jądra (zasadniczo zwiększonymi uprawnieniami programów je posiadających, ale bardziej ograniczonymi niż wykonanie na prawach root przez SUID)</dd>
 				</dl>
 			</section>
 			<section>
