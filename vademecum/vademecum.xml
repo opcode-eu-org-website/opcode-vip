@@ -19,7 +19,7 @@
 		<a href="vademecum.pdf"><img src="lib/pdfFile.svg" alt="Pobierz jako PDF" title="Pobierz jako PDF"/></a>
 	</p>
 </div>
-<p id="updateInfo">(aktualizacja: 2020-06-05)</p>
+<p id="updateInfo">(aktualizacja: 2020-06-27)</p>
 
 <section>
 	<p>
@@ -2431,52 +2431,95 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 						<dd>vi jest chyba najbardziej zaawansowanym edytorem, którego obecność gwarantuje standard POSIX.
 							vim jest mocno rozbudowanym jego klonem, oferującym bardzo zaawansowane funkcjonalności, powszechnie stosowanym jako zamiennik oryginalnego vi.
 							vim obsługuje 3 podstawowe tryby pracy: komend (służący do wydawania opisanych niżej poleceń), wizualny (służący do zaznaczania i wydawania niektórych komend), edycji (wstawiania/nadpisywania - służący do wprowadzania tekstu).
-							Podstawowa klawiszologia:<br />
-							<code>Esc</code> powrót do trybu komend<br />
-							<code>i</code> tryb wstawiania<br />
-							<code>R</code> tryb zastępowania<br />
-							<code>Insert</code> zmiana trybu wstawiania i zastępowania<br />
-							<code>v</code> tryb wizualny (umożliwia zaznaczenie przy pomocy strzałek)<br />
+							Podstawowa klawiszologia:<ul>
+							<li>przełączanie pomiędzy trybami:<ul>
+								<li><code>Esc</code> powrót do trybu komend</li>
+								<li><code>i</code> tryb wstawiania; <code>A</code> tryb wstawiania ze skokiem na koniec linii, <code>o</code> / <code>O</code> tryb wstawiania ze wstawieniem nowej linii po / przed bierzącą</li>
+								<li><code>R</code> tryb zastępowania</li>
+								<li><code>Insert</code> zmiana trybu wstawiania i zastępowania</li>
+								<li><code>v</code> tryb wizualny (umożliwia zaznaczenie przy pomocy strzałek); <code>ctrl+v</code> tryb wizualny blokowy, <code>V</code> tryb wizualny liniowy</li>
+								
+								<li><code>:set paste</code> włącza <code>:set nopaste</code> wyłącza tryb wklejania (nie będzie działać automatyczne formatowanie itp.)</li>
+								<li><code>gv</code> ponawia ostatnie zaznaczenie trybu wizualnego</li>
+							</ul></li>
+						
+							<li>wycinanie i kopiowanie:<ul>
+								<li><code>y</code> skopiuj; <code>d</code> - wytnij (skopiuj i usuń)
+									po <code>y</code>, <code>d</code> można podać np. <code>20l</code> lub <code>20[strzałka w prawo]</code> co oznacza 20 kolejnych znaków, <code>2w</code> oznacza dwa słowa
+									(więcej o takich punktach skoku poniżej)</li>
+								<li><code>x</code> wytnij (skopiuj i usuń) znak (może być poprzedzone ilością znaków do wycięcia); wielkie <code>X</code> - działa analogicznie tyle że w tył</li>
+								<li><code>yy</code> skopiuj linię; <code>dd</code> - wytnij (skopiuj i usuń)
+									w obu wypadkach może być poprzedzone ilością linii do skopiowania/wycięcia</li>
+								
+								<li><code>p</code> wkleja po; <code>P</code> - wkleja przed</li>
+								
+								<li>komendy kopiowania i wklejania mogą być poprzedzone jedno-znakową nazwą rejestru w którym umieszczane są dane (poprzedzamy ją znakiem <code>"</code> i podajemy przed licznikiem, np. <code>"a3dd</code> wytnie do rejestru a 3 linie), część rejestrów jest używana automatycznie, a niektóre są tylko do odczytu, podgląd aktualnej zawartości rejestrów możliwy jest przy pomocy komendy <code>:registers</code></li>
+							</ul></li>
 							
-							<code>y</code> skopiuj; <code>d</code> - wytnij (skopiuj i usuń)
-								po <code>y</code>, <code>d</code> można podać np. <code>20l</code> lub <code>20[strzałka w prawo]</code> co oznacza 20 kolejnych znaków, <code>2w</code> oznacza dwa słowa<br />
-							<code>x</code> wytnij (skopiuj i usuń) znak (może być poprzedzone ilością znaków do wycięcia)<br />
-							<code>yy</code> skopiuj linię; <code>dd</code> - wytnij (skopiuj i usuń)
-								w obu wypadkach może być poprzedzone ilością linii do skopiowania/wycięcia<br />
+							<li>wyszukiwanie, zastępowanie, skok do linii:<ul>
+								<li><code>/</code> szukanie w przód, <code>?</code> szukanie w tył; <code>*</code> szukanie w przód słowa pod kursorem, <code>#</code> szukanie w tył słowa pod kursorem</li>
+								<li><code>n</code> wyszukanie następnego wystąpienie; <code>N</code> wyszukanie poprzedniego wystąpienie</li>
+								
+								<li><code>G</code> przejście do wskazanej linii, numer podajemy przed G, 0 oznacza ostatnią linię w pliku, więc <code>0G</code> spowoduje przejście do niej</li>
+								
+								<li><code><var>:[zakres]</var>s@<var>regexp</var>@<var>napis</var>@[g]</code> wyszukaj i zastąp wyrażenie regularne <var>regexp</var> przez <var>napis</var>;
+									<var>zakres</var> może być:
+										numerem linii,
+										przedziałem z numerami linii postaci <code><var>pierwsza</var>,<var>ostatnia</var></code>, gdzie:
+											<code>.</code> oznacza bieżącą linię,
+											<code>$</code> oznacza ostatnią linię w pliku,
+											wartość numeryczna poprzedzona <code>+</code> oznacza tyle kolejnych linii od bieżącej, a poprzedzona <code>-</code> przed bieżącą,
+										znakiem <code>%</code> (co oznacza cały plik),
+										zakresem zaznaczonym w trybie wizualnym;
+									podanie opcji <var>g</var> powoduje zastępowanie wszystkich wystąpień a nie tylko pierwszego;
+									znak <code>@</code> pełni rolę separatora i może zostać zamiast niego użyty inny znak</li>
+							</ul></li>
 							
-							<code>p</code> wkleja po; <code>P</code> - wkleja przed<br />
-							<code>u</code> cofa ostatnią operację<br />
+							<li>otwieranie, zapisywanie, zamykanie plików:<ul>
+								<li><code>:e <var>ścieżka</var></code> otwarcie wskazanego pliku</li>
+								<li><code>:w</code> zapis (można także podać ścieżkę pod jaka ma zostać zapisany plik)</li>
+								<li><code>:q</code> wyjście</li>
+								<li><code>:q!</code> wyjście bez zapisywania</li>
+								<li><code>:wq</code> zapis i wyjście</li>
+							</ul></li>
 							
-							<code>/</code> szukanie<br />
-							<code>n</code> wyszukanie następnego wystąpienie; <code>N</code> wyszukanie poprzedniego wystąpienie<br />
-							<code>G</code> przejście do wskazanej linii, numer podajemy przed G, 0 oznacza ostatnią linię w pliku, więc <code>0G</code> spowoduje przejście do niej
+							<li>przełączanie się między otwartymi plikami i oknami:<ul>
+								<li><code>:n</code> następny plik, <code>:N</code> poprzedni plik</li>
+								<li><code>:split</code> poziomy podział okna, <code>:vs</code> pionowy podział okna; <code>Ctrl</code>+<code>W</code> a następnie strzałka - przełączanie między oknami</li>
+							</ul></li>
 							
-							<code><var>:[zakres]</var>s@<var>regexp</var>@<var>napis</var>@[g]</code> wyszukaj i zastąp wyrażenie regularne <var>regexp</var> przez <var>napis</var>;
-								<var>zakres</var> może być:
-									numerem linii,
-									przedziałem z numerami linii postaci <code><var>pierwsza</var>,<var>ostatnia</var></code>, gdzie:
-										<code>.</code> oznacza bieżącą linię,
-										<code>$</code> oznacza ostatnią linię w pliku,
-										wartość numeryczna poprzedzona <code>+</code> oznacza tyle kolejnych linii od bieżącej, a poprzedzona <code>-</code> przed bieżącą,
-									znakiem <code>%</code> (co oznacza cały plik),
-									zakresem zaznaczonym w trybie wizualnym;
-								podanie opcji <var>g</var> powoduje zastępowanie wszystkich wystąpień a nie tylko pierwszego;
-								znak <code>@</code> pełni rolę separatora i może zostać zamiast niego użyty inny znak
+							<li>cofanie i ponawianie edycji:<ul>
+								<li><code>u</code>, <code>:undo</code> cofa ostatnią operację</li>
+								<li><code>Ctrl+r</code>, <code>:redo</code> ponawia cofniętą operację</li>
+							</ul></li>
 							
-							<code>:e <var>ścieżka</var></code> otwarcie wskazanego pliku<br />
-							<code>:w</code> zapis (można także podać ścieżkę pod jaka ma zostać zapisany plik)<br />
-							<code>:q</code> wyjście<br />
-							<code>:q!</code> wyjście bez zapisywania<br />
-							<code>:wq</code> zapis i wyjście<br />
-							
-							<code>:n</code> - następny plik<br />
-							<code>:N</code> - poprzedni plik<br />
-							<code>:split</code> - podział okna<br />
-							<code>:vs</code> - pionowy podział okna<br />
-							<code>Ctrl</code>+<code>W</code> a następnie strzałka - przełączanie między oknami<br />
-							
-							<code>:%!xxd</code> pokazanie wartości numerycznych i umożliwienie edycji pliku jako binarnego;
-							<code>:%!xxd -r</code> powrót do normalnej edycji
+							<li>punkty skoku (mogą być używane jako polecenia do poruszania się lub jako adresy w poleceniach takich jak <code>d</code>, <code>y</code>):<ul>
+								<li><code>l</code> / <code>h</code> / <code>k</code> / <code>j</code> jeden znak/linię w prawo / lewo / górę / dół (działa tak jak strzałki)</li>
+								<li><code>0</code> / <code>^</code> / <code>$</code> początek linii / początek tekstu w linii, koniec linii</li>
+								
+								<li><code>w</code> / <code>b</code> / <code>e</code> następne słowo / poprzednie słowo / koniec słowa; wielkie <code>W</code> / <code>B</code> / <code>E</code> działa analogicznie, różni się traktowaniem spacji przy słowie</li>
+								<li><code>f</code> / <code>F</code> następny / poprzedni znak podany po tej komendzie, włącznie z nim (np. <code>dfX</code> usunie wszystko do najbliższego wystąpienia X wraz z tym X); <code>t</code> / <code>T</code> działa analogicznie, tyle wyłącza podany znak</li>
+								
+								<li>poprzedzenie powyższych komend liczbą powoduje powtórzenie ich tyle razy - np. <code>10l</code> - 10 znaków w prawo, <code>3F:</code> - trzeci dwukropek w lewo</li>
+								<li>punktem skoku jest też wyżej opisane polecenie <code>G</code> poprzedzane numerem linii do której ma się odbyć skok</li>
+								
+								<li>punktem skoku mogą być także swobodnie umieszczane z dokumencie zakładki identyfikowane pojedynczym znakiem:<ul>
+										<li><code>m</code> i następie znak ją identyfikujący - utworzenie zakładki w miejscu kursora (np. <code>ma</code> - utworzy zakładkę a)</li>
+										<li><code>`</code> / <code>'</code> skod do zakładki / linii z zakładką podaną po tej komendzie</li>
+										<li><code>:marks</code> - lista zakładek; <code>:delmarks</code> / <code>:delmarks!</code> - usunięcie zakładki / usunięcie wszystkich nie automatycznych zakładek</li>
+								</ul></li>
+							</ul></li>
+					
+							<li>inne:<ul>
+								<li><code>:r plik</code>, wstawienie zawartości pliku</li>
+								<li><code>:%!xxd</code> pokazanie wartości numerycznych i umożliwienie edycji pliku jako binarnego; <code>:%!xxd -r</code> powrót do normalnej edycji</li>
+								
+								<li><code>&gt;</code> / <code>&lt;</code> zwiększanie / zmniejszanie wcięcia zaznaczonego (w trybie wizualnym) tekstu</li>
+								<li><code>zc</code> zwija bieżący blok, <code>zC</code> zwija bieżący blok aż do najwyższego poziomu, <code>zo</code> rozwija bieżące zwinięcie, <code>zO</code> rozwija rekurencyjnie bieżące zwinięcie, <code>zR</code> rozwija wszystkie zwinięcia w dokumencie</li>
+								
+								<li><code>:set wrap</code> włącza <code>:set nowrap</code> wyłącza zawijania linii w podglądzie</li>
+							</ul></li>
+							</ul>
 						</dd>
 						<!-- END: vi i vim -->
 					<dt><dfn>less</dfn> lub <dfn>more</dfn></dt>
