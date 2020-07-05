@@ -6,8 +6,12 @@ SVGICONURL  := https://bytebucket.org/OpCode-eu-org/svgiconset/raw/HEAD/other/
 export PATH := $(shell realpath $(MAINDIR)/TextUtils/convert):$(PATH)
 
 
-all: | check-submodules
-	cd vademecum; $(MAKE) -f ../Makefile buildAll
+.PHONY: help init installDependencies all upload serve
+help:
+	@ cd $(MAINDIR) && awk '/^#/ {x=0} x==1 {print $0} /^## Install/ {x=1}' README.md
+
+init: | checkout-submodules
+	@ echo "init done"
 
 installDependencies:
 	cd $(MAINDIR)/TextUtils && make installDependencies
@@ -17,6 +21,12 @@ installDependencies:
 		return 3; \
 	fi
 
+all:
+	cd vademecum; $(MAKE) -f ../Makefile buildAll
+
+serve:
+	cd $(OUTDIR) && python3 -m http.server
+
 upload:
 	cd $(OUTDIR); ln -sf vademecum.xhtml index.xhtml
 	cd $(OUTDIR); rsync -rLc --delete -v -e "ssh" ./ www.opcode.eu.org:/srv/WebPages/vip/
@@ -25,18 +35,17 @@ upload:
 # submodules
 #
 
-.PHONY: check-submodules update-submodules
+.PHONY: checkout-submodules update-submodules protect-submodules
 
-check-submodules: $(MAINDIR)/OpCode-core/lib/base.css $(MAINDIR)/TextUtils/convert/xml2xhtml.py
-
-$(MAINDIR)/OpCode-core/% $(MAINDIR)/TextUtils/%:
+checkout-submodules:
 	git submodule update --init
-	[ -e "$@" ] || $(MAKE) update-submodules
-	chmod 111 `git submodule | awk '{print $$2}'`
 
-update-submodules:
-	git submodule foreach git pull origin master
-	git submodule foreach git checkout -f .
+update-submodules: | checkout-submodules
+	git submodule foreach 'git pull origin master; git checkout -f .'
+
+protect-submodules:
+	chmod 111 `git submodule | awk '{print $$2}'`
+	git submodule | awk '{print $$2}' | while read sm; do git config --local "submodule.$$sm.ignore" all; done
 
 #
 # include core makefile from TextUtils

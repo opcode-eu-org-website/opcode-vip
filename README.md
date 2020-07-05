@@ -37,6 +37,7 @@ To build pdf booklets and xhtml files from this repo you must install dependenci
 1. download and install *Libraries and tools for free EDA suites (gEDA/gschem and pcb-rnd)* from [https://bitbucket.org/OpCode-eu-org/eda-libs](https://bitbucket.org/OpCode-eu-org/eda-libs) with its dependencies:
     1. `git clone https://bitbucket.org/OpCode-eu-org/eda-libs && cd eda-libs`
     2. `make installLibs; sudo make installTools; sudo make installDependencies`
-2. run `sudo make installDependencies` in main dir of this repo
+2. run `make init` in main dir of this repo
+3. run `sudo make installDependencies` in main dir of this repo
 
-After this you can build all document by run `make all` or single document by run `make dokumentName` in source dir for this document (for example `cd booklets; make Podstawowe_polecenia_Unix`).
+After this you can build all document by run `make all` or single document by run `make dokumentName` in source dir for this document (for example `cd vademecum; make vademecum`).
