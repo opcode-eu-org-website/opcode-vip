@@ -19,7 +19,7 @@
 		<a href="vademecum.pdf"><img src="lib/pdfFile.svg" alt="Pobierz jako PDF" title="Pobierz jako PDF"/></a>
 	</p>
 </div>
-<p id="updateInfo">(aktualizacja: 2020-06-27)</p>
+<p id="updateInfo">(aktualizacja: 2020-07-08)</p>
 
 <section>
 	<p>
@@ -80,6 +80,9 @@
 			
 			<p>Jeżeli rozważamy obwód zamknięty od punktu A z potencjałem <m>V_A</m> to sumując napięcia na kolejnych elementach obwodu (oporach, źródłach napięciowych, etc) z uwzględnieniem ich znaku gdy wrócimy do punktu A to potencjał nadal musi wynosić <m>V_A</m>, zatem: <em>Suma spadków napięć w zamkniętym obwodzie jest równa zeru.</em></p>
 		</section>
+	<!-- END: Elektronika - intro -->
+		
+	<!-- BEGIN: Elektronika - bierne -->
 		<section>
 			<h4>Opór, pojemność i indukcyjność</h4>
 			
@@ -237,7 +240,7 @@
 				<dd>jest to szeregowe połączenie rezystora i kondensatora. Obwód taki charakteryzuje się stałą czasową <m>\tau = RC</m>. Napięcie na kondensatorze w trakcie jego ładowania dane jest zależnością <m>U_C(t) = U_{we} \cdot (1 - e^{-\sfrac{t}{\tau}})</m>, a w trakcie rozładowywania <m>U_C(t) = U_C(0) \cdot (e^{-\sfrac{t}{\tau}})</m>. W przypadku wyjścia na zaciskach rezystora stanowi filtr górnoprzepustowy, a w przypadku wyjścia na zaciskach kondensatora stanowi filtr dolnoprzepustowy, częstotliwość graniczna (zapewniająca tłumienie większe niż 3dB) takich filtrów wynosi <m>f_{gr} = \sfrac{1}{2\pi\tau}</m>.</dd>
 			</dl>
 		</section>
-	<!-- END: Elektronika - intro -->
+	<!-- END: Elektronika - bierne -->
 		
 	<!-- BEGIN: Elektronika - Dioda -->
 		<section>
@@ -2143,10 +2146,12 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 		<!-- END: Warstwa sprzętowa -->
 	</section>
 	<section>
-		<!-- BEGIN: adresacja IP -->
+		<!-- BEGIN: sieci IP -->
 		<h3>Sieci IP</h3>
 		<p>Protokół IP (Internet Protocol) odpowiedzialny jest przede wszystkim za sposób adresacji hostów oraz reguły komutacji pakietów (routing). Jest on wspomagany przez kolejny protokół z tej rodziny - ICMP (Internet Control Message Protocol), którego zadaniem jest przekazywanie informacji kontrolnych np. o nieosiągalności hosta docelowego, odrzuceniu przetwarzania pakietu ze względu na zbyt dużą liczbę skoków (gdy wartość pola TTL z nagłówka IP wyniesie zero) a także pingi (zarówno żądanie jak i odpowiedź).</p>
+		<!-- END: adresacja IP -->
 		<section>
+			<!-- BEGIN: adresacja IP -->
 			<h4>Adresacja i routing</h4>
 			<p>Adresy hostów (nazywane adresami IP) są to 32-bitowe (w IPv4) lub 128-bitowe (w IPv6) liczby.</p>
 			
@@ -2170,7 +2175,9 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 					<insertSourceCode file="code-src/sieciowe/Adresacja_i_routing--ipv4.py" />
 				</div></div>
 			</section>
+			<!-- END: adresacja IP -->
 			
+			<!-- BEGIN: routing IP -->
 			<section>
 				<h5>Routing</h5>
 				<p>Router kieruje każdy z pakietów do kolejnego routera lub bezpośrednio do hosta docelowego na podstawie jego adresu docelowego i tablicy routingu. Tablica taka zawiera adresy sieci wraz z adresami następnych routerów do nich prowadzących bądź wskazaniem lokalnego interfejsu sieciowego poprzez który powinny być osiągalne hosty z danej sieci. W tym celu korzysta z sprawdzania przynależności adresu do sieci, w celu ustalenia adresu następnego routera i/lub interfejsu sieciowego na który ma zostać przekazany pakiet.</p>
@@ -2186,9 +2193,9 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 					<li><dfn>multicast</dfn> – do grupy hostów, w tym wypadku (multicastowy) adres IP identyfikuje "kanał nadawczy" a nie unikalny host docelowy</li>
 					<li><dfn>broadcast</dfn> – do wszystkich hostów (w ramach danej sieci – nie są routowne), transmisje rozgłoszeniowe można traktować jako szczególny przypadek transmisji multicastowych w których grupa multicastowa obejmuje wszystkie hosty (można je zastąpić takimi transmisjami multicastowymi)</li>
 				</ul></p>
+			<!-- END: routing IP -->
 			</section>
 		</section>
-		<!-- END: adresacja IP -->
 		<section>
 			<h4>Klient-serwer</h4>
 			<!-- BEGIN: TCP / UDP -->
@@ -2209,20 +2216,11 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 		</section>
 		<section>
 			<!-- BEGIN: Polularne usługi -->
-			<h4>Polularne usługi</h4>
+			<h4>Popularne usługi</h4>
 			<p>
 				W ramach sieci mogą być realizowane różne usługi w oparciu o różne protokoły warstwy aplikacyjnej. Standardowe usługi posiadają zdefiniowane domyślne adresy portów dla swoich protokołów. Wśród usług i protokołów sieciowych należy wymienić przynajmniej:
 				<ul>
 					<li>DNS (Domain Name System) - odpowiedzialny za system mapujący nazwy alfanumeryczne hostów na adresy IP.
-						Domeny posiadają budowę hierarchiczną / drzewiastą (precyzja rośnie od prawej do lewej, a kolejne poziomy oddzielane są kropkami).
-						Realizacja odpowiedzi na zapytanie DNS wygląda następująco:
-						<ol>
-							<li>host kieruje zapytanie do określonego w jego konfiguracji serwera "rozwijającego" DNS (DNS resolver),</li>
-							<li>serwer taki sprawdza w swojej pamięci podręcznej czy zna odpowiedź na to zapytanie (i nie jest ona przeterminowana - nie upłynął czas TTL od odnalezienia), jeżeli nie ma jej w swojej pamięci to</li>
-							<li>serwer taki zna adresy głównych serwerów DNS (root serwerów) zawierających informacje na temat serwerów obsługujących domeny najwyższego rzędu i kieruje do jednego z nich zapytanie o serwer obsługujący skrajnie prawą część adresu (np. <var>.org</var>),</li>
-							<li>do otrzymanego serwera kierowane jest zapytanie o większą część adresu (np. <var>eu.org</var>),</li>
-							<li>itd. aż do uzyskania odpowiedzi o pytany adres</li>
-						</ol>
 					</li>
 					<li>mechanizmy auto konfiguracji hostów - DHCP, rozgłaszanie informacji routingowej poprzez ICMPv6 (protokół warstwy 3)</li>
 					<li>WWW - udostępnianie treści z użyciem protokołu HTTP</li>
@@ -2230,7 +2228,28 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 					<li>komunikację natychmiastową i telefonię IP (protokoły SIP, XMPP, IAX)</li>
 					<li>SSH - zdalny, szyfrowany dostęp do systemów IT, przesył plików oraz tunelowanie innych usług</li>
 				</ul>
-				Na uwagę zasługuje fakt że większość z wymienionych protokołów warstwy aplikacyjnej to protokoły tekstowe (istotne wyjątki stanowią DNS, DHCP i SSH).</p>
+				Na uwagę zasługuje fakt że większość z wymienionych protokołów warstwy aplikacyjnej to protokoły tekstowe (istotne wyjątki stanowią DNS, DHCP i SSH).
+			</p>
+			<section>
+				<h5>Domain Name System</h5>
+				<p>Domeny posiadają budowę hierarchiczną / drzewiastą (precyzja rośnie od prawej do lewej, a kolejne poziomy oddzielane są kropkami). Realizacja odpowiedzi na zapytanie DNS wygląda następująco:</p>
+				<ol>
+					<li>host kieruje zapytanie do określonego w jego konfiguracji serwera "rozwijającego" DNS (DNS resolver),</li>
+					<li>serwer taki sprawdza w swojej pamięci podręcznej czy zna odpowiedź na to zapytanie (i nie jest ona przeterminowana - nie upłynął czas TTL od odnalezienia), jeżeli nie ma jej w swojej pamięci to</li>
+					<li>serwer taki zna adresy głównych serwerów DNS (root serwerów) zawierających informacje na temat serwerów obsługujących domeny najwyższego rzędu i kieruje do jednego z nich zapytanie o serwer obsługujący skrajnie prawą część adresu (np. <var>.org</var>),</li>
+					<li>do otrzymanego serwera kierowane jest zapytanie o większą część adresu (np. <var>eu.org</var>),</li>
+					<li>itd. aż do uzyskania odpowiedzi o pytany adres</li>
+				</ol>
+				<p>DNS przechowuje informacje w postaci rekordów mających określony typ (w większości przypadków dla danej nazwy domenowej może być zdefiniowanych wiele rekordów, tego samego lub innych typów). Wśród najważniejszych typów rekordów należy wymienić:</p>
+				<ul>
+					<li><code>A</code> - rekord typu A czyli mapowanie nazwy na adres IPv4</li>
+					<li><code>AAAA</code> - rekord typu AAAA czyli mapowanie nazwy na adres IPv4</li>
+					<li><code>MX</code> - rekord typu MX czyli informacja o serwerach obsługujących pocztę danej domeny</li>
+					<li><code>NS</code> - rekord typu NS czyli informacja o serwerach obsługujących DNS danej domeny</li>
+					<li><code>SRV</code> - rekord typu SRV czyli informacje o hoście świadczącym usługę (usługa określana jest w nazwie domeny o którą pytamy)</li>
+					<li><code>TXT</code> - rekord typu TXT czyli informacje dodatkowe</li>
+				</ul>
+			</section>
 			<!-- END: Polularne usługi -->
 		</section>
 		<section>
@@ -2973,15 +2992,8 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 				<dl class="cmdlist">
 					<dt><dfn>dig</dfn> <var>[opcje]</var> <var>nazwa</var> <var>[typRekordu]</var></dt>
 						<dd>narzędzia do uzyskania informacji z DNS,
-							pozwala na określenie poprzez <code>@<var>adres</var></code> serwera który chcemy odpytać oraz na określenie (poprzez drugi argument) typu rekordu który chcemy uzyskać np.:<br />
-								<code>A</code> - rekord typu A czyli mapowanie nazwy na adres IPv4<br />
-								<code>AAAA</code> - rekord typu AAAA czyli mapowanie nazwy na adres IPv4<br />
-								<code>MX</code> - rekord typu MX czyli informacja o serwerach obsługujących pocztę danej domeny<br />
-								<code>NS</code> - rekord typu NS czyli informacja o serwerach obsługujących DNS danej domeny<br />
-								<code>SRV</code> - rekord typu SRV czyli informacje o hoście świadczącym usługę (usługa określana jest w nazwie domeny o którą pytamy)<br />
-								<code>TXT</code> - rekord typu TXT czyli informacje dodatkowe<br />
-								<code>ANY</code> - powoduje odpytanie o wszystkie rekordy<br />
-								<code>AXFR</code> - powoduje wysłanie prośby o transfer całej strefy (działa jezeli dany host ma prawo transferu całej strefy z danego serwera)
+							pozwala na określenie poprzez <code>@<var>adres</var></code> serwera który chcemy odpytać oraz na określenie (poprzez drugi argument) typu rekordu który chcemy uzyskać
+							zamiast typu rekordu można podać: <code>ANY</code> (powoduje odpytanie o wszystkie rekordy) lub <code>AXFR</code> (powoduje wysłanie prośby o transfer całej strefy, działa jeżeli dany host ma prawo transferu całej strefy z danego serwera)
 						</dd>
 					<dt><dfn>host</dfn> <var>[opcje]</var> <var>nazwa|ip</var> <var>[server]</var></dt>
 						<dd>narzędzia do zamiany adresów domenowych na IP i odwrotnie oraz wyciągania innych informacji z DNS (np. rekordy MX)</dd>
