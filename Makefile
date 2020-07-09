@@ -52,3 +52,9 @@ protect-submodules:
 #
 
 -include $(MAINDIR)/TextUtils/makefiles/buildWebSite.mk
+
+#
+# addionals files
+#
+
+include $(MAINDIR)/vademecum/Makefile

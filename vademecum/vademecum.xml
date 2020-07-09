@@ -2558,8 +2558,8 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 				</dl>
 			</section>
 			<section>
-				<!-- BEGIN: Operacje na systemie plików -->
 				<h5>Operacje na systemie plików</h5>
+				<!-- BEGIN: katalog roboczy -->
 				<h6>katalog roboczy</h6>
 				<dl class="cmdlist">
 					<dt><dfn>cd</dfn> <var>[ścieżka]</var></dt>
@@ -2571,8 +2571,10 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 					<dt><dfn>pwd</dfn></dt>
 						<dd>wyświetla ścieżkę do bieżącego katalogu</dd>
 				</dl>
+				<!-- END: katalog roboczy -->
 				
-				<h6>wyświetlanie i wyszukiwanie</h6>
+				<!-- BEGIN: Operacje na systemie plików -->
+				<h6>listowanie i  wyszukiwanie plików</h6>
 				<dl class="cmdlist">
 					<dt><dfn>ls</dfn> <var>[opcje]</var> <var>[ścieżka]</var></dt>
 						<dd>listowanie zawartości katalogu, do ważniejszych opcji należy zaliczyć:<br />
@@ -2592,7 +2594,8 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 							<code>-L</code> wypisuj informacje o wskazywanych przez linki symboliczne plikach<br />
 						do ważniejszych elementów wyrażenia należy zaliczyć:<br />
 							<code>-name "<var>wyrażenie</var>"</code> pliki których nazwa pasuje do wyrażenia korzystającego z shellowych znaków uogólniających<br />
-								komenda find (w odróżnieniu np. od ls) samodzielnie interpretują wyrażenia zawierające shellowe znaki uogólniające, w związku z czym konieczne może się okazać zabezpieczenie ich przed interpretacją przez powłokę np. przy pomocy umieszczenia wewnątrz pojedynczych cudzysłowów<br />
+								komenda find (w odróżnieniu np. od ls) samodzielnie interpretuje wyrażenia zawierające shellowe znaki uogólniające w argumentach tych opcji,
+								w związku z czym konieczne może się okazać zabezpieczenie ich przed interpretacją przez powłokę np. przy pomocy umieszczenia wewnątrz pojedynczych cudzysłowów<br />
 							<code>-iname "<var>wyrażenie</var>"</code> jak -name, tyle że nie rozróżnia wielkości liter<br />
 							<code>-path "<var>wyrażenie</var>"</code> pliki których ścieżka pasuje do wyrażenia korzystającego z shellowych znaków uogólniających<br />
 							<code>-ipath "<var>wyrażenie</var>"</code> jak -path, tyle że nie rozróżnia wielkości liter<br />
