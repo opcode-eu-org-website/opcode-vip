@@ -19,7 +19,7 @@
 		<a href="vademecum.pdf"><img src="lib/pdfFile.svg" alt="Pobierz jako PDF" title="Pobierz jako PDF"/></a>
 	</p>
 </div>
-<p id="updateInfo">(aktualizacja: 2020-07-08)</p>
+<p id="updateInfo">(aktualizacja: 2020-07-11)</p>
 
 <section>
 	<p>
@@ -2232,7 +2232,16 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 			</p>
 			<section>
 				<h5>Domain Name System</h5>
-				<p>Domeny posiadają budowę hierarchiczną / drzewiastą (precyzja rośnie od prawej do lewej, a kolejne poziomy oddzielane są kropkami). Realizacja odpowiedzi na zapytanie DNS wygląda następująco:</p>
+				<p>DNS umożliwia mapowanie nazwy na adres IP (lub wiele adresów IP) oraz przechowywanie dodatkowych informacji na temat domeny i znajdujących się w niej usług.
+					Domeny posiadają budowę hierarchiczną / drzewiastą:</p>
+				<ul>
+					<li>precyzja rośnie od prawej do lewej</li>
+					<li>kolejne poziomy oddzielane są kropkami</li>
+					<li>najwyższym poziomem jest kropka będąca ostatnim znakiem w pełnej nazwie domenowej (np. <code>ciekawi.icm.edu.pl<b style="color:red;">.</b></code>), którą najczęściej pomija się w zapisie</li>
+					<li>hierarchia ta jest niezależna od hierarchii routingu i wynika z faktu posiadania/użytkowania danej (pod)domeny)</li>
+				</ul>
+				<img src="img/dns.svg" class="right_img" style="height:400px;" alt="mieszany układ cyfowo analogowy" />
+				<p>Realizacja odpowiedzi na zapytanie DNS wygląda następująco:</p>
 				<ol>
 					<li>host kieruje zapytanie do określonego w jego konfiguracji serwera "rozwijającego" DNS (DNS resolver),</li>
 					<li>serwer taki sprawdza w swojej pamięci podręcznej czy zna odpowiedź na to zapytanie (i nie jest ona przeterminowana - nie upłynął czas TTL od odnalezienia), jeżeli nie ma jej w swojej pamięci to</li>
@@ -2242,12 +2251,16 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 				</ol>
 				<p>DNS przechowuje informacje w postaci rekordów mających określony typ (w większości przypadków dla danej nazwy domenowej może być zdefiniowanych wiele rekordów, tego samego lub innych typów). Wśród najważniejszych typów rekordów należy wymienić:</p>
 				<ul>
-					<li><code>A</code> - rekord typu A czyli mapowanie nazwy na adres IPv4</li>
-					<li><code>AAAA</code> - rekord typu AAAA czyli mapowanie nazwy na adres IPv4</li>
-					<li><code>MX</code> - rekord typu MX czyli informacja o serwerach obsługujących pocztę danej domeny</li>
-					<li><code>NS</code> - rekord typu NS czyli informacja o serwerach obsługujących DNS danej domeny</li>
-					<li><code>SRV</code> - rekord typu SRV czyli informacje o hoście świadczącym usługę (usługa określana jest w nazwie domeny o którą pytamy)</li>
-					<li><code>TXT</code> - rekord typu TXT czyli informacje dodatkowe</li>
+					<li><code>A</code>    – mapowanie nazwy na adres IPv4</li>
+					<li><code>AAAA</code> – mapowanie nazwy na adres IPv4</li>
+					<li><code>MX</code>   – informacja o serwerach obsługujących pocztę danej domeny</li>
+					<li><code>NS</code>   – informacja o serwerach obsługujących DNS danej domeny</li>
+					<li><code>PTR</code>  – mapowanie adresów IP na nazwy domenowe, realizowane w specjalnym drzewie <code>in-addr.arpa</code> (dla IPv4) lub <code>ip6.arpa</code> (IPv6),
+						gdzie adres IP zapisywany jest w odwróconej kolejności po bajcie dla IPv4 lub cyfrze szesnastkowej dla IPv6
+						(zobacz wynik polecenia <code>host</code> z adresem IPv4 i IPv6)
+					</li>
+					<li><code>SRV</code>  – informacje o hoście świadczącym usługę (usługa określana jest w nazwie domeny o którą pytamy)</li>
+					<li><code>TXT</code>  – informacje dodatkowe (np. jakie serwery pocztowe, są upoważnione do wysyłania poczty z tej domeny)</li>
 				</ul>
 			</section>
 			<!-- END: Polularne usługi -->

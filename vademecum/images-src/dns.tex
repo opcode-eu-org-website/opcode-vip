@@ -1,0 +1,50 @@
+\ifdefined\inputOnlyContent\else
+	\documentclass[tikz]{standalone}
+	\usetikzlibrary{arrows.meta}
+	\begin{document}
+\fi
+
+\newcommand{\btt}[1]{\texttt{\color{blue}#1}}
+\newcommand{\ord}[1]{{\color{red}(#1)}}
+
+\begin{tikzpicture}[->, >={Stealth[length=8pt,width=6pt]}, semithick]
+	\tikzstyle{base}=[align=center, minimum height=1.3cm, minimum width=4cm]
+	\tikzstyle{host}=[draw, base]
+	\tikzstyle{dns_resolv}=[host, xshift=12cm, minimum width=8cm]
+	\tikzstyle{dns_serv}=[host, xshift=3cm, minimum width=4cm]
+	
+	\tikzstyle{zap}=[above, align=center]
+	\tikzstyle{odp}=[below, align=center]
+	\tikzstyle{zap_res}=[zap, xshift=-5cm]
+	\tikzstyle{odp_res}=[odp, xshift=-5cm]
+	
+	\node[host]                     (CLIENT)     {klient};
+	\node[dns_resolv]               (RESOLVER)   {serwer rozwijający DNS (resolver)};
+	
+	\node[dns_serv, yshift=-3cm]    (ROOT_DNS)   {root serwer DNS};
+	\node[dns_serv, yshift=-5.5cm]  (NS_CC)      {\btt{ns-cc1} lub \btt{ns-cc2}};
+	\node[dns_serv, yshift=-8cm]    (NS_BB)      {\btt{ns-bb1} lub \btt{ns-bb2}};
+	
+	\draw ([yshift=0.25cm]CLIENT.east)    -- node[zap] {zapytanie o rekord A (IPv4)\\ dla \btt{aa.bb.cc.} \ord{1}}    ([yshift=0.25cm]RESOLVER.west);
+	\draw ([yshift=-0.25cm]RESOLVER.west) -- node[odp] {odpowiedź: \btt{aa.bb.cc.}\\ma IPv4 \btt{x.y.z.q} \ord{8}}    ([yshift=-0.25cm]CLIENT.east);
+	
+	\draw ([xshift=1cm]RESOLVER.south)    |- node[zap_res] {zapytanie o \btt{cc.} \ord{2}}                            ([yshift=0.25cm]ROOT_DNS.east);
+	\draw ([yshift=-0.25cm]ROOT_DNS.east) -| node[odp_res] {\btt{cc.} ma NS: \btt{ns-cc1} i \btt{ns-cc2} \ord{3}}     ([xshift=1.5cm]RESOLVER.south);
+	
+	\draw ([xshift=2cm]RESOLVER.south)    |- node[zap_res] {zapytanie o \btt{bb.cc.} \ord{4}}                         ([yshift=0.25cm]NS_CC.east);
+	\draw ([yshift=-0.25cm]NS_CC.east)    -| node[odp_res] {\btt{bb.cc.} ma NS: \btt{ns-bb1} i \btt{ns-bb2} \ord{5}}  ([xshift=2.5cm]RESOLVER.south);
+	
+	\draw ([xshift=3cm]RESOLVER.south)    |- node[zap_res] {zapytanie o \btt{aa.bb.cc.} \ord{6}}                      ([yshift=0.25cm]NS_BB.east);
+	\draw ([yshift=-0.25cm]NS_BB.east)    -| node[odp_res] {\btt{aa.bb.cc.} ma IPv4: \btt{x.y.z.q} \ord{7}}           ([xshift=3.5cm]RESOLVER.south);
+	
+	\node[base, yshift=-9.5cm, xshift=7cm, text width=17.7cm] { % width = (4/2+12+8/2); xshift = width/2 - 4/2
+		\small
+		\ord{X} oznacza kolejność wykonywanych operacji.
+		Przed wykonaniem zapytania \textit{resolver} sprawdza czy nie posiada w swoim cache zapamiętanej (i nie przeterminowanej) odpowiedzi na to zapytanie.
+	};
+\end{tikzpicture}
+
+\let\btt\undefined
+\let\ord\undefined
+
+\ifdefined\inputOnlyContent\else\end{document}\fi
