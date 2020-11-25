@@ -1495,6 +1495,7 @@ $      - koniec napisu/linii
 {n,m}  - od n do m powtórzeń
 
 ()     - pod-wyrażenie (może być używane dla operatorów powtórzeń, a także dla referencji wstecznych)
+|      - alternatywa: wystąpienie wyrażenia podanego po lewej stronie albo wyrażenia podanego prawej stronie
 </pre>
 			<div class="demo_codes"><div>
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych--napisy/Napisy.cpp" />
@@ -1544,7 +1545,7 @@ $      - koniec napisu/linii
 		<h3>Podstawowe I/O</h3>
 		<section>
 			<h4>Standardowe wejście / wyjście</h4>
-			<p>Typowo program posiada trzy strumienie danych: jednen wejściowy (stdin) i dwa wyjściowe (stdout i stderr). Jeżeli nie zostało dokonane przekierowanie strumieni (np. na plik lub strumień innego procesu) to standardowe wejście (stdin) powiązane jest z danymi wprowadzanymi interaktywnie z klawiatury, a standardowe wyjście (stdout) i standardowe wyjście błędu (stderr) z danymi wyświetlanymi na terminalu na którym uruchomiono program (i typowo później wyświetlanymi gdzieś na ekranie).</p>
+			<p>Typowo program posiada trzy strumienie danych: jeden wejściowy (stdin) i dwa wyjściowe (stdout i stderr). Jeżeli nie zostało dokonane przekierowanie strumieni (np. na plik lub strumień innego procesu) to standardowe wejście (stdin) powiązane jest z danymi wprowadzanymi interaktywnie z klawiatury, a standardowe wyjście (stdout) i standardowe wyjście błędu (stderr) z danymi wyświetlanymi na terminalu na którym uruchomiono program (i typowo później wyświetlanymi gdzieś na ekranie).</p>
 			
 			<p>Standardowe wejście i wyjście może być wykorzystywane do:<ul>
 				<li>przekazywania między programami kolejnych etapów przetwarzania jakiegoś zbioru danych (zwykle tekstowego): np. <code>grep in.txt | sort &gt; out.txt</code> (grep wybiera linie spełniające kryteria, a sort sortuje wynik)</li>
@@ -2819,6 +2820,7 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 							<code>-f "<var>plik</var>"</code> - wczytaj polecenia z pliku <var>plik</var><br />
 							<code>-E</code> - używaj rozszerzonych wyrażeń regularnych<br />
 							<code>-i</code> - modyfikuj podany plik zamiast wypisywać zmieniony na stdout<br />
+							<code>-n</code> - wyłącza domyślne wypisywanie linii, wypisanie musi być wykonane jawnie poleceniem <code>p</code><br />
 						 przydatne polecenia:<br />
 							<code>s@<var>regexp</var>@<var>napis</var>@<var>[g]</var></code> - wyszukaj dopasowania do wyrażenia regularnego <var>regexp</var> i zastąp je przez <var>napis</var>, podanie opcji <var>g</var> powoduje zastępowanie wszystkich wystąpień a nie tylko pierwszego, znak <code>@</code> pełni rolę separatora i może zostać zamiast niego użyty inny znak<br />
 							<code>y@<var>zbiór1</var>@<var>zbiór2</var>@</code> - zastąp znaki z <var>zbiór1</var> znakami odpowiadającymi im pod względem kolejności znakami z <var>zbiór2</var>, znak <code>@</code> pełni rolę separatora i może zostać zamiast niego użyty inny znak<br />
@@ -2916,7 +2918,7 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 				<dl class="cmdlist">
 					<dt><dfn>ps</dfn> <var>[opcje]</var></dt>
 						<dd>wyświetla aktualnie działające procesy i informacje o nich<br />
-							np. kombinacja opcji <code>-Alf</code> powoduje wyświetlenie wszystkich procesów, w długim, pełnym formacie wypisywania
+							np. kombinacja opcji <code>-Af</code> powoduje wyświetlenie wszystkich procesów w rozszerzonym formacie wypisywania
 						</dd>
 					<dt><dfn>pgrep</dfn></dt>
 						<dd>wyświetla filtrowaną listę aktualnie działających procesów</dd>

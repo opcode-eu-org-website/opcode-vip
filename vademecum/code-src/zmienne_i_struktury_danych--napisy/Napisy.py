@@ -26,7 +26,7 @@ print (y.find("bb", 5))
 if x == "a":
 	print("x == \"a\"")
 
-if re.match(".*[dz]", x):
+if re.search("[dz]", x):
 	print(x, "zawiera d lub z")
 
 # sprawdzanie czy jest pod-napisem
