@@ -2480,7 +2480,7 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 								<li><code>y</code> skopiuj; <code>d</code> - wytnij (skopiuj i usuń)
 									po <code>y</code>, <code>d</code> można podać np. <code>20l</code> lub <code>20[strzałka w prawo]</code> co oznacza 20 kolejnych znaków, <code>2w</code> oznacza dwa słowa
 									(więcej o takich punktach skoku poniżej)</li>
-								<li><code>x</code> wytnij (skopiuj i usuń) znak (może być poprzedzone ilością znaków do wycięcia); wielkie <code>X</code> - działa analogicznie tyle że w tył</li>
+								<li><code>x</code> wytnij (skopiuj i usuń) znak (może być poprzedzone ilością znaków do wycięcia); wielkie <code>X</code> działa analogicznie, tyle że w tył</li>
 								<li><code>yy</code> skopiuj linię; <code>dd</code> - wytnij (skopiuj i usuń)
 									w obu wypadkach może być poprzedzone ilością linii do skopiowania/wycięcia</li>
 								
@@ -2517,8 +2517,8 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 							</ul></li>
 							
 							<li>przełączanie się między otwartymi plikami i oknami:<ul>
-								<li><code>:n</code> następny plik, <code>:N</code> poprzedni plik</li>
-								<li><code>:split</code> poziomy podział okna, <code>:vs</code> pionowy podział okna; <code>Ctrl</code>+<code>W</code> a następnie strzałka - przełączanie między oknami</li>
+								<li><code>:n</code> następny plik; <code>:N</code> poprzedni plik</li>
+								<li><code>:split</code> poziomy podział okna; <code>:vs</code> pionowy podział okna; <code>Ctrl</code>+<code>W</code> a następnie strzałka - przełączanie między oknami</li>
 							</ul></li>
 							
 							<li>cofanie i ponawianie edycji:<ul>
