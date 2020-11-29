@@ -14,11 +14,13 @@ class NazwaKlasy:
 	# się nim jawnie posługiwać
 	
 	# metody statyczna
+	@staticmethod
 	def info():
 		print("INFO")
 	
 	# konstruktor (z jednym argumentem)
 	def __init__(self, x = 1):
+		print("konstruktor", self.a , self.d)
 		# i kolejny sposób na utworzenie
 		# pola składowego klasy
 		self.b = 13 * x
