@@ -1599,6 +1599,8 @@ $      - koniec napisu/linii
 			<div class="demo_codes"><div>
 				<insertSourceCode file="code-src/podstawowe_io/Argumenty_linii_poleceń.cpp" />
 				<insertSourceCode file="code-src/podstawowe_io/Argumenty_linii_poleceń.py" />
+				</div><br /><div>
+				<insertSourceCode file="code-src/podstawowe_io/Argumenty_linii_poleceń.sh" />
 				<insertSourceCode file="code-src/podstawowe_io/Argumenty_linii_poleceń.php" />
 			</div></div>
 		</section>
@@ -3795,6 +3797,15 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 				<a href="https://archive.org/download/awkrefcard-pl/awkrefcard-pl.pdf">PL</a>
 			</td>
 			<td> </td>
+		<tr>
+			<td> AWK </td>
+			<td> An Awk Primer </td>
+			<td> wikibooks.org </td>
+			<td> CC-SA </td>
+			<td> Podręcznik dla języka AWK </td>
+			<td> <a href="https://en.wikibooks.org/wiki/An_Awk_Primer">EN</a> </td>
+			<td> <!-- ??? --> </td>
+		</tr>
 		</tr>
 		<tr>
 			<td> JavaScript </td>
