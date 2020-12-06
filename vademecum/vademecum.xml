@@ -19,7 +19,7 @@
 		<a href="vademecum.pdf"><img src="lib/pdfFile.svg" alt="Pobierz jako PDF" title="Pobierz jako PDF"/></a>
 	</p>
 </div>
-<p id="updateInfo">(aktualizacja: 2020-07-11)</p>
+<p id="updateInfo">(aktualizacja: 2020-12-06)</p>
 
 <section>
 	<p>
@@ -4119,7 +4119,7 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 <section id="licencja">
 	<h2>Licencja</h2>
 <pre>
-<b>Copyright (c) 2003-2019, Robert Ryszard Paciorek &lt;rrp@opcode.eu.org&gt;</b>
+<b>Copyright (c) 2003-2020, Robert Ryszard Paciorek &lt;rrp@opcode.eu.org&gt;</b>
 
 To jest wolny i otwarty dokument/oprogramowanie. Redystrybucja, użytkowanie
 i/lub modyfikacja SĄ DOZWOLONE na warunkach licencji MIT.
