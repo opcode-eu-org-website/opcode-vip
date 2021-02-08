@@ -1,6 +1,6 @@
 MAINDIR     := $(dir $(lastword $(MAKEFILE_LIST)))
 OUTDIR      := $(MAINDIR)/output-www
-TEXBUILDDIR := $(MAINDIR)/output-tmp
+TEXBUILDDIR := $(MAINDIR)/tmp-build
 LIBFILESDIR := $(MAINDIR)/OpCode-core/lib
 SVGICONURL  := https://bytebucket.org/OpCode-eu-org/svgiconset/raw/HEAD/other/
 export PATH := $(shell realpath $(MAINDIR)/TextUtils/convert):$(PATH)

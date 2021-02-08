@@ -2254,16 +2254,18 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 				</ol>
 				<p>DNS przechowuje informacje w postaci rekordów mających określony typ (w większości przypadków dla danej nazwy domenowej może być zdefiniowanych wiele rekordów, tego samego lub innych typów). Wśród najważniejszych typów rekordów należy wymienić:</p>
 				<ul>
+					<li><code>NS</code>   – informacja o serwerach obsługujących DNS danej domeny</li>
 					<li><code>A</code>    – mapowanie nazwy na adres IPv4</li>
 					<li><code>AAAA</code> – mapowanie nazwy na adres IPv4</li>
 					<li><code>MX</code>   – informacja o serwerach obsługujących pocztę danej domeny</li>
-					<li><code>NS</code>   – informacja o serwerach obsługujących DNS danej domeny</li>
+					<li><code>SRV</code>  – informacje o hoście świadczącym usługę (usługa określana jest w nazwie domeny o którą pytamy)</li>
 					<li><code>PTR</code>  – mapowanie adresów IP na nazwy domenowe, realizowane w specjalnym drzewie <code>in-addr.arpa</code> (dla IPv4) lub <code>ip6.arpa</code> (IPv6),
 						gdzie adres IP zapisywany jest w odwróconej kolejności po bajcie dla IPv4 lub cyfrze szesnastkowej dla IPv6
 						(zobacz wynik polecenia <code>host</code> z adresem IPv4 i IPv6)
 					</li>
-					<li><code>SRV</code>  – informacje o hoście świadczącym usługę (usługa określana jest w nazwie domeny o którą pytamy)</li>
 					<li><code>TXT</code>  – informacje dodatkowe (np. jakie serwery pocztowe, są upoważnione do wysyłania poczty z tej domeny)</li>
+					<li><code>SOA</code>   – informacje podstawowe o strefie opisującej domenę</li>
+					<li><code>CNAME</code> – alias na inną domenę (domena którą aliasujemy nie może mieć innych wpisów, nawet SOA)</li>
 				</ul>
 			</section>
 			<!-- END: Polularne usługi -->
@@ -2359,7 +2361,7 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 				<li>MFU - usuwamy z dużą liczbą odwołań</li>
 			</ul>
 			
-			<p>Alternatywną (i mniej wymagającą) wobec stronicowanie metodą zarządzania pamięcią jest segmentacja. W przypadku architektury x86 jest ona zawsze wykorzystywana jednak może być przykryta dużym segmentem na którym wykorzystujemy stronicowaniem. Wspomniany już mechanizm pamięci wirtualnej często rozumiany jest tylko jako stronicowaniem (lub segmentacja) na żądanie. Polega to na tym iż strony mapowane są na ramki dopiero w momencie zapisu do segmentu pamięci należącego do </p>
+			<p>Alternatywną (i mniej wymagającą) wobec stronicowanie metodą zarządzania pamięcią jest segmentacja. W przypadku architektury x86 jest ona zawsze wykorzystywana jednak może być przykryta dużym segmentem na którym wykorzystujemy stronicowaniem.</p>
 			<!-- END: Zarządzanie pamięcią -->
 		</section>
 	</section>
