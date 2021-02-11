@@ -19,7 +19,7 @@
 		<a href="vademecum.pdf"><img src="lib/pdfFile.svg" alt="Pobierz jako PDF" title="Pobierz jako PDF"/></a>
 	</p>
 </div>
-<p id="updateInfo">(aktualizacja: 2020-12-06)</p>
+<p id="updateInfo">(aktualizacja: 2021-02-09)</p>
 
 <section>
 	<p>
@@ -2542,7 +2542,7 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 								
 								<li>punktem skoku mogą być także swobodnie umieszczane z dokumencie zakładki identyfikowane pojedynczym znakiem:<ul>
 										<li><code>m</code> i następie znak ją identyfikujący - utworzenie zakładki w miejscu kursora (np. <code>ma</code> - utworzy zakładkę a)</li>
-										<li><code>`</code> / <code>'</code> skod do zakładki / linii z zakładką podaną po tej komendzie</li>
+										<li><code>`</code> (backtick) / <code>'</code> (apostrof) skok do zakładki / linii z zakładką podaną po tej komendzie</li>
 										<li><code>:marks</code> - lista zakładek; <code>:delmarks</code> / <code>:delmarks!</code> - usunięcie zakładki / usunięcie wszystkich nie automatycznych zakładek</li>
 								</ul></li>
 							</ul></li>
@@ -2628,7 +2628,7 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 							<code>-ctime <var>[+|-]n</var></code> pliki które zostały utworzone <var>n</var>*24 godziny temu<br />
 							<code>-cmin <var>[+|-]n</var></code> pliki które zostały utworzone <var>n</var> minut temu<br />
 							<code>-size <var>[+|-]n[c|k|M|G]</var></code> pliki których rozmiar wynosi <var>n</var> (c - bajtów, k - kilobajtów, M - Megabajtów, G - gigabajtów)<br />
-						w powyższych testach <var>+</var> oznacza więcej niż, <var>-</var> oznacza mniej niż, uwaga: porównywaniu podlegają liczby całkowite, np. +1 oznaczacza <m>&gt;1</m> w liczbach całkowitych tzn. <m>\ge2</m><br />
+						w powyższych testach <var>+</var> oznacza więcej niż, <var>-</var> oznacza mniej niż, uwaga: porównywaniu podlegają liczby całkowite, np. +1 oznacza <m>&gt;1</m> w liczbach całkowitych tzn. <m>\ge2</m><br />
 							
 							<code>-exec <var>polecenie \{\}</var> \;</code> dla każdego znalezionego pliku wykonaj <var>polecenie</var> podstawiając ścieżkę do tego pliku pod <var>\{\}</var> (zastosowane odwrotne ukośniki służą zabezpieczeniu nawiasów klamrowych i średnika przed zinterpretowaniem ich przez powłokę)<br />
 							<code>-execdir <var>polecenie \{\}</var> \;</code>, podobnie jak <code>-exec</code> tyle że polecenie zostanie uruchomione w katalogu w którym znajduje się wyszukany plik
@@ -3799,6 +3799,7 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 				<a href="https://archive.org/download/awkrefcard-pl/awkrefcard-pl.pdf">PL</a>
 			</td>
 			<td> </td>
+		</tr>
 		<tr>
 			<td> AWK </td>
 			<td> An Awk Primer </td>
@@ -3807,7 +3808,6 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 			<td> Podręcznik dla języka AWK </td>
 			<td> <a href="https://en.wikibooks.org/wiki/An_Awk_Primer">EN</a> </td>
 			<td> <!-- ??? --> </td>
-		</tr>
 		</tr>
 		<tr>
 			<td> JavaScript </td>
