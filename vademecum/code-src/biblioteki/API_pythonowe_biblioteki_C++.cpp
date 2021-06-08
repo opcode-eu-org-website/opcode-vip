@@ -1,8 +1,8 @@
 
 /*  PLIK: py_api.cpp      kompilacja:
-	g++ --std=c++11 -shared -fPIC -I/usr/include/python3.5m/ py_api.cpp \
-		-o MyPyAPI.so -lpython3.5m -lboost_python-py35
-    uwaga: - kolejność argumentów może być istotna
+	g++ --std=c++11 -shared -fPIC -I/usr/include/python3.7m/ py_api.cpp \
+		-o MyPyAPI.so -lpython3.7m -lboost_python37
+	uwaga: - kolejność argumentów może być istotna
 	       - plik wynikowy powinien mieć taką samą nazwę jak moduł
 	         zadeklarowany przy pomocy BOOST_PYTHON_MODULE()
 */

@@ -19,7 +19,7 @@
 		<a href="vademecum.pdf"><img src="lib/pdfFile.svg" alt="Pobierz jako PDF" title="Pobierz jako PDF"/></a>
 	</p>
 </div>
-<p id="updateInfo">(aktualizacja: 2021-02-09)</p>
+<p id="updateInfo">(aktualizacja: 2021-06-08)</p>
 
 <section>
 	<p>
@@ -2256,7 +2256,7 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 				<ul>
 					<li><code>NS</code>   – informacja o serwerach obsługujących DNS danej domeny</li>
 					<li><code>A</code>    – mapowanie nazwy na adres IPv4</li>
-					<li><code>AAAA</code> – mapowanie nazwy na adres IPv4</li>
+					<li><code>AAAA</code> – mapowanie nazwy na adres IPv6</li>
 					<li><code>MX</code>   – informacja o serwerach obsługujących pocztę danej domeny</li>
 					<li><code>SRV</code>  – informacje o hoście świadczącym usługę (usługa określana jest w nazwie domeny o którą pytamy)</li>
 					<li><code>PTR</code>  – mapowanie adresów IP na nazwy domenowe, realizowane w specjalnym drzewie <code>in-addr.arpa</code> (dla IPv4) lub <code>ip6.arpa</code> (IPv6),

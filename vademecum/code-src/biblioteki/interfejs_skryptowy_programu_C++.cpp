@@ -1,6 +1,6 @@
 
 /*  PLIK: py_run.cpp      kompilacja:
-		g++ -I/usr/include/python3.5m/ py_run.cpp -lpython3.5m -lboost_python-py35
+		g++ -I/usr/include/python3.7m/ py_run.cpp -lpython3.7m -lboost_python37
 	uwaga: - kolejność argumentów może być istotna
 	       - plik używa "py_api.cpp" z poprzedniego przykładu
 	       - plik wywołuje skrypt "py_run.script.py" z bieżącego katalogu
