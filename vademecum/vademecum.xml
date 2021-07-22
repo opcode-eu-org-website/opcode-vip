@@ -2726,6 +2726,11 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 							<code>--exclude="<var>wzorzec</var>"</code> pomija (w kopiowaniu i kasowaniu) pliki pasujące do <var>wzorzec</var> (wzorzec może zawierać znaki uogólniające powłoki)<br />
 							<code>-n</code> symuluje pracę (pokazuje co zostałoby skopiowane, ale nie kopiuje)
 						</dd>
+					<dt><dfn>sshfs</dfn> <var>[opcje]</var> <var>host:scieżka</var></dt>
+						<dd>montuje zdalny system plików z użyciem FUSE (filesystem in userspace) oraz SSH, do ważniejszych opcji należy zaliczyć:<br />
+							<code>-p <var>port</var></code> określa inny niż domyślny port serwera SSH<br />
+							<code>-o workaround=rename</code>, który zapewnia poprawne <code>mv</code> na istniejący plik
+						</dd>
 				</dl>
 				<!-- END: zdalne kopiowanie -->
 			</section>
@@ -2795,6 +2800,8 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 							<code>-u</code> wypisuje różnice w formacie "unified"<br />
 							<code>-c</code> wypisuje różnice w formacie "context"
 						</dd>
+					<dt><dfn>vimdiff <var>ścieżka1</var> <var>ścieżka2</var></dt>
+						<dd>porównuje pliki wyświetlając je jeden obok drugiego (podobnie jak <code>diff</code> z opcją <code>-y</code>), pozwalając jednak na edycję tych plików</dd>
 					<dt><dfn>patch</dfn></dt>
 					<dd>stosuje plik łaty (wynik diff'a) w celu zmodyfikowania plików, typowo:<br />
 						<code>patch -p<var>n</var> &lt; <var>plik.diff</var></code> co powoduje zastosowanie zmian opisanych w <var>plik.diff</var> na plikach w bieżącym katalogu,
@@ -3297,7 +3304,7 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 			</section>
 			<section>
 				<h5>Zdalny dostęp - SSH</h5>
-				<p>Serwer SSH zapewnia zdalny, szyfrowany dostęp do komputera na którym jest uruchomiony z innych hostów. Usługa SSH pozwala na kopiowanie plików (sftp, scp, rsync over ssh), tunelowanie protokołu X'ów (serwera środowiska graficznego, dzięki czemu można używać zdalnych aplikacji z GUI) oraz tworzenie szyfrowanych tuneli (nasłuchujących na połączenia przychodzące tak po stronie klienta ssh, jak i serwera ssh).</p>
+				<p>Serwer SSH zapewnia zdalny, szyfrowany dostęp do komputera na którym jest uruchomiony z innych hostów. Usługa SSH pozwala na kopiowanie plików (sftp, scp, rsync over ssh), montowanie zdalnych systemów plików (sshfs), tunelowanie protokołu X'ów (serwera środowiska graficznego, dzięki czemu można używać zdalnych aplikacji z GUI) oraz tworzenie szyfrowanych tuneli (nasłuchujących na połączenia przychodzące tak po stronie klienta ssh, serwera ssh, jak też pełnych tuneli VPN).</p>
 			</section>
 		</section>
 	</section>
