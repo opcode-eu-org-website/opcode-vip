@@ -19,7 +19,7 @@
 		<a href="vademecum.pdf"><img src="lib/pdfFile.svg" alt="Pobierz jako PDF" title="Pobierz jako PDF"/></a>
 	</p>
 </div>
-<p id="updateInfo">(aktualizacja: 2021-07-21)</p>
+<p id="updateInfo">(aktualizacja: 2021-07-23)</p>
 
 <section>
 	<p>
@@ -30,7 +30,7 @@
 	ZAŁOŻENIA:
 		1) nie jest to tutorial / samouczek, ale raczej materiał służący przypomnieniu / uzupełnieniu posiadanej wiedzy na przedstawiane tematy lub pomocniczy do zająć dydaktycznych
 		2) przedewszystkim suche fakty, definicje, opisane przykłady; bez komentarzy typu "obecnie już", "nadal jest używany"; czysty tryb bezosobowy - bez pierwszoosobowych komentarzy i bez bezpośrednich zwrotów do czytelnika
-		3) nie linkujemy w tekście (także do wikipedii) - ten tekst ma być kompletny i zamknięty
+		3) nie linkujemy w tekście (także do wikipedii) - ten tekst ma być kompletny i zamknięty (jedynym, być może tymczasowym, wyjątkiem są repozytoria z przykłądami dla mikrokontrolerów)
 	-->
 	<p>
 		Założeniem tego dokumentu było że ma być kompletny i zamknięty, jednym z efektów tego jest unikanie odsyłania do innych materiałów bezpośrednio w tekście, wszystkie odnośniki do zewnętrznych źródeł (za wyjątkiem powoływania się na dokumentację narzędzi/bibliotek) znajdują się wyłącznie w dziale "Literatura".
@@ -1863,75 +1863,17 @@ if (!blokada) {
 		</section>
 		
 		<section>
-			<h4>Mikrokontrolery AVR</h4>
-			<p>Jest to rodzina 8-bitowych mikrokontrolerów RISC, które mogą być programowane z wykorzystaniem języka C z pomocą odpowiedniej wersji gcc i biblioteki avr-libc.</p>
+			<h4>Mikrokontrolery</h4>
+			<p>Programowanie mikrokontrolerów, a zwłaszcza z wykorzystaniem peryferiów w które są wyposażone, dość znacznie różni się od tworzenia aplikacji działających pod kontrolą systemu operacyjnego (nawet pomimo użycia tego samego języka programowania – najczęściej C lub C++), a także pomiędzy poszczególnymi typami mikrokontrolerów. Korzystanie z peryferiów oferowanych przez mikrokontroler polega głównie na wykonywaniu odczytu i zapisów do rejestrów zgodnie z dokumentacją danego układu oraz obsłudze odpowiednich przerwań. Niekiedy takie surowe operowanie na rejestrach obudowane jest przez funkcji biblioteki wspomagającej programowanie danej platformy, z których programista może korzystać aby w czytelniejszy sposób zapisać wykonywany algorytm.</p>
 			
-			<p>Niżej prezentowane kody dedykowane są dla mikrokontrolera ATmega328, będą działać poprawnie także na wielu innych układach, jednak w niektórych wypadkach konieczna może być zmiana nazw niektórych z rejestrów np dla ATmega8:</p>
-<pre class="cpp">#define USART_RX_vect USART_RXC_vect
-#define UDR0          UDR
-#define UBRR0L        UBRRL
-#define UBRR0H        UBRRH
-#define UCSR0B        UCSRB
-#define UCSR0A        UCSRA
-#define TXEN0         TXEN
-#define RXEN0         RXEN
-#define RXCIE0        RXCIE
-#define UDRE0         UDRE
-</pre>
-			<p>Kompilację poniższych kodów dla ATmega328 oraz wgranie ich do mikrokontrolera można wykonać przy pomocy następujących poleceń:</p>
-<pre class="bash"># kompilacja
-avr-gcc -mmcu=atmega328p -Os -o avrdemo.o $INPUT_FILE
-
-# konwersja do formatu hex obsługiwanego przez programatory
-avr-objcopy -O ihex avrdemo.o avrdemo.hex
-
-# zapis (i weryfikacja) pamięci flash (programator ISP na usb zgodny z usbasp):
-sudo avrdude -c usbasp -p atmega328p -U flash:w:avrdemo.hex
-
-# alternatywnie - zapis (i weryfikacja) pamięci flash
-# (wgrany w programowanym układzie bootloader z komunikacją UART zgodny z arduino):
-sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.conf -D \
-  -c arduino -b 57600 -P /dev/ttyUSB0 -U flash:w:avrdemo.hex:i
-</pre>
-			<section>
-				<h5>obsługa GPIO</h5>
-				<div class="demo_codes"><div>
-					<insertSourceCode file="code-src/avr/obsługa_GPIO.cpp" />
-					<insertSourceCode file="code-src/avr/obsługa_GPIO--input.cpp" />
-				</div></div>
-			</section>
-			<section>
-				<h5>obsługa portu szeregowego</h5>
-				<div class="demo_codes"><div>
-					<insertSourceCode file="code-src/avr/obsługa_portu_szeregowego.cpp" />
-					<insertSourceCode file="code-src/avr/obsługa_portu_szeregowego--przerwania.cpp" />
-					<insertSourceCode file="code-src/avr/obsługa_portu_szeregowego--biblioteczka.cpp" />
-				</div></div>
-			</section>
-			<section>
-				<h4>obsługa przetwornika analogo-cyfrowego</h4>
-				<div class="demo_codes"><div>
-					<insertSourceCode file="code-src/avr/obsługa_przetwornika_analogo-cyfrowego.cpp" />
-				</div></div>
-			</section>
-			<section>
-				<h5>obsługa I2C</h5>
-				<section>
-					<h6>master</h6>
-					<p>w tym trybie mikrokontroler zarządza magistralą - generuje sygnał zegara, wybiera układ z którym chce się komunikować oraz tryb tej komunikacji (zapis czy odczyt)</p>
-					<div class="demo_codes"><div>
-						<insertSourceCode file="code-src/avr/obsługa_I2C--slave.cpp" />
-					</div></div>
-				</section>
-				<section>
-					<h6>slave</h6>
-					<p>w tym trybie mikrokontroler czeka na zainicjowanie komunikacji przez mastera i postępuje zgodnie z otrzymanymi od niego instrukcjami</p>
-					<div class="demo_codes"><div>
-						<insertSourceCode file="code-src/avr/obsługa_I2C--master.cpp" />
-					</div></div>
-				</section>
-			</section>
+			<p>Także proces kompilacji kodu dla takich platform przebiega odmiennie niż przy „normalnym” programowaniu – bardzo często wykorzystywana jest cross kompilacja, czyli kompilator działa pod kontrolą innej architektury niż ta dla której tworzy kod. W związku z tym wykorzystywane są inne kompilatory wraz z własnymi zestawami bibliotek standardowych (stanowiące tzw. toolchain dla danej platformy). Bardzo istotne jest też często określenie w opcjach takiego kompilatora szczegółów mikrokontrolera dla którego chcemy zbudować dany kod (typowo toolchain dotyczy całej rodziny, a konkretny model mikrontrolera, posiadający konkretny zbiór peryferiów, itd określany jest w opcjach).</p>
+			
+			<p>Przykładowe kody wraz z opisem kompilacji lub plikiem Makefile automatyzującym kompilacje dla dwóch chyba najpopularniejszych rodzin mikrokontrolerów udostępniony jest w postaci repozytoriów git:<ul>
+				<li><a href="https://bitbucket.org/OpCode-eu-org/avr-examples">AVR-examples</a> - dla 8 bitowych mikrokontrolerów AVR</li>
+				<li><a href="https://bitbucket.org/OpCode-eu-org/stm32-examples">STM32-examples</a> - dla 32 bitowych mikrokontrolerów STM32 (rdzeń ARM)</li>
+			</ul></p>
 		</section>
+		
 		<section>
 			<h4>obsługa sprzętu w ramach OS</h4>
 			<p>Obsługa sprzętu nie zawsze wiąże się z tworzeniem kodu działającego bez systemu operacyjnego, na większych układach może działać normalny system operacyjny (np. Linux na płytkach typu Raspberry Pi czy Orange Pi). W takiej sytuacji obsługę sprzętu można zrealizować poprzez własny moduł jądra za nią odpowiedzialny lub (gdy to jest możliwe) poprzez funkcje udostępnione do przestrzeni użytkownika przez system operacyjny i jakąś bibliotekę. Przykładem drugiego podejścia może być wykorzystywanie plików funkcji operujących na przestrzeni I/O (plik nagłówkowy asm/io.h), funkcji realizujących komunikację I2C (plik nagłówkowy linux/i2c-dev.h), czy też biblioteki libusb pozwalającej na obsługę komunikacji USB.</p>
@@ -2800,7 +2742,7 @@ sudo avrdude -q -V -p atmega328p -C /usr/share/arduino/hardware/tools/avrdude.co
 							<code>-u</code> wypisuje różnice w formacie "unified"<br />
 							<code>-c</code> wypisuje różnice w formacie "context"
 						</dd>
-					<dt><dfn>vimdiff <var>ścieżka1</var> <var>ścieżka2</var></dt>
+					<dt><dfn>vimdiff</dfn> <var>ścieżka1</var> <var>ścieżka2</var></dt>
 						<dd>porównuje pliki wyświetlając je jeden obok drugiego (podobnie jak <code>diff</code> z opcją <code>-y</code>), pozwalając jednak na edycję tych plików</dd>
 					<dt><dfn>patch</dfn></dt>
 					<dd>stosuje plik łaty (wynik diff'a) w celu zmodyfikowania plików, typowo:<br />

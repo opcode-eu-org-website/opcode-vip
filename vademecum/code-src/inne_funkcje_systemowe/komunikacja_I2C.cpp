@@ -3,12 +3,10 @@
 #include <fcntl.h>
 #include <sys/ioctl.h>
 
-extern "C" {
 #include <linux/i2c-dev.h>
 #ifndef I2C_FUNC_I2C
 #include <i2c/smbus.h>
 #endif
-}
 
 #include <stdio.h>
 #include <string.h>
@@ -43,7 +41,7 @@ int main(int argc, char *argv[]) {
 	i2c_addr = strtol(argv[2], NULL, 0);
 	res = ioctl(fd, I2C_SLAVE, i2c_addr);
 	if (res < 0) {
-		fprintf(stderr, "ERROR set device addres to 0x%02x: %s\n", i2c_addr, strerror(errno));
+		fprintf(stderr, "ERROR set device address to 0x%02x: %s\n", i2c_addr, strerror(errno));
 		return 3;
 	}
 	
@@ -70,6 +68,7 @@ int main(int argc, char *argv[]) {
 				fprintf(stderr, "ERROR read from i2c device 0x%02x on %s: %s\n", i2c_addr, argv[1], strerror(errno));
 				return 5;
 			}
+			printf("%d\n", res);
 		}
 	} else if (argv[3][0] == 'w' || argv[3][1] == 'w') {
 		for (; i<argc; ++i) {
