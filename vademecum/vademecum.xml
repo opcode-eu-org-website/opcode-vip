@@ -19,7 +19,7 @@
 		<a href="vademecum.pdf"><img src="lib/pdfFile.svg" alt="Pobierz jako PDF" title="Pobierz jako PDF"/></a>
 	</p>
 </div>
-<p id="updateInfo">(aktualizacja: 2021-07-23)</p>
+<p id="updateInfo">(aktualizacja: 2021-07-24)</p>
 
 <section>
 	<p>
@@ -2515,6 +2515,9 @@ if (!blokada) {
 							<code>hexdump -e <var>'1/4 "%010d " 1/2 "%05d " 2/1 "%02x " "\n"'</var> <var>plik</var></code> każde kolejne 8 bajtów pliku zostanie zinterpretowane jako:
 								jedna liczba 32 bitowa liczba całkowita (4 bajty), 16 bitowowa liczba całkowita (2 bajty) i dwie liczby jedno bajtowe (wyświetlane szesnastkowo)
 						</dd>
+					
+					<dt><dfn>vbindiff</dfn></dt>
+						<dd>porównuje wizualnie pliki binarne (interfejs ncurces)</dd>
 				</dl>
 			</section>
 			<section>
@@ -2711,6 +2714,8 @@ if (!blokada) {
 						<dd>wyświetla początkowe linie pliku, przydatne opcje:<br />
 							<code>-n <var>x</var></code> określa że ma zostać wyświetlone <var>x</var> pierwszych linii
 						</dd>
+					<dt><dfn>multitail</dfn></dt>
+						<dd>tail lepiej operujący na wielu plikach równocześnie</dd>
 					<!-- END: tail head -->
 					
 					<dt><dfn>rev</dfn> <var>[plik]</var></dt>
@@ -2749,6 +2754,28 @@ if (!blokada) {
 						<code>patch -p<var>n</var> &lt; <var>plik.diff</var></code> co powoduje zastosowanie zmian opisanych w <var>plik.diff</var> na plikach w bieżącym katalogu,
 						<var>n</var> określa ilość poziomów ścieżek podanych w pliku łaty które mają zostać zignorowane
 					</dd>
+					
+					<dt><dfn>combinediff</dfn> / <dfn>splitdiff</dfn></dt>
+						<dd>łączy dwa pliki łat / dzieli plik łat złożony z przyrostowych zmian na osobne (pakiet <i>patchutils</i>)</dd>
+					<dt><dfn>flipdiff</dfn></dt>
+						<dd>zmienia kolejność w której będą nakładane dwie łaty dotyczące tych samych plików (pakiet <i>patchutils</i>)</dd>
+					<dt><dfn>interdiff</dfn></dt>
+						<dd>porównywanie dwóch plików łat (pakiet <i>patchutils</i>)</dd>
+					
+					<dt><dfn>lsdiff</dfn></dt>
+						<dd>wyświetlanie plików modyfikowanych przez łatę (pakiet <i>patchutils</i>)</dd>
+					<dt><dfn>filterdiff</dfn></dt>
+						<dd>wyciągnięcie z pliku łaty zmian dotyczących wybranych plików (pakiet <i>patchutils</i>)</dd>
+					<dt><dfn>grepdiff</dfn></dt>
+						<dd>przeszukiwanie pliku łat celem znalezienia plików w modyfikacja których pasuje do wyrażenia regularnego (pakiet <i>patchutils</i>)</dd>
+					
+					<dt><dfn>rediff</dfn> / <dfn>editdiff</dfn> / <dfn>recountdiff</dfn></dt>
+						<dd>przeliczanie numerów linii w pliku łaty (pakiet <i>patchutils</i>)</dd>
+					<dt><dfn>unwrapdiff</dfn> / <dfn>dehtmldiff</dfn> / <dfn>fixcvsdiff</dfn></dt>
+						<dd>naprawa pliku łaty uszkodzonego przez zawijanie linii, html-izację, błędy w generowaniu łaty przez cvs (pakiet <i>patchutils</i>)</dd>
+						
+					<dt><dfn>quilt</dfn></dt>
+						<dd>narzędzie ułatwiające utrzymywanie zmian do jakiś plików w postaci zbioru łat</dd>
 					<!-- END: diff patch -->
 					<!-- BEGIN: sort -->
 					<dt><dfn>sort</dfn> <var>[plik]</var></dt>
@@ -2766,6 +2793,8 @@ if (!blokada) {
 							<code>-d</code> zamiast zastępować usuwa znaki występujące w <var>zbiór1</var><br />
 							uwaga: często działa poprawnie wyłącznie dla znaków jedno bajtowych - można wtedy zastosować <code>sed -e 'y#<var>zbiór1</var>#<var>zbiór2</var>#'</code> lub <code>trs -f '<var>zbiór1</var> <var>zbiór2</var>'</code>
 						</dd>
+					<dt><dfn>trs</dfn></dt>
+						<dd>(wchodzący w skład pakietu konwert) bardziej inteligentny od <code>tr</code> program służy do zamieniania znaków z jednego zbioru na znaki z drugiego zbioru (w odróżnieniu od tr nadaje się do znaków kilku bajtowych - utf8, lepiej od sed'a sprawdza się przy zmianie kodowań - patrz przykład w manualu)</dd>
 					<!-- BEGIN: sed -->
 					<dt><dfn>sed</dfn> <var>[opcje]</var> <var>[pliki]</var></dt>
 						<dd>edytuje plik zgodnie z podanymi poleceniami, przydatne opcje:<br />
@@ -2857,9 +2886,16 @@ if (!blokada) {
 					<dt><dfn>w</dfn> lub <var>who</var></dt>
 						<dd>informacja o zalogowanych użytkownikach</dd>
 					
+					<dt><dfn>last</dfn></dt>
+						<dd>ostatnio logujący się użytkownicy</dd>
+					<dt><dfn>lastb</dfn></dt>
+						<dd>ostatnie nieudane logowania</dd>
+					<dt><dfn>lastlog</dfn></dt>
+						<dd>ostatnie logowania użytkowników</dd>
+					
 					<dt><dfn>passwd</dfn> <var>[użytkownik]</var></dt>
 						<dd>zmiana hasła</dd>
-						
+					
 					<dt><dfn>su</dfn> <var>[użytkownik]</var></dt>
 						<dd>przełącza użytkownika (aby przełączony użytkownik miał dostęp do "naszego" x serwera wcześniej wydajemy <code>xhost LOCAL:użytkownik</code>)</dd>
 					<dt><dfn>sudo</dfn></dt>
@@ -2912,6 +2948,29 @@ if (!blokada) {
 				</dl>
 			</section>
 			<!-- END: Użytkownicy, uprawnienia i procesy -->
+			<!-- BEGIN: Informacje o środowisku i systemie -->
+			<section>
+				<h5>Informacje o środowisku i systemie</h5>
+				<dl class="cmdlist">
+					<dt><dfn>env</dfn> / <dfn>printenv</dfn></dt>
+						<dd>zmienne środowiskowe wypisywanie oraz przekazywanie do uruchamianego programu</dd>
+					<dt><dfn>export</dfn></dt>
+						<dd>ustawianie i usuwanie zmiennych środowiskowych</dd>
+					<dt><dfn>set</dfn> / <dfn>unset</dfn></dt>
+						<dd>ustawianie, wyświetlanie, usuwanie zmiennych / funkcji / opcji w środowisku powłoki bash</dd>
+					
+					<dt><dfn>uptime</dfn></dt>
+						<dd>informacja o tym jak długo działa system ...</dd>
+					<dt><dfn>uname</dfn></dt>
+						<dd>informacja o systemie</dd>
+					<dt><dfn>lsb_release</dfn></dt>
+						<dd>informacja o systemie zgodnym z LSB</dd>
+					
+					<dt><dfn>getent</dfn></dt>
+						<dd>informacje z baz administracyjnych (typu użytkownicy, grupy, hosty), z uwzględnieniem ich konfiguracji w <code>/etc/nsswitch.conf</code></dd>
+				</dl>
+			</section>
+			<!-- END: Informacje o środowisku i systemie -->
 			<!-- BEGIN: Diagnostyka sieci -->
 			<section>
 				<h5>Diagnostyka sieci</h5>
@@ -3172,8 +3231,19 @@ if (!blokada) {
 					
 					<dt><dfn>file</dfn></dt>
 						<dd>rozpoznaje typ pliku</dd>
-					<dt><dfn>konwert</dfn> lub <dfn>iconv</dfn></dt>
+					<dt><dfn>iconv</dfn></dt>
 						<dd>konwersje kodowań plików tekstowych</dd>
+					<dt><dfn>konwert</dfn></dt>
+						<dd>konwersje kodowań plików tekstowych – zarówno pomiędzy różnymi kodowaniami danego zbioru znaków, jak też pomiędzy kodowaniami nie pokrywającymi się czy też kodowaniami znaków 8 bitowych na mniejszej ilości bitów, na przykład:<br />
+							<code>konwert utf8-ascii</code> "inteligentnie" usunie znaki nie ascii z pliku kodowanego w utf-8 (np. znaczki z polskimi ogonkami zamieni na odpowiednie znaki ASCII bez tych ogonków);<br />
+							<code>konwert qp-8bit</code> pozwoli zamienić kodowanie quoted printable na normalne 8 bitowe (rtf-8bit zrobi to z kodowaniem rtf'u)
+						</dd>
+					<dt><dfn>mewencode</dfn> / <dfn>mewdecode</dfn></dt>
+						<dd>program (stanowiący część pakieu narzędzi dodatkowych dla kilenta pocztowego Mew) do obsługi kodowań mime (w tym Quoted-Printable, base64), m.in. zmienia kodowanie base64 na 8 bitowe</dd>
+					<dt><dfn>qprint</dfn></dt>
+						<dd>program do kodowania i dekodowania "Quoted-Printable"</dd>
+					<dt><dfn>base64</dfn></dt>
+						<dd>program do kodowania i dekodowania base64</dd>
 					<dt><dfn>strings</dfn></dt>
 						<dd>wypisuje sekwencje znaków drukowanych (określanie zawartości plików nietekstowych)</dd>
 						
