@@ -19,7 +19,7 @@
 		<a href="vademecum.pdf"><img src="lib/pdfFile.svg" alt="Pobierz jako PDF" title="Pobierz jako PDF"/></a>
 	</p>
 </div>
-<p id="updateInfo">(aktualizacja: 2021-07-24)</p>
+<p id="updateInfo">(aktualizacja: 2021-07-27)</p>
 
 <section>
 	<p>
@@ -1880,7 +1880,7 @@ if (!blokada) {
 			<section>
 				<h5>komunikacja I2C</h5>
 				<div class="demo_codes"><div>
-					<insertSourceCode file="code-src/inne_funkcje_systemowe/komunikacja_I2C.cpp" />
+					<insertSourceCode file="code-src/inne_funkcje_systemowe/komunikacja_I2C.c" />
 				</div></div>
 			</section>
 		</section>
