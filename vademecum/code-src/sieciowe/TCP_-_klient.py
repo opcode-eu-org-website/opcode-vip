@@ -32,11 +32,21 @@ if sfd == None:
 # wysyłanie
 sfd.sendall("Ala ma Kota\n".encode())
 
-# czekanie na odbiór
-rdfd, _, _ = select.select([sfd], [], [], 13.0)
-if sfd in rdfd:
-	d = sfd.recv(4096)
-	print(d.decode())
+# czekanie na dane i odbiór danych
+while True:
+	rdfd, _, _ = select.select([sfd], [], [], 13.0)
+	if sfd in rdfd:
+		d = sfd.recv(4096)
+		d = d.decode()
+		print(d, end="")
+		
+		# odbiór pustego pakietu lub pakietu zawierającego
+		# jedynie pustą linię kończy działanie
+		if d == "" or d == "\n" or d == "\r\n":
+			break
+	else:
+		# timeout kończy działanie
+		break
 
 # zamykanie połączenia
 sfd.shutdown(socket.SHUT_RDWR)

@@ -23,11 +23,12 @@ void help(const char *prog_name) {
 	fprintf(stderr, "USAGE (without on chip register addres):\n");
 	fprintf(stderr, " - read:  %s i2c_dev addr r -\n", prog_name);
 	fprintf(stderr, " - write: %s i2c_dev addr w - data\n", prog_name);
+	fprintf(stderr, "\n");
 	fprintf(stderr, "USAGE (with on chip register addres):\n");
 	fprintf(stderr, " - read:  %s i2c_dev addr r reg_addr\n", prog_name);
 	fprintf(stderr, " - write: %s i2c_dev addr w reg_addr data\n", prog_name);
 	fprintf(stderr, "\n");
-	fprintf(stderr, "i2c_dev  = /dev/ic2... device path\n");
+	fprintf(stderr, "i2c_dev  = /dev/i2c-... device path\n");
 	fprintf(stderr, "addr     = I2C _devide_ address\n");
 	fprintf(stderr, "reg_addr = register (data) address in I2C chip\n");
 	fprintf(stderr, "data     = data to write to device\n");
