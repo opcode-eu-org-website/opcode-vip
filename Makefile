@@ -37,7 +37,7 @@ init: | checkout-submodules
 
 installDependencies:
 	cd $(MAINDIR)/TextUtils && make installDependencies
-	@ if ! which sch2img.sh > /dev/null; then \
+	@ if ! command -v sch2img.sh > /dev/null; then \
 		echo "Cant't find sch2img.sh in PATH"; \
 		echo "You should download and install EDA libs (with dependencies!) from https://bitbucket.org/OpCode-eu-org/eda-libs"; \
 		return 3; \

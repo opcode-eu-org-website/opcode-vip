@@ -19,7 +19,7 @@
 		<a href="vademecum.pdf"><img src="lib/pdfFile.svg" alt="Pobierz jako PDF" title="Pobierz jako PDF"/></a>
 	</p>
 </div>
-<p id="updateInfo">(aktualizacja: 2021-07-27)</p>
+<p id="updateInfo">(aktualizacja: 2022-10-15)</p>
 
 <section>
 	<p>
@@ -2506,6 +2506,7 @@ if (!blokada) {
 							less posiada większe możliwości od more (w szczególności posiada możliwość przeglądanie dokumentu w tył), przydatne opcje:<br />
 								<code>-X</code> nie czyści ekranu przy wychodzeniu z less'a (całość historii wyświetlania pliku pozostaje w historii terminala)<br />
 								<code>-F</code> automatycznie kończy gdy wyświetlany tekst mieści się na jednym ekranie
+								<code>-R</code> przepuszcza surowe sekwencje sterujące terminalem dotyczące kolorów
 						</dd>
 						
 					<dt><dfn>bvi</dfn> </dt>
@@ -3247,7 +3248,7 @@ if (!blokada) {
 					<dt><dfn>strings</dfn></dt>
 						<dd>wypisuje sekwencje znaków drukowanych (określanie zawartości plików nietekstowych)</dd>
 						
-					<dt><dfn>which</dfn> <var>komenda</var></dt>
+					<dt><dfn>command -v</dfn> <var>komenda</var></dt>
 						<dd>zwraca wykonywaną ścieżkę / polecenie przy wykonywaniu <var>komenda</var></dd>
 					
 					<dt><dfn>date</dfn></dt>
