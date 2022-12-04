@@ -45,6 +45,8 @@ echo $?
 f2() { echo "Uwolnić mrożone truskawki$1"; }
 
 # pozyskać go można poprzez `` lub $()
+# zapis z użyciem $() może być zagnieżdżony
+
 a=`f2 '!!!'`
 echo $a
 

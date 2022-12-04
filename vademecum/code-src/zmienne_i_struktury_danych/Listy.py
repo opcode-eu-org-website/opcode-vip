@@ -9,6 +9,7 @@ l.insert(2, 13)
 
 print("liczba elementów =", len(l))
 print("pierwszy =", l[0])
+print("dwa kolejne =", l[1:3])
 
 # wypisanie wszystkich elementów
 for e in l:

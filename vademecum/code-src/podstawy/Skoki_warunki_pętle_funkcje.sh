@@ -34,6 +34,13 @@ while read a b c d; do
 done < /etc/passwd
 unset IFS
 
+# Należy mieć na uwadze, że w konstrukcjach typu
+# while read, pętla while uruchamiana może być w
+# procesie potomnym obecnej powłoki.
+# Efektem tego jest iż w niektórych przypadkach
+# wykonywane modyfikacje zmiennych wewnątrz
+# takiej pętli nie będą widoczne poza nią.
+
 
 # instruikcja if - else
 if [ "$xx" = "kot" -o "$xx" = "pies" ]; then

@@ -19,7 +19,7 @@
 		<a href="vademecum.pdf"><img src="lib/pdfFile.svg" alt="Pobierz jako PDF" title="Pobierz jako PDF"/></a>
 	</p>
 </div>
-<p id="updateInfo">(aktualizacja: 2022-10-15)</p>
+<p id="updateInfo">(aktualizacja: 2022-12-06)</p>
 
 <section>
 	<p>
@@ -48,7 +48,7 @@
 		<h3>Podstawy</h3>
 		<section>
 			<h4>Napięcie i prąd</h4>
-			<p>Dla elementów liniowych (np. zwykły kawałek przewodu) zachodzi proporcjonalność natężenia prądu płynącego przez taki element do napięcia pomiędzy jego końcami: <m>R = \sfrac{U}{I}</m>.</p>
+			<p>Dla elementów liniowych (np. zwykły kawałek przewodu) zachodzi proporcjonalność natężenia prądu płynącego przez taki element do napięcia pomiędzy jego końcami: <m>R = \frac{U}{I}</m>.</p>
 			<dl>
 				<dt><dfn>Natężenie prądu elektrycznego</dfn> <dfn><m>I</m></dfn> (określane skrótowo jako <dfn>prąd</dfn>)</dt>
 				<dd>jest to stosunek przemieszczonego ładunku do czasu jego przepływu.</dd>
@@ -90,13 +90,13 @@
 				<h5>Pojęcia</h5>
 				<dl>
 					<dt><dfn>Rezystancja</dfn> (<dfn>opór</dfn> elektryczny)</dt>
-					<dd>wyraża trudność przepływu prądu przez dany przewodnik - im większy opór elementu to (przy takim samym przyłożonym napięciu) będzie płynął mniejszy prąd. <m>R = \sfrac{U}{I}</m></dd>
+					<dd>wyraża trudność przepływu prądu przez dany przewodnik - im większy opór elementu to (przy takim samym przyłożonym napięciu) będzie płynął mniejszy prąd. <m>R = \frac{U}{I}</m></dd>
 					
 					<dt><dfn>Pojemność</dfn> (wzajemna)</dt>
-					<dd>wyraża zdolność do gromadzenia ładunku przez dany element - im większa pojemność tym więcej ładunku (przy takim samym przyłożonym napięciu) zgromadzi element. <m>C = \sfrac{q}{U}</m></dd>
+					<dd>wyraża zdolność do gromadzenia ładunku przez dany element - im większa pojemność tym więcej ładunku (przy takim samym przyłożonym napięciu) zgromadzi element. <m>C = \frac{q}{U}</m></dd>
 					
 					<dt><dfn>Indukcyjność</dfn></dt>
-					<dd>wyraża zdolność do wytwarzania strumienia pola magnetycznego związanego z przepływem prądu przez dany element. <m>L = \sfrac{I}{\Phi}</m></dd>
+					<dd>wyraża zdolność do wytwarzania strumienia pola magnetycznego związanego z przepływem prądu przez dany element. <m>L = \frac{I}{\Phi}</m></dd>
 				</dl>
 			</section>
 			
@@ -114,10 +114,10 @@
 					<dd>jest wielkością charakteryzującą zależność pomiędzy natężeniem prądu i napięciem uwzględniającą reaktancję obwodu. <m>Z = R + j X</m></dd>
 					
 					<dt><dfn>Reaktancja</dfn></dt>
-					<dd>jest wielkością charakteryzującą opór bierny elementów pojemnościowych (<dfn>kapacytancja</dfn> <m>X_C = - \sfrac{1}{\omega C}</m>) i indukcyjnych (<dfn>induktancja</dfn> <m>X_L = \omega L</m>).</dd>
+					<dd>jest wielkością charakteryzującą opór bierny elementów pojemnościowych (<dfn>kapacytancja</dfn> <m>X_C = - \frac{1}{\omega C}</m>) i indukcyjnych (<dfn>induktancja</dfn> <m>X_L = \omega L</m>).</dd>
 					
 					<dt><dfn>Pulsacja</dfn> <dfn><m>\omega</m></dfn></dt>
-					<dd>charakteryzuje szybkość zmian (jest proporcjonalna do odwrotności czasu trwania okresu zmiany). <m>\omega = \sfrac{2\pi}{T}</m></dd>
+					<dd>charakteryzuje szybkość zmian (jest proporcjonalna do odwrotności czasu trwania okresu zmiany). <m>\omega = \frac{2\pi}{T}</m></dd>
 				</dl>
 			</section>
 			
@@ -135,7 +135,7 @@
 							<polyline points="0,10 20,10 26,2 38,18 50,2 62,18 74,2 80,10 100,10" stroke-width="3" />
 						</svg>.
 					<br />
-					Powoduje wydzielanie się energii (cieplnej) związanej z stratami na rezystancji - moc wydzielana dana jest zależnościami: <m>P = UI = \sfrac{U^2}{R} = I^2R</m>, czyli przy stałym napięciu przyłożonym do rezystora im większy jego opór tym mniejsza moc się wydzieli (gdyż popłynie mniejszy prąd), ale przy stałym prądzie płynącym przez rezystor moc rośnie wraz ze wzrostem oporu.</dd>
+					Powoduje wydzielanie się energii (cieplnej) związanej z stratami na rezystancji - moc wydzielana dana jest zależnościami: <m>P = UI = \frac{U^2}{R} = I^2R</m>, czyli przy stałym napięciu przyłożonym do rezystora im większy jego opór tym mniejsza moc się wydzieli (gdyż popłynie mniejszy prąd), ale przy stałym prądzie płynącym przez rezystor moc rośnie wraz ze wzrostem oporu.</dd>
 					
 					<dt><dfn>Kondensator</dfn></dt>
 					<dd>wprowadza do układu pojemność związaną z swoją wartością nominalną. Typowo służy do ograniczania zmian napięcia (poprzez gromadzenie energii w polu elektrycznym). Symbole:
@@ -154,12 +154,19 @@
 					Czas potrzebny do zmiany napięcia na kondensatorze dany jest zależnością:<m>\Delta T = \frac{C \cdot \Delta U}{I}</m></dd>
 					
 					<dt><dfn>Cewka</dfn> (<dfn>dławik</dfn>)</dt>
-					<dd>wprowadza do układu indukcyjność związaną z swoją wartością nominalną. Typowo służy do ograniczania zmian prądu (poprzez gromadzenie energii w polu magnetycznym). Symbol:
-						<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 27" style="height:16px; stroke:black; fill:none">
-							<path d="M 0,21 L 20,21 A 10,12 0 0 1 40,21 A 10,12 0 0 1 60,21 A 10,12 0 0 1 80,21 L 100,21" stroke-width="3" />
-						</svg>.
-					Czas potrzebny zmiany prądu płynącego przez cewkę (dławik stawia opór takiej zmianie tak jak kondensator zmianie napięcia) dany jest zależnością: <m>\Delta T = \frac{L \cdot \Delta I}{U}</m>.<br />
-					Często cewka nawinięta jest na rdzeń ferrytowy, bardzo silnie zwiększa on indukcyjność cewki, ale ogranicza od góry częstotliwość pracy cewki. Ponadto przy odpowiednio dużym prądzie może dochodzić do nasycenia rdzenia, które objawia się tym, że zaczyna in hamować wzrost pola zamiast go poprawiać. Cewka nawinięta na odpowiednim rdzeniu może stanowić elektromagnes.</dd>
+					<dd>
+						<p>wprowadza do układu indukcyjność związaną z swoją wartością nominalną. Typowo służy do ograniczania zmian prądu (poprzez gromadzenie energii w polu magnetycznym). Symbol:
+							<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 27" style="height:16px; stroke:black; fill:none">
+								<path d="M 0,21 L 20,21 A 10,12 0 0 1 40,21 A 10,12 0 0 1 60,21 A 10,12 0 0 1 80,21 L 100,21" stroke-width="3" />
+							</svg>.
+						Czas potrzebny zmiany prądu płynącego przez cewkę (dławik stawia opór takiej zmianie tak jak kondensator zmianie napięcia) dany jest zależnością: <m>\Delta T = \frac{L \cdot \Delta I}{U}</m>.
+						</p>
+						<p>
+							Często cewka nawinięta jest na rdzeń ferrytowy, bardzo silnie zwiększa on indukcyjność cewki, ale ogranicza od góry częstotliwość pracy cewki. Ponadto przy odpowiednio dużym prądzie może dochodzić do nasycenia rdzenia, które objawia się tym, że zaczyna in hamować wzrost pola zamiast go poprawiać.
+							Cewki możemy spotkać w urządzeniach takich jak przekaźniki, czy styczniki . Nawinięte na odpowiednim rdzeniu pełnią one tam funkcję elektromagnesu odpowiedzialnego za zmianę fizycznej pozycji styków prowadzącą do ich zwarcia lub rozwarcia (przełączania).
+						</p>
+						<p><strong>Rozłączanie cewki:</strong> Jako że cewka jest elementem który dąży do zachowania płynącego przez niego prądu, to w przypadku rozwarcia obwodu zawierającego cewkę napięcie na niej będzie rosło i bez problemów może wielokrotnie przekroczyć napięcie zasilania. Zjawisko to bywa użyteczne i jest wykorzystywane w niektórych układach (np. przetwornicach podnoszących napięcie), ale często bywa też niepożądane, a nawet bardzo szkodliwe – może prowadzić do uszkadzania innych elementów w obwodzie (w szczególności elementu przełączającego). Aby mu przeciwdziałać stosuje się połączoną równolegle z cewką diodę, spolaryzowaną w taki sposób aby w normalnym stanie nie przewodziła, a po odłączeniu zasilania cewki pozwalała na jej rozładowanie.</p>
+					</dd>
 					
 					<dt><dfn>Transformator</dfn></dt>
 					<dd>Układ cewek sprzężonych magnetycznie, z których część służy do wytwarzania energii pola magnetycznego, a część do jej odbierania. Typowo służy do przekazywania energii poprzez pole magnetycznym celem zmiany napięcia lub separacji galwanicznej obwodów.<br />
@@ -212,7 +219,7 @@
 							<polyline points="8,18 8,23 48,23 48,18" stroke-width="1" />
 							<line x1="28" y1="23" x2="28" y2="18" stroke-width="1" />
 						</svg>
-						<span style="position: relative; top: -25px; left: 5px"><m>Z = Z_1 || Z_2 \iff \frac{1}{Z} = \sfrac{1}{Z_1} + \sfrac{1}{Z_2} \iff Z = \frac{1}{\sfrac{1}{Z_1} + \sfrac{1}{Z_2}}</m></span>
+						<span style="position: relative; top: -25px; left: 5px"><m>Z = Z_1 || Z_2 \iff \frac{1}{Z} = \frac{1}{Z_1} + \frac{1}{Z_2} \iff Z = \frac{1}{\frac{1}{Z_1} + \frac{1}{Z_2}}</m></span>
 					</div>
 				</dd>
 				
@@ -233,11 +240,28 @@
 						</svg>
 				</dd>
 				
+				<dt><dfn>Rezystor podciągający</dfn></dt>
+				<dd>
+					<img src="img/podciagajacy.svg" class="right_img" style="height:220px; margin-bottom:10px" alt="schemat układu z rezystorem podciągającym" />
+					<p>jest bardzo często używany w celu wymuszenia domyślnego poziomu napięcia na jakiejś linii. Jest to zasadniczo forma dzielnika napięcia w którym jeden z rezystorów został zastąpiony jakiegoś rodzaju przełącznikiem, czyli czymś co w zależności od swojego stanu ma prawie zerową albo (prawie) nieskończoną rezystancję.</p>
+					
+					<p>Rozwiązanie takie ma zastosowanie głównie na jakiś liniach sygnalizacyjnych, z których nie jest pobierany żaden większy prąd. W efekcie, w układzie pokazanym obok jeżeli styk jest rozwarty to prąd nie płynie, zatem spadek na rezystorze wynosi zero i na wyjściu mamy napięcie zasilania. Jeżeli styk zostanie zwarty prąd płynie, ale ze względu na małą rezystancję styku praktycznie całe napięcie odkłada się na rezystorze i na wyjściu mamy zero voltów.</p>
+					
+					<p>Układ taki pozwala na przykład stosowanie zwykłego styku zwieranego zamiast przełączalnego. Oczywiście możemy zamienić rezystor z przełącznikiem miejscami i wtedy domyślnym stanem (przy rozwartym styku) będzie zero woltów.</p>
+				</dd>
+				
 				<dt><dfn>Dzielnik prądu</dfn> (rezystancyjny)</dt>
 				<dd>jest to równoległe połączenie dwóch rezystorów. Poprzez dobór wartości rezystorów uzyskuje się pożądane natężenie prądu w wyjściowej gałęzi.</dd>
 				
 				<dt><dfn>Obwód RC</dfn></dt>
-				<dd>jest to szeregowe połączenie rezystora i kondensatora. Obwód taki charakteryzuje się stałą czasową <m>\tau = RC</m>. Napięcie na kondensatorze w trakcie jego ładowania dane jest zależnością <m>U_C(t) = U_{we} \cdot (1 - e^{-\sfrac{t}{\tau}})</m>, a w trakcie rozładowywania <m>U_C(t) = U_C(0) \cdot (e^{-\sfrac{t}{\tau}})</m>. W przypadku wyjścia na zaciskach rezystora stanowi filtr górnoprzepustowy, a w przypadku wyjścia na zaciskach kondensatora stanowi filtr dolnoprzepustowy, częstotliwość graniczna (zapewniająca tłumienie większe niż 3dB) takich filtrów wynosi <m>f_{gr} = \sfrac{1}{2\pi\tau}</m>.</dd>
+				<dd>jest to szeregowe połączenie rezystora i kondensatora. Obwód taki charakteryzuje się stałą czasową <m>\tau = RC</m>. Napięcie na kondensatorze w trakcie jego ładowania dane jest zależnością <m>U_C(t) = U_{we} \cdot (1 - e^{-\frac{t}{\tau}})</m>, a w trakcie rozładowywania <m>U_C(t) = U_C(0) \cdot (e^{-\frac{t}{\tau}})</m>. W przypadku wyjścia na zaciskach rezystora stanowi filtr górnoprzepustowy, a w przypadku wyjścia na zaciskach kondensatora stanowi filtr dolnoprzepustowy, częstotliwość graniczna (zapewniająca tłumienie większe niż 3dB) takich filtrów wynosi <m>f_{gr} = \frac{1}{2\pi\tau}</m>.</dd>
+				
+				<dt><dfn>Mostek H</dfn></dt>
+				<dd>
+					<img src="img/mostek_H_switche.svg" class="right_img" style="height:220px; margin-bottom:10px" alt="schemat mostka H" />
+					<p>jest to układ (oparty o 4 przełączniki, których rolę mogą pełnić klucze tranzystorowe) pozwalający na zmianę polaryzacji zasilania podłączonego do niego odbiornika. Układ taki złożony jest z dwóch identycznych gałęzi (S1 + S2 oraz S3 + S4, każda włączona pomiędzy dwoma biegunami zasilania). Pojedyncza taka gałąź nazywana jest pół-mostkiem i składa się z dwóch kluczy które powinny być sterowane przeciwstawnie (aby wyeliminować możliwość zwarcia zasilania z masą). Układ pół-mostka może być wykorzystywany także samodzielnie jako uniwersalny układ klucza pozwalającego na załączanie odbiornika zarówno od strony napięcia dodatniego jak i od strony masy (w zależności od sposobu jego podłączenia) lub przełączania dwóch odbiorników (jednego umieszczonego pomiędzy zasilaniem a wyjściem mostka, a drugiego pomiędzy wyjściem a masą).
+					Rolę kluczy (przełączników) w ramach mostka mogą pełnić także tranzystory PNP (jako S1, S3) i NPN (jako S2, S4) albo analogicznie tranzystory P-MOSFET i N-MOSFET.</p>
+				</dd>
 			</dl>
 		</section>
 	<!-- END: Elektronika - bierne -->
@@ -1062,8 +1086,11 @@
 					<dt><dfn>USART</dfn></dt>
 					<dd>
 						<p>jest to uniwersalny synchroniczny i asynchroniczny nadajnik i odbiornik, umożliwia realizację szeregowej transmisji synchronicznej (zgodnie z zegarem) lub asynchronicznej (wykrywanie początku ramki na podstawie linii danych). Interfejs korzysta z rozdzielonych linii nadajnika i odbiornika (wyjście danych TxD oraz wejście danych RxD, co umożliwia realizację transmisji full-duplex) oraz może korzystać z dodatkowych sygnałów sterujących (wyjście RTS informujące o gotowości do odbioru oraz wejście CTS informacji o gotowości odbioru / zezwolenia na nadawanie). Niekiedy dostępne jest także wyjście załączenia nadajnika używane do pracy w trybie half-duplex (linie TxD i RxD połączone buforem trój-stanowym nadajnika).</p>
-						<p>Interfejs ten najczęściej wykorzystywany jest w trybie asynchronicznym jako <dfn>UART</dfn>. W połączeniach UART zarówno nadajnik jak i odbiornik muszą mieć ustawione takie same parametry transmisji (szybkość, znaczenie 9 bitu (typowo bit parzystości, ale może także oznaczać np. pole adresowe), itp).
-						Głównymi standardami elektrycznymi dla UART są: poziomy napięć układów elektronicznych używających tych portów (3.3V, 5V), RS-232 (w pełnym wariancie używa sygnałów kontroli przepływu, poziom logiczny 1 wynosi od -15V do -3V, a poziom logiczny 0 od +3V do +15V), RS-422 (transmisja różnicowa full-duplex pomiędzy dwoma urządzeniami) i RS-485 (transmisja różnicowa half-duplex w oparciu o szynę łączącą wiele urządzeń, kompatybilny elektrycznie z RS-422), możliwia jest też transmisja światłowodowa i bezprzewodowa.</p>
+						<img src="img/uart1.svg" class="right_img" style="height:370px; margin-bottom:10px" alt="ramka UART" />
+						<p>
+							Interfejs ten najczęściej wykorzystywany jest w trybie asynchronicznym jako <dfn>UART</dfn>. W połączeniach UART zarówno nadajnik jak i odbiornik muszą mieć ustawione takie same parametry transmisji (szybkość, znaczenie 9 bitu (typowo bit parzystości, ale może także oznaczać np. pole adresowe), itp).
+							Głównymi standardami elektrycznymi dla UART są: poziomy napięć układów elektronicznych używających tych portów (3.3V, 5V), RS-232 (w pełnym wariancie używa sygnałów kontroli przepływu, poziom logiczny 1 wynosi od -15V do -3V, a poziom logiczny 0 od +3V do +15V), RS-422 (transmisja różnicowa full-duplex pomiędzy dwoma urządzeniami) i RS-485 (transmisja różnicowa half-duplex w oparciu o szynę łączącą wiele urządzeń, kompatybilny elektrycznie z RS-422), możliwa jest też transmisja światłowodowa i bezprzewodowa.
+						</p>
 					</dd>
 					<dt><dfn>CAN</dfn></dt>
 					<dd>
@@ -1315,6 +1342,14 @@
 				</p>
 			</section>
 			<section>
+				<h5>Wyjątki</h5>
+				<p>Języki wyższego poziomu (np. C++, Python) pozwalają na stosowanie mechanizmu wyjątków do obsługi błędów. Wyjątek powoduje przerwanie wykonywania kodu w momencie gdy jest generowany i „zwinięcie” stosu wykonywanych funkcji aż do tej w której jest obsługiwany, a jeżeli takiej nie ma to zakończenie programu.</p>
+				<div class="demo_codes"><div>
+					<insertSourceCode file="code-src/podstawy/Wyjątki.cpp" />
+					<insertSourceCode file="code-src/podstawy/Wyjątki.py" />
+				</div></div>
+			</section>
+			<section>
 				<h5>Rekurencja</h5>
 				<p>Rekurencja jest mechanizmem, polegającym na wywoływaniu funkcji przez samą siebie, który ma na celu implementację niektórych algorytmów. Może być zastosowana chyba w każdym języku pozwalającym na definiowanie funkcji. Ograniczeniem jest maksymalna ilość wywołań funkcji związana z wielkością stosu - w przypadku zbyt wielu wywołań kolejnych funkcji program zakończy się błędem. Każdy algorytm zapisywany rekurencyjnie może zostać zamieniony na algorytm iteracyjny (wykorzystujący pętle).</p>
 				<div class="demo_codes"><div>
@@ -1382,7 +1417,6 @@
 				<div class="demo_codes"><div>
 					<insertSourceCode file="code-src/zmienne_i_struktury_danych/Listy.cpp" />
 					<insertSourceCode file="code-src/zmienne_i_struktury_danych/Listy.py" />
-					<insertSourceCode file="code-src/zmienne_i_struktury_danych/Iteratory_generatory.py" />
 				</div></div>
 				<p>
 					Listy umożliwiają łatwą implementację m.in.:
@@ -1539,6 +1573,15 @@ $      - koniec napisu/linii
 				</div></div>
 			</section>
 		</section>
+		
+		<section>
+			<h4>Iteratory</h4>
+			<p>Iterator jest obiektem pozwalającym na dostęp do elementów jakiegoś innego obiektu (np. kolekcji typu lista, tablica, itd).</p>
+			<div class="demo_codes"><div>
+				<insertSourceCode file="code-src/zmienne_i_struktury_danych/Iteratory.cpp" />
+				<insertSourceCode file="code-src/zmienne_i_struktury_danych/Iteratory_generatory.py" />
+			</div></div>
+		</section>
 	</section>
 	
 	<section>
@@ -1568,6 +1611,13 @@ $      - koniec napisu/linii
 				<insertSourceCode file="code-src/podstawowe_io/Obsługa_plików--cpp.cpp" />
 				<insertSourceCode file="code-src/podstawowe_io/Obsługa_plików.py" />
 			</div></div>
+			<section>
+				<h5>Czekanie na dane</h5>
+				<p>Niekiedy program musi poczekać na jakieś dane (np. wprowadzane z standardowego wejścia przez użytkownika). Typowo funkcje odczytu czekają w nieskończoność na koniec wczytywanych danych (lub na koniec linii). Jeżeli program ma czekać na dane z jednego z kilku źródeł lub czekać z ograniczeniem czasowym przydatna jest funkcja select.</p>
+				<div class="demo_codes"><div>
+					<insertSourceCode file="code-src/podstawowe_io/Czekanie_na_dane.py" />
+				</div></div>
+			</section>
 			<section>
 				<h5>Mapowanie plików w pamięci</h5>
 				<p>Możliwe jest także operowanie na plikach zmapowanych do pamięci z użyciem mmap, operacje wykonywane są wtedy na ich zawartości tak jak na tablicach / napisach C.</p>
@@ -1901,6 +1951,14 @@ if (!blokada) {
 			<p>Dziedziczenie jest jednym z mechanizmów pozwalających na konstrukcję klas opisujących bardziej złożone obiekty z klas prostszych.</p>
 			<div class="demo_codes"><div>
 				<insertSourceCode file="code-src/wzorce_projektowe_i_algorytmy/Dziedziczenie_polimorfizm_itp.cpp" />
+			</div></div>
+		</section>
+		
+		<section>
+			<h4>Szablony</h4>
+			<p>Niektóre z języków z silnym typowaniem pozwalają na definiowanie szablonów funkcji i klas, stanowiące ich uogólnienie dla różnych typów.</p>
+			<div class="demo_codes"><div>
+				<insertSourceCode file="code-src/wzorce_projektowe_i_algorytmy/Szablony.cpp" />
 			</div></div>
 		</section>
 		
@@ -2292,7 +2350,9 @@ if (!blokada) {
 			<p>Drugą podstawową funkcją systemu operacyjnego, wspomnianą na początku, jest zarządzanie pamięcią. Zarządzanie pamięcią polega na odpowiednim mapowaniu adresów logicznych (używanych przez procesy) na adresy fizyczne (używane przez procesor), korzysta ono z wsparcia sprzętowego ze strony procesora.
 				Jest to najczęściej realizowane w oparciu o wspomniany mechanizm stronicowania. Polega to na podziale pamięci dostępnej pamięci fizycznej na jednakowe bloki zwane ramkami oraz podziale pamięci logicznej na jednakowe bloki (o tej całej wielkości co ramki) zwane stronami. Strony które są wykorzystywane przez program są mapowane na dowolne ramki pamięci fizycznej (w przypadku gdy dana strona nie zamapowana - w zależności od okoliczności błąd braku strony lub błąd ochrony strony).
 				Rozwiązuje to problem fragmentacji zewnętrznej, polegającej na braku spójnego obszaru pamięci o żądanej długości pomimo iż łączna ilość wolnej pamięci jest dostateczna, jednak nie rozwiązuje problemu fragmentacji wewnętrznej, polegającej na przydzielaniu zbyt dużych fragmentów pamięci dla procesu (a wręcz można powiedzieć że go pogłębia).
-				Mechanizm ten wymaga trzymania tablicy wolnych ramek, tablicy stron dla każdego procesu (zawierającej przypisania mapowań stron danego procesu na ramki) oraz wykonywania tłumaczenia adresów logicznych (strona + przesunięcie na stronie). Także sama tablica stron procesu procesu może być stronicowania (mamy tablicę która informuje nas że przypisania stron w danym zakresie adresów są przechowywane w jakiejś ramce).</p>
+				Mechanizm ten wymaga trzymania tablicy wolnych ramek, tablicy stron dla każdego procesu (zawierającej przypisania mapowań stron danego procesu na ramki) oraz wykonywania tłumaczenia adresów logicznych (strona + przesunięcie na stronie). Także sama tablica stron procesu procesu może być stronicowania (mamy tablicę która informuje nas że przypisania stron w danym zakresie adresów są przechowywane w jakiejś ramce).
+				<br /><img src="pamięć_wirtualna.svg" style="height:470px;margin-top:13px;margin-left:7px" alt="pamięć wirtualna" />
+			</p>
 			
 			<p>Strony i ramki mogą być współdzielone pomiędzy procesami (np. przy rozgałęzianiu procesu strony są kopiowane dopiero gdy zajdzie taka potrzeba). W przypadku braku miejsca w pamięci fizycznej wybrane strony nieaktywnego aktualnie procesu mogą być umieszczane na dysku (swap).
 				Niekiedy może to powodować szamotanie procesu polegające na zbyt dużej liczbie wymian stron. Zawsze jednak prowadzi to do konieczności ustalania które strony najlepiej jest przenieść na dysk. Optymalne byłoby przenoszenie tych które najdłużej nie będą potrzebne (jednak z oczywistych względów jet to praktycznie nie do zrealizowania). Stosuje się różne algorytmy tego wyboru:</p>
@@ -2356,6 +2416,39 @@ if (!blokada) {
 		<!-- END: Struktura katalogów -->
 		
 		<section>
+			<h4>Polecenia</h4>
+			<p>Unixowe komendy (czyli polecenia rozumiane przez bash lub inny interpreter zgodny z sh) składają się z nazwy polecenia oraz opcji i argumentów. Nazwą polecenia może być nazwa funkcji wbudowanej, nazwa programu (znajdującego się w ścieżce wyszukiwania programów) lub pełna ścieżka do programu. Po nazwie polecenia mogą występować opcje i/lub argumenty. Są one oddzielane od nazwy polecenia i od siebie przy pomocy spacji (zasadniczo dowolnego ciągu białych znaków: spacji, tabulatorów, escapowanych nowych linii). Nie ma silnego rozróżnienia opcji od argumentów, typowo stosowaną konwencją jest rozpoczynanie opcji od pojedynczego myślnika (opcje krótkie - jednoliterowe) lub dwóch myślników (opcje długie). W przypadku stosowania tej konwencji po pojedynczym myślniku może występować kilka bezargumentowych opcji jednoliterowych. Typowo argumenty opcji oddzielane są od nich spacją (w przypadku opcji krótkich) lub znakiem równości (w przypadku opcji długich). Jeżeli któryś z składników komendy (np. argument) zawiera spacje należy je zabezpieczyć przy pomocy odwrotnego ukośnika lub ujęcia zawierającego je napisu w apostrofy lub cudzysłowa.</p>
+			
+			<section>
+				<h5>Przekierowania</h5>
+				<p>Typowo program posiada trzy strumienie danych: jeden wejściowy (stdin) i dwa wyjściowe (stdout i stderr). Standardowe wyjście możemy przekierować na standardowe wejście innego programu przy pomocy <code>|</code>, np: <code>ls --help | less</code>. Konstrukcja ta przekieruje wynik komendy <code>ls</code> uruchomionej z opcją <code>--help</code> do komendy <code>less</code>.</p>
+				
+				<p>Możemy także przekierować standardowe wyjście do pliku (przy pomocy~<code>&gt;</code> lub~<code>&gt;&gt;</code>, gdy chcemy dopisywać do pliku) lub pobrać standardowe wejście z pliku (przy pomocy <code>&lt;</code>). <code>2&gt;</code> pozwala na przekierowanie standardowego wyjścia błędu do pliku.</p>
+				
+				<p>Jeżeli zachodzi potrzeba połączenia obu strumieni możemy użyć <code>2&gt;&amp;1</code> w celu przekierowania strumienia drugiego do pierwszego. Następnie możemy użyć ~<code>|</code> aby przekierować połączony strumień do następnej komendy. Jeżeli chcemy przekierować go do pliku połączenie strumieni powinno mieć miejsce po przekierowaniu pierwszego z nich do pliku, np.: <code>ls . NieIstniejącyPlik &gt;log.txt 2&gt;&amp;1</code>. Bash pozwala użyć <code>&gt;&amp;</code> i <code>|&amp;</code>, które przekierowują oba strumienie odpowiednio do pliku lub standardowego wejścia innego polecenia, ale jest to rozszerzenie wykraczające poza standardową składnię sh.</p>
+			</section>
+			
+			<section>
+				<h5>Kod powrotu polecenia oraz łączenie poleceń</h5>
+				<p>Każde uruchamiane polecenie po zakończeniu działania zwraca liczbowy kod powrotu (w przypadku programów w C jest to wartość zwracana z funkcji <code>main</code>). Zero oznacza że polecenie zakończyło się sukcesem (np. znaleziono szukane pliki), wartość nie zerowa że zakończyło się porażką (np. nie ma pasujących plików) lub błędem (np. składnia wprowadzonego polecenia była niepoprawna).</p>
+				
+				<p>Polecenia mogą być łączone na różne sposoby – z wykorzystaniem tej informacji lub nie:
+					<ul>
+						<li><code>a &amp;&amp; b</code> – polecenie b wykona się gdy a zakończyło się sukcesem (zwróciło kod 0)</li>
+						<li><code>a || b</code> – polecenie b wykona się gdy a zakończyło się porażką lub błędem (zwróciło kod różny od~0)</li>
+						<li><code>a ; b</code> – polecenie b po zakończeniu polecenia a (bez względu na jego kod powrotu)</li>
+						<li><code>a &amp; b</code> – polecenie b będzie wykonywane równocześnie z a (dokładniej polecenie a zostanie uruchomione w tle, a na terminal zajmie polecenie b)</li>
+					</ul></p>
+				
+				<p>Spacje w powyższych konstrukcjach są opcjonalne. Średnik i pojedynczy <code>&amp;</code> mogą być dodane do polecenia także gdy nie ma kolejnego w ciągu:
+					<ul>
+						<li><code>a&amp;</code> uruchomi polecenie a w tle i odda linię poleceń,</li>
+						<li><code>a;</code> uruchomi polecenie a (dokładnie tak samo jakby nie było tego średnika).</li>
+					</ul></p>
+			</section>
+		</section>
+		
+		<section>
 			<h4>Najważniejsze polecenia</h4>
 			<p>Wiele z poniższych komend stanowi standardowe polecenia określone w POSIX / Single UNIX Specification, co gwarantuje ich obecność na kompatybilnych systemach (jednak nie jest to pełna lista poleceń wymaganych przez POSIX). Część z nich jest powszechnie dostępnym, wieloplatformowym oprogramowaniem dla systemów "unix-owatych". Niektóre (zwłaszcza związane z działaniami administracyjnymi) są specyficzne dla Debiana lub Linuxa.</p>
 			
@@ -2388,8 +2481,10 @@ if (!blokada) {
 					<!-- BEGIN: ssh -->
 					<dt><dfn>ssh</dfn> <var>[user@]host</var></dt>
 						<dd>umożliwia uzyskanie powłoki zdalnego systemu poprzez szyfrowane połączenie, przydatne opcje:<br />
-							<code>-L <var>portLokalny</var>:<var>hostZdalny</var>:<var>portZdalny</var></code> tworzy tunel przekierowujący dane kierowane na <var>portLokalny</var> komputera na którym działa klient ssh do portu <var>portZdalny</var> na serwerze <var>hostZdalny</var> poprzez serwer SSH (przydatne gdy <var>hostZdalny</var> jest osiągalny z <var>hostSSH</var> ale nie z komputera lokalnego)<br />
 							<code>-D <var>port</var></code> tworzy tunel dynamiczny na wskazanym porcie (może on być użyty jako proxy typu SOCKS np. w Firefoxie w celu zapewnienia dostępu do zasobów WWW dostępnych z serwera SSH a niedostępny z komputera lokalnego)<br />
+							<code>-L <var>portNasłuchiwania</var>:<var>hostZdalny</var>:<var>portZdalny</var></code> tworzy tunel przekierowujący dane kierowane na <var>portNasłuchiwania</var> komputera na którym działa klient ssh do portu <var>portZdalny</var> na serwerze <var>hostZdalny</var> poprzez serwer SSH (przydatne gdy <var>hostZdalny</var> jest osiągalny z <var>hostSSH</var> ale nie z komputera lokalnego)<br />
+							<code>-R <var>portNasłuchiwania</var>:<var>hostZdalny</var>:<var>portZdalny</var></code> tworzy tunel przekierowujący dane kierowane na <var>portNasłuchiwania</var> komputera na którym działa serwer ssh do portu <var>portZdalny</var> na serwerze <var>hostZdalny</var> dostępnego z klienta SSH (podobnie jak -L, tyle że w drugą stronę - nasłuchiwanie po stronie serwera a host zdalny po stronie klienta)<br />
+							<img src="tunele_ssh_full.svg" style="height:390px;margin-top:13px;margin-left:7px" alt="tunele ssh" /><br />
 							<code>-p <var>port</var></code> określa inny niż domyślny port serwera SSH<br />
 							<code>-X</code> aktywuje przekazywanie komend X serwera ze strony zdalnej do klienta (pozwala na uruchomienie po stronie zdalnej aplikacji z GUI, które zostanie wyświetlone na lokalnym X serwerze)
 						</dd>
@@ -2401,6 +2496,21 @@ if (!blokada) {
 					<dt><dfn>script</dfn></dt>
 						<dd>tworzy zapis sesji (stdin, stdout, ...)</dd>
 				</dl>
+				
+				<!-- BEGIN: katalog roboczy -->
+				<h6>katalog roboczy</h6>
+				<p>Możliwe jest wyrażanie wszystkich ścieżek od korzenia systemu plików (<code>/</code>), jednak nie jest to zbytnio wygodne. Interpreter poleceń taki jak <code>bash</code> potrafi "znajdować się" gdzieś w tej strukturze plików i miejsce to nazywane jest bieżącym katalogiem roboczym (Present Working Directory). Względem niego będą wyrażane ścieżki nie zaczynające się od korzenia, może być też oznaczony jawnie przy pomocy pojedynczej kropki.</p>
+				<dl class="cmdlist">
+					<dt><dfn>cd</dfn> <var>[ścieżka]</var></dt>
+						<dd>zmiana bieżącego katalogu,<br />
+							warto zauważyć, iż katalogi w ścieżce oddzielamy ukośnikami <code>/</code>, bieżący katalog oznaczamy kropką <code>.</code>, nadrzędny oznaczamy dwiema kropkami <code>..</code>,<br />
+							ścieżki zaczynające się od ukośnika <code>/</code> oznaczają ścieżki bezwzględne (od korzenia systemu plików), pozostałe oznaczają ścieżkę względną (wyrażoną względem bierzącego katalogu),<br />
+							katalog domowy oznacza się tyldą <code>~</code>
+						</dd>
+					<dt><dfn>pwd</dfn></dt>
+						<dd>wyświetla ścieżkę do bieżącego katalogu</dd>
+				</dl>
+				<!-- END: katalog roboczy -->
 			</section>
 			<section>
 				<h5>wyświetlanie i edycja plików</h5>
@@ -2523,20 +2633,6 @@ if (!blokada) {
 			</section>
 			<section>
 				<h5>Operacje na systemie plików</h5>
-				<!-- BEGIN: katalog roboczy -->
-				<h6>katalog roboczy</h6>
-				<dl class="cmdlist">
-					<dt><dfn>cd</dfn> <var>[ścieżka]</var></dt>
-						<dd>zmiana bieżącego katalogu,<br />
-							warto zauważyć, iż katalogi w ścieżce oddzielamy ukośnikami <code>/</code>, bieżący katalog oznaczamy kropką <code>.</code>, nadrzędny oznaczamy dwiema kropkami <code>..</code>,<br />
-							ścieżki zaczynające się od ukośnika <code>/</code> oznaczają ścieżki bezwzględne (od korzenia systemu plików), pozostałe oznaczają ścieżkę względną (wyrażoną względem bierzącego katalogu),<br />
-							katalog domowy oznacza się tyldą <code>~</code>
-						</dd>
-					<dt><dfn>pwd</dfn></dt>
-						<dd>wyświetla ścieżkę do bieżącego katalogu</dd>
-				</dl>
-				<!-- END: katalog roboczy -->
-				
 				<!-- BEGIN: Operacje na systemie plików -->
 				<h6>listowanie i  wyszukiwanie plików</h6>
 				<dl class="cmdlist">
@@ -2947,6 +3043,30 @@ if (!blokada) {
 					<dt><dfn>free</dfn></dt>
 						<dd>informacja o zajętości pamięci</dd>
 				</dl>
+				<section>
+					<h6>kill i zabijanie procesu</h6>
+					<p>Polecenie kill domyślnie wysyła sygnał SIGTERM, który jest prośbą o zakończenie procesu (proces może ją uszanować lub nie, np. zignorować). Więc sam kill nie zabija procesu.</p>
+					
+					<p>Wiele sygnałów może zostać przechwyconych i obsłużonych (zignorowanych) przez proces do którego są adresowane. Istnieją także sygnały, które nie mogą zostać obsłużone bądź zignorowane są to m.in.:
+						SIGKILL (zakończenie procesu bez dania mu jakiejkolwiek szansy zrobienia czegoś na „do widzenia”, wysyłany przez \Verb#kill -9#),
+						SIGSTOP (wstrzymanie procesu).</p>
+				</section>
+				<section>
+					<h6>Ctrl+C / Ctrl+Z / Ctrl+D / ...</h6>
+					<p><strong>Ctrl+C</strong> wysyła sygnał SIGINT do procesu zajmującego terminal na którym został on wprowadzony. Sygnał ten jest prośbą o zakończenie procesu, którą proces może uszanować lub nie (np. może całkiem zignorować lub poprosić o potwierdzenie). Jest on podobny do SIGTERM, jednak jest innym sygnałem i może być inaczej obsłużony (np. w SIGTERM nie ma większego sensu pytać o potwierdzenie).</p>
+					
+					<p><strong>Ctrl+Z</strong> wysyła sygnał SIGTSTP do procesu zajmującego terminal na którym został on wprowadzony. Sygnał ten jest prośbą o wstrzymanie procesu i oddanie terminala, prośba ta może być zignorowana przez proces. Proces przerwany w ten sposób może być wznowiony poleceniem <code>fg</code> (które wznowi go jako pierwszoplanowy – okupujący terminal) lub <code>bg</code> (które wznowi go jako jako proces w tle – oddając terminal, przodkowi który go posiadał wcześniej).</p>
+					
+					<p><strong>Ctrl+D</strong> nie wysyła żadnego sygnału, działa tylko gdy proces czyta dane z terminala (podłączonego zazwyczaj do jego standardowego wejścia). Wysyła on do terminala znak EOT (End-of-Transmission), w efekcie czego:
+					<ul>
+						<li>(jeżeli bufor wejściowy jest niepusty) terminal wypycha bufor wejściowy do programu (tak jak po wprowadzeniu nowej linii), albo</li>
+						<li>(jeżeli nie ma znaków w buforze) terminal zamyka strumień wprowadzanych danych do programu</li>
+					</ul>
+					Program nie otrzymuje w strumieniu znaku EOT (jest on przechwycony przez terminal).
+					Zamknięcie strumienia wejściowego na ogół prowadzi także do zakończenia działania programu, jednak (w odróżnieniu od Ctrl-C) pozwala programowi na normalne przetworzenie wprowadzonych danych.</p>
+					
+					<p><strong>Ctrl+S</strong> wstrzymuje przewijanie (odświeżanie) terminala, aby wznowić należy użyć <strong>Ctrl+Q</strong></p>
+				</section>
 			</section>
 			<!-- END: Użytkownicy, uprawnienia i procesy -->
 			<!-- BEGIN: Informacje o środowisku i systemie -->

@@ -37,6 +37,10 @@ ll = f.readlines()
 
 print(ll)
 
+# i kolejny raz ... jako jednolity tekst
+f.seek(0)
+print( f.read() )
+
 f.close()
 
 # jeżeli plik istnieje to:

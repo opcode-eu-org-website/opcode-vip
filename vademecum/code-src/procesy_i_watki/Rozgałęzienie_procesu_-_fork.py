@@ -1,19 +1,24 @@
 
+# napis który będzie podawany na standardowe wejście uruchamianego polecenia
+inStr = "Ala ma kota\nKot ma psa\n..."
+
+# Python pozwala na bezpośrednie stosowanie funkcji znanych z języka C
+# takich jak system(), popen(), fork(), execl() itd poprzez moduł os.
+# Odbywa się to w sposóba analogiczny do użycia w języku C. Na przykład:
+
+import os
+os.system('echo -en "' + inStr + '" | grep -v A')
+
+# Python zapewnia jednak także wygodny, zunifikowany sposób uruchamiania innych
+# programów / poleceń powłoki poprzez moduł subprocess oraz rozgałęziania
+# własnego procesu poprzez moduł multiprocessing.
+
 print("""
 #
 # podstawy subprocess
 #
 """)
 import subprocess
-
-# Python pozwala na bezpośrednie stosowanie funkcji takich jak system(),
-# popen(), fork(), execl() itd poprzez moduł os ... jednak zapewnia też
-# wygodny, zunifikowany sposób uruchamiania innych programów / poleceń
-# powłoki poprzez moduł subprocess oraz rozgałęziania własnego procesu
-# poprzez moduł multiprocessing
-
-# napis który zostanie podany na standardowe wejście
-inStr = "Ala ma kota\nKot ma psa\n..."
 
 # uruchamiamy subprocess z grep'em
 res = subprocess.run(["grep", "-v", "A"], input=inStr.encode(), stdout=subprocess.PIPE)

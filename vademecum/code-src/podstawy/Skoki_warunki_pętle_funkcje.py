@@ -1,5 +1,8 @@
 
-i=k=j=0
+i, k, j = 0, 0, 0 # wielokrotne przypisanie
+# najpierw oblicza wartości wyrażeń po prawej,
+# potem przypisuje. Pozwala na a, b = b, a
+# celem zamiany wartości zmiennych
 
 # instrukcja waunkowa if - else
 if i<j :
