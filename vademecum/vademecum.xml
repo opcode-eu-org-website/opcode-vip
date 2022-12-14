@@ -3247,6 +3247,8 @@ if (!blokada) {
 					
 				<h6>konfiguracja kart sieciowych (w tym WiFi)</h6>
 				<dl class="cmdlist">
+					<dt><dfn>tc</dfn></dt>
+						<dd>konfiguracja ustawień kontroli przepływu (kolejkowanie, itp)</dd>
 					<dt><dfn>ethtool</dfn></dt>
 						<dd>konfiguracja kart ethernetowych pod względem takich parametrów jak prędkość transmisji, duplex, wake on lan, etc</dd>
 					<dt><dfn>iwconfig</dfn></dt>
@@ -3351,7 +3353,7 @@ if (!blokada) {
 						<dd>zapisuje stdin do podanego pliku, równocześnie wypisując go na stdout</dd>
 					
 					<dt><dfn>file</dfn></dt>
-						<dd>rozpoznaje typ pliku</dd>
+						<dd>rozpoznaje typ pliku (w oparciu o zawartość)</dd>
 					<dt><dfn>iconv</dfn></dt>
 						<dd>konwersje kodowań plików tekstowych</dd>
 					<dt><dfn>konwert</dfn></dt>
@@ -3375,6 +3377,9 @@ if (!blokada) {
 						<dd>data i czas, program ten potrafi także przeliczać datę i czas - np. date -d @847103830 '+%Y-%m-%d %H:%M:%S', date -d '1996-11-04 11:37:10' '+%s', date -d '1996-11-04 11:37:10 +3week -2days'</dd>
 					<dt><dfn>cal</dfn></dt>
 						<dd>kalendarz</dd>
+					
+					<dt><dfn>wget</dfn> / <dfn>curl</dfn></dt>
+						<dd>pobieranie stron internetowych i plików</dd>
 					
 					<dt><dfn>calc</dfn> albo <dfn>apcalc</dfn></dt>
 						<dd>zaawansowany kalkulator o składni podobnej do C umożliwiający wykonywanie mi.in. operacji logicznych (w tym binarnych)</dd>
