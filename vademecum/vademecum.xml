@@ -19,7 +19,7 @@
 		<a href="vademecum.pdf"><img src="lib/pdfFile.svg" alt="Pobierz jako PDF" title="Pobierz jako PDF"/></a>
 	</p>
 </div>
-<p id="updateInfo">(aktualizacja: 2022-12-06)</p>
+<p id="updateInfo">(aktualizacja: 2023-06-25)</p>
 
 <section>
 	<p>
@@ -2834,7 +2834,10 @@ if (!blokada) {
 							<code>--exclude="<var>wyrażenie</var>"</code> pomiń pliki pasujące do <var>wyrażenie</var> (może zawierać znaki uogólniające powłoki)<br />
 							
 							<code>-l</code> wypisuje pliki z pasującymi liniami<br />
-							<code>-L</code> wypisuje pliki z bez pasujących linii
+							<code>-L</code> wypisuje pliki z bez pasujących linii<br />
+							
+							<code>-f</code> wczytaj wyrażenia z podanego pliku<br />
+							<code>-e</code> może być użyta do poprzedzenia wyrażenia (przydatne zwłaszcza jeżeli chcemy podać kilka)
 						</dd>
 					<!-- END: grep -->
 					<!-- BEGIN: diff patch -->
