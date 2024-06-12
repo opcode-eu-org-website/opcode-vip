@@ -57,18 +57,10 @@ upload:
 # submodules
 #
 
-.PHONY: checkout-submodules update-submodules protect-submodules
+.PHONY: checkout-submodules
 
 checkout-submodules:
-	git submodule update --init
-
-update-submodules: | checkout-submodules
-	git submodule foreach 'git pull origin master; git checkout -f .'
-	git submodule | awk '{print $$2}' | while read sm; do git add $$sm 2>/dev/null; done
-
-protect-submodules:
-	chmod 111 `git submodule | awk '{print $$2}'`
-	git submodule | awk '{print $$2}' | while read sm; do git config --local "submodule.$$sm.ignore" all; done
+	git submodule update --init --recursive
 
 #
 # include core makefile from TextUtils
