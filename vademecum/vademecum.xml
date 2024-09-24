@@ -2135,6 +2135,14 @@ if (!blokada) {
 	<!-- BEGIN: Sieci - intro -->
 	<p>Sieci komputerowe działają na zasadzie przesyłania informacji w postaci porcji, z których każda posiada co najmniej informację o adresie odbiorcy (zwykle też nadawcy), nazywanych ramkami lub pakietami. Kierowanie pakietów w odpowiednie miejsce odbywa się na podstawie adresu pakietu i nie jest związane z fizycznym zestawianiem łącza pomiędzy nadawcą a odbiorcą - każdy pakiet jest kierowany niezależnie, a w ramach pojedynczego łącza (kanału transmisji) mogą być przekazywane pakiety adresowane do różnych odbiorców. Nazywane jest to komutacją pakietów, w odróżnieniu od komutacji łącza (która występowała np. w klasycznej, analogowej telefonii, gdzie przekaźniki w centralach dokonywały zestawienia połączeń elektrycznych między dwoma aparatami telefonicznymi).</p>
 	
+	<p>To właśnie umieszczanie w nagłówku każdego z pakietów adresów umożliwia kierowanie ruchem takich pakietów bez wcześniejszego fizycznego zestawiania łącz. W oparciu o ten adres host jest w stanie rozpoznać czy pakiet jest przeznaczony dla niego czy nie, a przełączniki i routery mogą kierować pakiety do odpowiednich fragmentów sieci.</p>
+	
+	<p>Jeżeli w sieci komputerowej host A chce się komunikować z hostem B, a host C z hostem D nie musimy zapewnić im osobnych łączy do przeprowadzania takiej komunikacji, tak jak to było na przykład w klasycznej telefonii analogowej, gdzie dwie takie "rozmowy" wymagałyby zestawienia osobnych fizycznych kabli od jednego abonenta do drugiego (odbywało się to za pomocą przekaźników w centralach). W sieci komputerowej hosty te będą wytwarzały odpowiednio zaadresowane pakiety i reagowały tylko na pakiety zaadresowane do nich. Dzięki temu pakiety, stanowiące osobne strumienie komunikacji, mogą być z łatwością przesyłane tym samym fizycznym łączem. Host C może słyszeć lub nie komunikację pomiędzy hostami A i B (zależy to od różnych czynników, na przykład od wykorzystywanej sieci i względnego położenia tych hostów), natomiast wie że to "nie do niego". </p>
+	
+	<p>Jeżeli w ramach sieci mamy jakieś urządzenie dzielące ją na mniejsze kawałki, podział ten będzie się odbywał w oparciu o adresy pakietów – urządzenie takie do danej sieci będzie przekazywało tylko pakiety adresowane do hostów w tej sieci. Mamy do czynienia z przełączaniem, czyli komutacją pakietów – w odróżnieniu od (omówionej pokrótce na przykładzie telefonii) komutacji łączy, która polegała na zestawianiu fizycznego łącza pomiędzy komunikującymi się hostami.</p>
+	
+	<p>Protokoły sieciowe na ogół tworzą tak zwane stosy protokołów, gdzie dane opakowywane są kolejno w nagłówki kolejnych protokołów. Każdy z protokołów w takim stosie pełni dedykowane mu funkcje i na ogół nie ingeruje ani w protokoły warstwy niższej, ani w przenoszoną przez niego zawartość, czyli protokoły warstwy wyższej z danymi.</p>
+	
 	<p>Komunikacja sieciowa typowo posiada strukturę warstwową. W modelu OSI wyróżnia się 7 warstw:<ul>
 		<li>fizyczną (pierwszą) definiującą aspekty związane z fizycznym przesyłem sygnału takie jak częstotliwości radiowe, poziomy napięć, etc.;<br />
 			określa sposób transmisji kolejnych bajtów</li>
@@ -2172,7 +2180,22 @@ if (!blokada) {
 			
 			<p>Ethernet pozwala również na grupowanie kilku portów w jeden port wirtualny (tzw port trunking / bonding) celem zwiększenia przepustowości lub niezawodności łącza. A dzięki zastosowaniu w różnych typach sieci ethernet tego samego formatu ramki możliwe jest też stosunkowo proste zmienianie medium transmisyjnego (np. z kabla miedzianego na światłowód) z użyciem media-konwerterów.</p>
 			
-			<p>W przewodowych sieciach Ethernet wykrywaniem zajętości medium transmisyjnego oraz wykrywaniem kolizji zajmuje się protokół CSMA/CD (Carrier Sense Multiple Access with Collision Detection - wielodostęp z rozpoznawaniem stanu kanału oraz wykrywaniem kolizji). Przed rozpoczęciem nadawania stacja musi sprawdzić czy medium jest wolne, jeżeli tak może zacząć nadawać, jeżeli dwie stacje zaczną nadawać równocześnie zostaje to wykryte, obie przerywają nadawanie i wznawiają po losowym czasie. Jednak ze względu na stosowanie głównie połączeń punkt-punkt full-duplex (osobne przewody do nadawania i osobne do odbioru), co ogranicza tzw. domenę kolizji do pojedynczego hosta, protokół ten nie odgrywa obecnie szczególnie istotnej roli.</p>
+			<p>W przewodowych sieciach Ethernet wykrywaniem zajętości medium transmisyjnego oraz wykrywaniem kolizji zajmuje się protokół CSMA/CD (Carrier Sense Multiple Access with Collision Detection - wielodostęp z rozpoznawaniem stanu kanału oraz wykrywaniem kolizji). Przed rozpoczęciem nadawania stacja musi sprawdzić czy medium jest wolne, jeżeli tak może zacząć nadawać, jeżeli dwie stacje zaczną nadawać równocześnie zostaje to wykryte, obie przerywają nadawanie i wznawiają po losowym czasie. Jednak ze względu na stosowanie głównie połączeń punkt-punkt full-duplex (osobne przewody do nadawania i osobne do odbioru), co ogranicza tzw. domenę kolizji do pojedynczego hosta, protokół ten nie odgrywa tutaj szczególnie istotnej roli.</p>
+			
+			<section>
+				<h5>VLANy, bonding, ...</h5>
+				<p>Ethernet pozwala na wirtualne podzielenie pojedynczej sieci lokalnej na wiele niezależnych (nie komunikujących się ze sobą w warstwie ethernetu) sieci, nazywanych VLAN. Działanie tego mechanizmu opiera się na zastosowaniu zarządzalnych switchy, które programowo mogą być dzielone na części zapewniające separację ruchu poszczególnych VLANów. Ponadto wybrane porty takiego switcha mogą być przypisane do różnych części (celem udostępnienia do innego switcha lub hosta kilku sieci wirtualnych), w takim przypadku do ramek ethernetowych wysyłanych tym portem dodawana jest informacja do którego VLANu należą (dwu bajtowy numer), a w przypadku ramek otrzymywanych na podstawie tego numeru odbywa się ich kierowanie do odpowiedniej ”części” przełącznika (mówimy o VLANach tagowanych). Możliwe jest aby jeden wybrany VLAN na takim porcie był nie tagowany (do jego ramek nie będzie dodawany numer, a otrzymywane pakiety bez numeru będą kierowane do niego.</p>
+				<p>Ethernet pozwala również na grupowanie kilku portów w jeden port wirtualny (tzw port trunking / bonding) celem zwiększenia przepustowości lub niezawodności łącza. A dzięki zastosowaniu w różnych typach sieci ethernet tego samego formatu ramki możliwe jest też stosunkowo proste zmienianie medium transmisyjnego (np. z kabla miedzianego na światłowód) z użyciem media-konwerterów.</p>
+			</section>
+			
+			<section>
+				<h5>Kable</h5>
+				<p>Sieć ethernetowa wykorzystuje 8 żyłowe kable złożone z 4 par. Najpopularniejszym przewodem jest kabel UTP kategorii 5e, czyli nieekranowana skrętka pozwalająca na pracę z częstotliwością 100 MHz. W przypadku instalacji okablowania strukturalnego często stosowane są wyższe kategorie okablowania a także kable dodatkowo ekranowane. Ekran może obejmować osobno każdą parę, jak też może być wspólny dla całego przewodu, może być wykonany z folii lub siatki. Np. SF/FTP oznacza kabel z ekranem z siatki i folii (SF/), gdzie dodatkowo każda para jest ekranowana folią (FTP).</p>
+				
+				<p>W ramach poszczególnych par realizowana jest transmisja różnicowa, czyli istotne jest napięcie pomiędzy przewodami w parze, a nie napięcie na danym przewodzie (w odniesieniu do jakiegoś zewnętrznego poziomu odniesienia). Standard 100Mb/s (dokładniej 100BASE-TX) wykorzystuje jedynie dwie pary przewodów, standard 1Gb/s (1000BASE‑T) wykorzystuje wszystkie 4 pary przewodów. Długość kabla pomiędzy dwoma urządzeniami nie powinna przekraczać 100 m. Wykorzystywanie skręconych par przewodów (jeden skręt na 6-10 cm kabla) ma na celu eliminację zakłóceń transmisji - (w uproszczeniu) zakłócenia wchodzą tak samo na oba przewody i różnica miedzy nimi nie zmienia się.</p>
+				
+				<p>Kable zakańczane są gniazdami bądź wtykami typu RJ-45 montowanymi według jednego z dwóch schematów kolorystycznych: EIA/TIA 568A lub 568B. Pierwotnie (dla sieci 100Mb/s lub starszych) użycie różnych standardów na obu końcach kabla służyło stworzeniu kabla skrosowanego. Połączenie takie przy jednakowych urządzeniach, gdzie nadajnik i odbiornik trafia zawsze na te same piny, zamieniało na kablu nadajnik z odbiornikiem, umożliwiając transmisje między nimi. Aktualnie zdecydowana większość urządzeń obsługuje protokół Auto MDI-X, który umożliwia automatyczne ustalenie na których pinach odbywa się nadawanie, a na których odbiór. W rzadkich przypadkach konieczne może być jednak zastosowanie kabla skrosowanego</p>
+			</section>
 		</section>
 		<!-- END: Warstwa sprzętowa -->
 	</section>
@@ -2180,7 +2203,8 @@ if (!blokada) {
 		<!-- BEGIN: sieci IP -->
 		<h3>Sieci IP</h3>
 		<p>Protokół IP (Internet Protocol) odpowiedzialny jest przede wszystkim za sposób adresacji hostów oraz reguły komutacji pakietów (routing). Jest on wspomagany przez kolejny protokół z tej rodziny - ICMP (Internet Control Message Protocol), którego zadaniem jest przekazywanie informacji kontrolnych np. o nieosiągalności hosta docelowego, odrzuceniu przetwarzania pakietu ze względu na zbyt dużą liczbę skoków (gdy wartość pola TTL z nagłówka IP wyniesie zero) a także pingi (zarówno żądanie jak i odpowiedź).</p>
-		<!-- END: adresacja IP -->
+		<p>Jako że IP stworzony jest do łączenia różnych fizycznych sieci w jedną sieć logiczną (internet), to pozwala on na wydzielanie w oparciu o zasady adresacji mniejszych fragmentów sieci, nazywanych niekiedy podsieciami. Oczywiście zapewnia też mechanizmy przekazywania pakietów pomiędzy takimi podsieciami.</p>
+		<!-- END: sieci IP -->
 		<section>
 			<!-- BEGIN: adresacja IP -->
 			<h4>Adresacja i routing</h4>
@@ -2232,12 +2256,16 @@ if (!blokada) {
 			<!-- BEGIN: TCP / UDP -->
 			<p>
 				W oparciu o protokół IP działają protokoły warstwy transportowej takie jak UDP, TCP, czy też (mniej znane protokoły czasu rzeczywistego, transmisji strumieniowych): RTP, RTCP i SCTP.
+			</p>
+			<p>
+				Jednym z zadań tych protokołów jest identyfikowanie usługi (procesu) w ramach systemu posiadającego dany adres IP, do którego mają trafić dane.
+				W tym celu zarówno UDP jak i TCP na każdym z hostów wyróżniają numeryczny identyfikator dla aplikacji/procesu/usługi będącego odbiorcą czy też nadawcą informacji zwany \strong{numerem portu}.
+			</p>
+			<p>
 				Najprostszym protokołem warstwy transmisji wydaje się być UDP, protokół ten umożliwia przesłanie informacji pomiędzy dwoma hostami IP i nie kontroluje on tego czy została ona przesłana poprawnie.
 				Natomiast TCP kontroluje to czy przesłana informacja dotarła do adresata i nie została uszkodzona, a w przypadku problemów informacja wysyłana jest ponownie. TCP w związku z tym w przeciwieństwie do UDP musi otworzyć połączenie i wykorzystywać je do kontroli poprawności przesłania informacji, wymaga zatem przesłania większej liczby pakietów (co może prowadzić do pewnych opóźnień itp).
 				W związku z tym TCP używany jest tam gdzie konieczna jest kontrola poprawności transmisji (oraz ponowne wysłanie zgubionego pakietu), UDP tam gdzie nie jest to potrzebne (a liczy się czas).
-			</p>
-			<p>
-				Dodatkowo zarówno UDP jak i TCP na każdym z hostów wyróżniają numeryczny identyfikator dla aplikacji/procesu/usługi będącego odbiorcą czy też nadawcą informacji zwany numerem portu.
+				Z połączeniem występującym w protokole TCP związane jest także pojęcie wielkości okna, czyli tego co ile (tysięcy) bajtów odbiorca musi potwierdzać odbiór pakietów. Wielkość ta jest dynamicznie dostosowywana do parametrów łącza, pozwalając na sterowanie przepływem - jeżeli wysycana jest dostępna przepustowość łącza, dochodzi do strat pakietów i wielkość okna jest zmniejszana.
 			</p>
 			<!-- END: TCP / UDP -->
 			<p>
