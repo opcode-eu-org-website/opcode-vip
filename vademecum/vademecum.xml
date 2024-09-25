@@ -19,7 +19,7 @@
 		<a href="vademecum.pdf"><img src="lib/pdfFile.svg" alt="Pobierz jako PDF" title="Pobierz jako PDF"/></a>
 	</p>
 </div>
-<p id="updateInfo">(aktualizacja: 2023-06-25)</p>
+<p id="updateInfo">(aktualizacja: 2024-09-25)</p>
 
 <section>
 	<p>
@@ -284,6 +284,18 @@
 					<li>fotodiody - będące detektorami oświetlenia (przewodzenie spolaryzowanej w kierunku zaporowym zależy od ilości padającego na element światła, niespolaryzowana pod wpływem oświetlenia staje się źródłem prądu).</li>
 				</ul>
 			</p>
+			<section>
+				<h5>prostownik</h5>
+				<img src="img/prostowniki.svg" class="right_img" style="height:120px; margin-bottom:10px" alt="symbole diód" />
+				<p>Jednym z zastosowań diod jest prostowania prądów przemiennych (zmieniającego znak). Układy to realizujące określa się mianem prostowników.</p>
+				<p>Funkcję tą może pełnić nawet pojedyncza dioda – mamy wtedy do czynienia z prostownikiem jednopołówkowym, charakteryzującym się tym że napięcie na jego wyjściu spada przez połowę okresu wynosi zero.</p>
+				<p>Lepszym i częściej stosowanym rozwiązaniem jest prostownik pełnookresowy (dwupołówkowy). Najczęstszą jego realizacją jest tzw. mostek Graetza, czyli układ 4 diod połączonych w taki sposób iż dwie z nich zawsze (w każdym punkcie napięcia wejściowego) przewodzą. Wadą takiego układu jest znaczny spadek napięcia na mostku, wynoszący dwukrotność spadku napięcia na pojedynczej diodzie.</p>
+				<p>Istnieją również układy prostowników napięcia trójfazowego, charakteryzują się one m.in. niższymi tętnieniami napięcia wyjściowego – dla prostowników jednofazowych wacha się ono (pomijając spadki na diodach) od <m>0</m> do <m>V_{LN}\sqrt{2}</m>, a dla pełnookresowego trójfazowego od <m>V_{LL}\sqrt{2}\sin{60}</m> do <m>V_{LL}\sqrt{2}</m> (gdzie <m>V_{LN}</m> to napięcie skuteczne pomiędzy fazą a przewodem neutralnym, a <m>V_{LL} = V_{LN}\sqrt{3}</m> to napięcie skuteczne międzyfazowe).</p>
+			</section>
+			<section>
+				<h5>dzielnik napięcia z diodą Zenera</h5>
+				<p>Wadą rezystancyjnego dzielnik napięcia złożonego z dwóch rezystorów była duża zależność napięcia wyjściowego od obciążenia. Zjawisko to można ograniczyć zastępując jeden z rezystorów (ten równolegle połączony z obciążeniem) diodą Zenera w polaryzacji zaporowej, która charakteryzuje się dość stałym spadkiem napięcia. Nadal nie jest to rozwiązanie idealne (ze względu na zależność napięcia przebicia diody Zenera od prądu), ale znacznie bardziej stabilne od poprzedniego.</p>
+			</section>
 		</section>
 	</section>
 	<!-- END: Elektronika - Dioda -->
@@ -1185,6 +1197,22 @@
 				</dl>
 			</p>
 		</section>
+		<section>
+			<h4>Rezystory terminujące</h4>
+			<p>Niektóre  ze standardów interfejsów komunikacyjnych przewidują kończenie swoich magistral rezystorem terminującym. Zastosowanie takiego rezystora ma na celu eliminację odbić sygnału, które mogłyby powstać na końcu linii transmisyjnej.</p>
+			
+			<p>Zjawisko to występuje w przypadku <i>linii długich</i>, czyli takich których długość jest zbliżona lub większa od długości fali związanej z przesyłanym sygnałem. Jeżeli rozważymy np. impuls o czasie trwania 1μs to zajmie on na kablu odcinek o długości około 200m (zależy to od prędkości rozchodzenia się fali elektromagnetycznej w ośrodku który stanowi dany przewód). Zatem dla sygnału 1MHz (czyli takiego gdzie pojedyncze impulsy są właśnie długości 1μs) przewód o długości kilkuset metrów będzie linią długą.</p>
+			
+			<p>Odbicia te wynikają z faktu, iż przemieszczanie się sygnału (np. naszego impulsu 5V o czasie trwania 1μs) wzdłuż przewodu związane jest z ładowaniem kolejnych pojemności pasożytniczych, związanych z odcinkiem przewodu do którego dociera sygnał. Dzieje się to kosztem rozładowania pojemności odcinka przewodu który sygnał już opuścił.</p>
+			<p>W momencie gdy sygnał trafia na koniec przewodnika nie ma możliwości rozładowania tej pojemności na kolejny odcinek przewodu, więc ładunek z nią związany „rozpływa się po kablu” powodując powstanie odbicia. Odbicie takie (biegnące od końca przewodu w stronę nadajnika) nakłada się na kolejne impulsy naszego sygnału (biegnące od nadajnika) i powoduje zakłócenia w ich odbiorze (interpretacji).</p>
+			
+			<p>Zastosowanie odpowiedniego rezystora na końcu linii pozwala na rozładowanie tej pojemności (tak jakby był tam kolejny nieskończenie długi odcinek przewodu) i eliminację odbicia. Wartość tej rezystancji jest charakterystyczna dla danego przewodu i określana przez parametr nazywany <i>impedancją falową</i>.</p>
+			<p>Rezystor terminujący stanowi obciążenie dla nadajnika i powinien on być stosowany tylko na końcach magistrali, czyli np. na ostatnich urządzeniach podłączonych do magistrali (a nie przy każdym urządzeniu do niej włączonym).</p>
+
+			<p>Jeżeli długość linii jest dużo mniejsza (dla sygnałów prostokątnych przyjmuje się że około 20-40 razy) od długości odcinka jaką zajmuje pojedynczy impuls (np. linia długości 3m, dla przykładowego sygnału 1MHz) to nie ma potrzeby stosowania rezystorów terminujących (często nawet gdy w ogólności dany standard je przewiduje), gdyż stan całej linii jest spójny i wymuszany przez nadajnik (nie jest to przypadek linii długiej).</p>
+			
+			<p>Standard I2C nie przewiduje rezystorów terminujących (i nie powinny być w nim używane, zwłaszcza że są to linie open drain i powstawałby dzielnik z rezystorem pull-up). Wynika to z tego iż przy maksymalnej prędkości tego interfejsu za linie długie należałoby uznać odcinki co najmniej kilkunastometrowe, a z innych względów standard ten posiada ograniczenie do kilku metrów.</p>
+			<p>Standard RS-485 przewiduje stosowanie rezystorów terminujących 120 Ω, jednak w przypadku krótkich połączeń i/lub małych prędkości transmisji mogą one być pominięte.</p>
 		<!-- END: Elektronika - Typy transmisji -->
 	</section>
 	<section>
