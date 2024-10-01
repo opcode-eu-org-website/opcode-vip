@@ -2509,7 +2509,7 @@ if (!blokada) {
 				
 				<p>Możemy także przekierować standardowe wyjście do pliku (przy pomocy~<code>&gt;</code> lub~<code>&gt;&gt;</code>, gdy chcemy dopisywać do pliku) lub pobrać standardowe wejście z pliku (przy pomocy <code>&lt;</code>). <code>2&gt;</code> pozwala na przekierowanie standardowego wyjścia błędu do pliku.</p>
 				
-				<p>Jeżeli zachodzi potrzeba połączenia obu strumieni możemy użyć <code>2&gt;&amp;1</code> w celu przekierowania strumienia drugiego do pierwszego. Następnie możemy użyć ~<code>|</code> aby przekierować połączony strumień do następnej komendy. Jeżeli chcemy przekierować go do pliku połączenie strumieni powinno mieć miejsce po przekierowaniu pierwszego z nich do pliku, np.: <code>ls . NieIstniejącyPlik &gt;log.txt 2&gt;&amp;1</code>. Bash pozwala użyć <code>&gt;&amp;</code> i <code>|&amp;</code>, które przekierowują oba strumienie odpowiednio do pliku lub standardowego wejścia innego polecenia, ale jest to rozszerzenie wykraczające poza standardową składnię sh.</p>
+				<p>Jeżeli zachodzi potrzeba połączenia obu strumieni możemy użyć <code>2&gt;&amp;1</code> w celu przekierowania strumienia drugiego do pierwszego. Następnie możemy użyć <code>|</code> aby przekierować połączony strumień do następnej komendy. Jeżeli chcemy przekierować go do pliku połączenie strumieni powinno mieć miejsce po przekierowaniu pierwszego z nich do pliku, np.: <code>ls . NieIstniejącyPlik &gt;log.txt 2&gt;&amp;1</code>. Bash pozwala użyć <code>&gt;&amp;</code> i <code>|&amp;</code>, które przekierowują oba strumienie odpowiednio do pliku lub standardowego wejścia innego polecenia, ale jest to rozszerzenie wykraczające poza standardową składnię sh.</p>
 			</section>
 			
 			<section>
