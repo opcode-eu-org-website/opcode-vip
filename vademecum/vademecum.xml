@@ -1213,6 +1213,7 @@
 			
 			<p>Standard I2C nie przewiduje rezystorów terminujących (i nie powinny być w nim używane, zwłaszcza że są to linie open drain i powstawałby dzielnik z rezystorem pull-up). Wynika to z tego iż przy maksymalnej prędkości tego interfejsu za linie długie należałoby uznać odcinki co najmniej kilkunastometrowe, a z innych względów standard ten posiada ograniczenie do kilku metrów.</p>
 			<p>Standard RS-485 przewiduje stosowanie rezystorów terminujących 120 Ω, jednak w przypadku krótkich połączeń i/lub małych prędkości transmisji mogą one być pominięte.</p>
+		</section>
 		<!-- END: Elektronika - Typy transmisji -->
 	</section>
 	<section>
