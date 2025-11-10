@@ -19,7 +19,7 @@
 		<a href="vademecum.pdf"><img src="lib/pdfFile.svg" alt="Pobierz jako PDF" title="Pobierz jako PDF"/></a>
 	</p>
 </div>
-<p id="updateInfo">(aktualizacja: 2024-09-25)</p>
+<p id="updateInfo">(aktualizacja: 2025-11-10)</p>
 
 <section>
 	<p>
@@ -41,8 +41,10 @@
 <section>
 	<h2>Elektronika</h2>
 	<!-- BEGIN: Elektronika - intro -->
-	<p>Elektronika zajmuje się wytwarzaniem i przetwarzaniem sygnałów w postaci prądów i napięć elektrycznych.
-		Zjawisko prądu związane jest z przepływem ładunku (z uporządkowanym ruchem nośników ładunku), aby wystąpiło konieczna jest różnica potencjałów (napięcie) pomiędzy końcami przewodnika, prowadzi ono do neutralizacji tej różnicy.
+	<p>Konstruowanie układów elektronicznych pozwala na przetwarzanie sygnałów w postaci prądów i napięć elektrycznych.
+		Dzięki temu możemy tworzyć różnego rodzaju systemy sterujące, przesyłające informacje, czy też ją przetwarzające.</p>
+	
+	<p>Zjawisko prądu związane jest z przepływem ładunku (z uporządkowanym ruchem nośników ładunku), aby wystąpiło konieczna jest różnica potencjałów (napięcie) pomiędzy końcami przewodnika, prowadzi ono do neutralizacji tej różnicy.
 		Dlatego dla podtrzymania stałej różnicy potencjałów konieczne jest istnienie źródeł prądu, prowadzących do rozdzielania ładunków dodatnich od ujemnych.</p>
 	<section>
 		<h3>Podstawy</h3>
@@ -50,11 +52,20 @@
 			<h4>Napięcie i prąd</h4>
 			<p>Dla elementów liniowych (np. zwykły kawałek przewodu) zachodzi proporcjonalność natężenia prądu płynącego przez taki element do napięcia pomiędzy jego końcami: <m>R = \frac{U}{I}</m>.</p>
 			<dl>
+				<dt><dfn>Prąd elektryczny</dfn></dt>
+				<dd>jest to zjawisko związane jest z przepływem ładunku (z uporządkowanym ruchem nośników ładunku), aby wystąpiło konieczna jest różnica potencjałów (napięcie) pomiędzy końcami przewodnika.</dd>
+				
 				<dt><dfn>Natężenie prądu elektrycznego</dfn> <dfn><m>I</m></dfn> (określane skrótowo jako <dfn>prąd</dfn>)</dt>
-				<dd>jest to stosunek przemieszczonego ładunku do czasu jego przepływu.</dd>
+				<dd>
+					jest to stosunek przemieszczonego ładunku do czasu jego przepływu.<br />
+					Określa ono intensywność przepływu ładunku. Przyjmuje się umowny kierunek przepływu prądu (bez względu na rzeczywisty kierunek przepływu nośników ładunku) od potencjału wyższego do niższego.
+				</dd>
 				
 				<dt><dfn>Napięcie elektryczne</dfn> <dfn><m>U</m></dfn> pomiędzy punktem A i B (jakiegoś obwodu)</dt>
-				<dd>jest to różnica potencjału elektrycznego w punkcie A i w punkcie B.</dd>
+				<dd>
+					jest to różnica potencjału elektrycznego w punkcie A i w punkcie B.<br />
+					Jako że wynik odejmowania zależy od kolejności argumentów, to także znak napięcia zależy od kierunku, w którym przechodzimy po obwodzie elektrycznym.
+				</dd>
 				
 				<dt><dfn>Potencjał elektryczny</dfn> <dfn><m>V</m></dfn> w punkcie A</dt>
 				<dd>
@@ -63,7 +74,11 @@
 				</dd>
 				
 				<dt><dfn>Masa</dfn>, <dfn>GND</dfn></dt>
-				<dd>umowny potencjał zerowy, względem którego wyraża się inne potencjały w układzie (co umożliwia traktowanie ich jako różnic potencjałów - napięć elektrycznych). Potencjał ten może być równy potencjałowi ziemi (masie ochronnej PE), bądź może być z nim nie związany (układy izolowane).</dd>
+				<dd>
+					umowny potencjał zerowy, względem którego wyraża się inne potencjały w układzie (co umożliwia traktowanie ich jako różnic potencjałów - napięć elektrycznych). Potencjał ten może być równy potencjałowi ziemi (masie ochronnej PE), bądź może być z nim nie związany (układy izolowane).<br />
+					Można też spotkać się z układami w których wyróżnia się więcej niż jedną masę, a także (jeszcze rzadziej) takie w których nie wyróżnia się żadnego z potencjałów.
+					O kilku osobnych masach możemy mówić w sytuacji gdy w układzie występują części nie połączone ze sobą elektrycznie (na przykład zasilane z osobnych źródeł napięcia lub odizolowane transformatorem).
+				</dd>
 			</dl>
 			
 			<p>Podstawowym przykładem teoretycznych (w rzeczywistości mogą występować tylko elementy realizujące ich funkcję w pewnym zakresie i w pewnym przybliżeniu) elementów nieliniowych są:
@@ -75,29 +90,145 @@
 					<dd>wymusza określoną różnicę potencjałów pomiędzy swoimi zaciskami (czyli może przez nie przepływać dowolne natężenie prądu).</dd>
 				</dl>
 			</p>
-			
-			<p>Węzeł układu (sam w sobie, pomijając zjawiska pasożytnicze) nie jest w stanie gromadzić ładunku elektrycznego zatem: <em>Suma prądów wpływających do węzła jest równa sumie prądów wypływających z tego węzła.</em></p>
-			
-			<p>Jeżeli rozważamy obwód zamknięty od punktu A z potencjałem <m>V_A</m> to sumując napięcia na kolejnych elementach obwodu (oporach, źródłach napięciowych, etc) z uwzględnieniem ich znaku gdy wrócimy do punktu A to potencjał nadal musi wynosić <m>V_A</m>, zatem: <em>Suma spadków napięć w zamkniętym obwodzie jest równa zeru.</em></p>
 		</section>
-	<!-- END: Elektronika - intro -->
 		
-	<!-- BEGIN: Elektronika - bierne -->
 		<section>
-			<h4>Opór, pojemność i indukcyjność</h4>
+			<h4>Obwody elektryczne</h4>
+			<p>Obwód elektryczny składa się z elementów elektrycznych oraz węzłów je łączących. Graficzną reprezentację (modelu) obwodu elektrycznego jest jego schemat.</p>
 			
 			<section>
-				<h5>Pojęcia</h5>
-				<dl>
-					<dt><dfn>Rezystancja</dfn> (<dfn>opór</dfn> elektryczny)</dt>
-					<dd>wyraża trudność przepływu prądu przez dany przewodnik - im większy opór elementu to (przy takim samym przyłożonym napięciu) będzie płynął mniejszy prąd. <m>R = \frac{U}{I}</m></dd>
+				<h5>Podstawowe prawa</h5>
+			
+				<section>
+					<h6>Pierwsze prawo Kirchhoffa</h6>
+					<p>Węzeł układu (sam w sobie, pomijając zjawiska pasożytnicze) nie jest w stanie gromadzić ładunku elektrycznego zatem: <em>Suma prądów wpływających do węzła jest równa sumie prądów wypływających z tego węzła.</em></p>
+				</section>
+				
+				<section>
+					<h6>Drugie prawo Kirchhoffa</h6>
+					<p>Jeżeli rozważamy obwód zamknięty od punktu A z potencjałem <m>V_A</m> to sumując napięcia na kolejnych elementach obwodu (oporach, źródłach napięciowych, etc) z uwzględnieniem ich znaku gdy wrócimy do punktu A to potencjał nadal musi wynosić <m>V_A</m>, zatem: <em>Suma spadków napięć w zamkniętym obwodzie jest równa zeru.</em></p>
+				</section>
+				
+				<section>
+					<h6>Zależność prądu i napięcia</h6>
+					<p>Występuje (charakterystyczna dla danego elementu) zależność pomiędzy napięciem na jego wyprowadzeniach a płynącym prądem.</p>
 					
-					<dt><dfn>Pojemność</dfn> (wzajemna)</dt>
-					<dd>wyraża zdolność do gromadzenia ładunku przez dany element - im większa pojemność tym więcej ładunku (przy takim samym przyłożonym napięciu) zgromadzi element. <m>C = \frac{q}{U}</m></dd>
+					<p>Dla znaczącej grupy materiałów ma ona postać: <em>Prąd elektryczny płynący między dwoma punktami jest wprost proporcjonalny do napięcia między tymi punktami.</em> (<dfn>Prawo Ohma</dfn>) Jednocześnie w wielu innych przypadkach zależność ta może mieć inną postać.</p>
 					
-					<dt><dfn>Indukcyjność</dfn></dt>
-					<dd>wyraża zdolność do wytwarzania strumienia pola magnetycznego związanego z przepływem prądu przez dany element. <m>L = \frac{I}{\Phi}</m></dd>
-				</dl>
+					<p>Stosunek napięcia pomiędzy końcami elementu (dla którego zachodzi Prawo Ohma, np. rezystora czy zwykłego kawałka przewodu) do natężenia prądu przez niego płynącego nazywamy \textbf{oporem}: <m>R = \frac{U}{I}</m>.</p>
+				</section>
+			</section>
+			
+			<section>
+				<h5>Konwencje schematów</h5>
+				
+				<p>Nie ma oficjalnego standardu, który określałby sposób rysowania schematów elektronicznych, czy elektrycznych i używane na nich symbole. Są to powszechnie przyjęte zwyczaje. Zdarza się także, że temu samemu elementowi odpowiada kilka różnych reprezentacji graficznych.</p>
+				
+				<p>Typowo elektronicy na schematach nie rysują źródeł napięcia (np. w postaci symbolu baterii – chyba że chodzi o podkreślenie, iż dane zasilanie faktycznie odbywa się z baterii lub akumulatora), zamiast tego umieszczają znaczniki potencjałów zasilania (np. +5V, +3V3, Vcc, Vbus) względem masy i znaczniki masy (GND, ⏚).</p>
+				
+				<p>Typowo potencjały wyższe umieszcza się na schemacie wyżej a niższe niżej (czyli 5V będzie na górze, a GND na dole), a przepływ prąd odbywa się w relacji od lewej do prawej i z góry na dół. Jest to ogólna reguła, ułatwiająca czytanie schematów, nie jest ona jednak wyrocznią i trafiają się od niej odstępstwa, podyktowane zwiększeniem czytelności schematu.</p>
+			</section>
+		</section>
+		<section>
+			<h4>Opór, pojemność i indukcyjność</h4>
+			<dl>
+				<dt><dfn>Rezystancja</dfn> (<dfn>opór</dfn> elektryczny)</dt>
+				<dd>wyraża trudność przepływu prądu przez dany przewodnik - im większy opór elementu to (przy takim samym przyłożonym napięciu) będzie płynął mniejszy prąd. <m>R = \frac{U}{I}</m></dd>
+				
+				<dt><dfn>Pojemność</dfn> (wzajemna)</dt>
+				<dd>wyraża zdolność do gromadzenia ładunku przez dany element - im większa pojemność tym więcej ładunku (przy takim samym przyłożonym napięciu) zgromadzi element. <m>C = \frac{q}{U}</m></dd>
+				
+				<dt><dfn>Indukcyjność</dfn></dt>
+				<dd>wyraża zdolność do wytwarzania strumienia pola magnetycznego związanego z przepływem prądu przez dany element. <m>L = \frac{I}{\Phi}</m></dd>
+			</dl>
+		</section>
+	<!-- END: Elektronika - intro -->
+	
+	<!-- BEGIN: Elektronika - bierne -->
+		<section>
+			<h4>Elementy bierne</h4>
+			<dl>
+				<dt><dfn>Rezystor</dfn> (<dfn>opornik</dfn>)</dt>
+				<dd>wprowadza do układu rezystancję związaną z swoją wartością nominalną. Typowo służy do ograniczania wartości prądu przez niego przepływającego. Symbole:
+					<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 -2 100 27" style="height:16px; stroke:black; fill:none">
+						<rect x="25" y="0" width="50" height="20" stroke-width="3" />
+						<line x1="0" y1="10" x2="25" y2="10" stroke-width="3" />
+						<line x1="75" y1="10" x2="100" y2="10" stroke-width="3" />
+					</svg>,
+					<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="-2 -2 100 27" style="height:16px; stroke:black; fill:none">
+						<polyline points="0,10 20,10 26,2 38,18 50,2 62,18 74,2 80,10 100,10" stroke-width="3" />
+					</svg>.
+				<br />
+				Powoduje wydzielanie się energii (cieplnej) związanej z stratami na rezystancji - moc wydzielana dana jest zależnościami: <m>P = UI = \frac{U^2}{R} = I^2R</m>, czyli przy stałym napięciu przyłożonym do rezystora im większy jego opór tym mniejsza moc się wydzieli (gdyż popłynie mniejszy prąd), ale przy stałym prądzie płynącym przez rezystor moc rośnie wraz ze wzrostem oporu.</dd>
+				
+				<dt><dfn>Kondensator</dfn></dt>
+				<dd>wprowadza do układu pojemność związaną z swoją wartością nominalną. Typowo służy do ograniczania zmian napięcia (poprzez gromadzenie energii w polu elektrycznym). Symbole:
+					<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 -2 50 32" style="height:20px; stroke:black; fill:none">
+						<line x1="0" y1="15" x2="20" y2="15" stroke-width="3" />
+						<line x1="30" y1="15" x2="50" y2="15" stroke-width="3" />
+						<line x1="20" y1="0" x2="20" y2="30" stroke-width="3" />
+						<line x1="30" y1="0" x2="30" y2="30" stroke-width="3" />
+					</svg>,
+					<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 -2 55 32" style="height:20px; stroke:black; fill:none">
+						<line x1="0" y1="15" x2="20" y2="15" stroke-width="3" />
+						<line x1="35" y1="15" x2="55" y2="15" stroke-width="3" />
+						<line x1="20" y1="0" x2="20" y2="30" stroke-width="3" />
+						<line x1="31" y1="0" x2="31" y2="30" stroke-width="7" />
+					</svg>.
+				Czas potrzebny do zmiany napięcia na kondensatorze dany jest zależnością:<m>\Delta T = \frac{C \cdot \Delta U}{I}</m></dd>
+				
+				<dt><dfn>Cewka</dfn> (<dfn>dławik</dfn>)</dt>
+				<dd>
+					<p>wprowadza do układu indukcyjność związaną z swoją wartością nominalną. Typowo służy do ograniczania zmian prądu (poprzez gromadzenie energii w polu magnetycznym). Symbol:
+						<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 27" style="height:16px; stroke:black; fill:none">
+							<path d="M 0,21 L 20,21 A 10,12 0 0 1 40,21 A 10,12 0 0 1 60,21 A 10,12 0 0 1 80,21 L 100,21" stroke-width="3" />
+						</svg>.
+					Czas potrzebny zmiany prądu płynącego przez cewkę (dławik stawia opór takiej zmianie tak jak kondensator zmianie napięcia) dany jest zależnością: <m>\Delta T = \frac{L \cdot \Delta I}{U}</m>.
+					</p>
+					<p>
+						Często cewka nawinięta jest na rdzeń ferrytowy, bardzo silnie zwiększa on indukcyjność cewki, ale ogranicza od góry częstotliwość pracy cewki. Ponadto przy odpowiednio dużym prądzie może dochodzić do nasycenia rdzenia, które objawia się tym, że zaczyna in hamować wzrost pola zamiast go poprawiać.
+						Cewki możemy spotkać w urządzeniach takich jak przekaźniki, czy styczniki . Nawinięte na odpowiednim rdzeniu pełnią one tam funkcję elektromagnesu odpowiedzialnego za zmianę fizycznej pozycji styków prowadzącą do ich zwarcia lub rozwarcia (przełączania).
+					</p>
+					<p><strong>Rozłączanie cewki:</strong> Jako że cewka jest elementem który dąży do zachowania płynącego przez niego prądu, to w przypadku rozwarcia obwodu zawierającego cewkę napięcie na niej będzie rosło i bez problemów może wielokrotnie przekroczyć napięcie zasilania. Zjawisko to bywa użyteczne i jest wykorzystywane w niektórych układach (np. przetwornicach podnoszących napięcie), ale często bywa też niepożądane, a nawet bardzo szkodliwe – może prowadzić do uszkadzania innych elementów w obwodzie (w szczególności elementu przełączającego). Aby mu przeciwdziałać stosuje się połączoną równolegle z cewką diodę, spolaryzowaną w taki sposób aby w normalnym stanie nie przewodziła, a po odłączeniu zasilania cewki pozwalała na jej rozładowanie.</p>
+				</dd>
+				
+				<dt><dfn>Transformator</dfn></dt>
+				<dd>Układ cewek sprzężonych magnetycznie (na wspólnym rdzeniu), z których część służy do wytwarzania energii pola magnetycznego, a część do jej odbierania. Wykorzystywany jest do przekazywania energii poprzez pole magnetycznym (w najprostszym wypadku jedna z cewek dzięki przepływowi zmiennego prądu elektrycznego wytwarza zmienne pole magnetyczne, inna dzięki zmiennemu polu magnetycznemu wytwarza przemienny prąd elektryczny). Typowo celem zmiany napięcia lub separacji galwanicznej obwodów.<br />
+					W przypadku dwu uzwojeniowego transformatora zachodzi: <m>\frac{U_{we}}{U_{wy}} = \frac{I_{wy}}{I_{we}} = \frac{n_{we}}{n_{wy}} = z</m>, gdzie <m>z</m> to przekładnia transformatora, <m>n_{we}</m> to liczba uzwojeń strony pierwotnej (wejściowej), a <m>n_{wy}</m> to liczba uzwojeń strony wtórnej (wyjściowej).<br /><br />
+					Najpowszechniejszym wykorzystaniem transformatorów jest podnoszenie i obniżanie napięcia w energetyce. Na przykład przy elektrowniach mamy transformatory podwyższające napięcie, gdyż generator w elektrowniach pracuje na ogół na napięciu rzędu kilku kilowoltów (na przykład 6 kV), a sieci przesyłowe pracują na napięciu kilkuset kilowoltów (na przykład na 220 kV). Następnie im bardziej zbliżamy się do odbiorcy energii elektrycznej, to mamy kolejne transformatory, tym razem obniżające napięcie najpierw do kilkunastu kilowoltów, a potem do 230 woltów, czyli takiego jakie mamy w domach. Takie podwyższenie napięcia pozwala obniżyć straty przesyłowe i stosować mniejsze średnice przewodów.<br />
+					Oprócz tego transformator może służyć do separacji galwanicznej obwodów, czyli rozdzielenia obwodu pierwotnego od obwodu wtórnego, w taki sposób aby prąd pomiędzy nimi nie mógł przepływać bezpośrednio. Wykonuje się to nawet pracując na tym samym napięciu, czyli istnieją i są stosowane również transformatory o przekładni jeden do jednego. Separacja taka opiera się na tym, że jeżeli nie zewrzemy w jakiś sposób jednego bieguna strony pierwotnej z jednym biegunem strony wtórnej, to napięcie wyjściowe (które jest pomiędzy biegunami strony wtórnej), nie ma żadnego odniesienia do napięć strony pierwotnej. Można zaobserwować że napięcia te pływają względem siebie.<br />
+					Typowo takie połączenie strony pierwotnej i wtórnej realizowane jest poprzez uziemienie jednego z wyprowadzeń każdej ze stron. W przypadku sieci elektroenergetycznych, które wykorzystują prąd trójfazowy, typowo łączony z potencjałem Ziemi jest punkt neutralny transformatora. W efekcie w większości naszych domowych gniazdek mamy przewód neutralny (połączony z potencjałem Ziemi) i fazowy (na którym jest napięcie w stosunku co do Ziemi). Zatem jeżeli chcemy żeby nasze napięcia za transformatorem odnosiły się do potencjału Ziemi to jeden z biegunów również uziemiamy, a jeżeli chcemy żeby transformator był separujący to tego nie robimy. Pierwsze podejście stosowane jest w większości (prawidłowo zasilonych) komputerów stacjonarnych, a drugie w wielu laptopach.
+				</dd>
+				
+				<dt><dfn>Styk</dfn></dt>
+				<dd>jest to element służący do mechanicznego załączania lub odłączania prądu, nazywany bywa także przełącznikiem.
+					Wyróżnia się styki monostabilne (chwilowe), które samoistnie (po ustaniu czynnika przełączającego) wracają do jednej ze swoich pozycji oraz styki bistabilne, które po przełączeniu pozostają w wybranej pozycji.
+					Wyróżnia się także styki zwierne (normalnie rozwarte), rozwierne (normalnie zwarte) lub przełączne (następuje przełączanie pomiędzy dwoma lub więcej możliwymi wyjściami).
+					Czynnikiem odpowiedzialnym za przełączanie styków może być manualne działanie (przełącznik naciskany, przekręcany, pociąganym, itd przez człowieka) lub działanie elektromagnesu (cewki) - jest to wtedy przekaźnik elektromagnetyczny lub stycznik.<br />
+					Stan zwarcia określa się często mianem "zamknięty" (ang. "close"), a rozwarcia mianem "otwarty" ("open"). W niektórych przypadkach (zwłaszcza w automatyce) w ramach grup styków działających na skutek tego samego czynnika mechanicznego wyróżnia się (i oznacza zmodyfikowanymi symbolami) styki wyprzedzające (załączające się przed pozostałymi) i opóźnione (działające jako ostatnie).<br />
+					Należy (zwłaszcza w systemach cyfrowych) pamiętać, że styki potrafią drgać - na ogół przy zmianie pozycji zamiast pojedynczego impulsu generują całą serię.<br />
+					Styki posiadają także swoje parametry, do głównych należy zaliczyć: obciążalność prądową, rezystancję zamkniętego styku, trwałość mechaniczną (ilość cykli pracy). W energetyce oznacza się także zdolność rozłączania prądów roboczych oraz prądów zwarciowych przez dany styk.
+				</dd>
+			</dl>
+			<p>Elementy rzeczywiste oprócz wartości nominalnej (wprowadzanej przez nie rezystancji, pojemności lub indukcyjności) charakteryzują także:
+				<ul>
+					<li>wartości graniczne (takie jak maksymalna moc która może wydzielić się na rezystorze, napięcie przebicia kondensatora, maksymalny prąd przewodzenia cewki, temperaturowy zakres pracy, ...),</li>
+					<li>impedancje pasożytnicze (każdy element rzeczywisty wprowadza zarówno niepożądaną rezystancję, jak i niepożądaną reaktancję nie związaną z jego wartością nominalną).</li>
+				</ul>
+				W większości przypadków impedancję pasożytniczą można pominąć. Jednak np. w przypadku rzeczywistych źródeł napięciowych i prądowych rezystancja wewnętrzna takiego źródła często odgrywa istotną rolę dla działania układu i nie może zostać pominięta.
+			</p>
+		</section>
+		
+		<section>
+			<h4>Zmienność w czasie</h4>
+			<p>Wartość napięcia bądź prądu wytwarzanego przez dane źródło może być stała (<dfn>DC</dfn>) lub zmienna w czasie (<dfn>AC</dfn>).</p>
+			
+			<p>Warto zauważyć że nawet w układach DC podczas załączania zasilania występuje stan przejściowy, zanim system osiągnie stan ustalony. W tym czasie prądy i napięcia w obwodach mogą gwałtownie wzrosnąć, a potem stabilizować się do wartości nominalnych. Jest to istotne dla układów z kondensatorami i indukcyjnościami, które w stanie ustalonym działają inaczej niż w chwili załączenia. O stanach przejściowych i ustalonych możemy mówić także w przypadku prądu zmiennego (AC) – stan ustalony oznacza cykliczne zmiany parametrów, zgodne z częstotliwością sygnału.</p>
+			
+			<section>
+				<h5>Zasilanie vs sygnał</h5>
+				
+				<p>Terminy DC i AC często używane są w kontekście zasilania i wtedy oznaczają zasilanie stałym napięciem / prądem bądź napięciem / prądem sinusiodalnie przemiennym. Sygnały zmienne to takie, które cyklicznie zmieniają swoją wartość w czasie (np. typowy sygnał audio). Sygnały impulsowe są formą sygnałów zmiennych, charakteryzują się krótkotrwałymi zmianami wartości (np. sygnały prostokątne lub wąskie impulsy), często stosowane w cyfrowych układach logicznych i sterujących.</p>
 			</section>
 			
 			<section>
@@ -107,7 +238,8 @@
 						<li>pojemności zgromadziły już (stosowny do przyłożonego do nich napięcia) ładunek i nie pobierają prądu z obwodu,</li>
 						<li>indukcyjności wytworzyły pole magnetyczne (stosowne do przepływającego przez nie prądu) i nie stanowią oporu dla płynącego prądu w obwodzie.</li>
 					</ul>
-				W takim przypadku można traktować pojemności jako rozwarcia, a indukcyjności jako zwarcia.</p>
+				W takim przypadku można traktować pojemności jako rozwarcia, a indukcyjności jako zwarcia.
+				Związane z tym jest także jedno z częstych zastosowań kondensatora – odcinanie składowej stałej. Wykorzystuje ono fakt że kondensator stanowi rozwarcie dla prądu stałego, ale przewodzi prąd zmienny (ze względu na prąd związany z jego ładowanie / rozładowywaniem).</p>
 				
 				<dl>
 					<dt><dfn>Impedancja</dfn></dt>
@@ -119,73 +251,6 @@
 					<dt><dfn>Pulsacja</dfn> <dfn><m>\omega</m></dfn></dt>
 					<dd>charakteryzuje szybkość zmian (jest proporcjonalna do odwrotności czasu trwania okresu zmiany). <m>\omega = \frac{2\pi}{T}</m></dd>
 				</dl>
-			</section>
-			
-			<section>
-				<h5>Elementy rzeczywiste</h5>
-				<dl>
-					<dt><dfn>Rezystor</dfn> (<dfn>opornik</dfn>)</dt>
-					<dd>wprowadza do układu rezystancję związaną z swoją wartością nominalną. Typowo służy do ograniczania wartości prądu przez niego przepływającego. Symbole:
-						<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 -2 100 27" style="height:16px; stroke:black; fill:none">
-							<rect x="25" y="0" width="50" height="20" stroke-width="3" />
-							<line x1="0" y1="10" x2="25" y2="10" stroke-width="3" />
-							<line x1="75" y1="10" x2="100" y2="10" stroke-width="3" />
-						</svg>,
-						<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="-2 -2 100 27" style="height:16px; stroke:black; fill:none">
-							<polyline points="0,10 20,10 26,2 38,18 50,2 62,18 74,2 80,10 100,10" stroke-width="3" />
-						</svg>.
-					<br />
-					Powoduje wydzielanie się energii (cieplnej) związanej z stratami na rezystancji - moc wydzielana dana jest zależnościami: <m>P = UI = \frac{U^2}{R} = I^2R</m>, czyli przy stałym napięciu przyłożonym do rezystora im większy jego opór tym mniejsza moc się wydzieli (gdyż popłynie mniejszy prąd), ale przy stałym prądzie płynącym przez rezystor moc rośnie wraz ze wzrostem oporu.</dd>
-					
-					<dt><dfn>Kondensator</dfn></dt>
-					<dd>wprowadza do układu pojemność związaną z swoją wartością nominalną. Typowo służy do ograniczania zmian napięcia (poprzez gromadzenie energii w polu elektrycznym). Symbole:
-						<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 -2 50 32" style="height:20px; stroke:black; fill:none">
-							<line x1="0" y1="15" x2="20" y2="15" stroke-width="3" />
-							<line x1="30" y1="15" x2="50" y2="15" stroke-width="3" />
-							<line x1="20" y1="0" x2="20" y2="30" stroke-width="3" />
-							<line x1="30" y1="0" x2="30" y2="30" stroke-width="3" />
-						</svg>,
-						<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 -2 55 32" style="height:20px; stroke:black; fill:none">
-							<line x1="0" y1="15" x2="20" y2="15" stroke-width="3" />
-							<line x1="35" y1="15" x2="55" y2="15" stroke-width="3" />
-							<line x1="20" y1="0" x2="20" y2="30" stroke-width="3" />
-							<line x1="31" y1="0" x2="31" y2="30" stroke-width="7" />
-						</svg>.
-					Czas potrzebny do zmiany napięcia na kondensatorze dany jest zależnością:<m>\Delta T = \frac{C \cdot \Delta U}{I}</m></dd>
-					
-					<dt><dfn>Cewka</dfn> (<dfn>dławik</dfn>)</dt>
-					<dd>
-						<p>wprowadza do układu indukcyjność związaną z swoją wartością nominalną. Typowo służy do ograniczania zmian prądu (poprzez gromadzenie energii w polu magnetycznym). Symbol:
-							<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 27" style="height:16px; stroke:black; fill:none">
-								<path d="M 0,21 L 20,21 A 10,12 0 0 1 40,21 A 10,12 0 0 1 60,21 A 10,12 0 0 1 80,21 L 100,21" stroke-width="3" />
-							</svg>.
-						Czas potrzebny zmiany prądu płynącego przez cewkę (dławik stawia opór takiej zmianie tak jak kondensator zmianie napięcia) dany jest zależnością: <m>\Delta T = \frac{L \cdot \Delta I}{U}</m>.
-						</p>
-						<p>
-							Często cewka nawinięta jest na rdzeń ferrytowy, bardzo silnie zwiększa on indukcyjność cewki, ale ogranicza od góry częstotliwość pracy cewki. Ponadto przy odpowiednio dużym prądzie może dochodzić do nasycenia rdzenia, które objawia się tym, że zaczyna in hamować wzrost pola zamiast go poprawiać.
-							Cewki możemy spotkać w urządzeniach takich jak przekaźniki, czy styczniki . Nawinięte na odpowiednim rdzeniu pełnią one tam funkcję elektromagnesu odpowiedzialnego za zmianę fizycznej pozycji styków prowadzącą do ich zwarcia lub rozwarcia (przełączania).
-						</p>
-						<p><strong>Rozłączanie cewki:</strong> Jako że cewka jest elementem który dąży do zachowania płynącego przez niego prądu, to w przypadku rozwarcia obwodu zawierającego cewkę napięcie na niej będzie rosło i bez problemów może wielokrotnie przekroczyć napięcie zasilania. Zjawisko to bywa użyteczne i jest wykorzystywane w niektórych układach (np. przetwornicach podnoszących napięcie), ale często bywa też niepożądane, a nawet bardzo szkodliwe – może prowadzić do uszkadzania innych elementów w obwodzie (w szczególności elementu przełączającego). Aby mu przeciwdziałać stosuje się połączoną równolegle z cewką diodę, spolaryzowaną w taki sposób aby w normalnym stanie nie przewodziła, a po odłączeniu zasilania cewki pozwalała na jej rozładowanie.</p>
-					</dd>
-					
-					<dt><dfn>Transformator</dfn></dt>
-					<dd>Układ cewek sprzężonych magnetycznie, z których część służy do wytwarzania energii pola magnetycznego, a część do jej odbierania. Typowo służy do przekazywania energii poprzez pole magnetycznym celem zmiany napięcia lub separacji galwanicznej obwodów.<br />
-					W przypadku dwu uzwojeniowego transformatora zachodzi: <m>\frac{U_{we}}{U_{wy}} = \frac{I_{wy}}{I_{we}} = \frac{n_{we}}{n_{wy}} = z</m>, gdzie <m>z</m> to przekładnia transformatora, <m>n_{we}</m> to liczba uzwojeń strony pierwotnej (wejściowej), a <m>n_{wy}</m> to liczba uzwojeń strony wtórnej (wyjściowej).</dd>
-					
-					<dt><dfn>Styk</dfn></dt>
-					<dd>jest to element służący do mechanicznego załączania lub odłączania prądu, nazywany bywa także przełącznikiem.
-						Wyróżnia się styki monostabilne (chwilowe), które samoistnie (po ustaniu czynnika przełączającego) wracają do jednej ze swoich pozycji oraz styki bistabilne, które po przełączeniu pozostają w wybranej pozycji.
-						Wyróżnia się także styki zwierne (normalnie rozwarte), rozwierne (normalnie zwarte) lub przełączne (następuje przełączanie pomiędzy dwoma lub więcej możliwymi wyjściami).
-						Czynnikiem odpowiedzialnym za przełączanie styków może być manualne działanie (przełącznik naciskany, przekręcany, pociąganym, itd przez człowieka) lub działanie elektromagnesu (cewki) - jest to wtedy przekaźnik elektromagnetyczny lub stycznik.<br />
-						Stan zwarcia określa się często mianem "zamknięty" (ang. "close"), a rozwarcia mianem "otwarty" ("open"). Należy (zwłaszcza w systemach cyfrowych) pamiętać, że styki potrafią drgać - na ogół przy zmianie pozycji zamiast pojedynczego impulsu generują całą serię.</dd>
-				</dl>
-				<p>Elementy rzeczywiste oprócz wartości nominalnej (wprowadzanej przez nie rezystancji, pojemności lub indukcyjności) charakteryzują także:
-					<ul>
-						<li>wartości graniczne (takie jak maksymalna moc która może wydzielić się na rezystorze, napięcie przebicia kondensatora, maksymalny prąd przewodzenia cewki, temperaturowy zakres pracy, ...),</li>
-						<li>impedancje pasożytnicze (każdy element rzeczywisty wprowadza zarówno niepożądaną rezystancję, jak i niepożądaną reaktancję nie związaną z jego wartością nominalną).</li>
-					</ul>
-					W większości przypadków impedancję pasożytniczą można pominąć. Jednak np. w przypadku rzeczywistych źródeł napięciowych i prądowych rezystancja wewnętrzna takiego źródła często odgrywa istotną rolę dla działania układu i nie może zostać pominięta.
-				</p>
 			</section>
 		</section>
 		
@@ -479,7 +544,7 @@
 				</p>
 				<p>
 					Zastosowanie diod Zenera Z1 i Z2 zabezpiecza tranzystory MOSFET przed podaniem na bramkę zbyt dużego (co do wartości bezwzględnej) napięcia w stosunku co do źródła. 
-					Niestety wiąże się to także z zastosowaniem  to zastosowaniem rezystora R12, który (tworząc dzielnik) powoduje iż układ nie będzie działał poprawnie dla niskich napięć zasilania toru prądowego - napięcie musi być większe od <m>2 U_{GS (th)}</m> zamiast od <m>U_{GS (th)}</m>. <!-- FIXME: układ z kluczem PNP,  a może dwa warianty szybki (PNP+NPN do sterowania MOSFETami) i zabezpieczony ? -->
+					Niestety wiąże się to także z zastosowaniem  to zastosowaniem rezystora R12, który (tworząc dzielnik) powoduje iż układ nie będzie działał poprawnie dla niskich napięć zasilania toru prądowego - napięcie musi być większe od <m>2 U_{GS (th)}</m> zamiast od <m>U_{GS (th)}</m>. <!-- TODO: układ z kluczem PNP,  a może dwa warianty szybki (PNP+NPN do sterowania MOSFETami) i zabezpieczony ? -->
 					Ponadto wymaga to zastosowania osobnych gałęzi sterujących dla poszczególnych tranzystorów MOSFET (dwóch kluczy NPN), ponieważ obecność Z21 w gałęzi sterującej P-MOSFETem (Q1) przy wyższym napięciu zasilania powodowała by przepływ prądu przez tą gałąź niezależnie od Q3 co mogłoby prowadzić do przewodzenia Q1.
 				</p>
 				<!-- END: Elektronika - mostek H -->
@@ -582,6 +647,11 @@
 	<section>
 		<h3>Cyfrowa</h3>  <!-- wspominać numery użytych w przykładach układów scalonych -->
 		<section>
+			<p>
+				Cyfrowość elektroniki polega na reprezentacji sygnałów w formie abstrakcyjnych wartości liczbowych, zamiast bezpośredniej wartości elektrycznych.
+				Liczby te zazwyczaj zapisywane są w systemie dwójkowym. Napięcie poniżej jakiejś wartości odpowiada zeru na danej cyfrze, natomiast powyżej jakiegoś poziomu jedynce. Kolejnymi cyframi są napięcia w różnych miejscach obwodu („na kolejnych przewodach”) lub w na pojedynczym przewodzie w kolejnych jednostkach czasu.
+				Taka reprezentacja w postaci dyskretnych poziomów napięć, identyfikowanych jako zera i jedynki – wartości logicznego fałszu i prawdy, pozwala między innymi zwiększyć odporność na zakłócenia i bezstratnie replikować taką cyfrową informację.
+			</p>
 			<h4>Algebra Boole'a i system dwójkowy</h4>
 			
 			<h5>podstawowe operacje i elementy neutralne</h5>
@@ -1293,6 +1363,17 @@
 <section>
 	<h2>Programowanie</h2>
 	
+	<p>Działanie procesora (a zatem i komputerów) polega na pobieraniu i wykonywaniu kolejnych instrukcji jakiegoś programu. Mają one postać numeryczną, zrozumiałą dla danej architektury procesora, czyli kodu maszynowego. Tym instrukcjom jeden do jednego odpowiadają instrukcje asemblera danego procesora.</p>
+	
+	<p>Programowanie to tworzenie ciągu takich instrukcji. Program taki może być zapisany od razu w oparciu o zbiór instrukcji, które dany procesor obsługuje. Bądź z użyciem innego zbioru instrukcji, które zostaną przetłumaczone na te obsługiwane przez dany procesor. Proces tego tłumaczenia nazywany jest kompilacją lub interpretacją w zależności od momentu w którym ma miejsce - przed uruchomieniem programu dfla wszystkich instrukcji lub w trakcie działania dla aktualnie wykonywanych instrukcji. Tworząc programy komputerowe najczęściej korzysta się właśnie z wyżej poziomowych języków programowania i operuje na bardziej abstrakcyjnych instrukcjach, które są niezależne od architektury procesora.</p>
+	<p>Programowanie polega na zapisie pewnego algorytmu, określającego to co i w jaki sposób ma robić dany program, w pewnym języku programowania. Istnieją setki języków programowania, jednak w prawie każdym z nich można odnaleźć mechanizmy związane z tymi samymi podstawowymi koncepcjami programistycznymi:<ul>
+		<li>wykonywanie operacji arytmetycznych, logicznych oraz bitowych – komputer jest cyfrową elektroniczną maszyną liczącą, więc większość jego działa sprowadza się do jakiegoś rodzaju obliczeń (na liczbach zapisanych w systemie dwójkowym)</li>
+		<li>korzystanie z pamięci, czyli odwoływanie się oraz modyfikowanie przechowywanych w niej danych – jeżeli operacja wykonywana przez program nie jest jakiegoś rodzaju obliczeniem prawie na pewno będzie pobraniem bądź modyfikcją danych w pamięci (np. zmiana litery w edytorze tekstu, czy koloru piksela w programie graficznym)</li>
+		<li>powtarzanie oraz warunkowe wykonywanie pewnej grupy – pozwala na redukcję ilości kodu, „automatyzację” różnych operacji i możliwość reagowania na dane i sygnały wejściowe</li>
+		<li>wywoływanie (a także tworzenie własnych) funkcji bibliotecznych – czyli definiowanie i wywoływanie z innego miejsca programu fragmentów kodu operujących na przekazanych do nich argumentach i mogących zwracać wynik operacji</li>
+		<li>wykonywanie operacji wejścia / wyjścia, czyli wczytywania danych i zwracania wyników – operacje takie mogą być związane np. z lokalnymi urządzeniami wejścia/wyjścia (jak klawiatura i monitor), danymi zapisanymi na różnego rodzaju nośnikach (jak dyski twarde), dostępem do sieci komputerowej, mechanizmami komunikacji międzyprocesowej, itd.</li>
+	</ul></p>
+	
 	<p>Zagadnienia są ilustrowane przykładowymi kodami w jednym lub kilku z pośród następujących języków: C++ (niekiedy z podziałem na podejście w stylu C i w stylu C++), Python, Bash, PHP i JavaScript. Wybór takiego zbioru języków wynika z odmiennych cech każdego z nich:<ul>
 		<li>C++ / C są najpopularniejszymi językami kompilowanymi do kodu maszynowego (a jeżeli traktować je łącznie to najpopularniejszymi językami w ogóle), pozwalają na stosowanie niskopoziomowych mechanizmów (łącznie z wstawkami asemblerowymi), są użyteczne do bezpośredniego programowania sprzętu (bez warstwy systemu operacyjnego) czy też tworzenia systemów operacyjnych</li>
 		<li>Python - najpopularniejszy język skryptowy, wygodny (w miarę łatwy / szybki) w pisaniu i nauce, oferuje bardzo wiele gotowych bibliotek, pozwala na dość prostą integrację z kodem C/C++</li>
@@ -1301,9 +1382,136 @@
 		<li>JavaScript - najpopularniejszy język skryptowy dla WWW, element HTML5</li>
 	</ul>Ponadto każdy z tych języków wykorzystywany jest w wielu projektach (od jądra Linuxa do systemu MediaWiki) i ich przynajmniej zgrubna znajomość może okazać się przydatna.</p>
 	
-	<p>Język C++ oraz C są językami kompilowalnymi to znaczy (po zmodyfikowaniu źródeł) przed uruchomieniem programu konieczne jest dokonanie tłumaczenia kodu źródłowego na kod maszynowy przy pomocy odpowiedniego programu (np. <code>clang++</code> lub <code>g++</code>). Kompilacja C i C++ przebiega kilku etapowo. W pierwszej kolejności wywoływany jest preprocesor, który jest odpowiedzialny za włączanie plików określonych poprzez <code>#include</code> (jest to literalne włączenie zawartości wskazanego pliku w danym miejscu, obsługę rozwijania stałych makr preprocesora (definiowanych z użyciem <code>#define</code>) oraz kompilację warunkową z wykorzystaniem poleceń takich jak <code>#ifdef</code> czy <code>#if</code>. Kompilatory pozwalają na uzyskanie nie tylko wynikowego pliku binarnego, ale także plików po przetworzeniu przez preprocesor czy też po konwersji na assembler.</p>
-	<p>Python, Bash i PHP są językami interpretowanymi, czyli uruchamianiu podlega bezpośrednio kod źródłowy który jest analizowany i wykonywany przez interpreter danego języka. Mogą one uruchamiać kod z podanego pliku lub interaktywnie wprowadzany w konsoli interpretera. Kod wprowadzany interaktywnie może być wykonywany bezpośrednio po jego wprowadzeniu (tzn. wprowadzeniu znaku nowej linii, a w przypadku bloków instrukcji - zakończenia takiego bloku). W Bashu i Pythonie jest to zachowanie domyślne, natomiast w przypadku PHP wymaga podania opcji <code>-a</code> (jej podanie zakłada że podawany kod jest tylko częścią ujętą w <code>&lt;?php</code> i <code>?&gt;</code>, bez tej opcji kod zostanie zinterpretowany i wykonany dopiero po wczytaniu znaku końca pliku, który można wprowadzić Ctrl+D).</p>
-	<p>Zarówno kompilatory jak i interpretery mogą generować błędy lub ostrzeżenia dotyczące przetwarzanego kodu, przy jego poprawianiu ważne jest ich czytanie z próbą zrozumienia (niekiedy potrafią być dziwne i odnosić się nie do tego co jest przyczyną problemu). Rozwiązując problem należy skupić się na pierwszym błędzie, gdyż kolejne mogą być jego wynikiem (jest to szczególnie ważne w przypadku kompilacji C++ / C, gdzie możemy uzyskać bardzo wiele błędów). Programy mogą także generować błędy typu "run time error" w trakcie działania, przykładami takich błędów są rzucane i nie obsługiwane wyjątki oraz błędy związane z odwołaniami do pamięci (np. przekroczeniem zakresu tablicy w C) komunikowane zazwyczaj jako "Segmentation fault".</p>
+	<section>
+		<h3>Wielość języków programowania</h3>
+
+		<p>Istnienie więcej niż jednego języka programowania pozwala na dostosowanie języka do specyfiki jego użycia - trochę innych mechanizmów będzie wymagał język przeznaczony do pracy z plikami i uruchamiania innych programów, inaczej wysokopoziomowy język skryptowy ogólnego przeznaczenia, a jeszcze inaczej niezbyt wysokopoziomowy, wydajny, język kompilowany. Warto też poznać więcej niż jedne język programowania tak aby poznane przez programistę języki pokrywały takie różne zastosowania. Nie warto jednak uczyć się kilkunastu czy więcej języków „na zapas”, gdyż po pierwsze nieużywane języki, ich szczegóły składniowe będzie się zapominać, a po drugie umiejąc programować opanowanie kolejnego (zwłaszcza niezbyt egzotycznego) języka jest kwestią kilku-kilkunastu godzin programowania posiłkując się dokumentacją tego języka i jego standardowych bibliotek.</p>
+		
+		<section>
+			<h4>Kompilacja vs interpretacja</h4>
+			
+			<p>Istotnym podziałem języków programowania jest podział na języki kompilowane i interpretowane.</p>
+			
+			<p>W przypadku języków kompilowanych konieczne jest przekształcenie źródeł programu w kod maszynowy przy pomocy odpowiedniego programu (kompilatora). Kompilacja może przebiegać kilku etapowo – na przykład najpierw może być wywołany preprocesor (celem przetworzenia kodu źródłowego na kod wyjściowy), następnie właściwa kompilacja kodu w języku wysokiego poziomu do kodu assemblerowego / kodu maszynowego, a dopiero na końcu konsolidacja czyli linkowanie z używanymi bibliotekami oraz ustalenie punktu wejścia (miejsca od którego rozpocznie wykonywanie się programu).</p>
+			
+			<p>W przypadku języków interpretowanych (skryptowych) interpreter języka czyta na bieżąco kolejne instrukcje kodu źródłowego i wykonuje. Instrukcje te mogą być czytane z pliku tekstowego (praca wsadowa) lub wprowadzane do linii poleceń interpretera przez użytkownika komputera (praca interaktywna).</p>
+			
+			<p>Wyróżnić należy też języki kompilowane do kodu pośredniego - w takim przypadku kod źródłowy jest kompilowany do (typowo) niezależnego od platformy sprzętowej binarnego kodu pośredniego. I dopiero ten kod jest interpretowany i tłumaczony na instrukcje procesora w trakcie uruchamiania/działania programu. </p>
+			
+			<p>Typowo zaletą języków interpretowanych jest możliwość pracy interaktywnej i łatwość modyfikowania kodu, a języków kompilowanych szybkość działania programu.</p>
+		</section>
+	</section>
+
+	<section>
+		<h3>Uruchamianie kodu i pierwszy program</h3>
+	
+		<p>Język C++ oraz C są językami kompilowalnymi to znaczy (po zmodyfikowaniu źródeł) przed uruchomieniem programu konieczne jest dokonanie tłumaczenia kodu źródłowego na kod maszynowy przy pomocy odpowiedniego programu (np. <code>clang++</code> lub <code>g++</code>). Kompilacja C i C++ przebiega kilku etapowo. W pierwszej kolejności wywoływany jest preprocesor, który jest odpowiedzialny za włączanie plików określonych poprzez <code>#include</code> (jest to literalne włączenie zawartości wskazanego pliku w danym miejscu, obsługę rozwijania stałych makr preprocesora (definiowanych z użyciem <code>#define</code>) oraz kompilację warunkową z wykorzystaniem poleceń takich jak <code>#ifdef</code> czy <code>#if</code>. Kompilatory pozwalają na uzyskanie nie tylko wynikowego pliku binarnego, ale także plików po przetworzeniu przez preprocesor czy też po konwersji na assembler.</p>
+	
+		<p>Python, Bash i PHP są językami interpretowanymi, czyli uruchamianiu podlega bezpośrednio kod źródłowy który jest analizowany i wykonywany przez interpreter danego języka. Mogą one uruchamiać kod z podanego pliku lub interaktywnie wprowadzany w konsoli interpretera. Kod wprowadzany interaktywnie może być wykonywany bezpośrednio po jego wprowadzeniu (tzn. wprowadzeniu znaku nowej linii, a w przypadku bloków instrukcji - zakończenia takiego bloku). W Bashu i Pythonie jest to zachowanie domyślne, natomiast w przypadku PHP wymaga podania opcji <code>-a</code> (jej podanie zakłada że podawany kod jest tylko częścią ujętą w <code>&lt;?php</code> i <code>?&gt;</code>, bez tej opcji kod zostanie zinterpretowany i wykonany dopiero po wczytaniu znaku końca pliku, który można wprowadzić Ctrl+D).</p>
+	
+		<p>Zarówno kompilatory jak i interpretery mogą generować błędy lub ostrzeżenia dotyczące przetwarzanego kodu, przy jego poprawianiu ważne jest ich czytanie z próbą zrozumienia (niekiedy potrafią być dziwne i odnosić się nie do tego co jest przyczyną problemu). Rozwiązując problem należy skupić się na pierwszym błędzie, gdyż kolejne mogą być jego wynikiem (jest to szczególnie ważne w przypadku kompilacji C++ / C, gdzie możemy uzyskać bardzo wiele błędów). Programy mogą także generować błędy typu "run time error" w trakcie działania, przykładami takich błędów są rzucane i nie obsługiwane wyjątki oraz błędy związane z odwołaniami do pamięci (np. przekroczeniem zakresu tablicy w C) komunikowane zazwyczaj jako "Segmentation fault".</p>
+		
+		<div class="demo_codes">
+			<section class="demo_tab" data-title="C">
+			<h4>C</h4>
+				<section>
+					<h5>Kompilacja</h5>
+					
+					<p>Programy w C wymagają kompilacji i konsolidacji, celem zamiany kodu źródłowego na kod wykonywalny. W środowisku linuxowym tym celu możemy skorzystać z jednego z kilku dostępnych kompilatorów (zauważ że w każdym przypadku podstawowa składnia jest taka sama):<ul>
+						<li>Domyślnego kompilatora C (zazwyczaj jeden z poniższych): <code>cc -o plik_wykonywalny plik_zrodlowy.c</code></li>
+						<li>Tiny C Compiler: <code>tcc -o plik_wykonywalny plik_zrodlowy.c</code></li>
+						<li>kompilatora C z GNU Compiler Collection: <code>gcc -o plik_wykonywalny plik_zrodlowy.c</code></li>
+						<li>clang i LLVM: <code>clang -o plik_wykonywalny plik_zrodlowy.c</code></li>
+					</ul></p>
+					<p>W każdym wypadku powstanie plik wynikowy o nazwie określonej w opcji <code>-o</code> polecenia (<code>plik_wykonywalny</code>), który uruchomić można poleceniem: <code>./plik_wykonywalny</code></p>
+					
+					<section>
+						<h6>Wiele plików źródłowych</h6>
+						
+						<p>Jeżeli program składa się z wielu plików źródłowych można wymienić je wszystkie w poleceniu (np. <code>cc -o plik_wykonywalny plik_zrodlowy_1.c plik_zrodlowy_2.c plik_zrodlowy_3.c</code>), jednak lepszym (szybszym i dużo częściej stosowanym) podejściem jest rozdzielenie kompilacji poszczególnych plików i konsolidacji całego programu na osobne etapy (korzystając z opcji <code>-c</code>) np.:</p>
+<pre>
+cc -o plik_wynikowy_1.o -c plik_zrodlowy_1.c
+cc -o plik_wynikowy_2.o -c plik_zrodlowy_2.c
+cc -o plik_wynikowy_3.o -c plik_zrodlowy_3.c
+
+cc -o plik_wykonywalny plik_wynikowy_1.o plik_wynikowy_2.o plik_wynikowy_3.o
+</pre>
+						<p>Dzięki temu kompilacja musi być powtarzana jedynie dla zmodyfikowanych plików.</p>
+					</section>
+				</section>
+				<section>
+					<h5>Pierwszy program</h5>
+					
+					<section>
+						<h6>Punkt startu programu</h6>
+						<p>Wykonywanie programu stworzonego w C rozpocznie się od funkcji <storng>main</storng>. W ramach całego programu (nieważne czy zapisanego w jednym czy w wielu plikach) musi być dokładnie jedna funkcja <code>main</code>. Zakończenie tej funkcji oznacza zakończenie programu, a wartość przez nią zwracana odpowiedzialna jest za <storng>kod powrotu</storng> przekazany procesowi wywołującemu program.</p>
+					</section>
+					<section>
+						<h6>Kod programu</h6>
+<pre>
+#include &lt;stdio.h&gt; /* plik nagłówkowy zawierający deklarację funkcji puts */
+int main() {
+	puts("Hello from C"); // wywołanie funkcji puts wypisującej teskt na standardowe wyjście
+	return 0; // kod powrotu ustawiony na zero = sukces
+}
+</pre>
+						<p><ul>
+							<li>tekst ujęty pomiędzy <code>/*</code> a <code>*/</code> oraz teksty od <code>//</code> do końca linii stanowi komentarz, czyli informacje dla programisty (np. opis działania algorytmu) ignorowane przez kompilator</li>
+							<li>definicja funkcji rozpoczyna się od typu zwracanego (w wypadku funkcji <code>main</code> jest to <code>int</code>, czyli liczba całkowita), po którym (po spacji) następuje nazwa funkcji, następnie nawiasy okrągłe zawierające listę argumentów (w tym przykładzie puste) a następnie kod funkcji</li>
+							<li>kod funkcji, a także innych bloków kodu, ujmowany jest w nawiasy klamrowe (<code>{</code> i <code>}</code>)</li>
+							<li>do oddzielania kolejnych poleceń używany jest średnik <code>;</code></li>
+							<li>słowo kluczowe <code>return</code> kończy działanie funkcji i ustawia wartość zwracaną</li>
+							<li>komenda preprocesora <code>#include</code> służy do dołączania treści innego pliku, w tym wypadku dołączany jest plik nagłówkowy biblioteki standardowej języka C zawierający deklaracje funkcji związanych z obsługą standardowego wejścia i wyjścia</li>
+						</ul></p>
+					</section>
+				</section>
+				<section>
+					<h5>Dokumentacja</h5>
+					<p>Biblioteka standardowa C opisana jest w rozdziałach 2 i 3 manuala systemowego. W rozdziale 2 opisane są wywołania systemowe, a w rozdziale 3 pozostałe elementy biblioteki standardowej C. Zatem wykonując komendę <code>man 3 printf</code> zapoznamy się z dokumentacją funkcji <code>printf</code>.</p>
+				</section>
+			</section>
+			<section class="demo_tab" data-title="Python">
+				<h4>Python</h4>
+				<section>
+					<h5>Uruchamianie kodu</h5>
+					
+					<p>Kod pythonowy może być tworzony i wykonywany w linii poleceń interpretera. Dłuższe fragmenty kodu pythonowego często wygodniej jest pisać w pliku tekstowym niż bezpośrednio w linii poleceń. Plik taki może zostać wykonany przy pomocy polecenia: <code>./nazwa_pliku</code> pod warunkiem że ma prawo wykonalności (powinien także zawierać w pierwszą linii komentarz określający program używany do interpretacji tekstowego pliku wykonywalnego, w postaci: <code>#!/usr/bin/python3</code> lub <code>#!/usr/bin/env python3</code>). Może też być wykonany za pomocą wywołania: <code>python3 nazwa_pliku</code>.</p>
+					
+					<p>Polecenie <code>python3 -i nazwa_pliku</code> (opcja <code>-i</code>_ pozwala na uzyskanie interpretera w stanie po wykonaniu poleceń z pliku <code>nazwa_pliku</code>.</p>
+					
+					<section>
+						<h6>Skrypty</h6>
+						
+						<p>Plik zawierający polecenia powłoki określany jest mianem skryptu. Wykonywanie skryptu powłoki rozpocznie się od pierwszej jego linii. Skrypt może przyjmować dowolną ilość parametrów pozycyjnych, są one dostępne w tablicy <code>sys.argv</code>.</p>
+
+<pre>
+#!/usr/bin/env python3
+
+import sys
+
+print("Hello World")
+print(sys.argv)
+
+exit(0)
+</pre>
+						<p><ul>
+							<li>tekst tekst od <code>#</code> do końca linii stanowi komentarz, czyli informacje dla programisty (np. opis działania algorytmu) ignorowane przez kompilator</li>
+							<li>komentarz w pierwszej linii rozpoczynający się od <code>!</code> jest komentarzem sterującym określającym program który ma być użyty do interpretacji kodu z pliku tekstowego</li>
+							<li>polecenie <code>import</code> służy do zaimportowania modułu pythonowego (są nimi fragmenty biblioteki standardowej oraz innych bibliotek także tworzonych przez nas), w tym przypadku importowany jest fragment biblioteki standardowej</li>
+							<li>funkcja <code>print</code> wypisuje tekst określony w argumentach na standardowe wyjście</li>
+							<li>funkcja <code>exit</code> kończy działanie skryptu ustawiając podaną w argumencie wartość jako kod powrotu, stosowanie jej na końcu skryptu (jak w tym przykładzie) nie jest obowiązkowe</li>
+						</ul></p>
+					</section>
+				</section>
+				
+				<section>
+					<h5>Dokumentacja</h5>
+					
+					<p>Python posiada wbudowany system dokumentacji, celem jej użycia należy wykonać funkcję <code>help</code> od funkcji, typu, etc z dokumentacją którego chcemy się zapoznać, np. <code>help(print)</code> wypisze dokumentację funkcji <code>print</code>, <code>help(sys)</code> (po <code>import sys</code>) wypisze dokumentację modułu <code>sys</code>.</p>
+				</section>
+			</section>
+		</div>
+	</section>
 	<section>
 		<h3>Pamięć danych - zmienne</h3>
 		<p>
@@ -1319,6 +1527,32 @@
 		<p>
 			Wszystkie dane są zapisywane w postaci liczb lub ciągów liczb. Typ zmiennej (jawny lub nie) informuje o tym jakiej długości jest dana liczba i jak należy ją interpretować (jak należy interpretować ciąg liczb).
 		</p>
+		
+		<section>
+			<h4>Typy danych</h4>
+			<p>Dla komputera wszystkie dane przechowywane w pamięci są po prostu ciągami bitów. Celem wykonywania na nich operacji konieczne jest określenie sposobu interpretacji tych danych. W programowaniu wykorzystuje się w tym celu typy  zmiennych.</p>
+			
+			<p>W językach statycznie typowanych, takich jak C czy C++, typ musi być jawnie zdefiniowany przed użyciem zmiennej, a jego zmiana jest niemożliwa. Możliwa jest jednak w niektórych językach automatyczna detekcja typu w oparciu o typ wartości przypisywanej do zmiennej w momencie jej deklaracji (np. typ <code>auto</code> w C++).</p>
+			
+			<p>W językach dynamicznie typowanych, takich jak Python, typy danych są przypisywane automatycznie podczas wykonywania programu i mogą ulegać zmianie w trakcie działania (ta sama zmienna może mieć róży typ w różnych momentach wykonania programu), co zapewnia elastyczność, ale może prowadzić do błędów związanych z nieoczekiwanym typem zmiennej.</p>
+			
+			<p>Można się spotkać także z podejściem że typ zmiennej (będącej np. zawsze napisem) jest interpretowany w momencie użycia zmiennej i zależy właśnie od kontekstu użycia (w taki sposób funkcjonują zmienne powłoki sh i zmienne środowiskowe w systemach Unix).</p>
+			
+			<p>Procesor wykonuje operacje jedynie na liczbach o skończonej (zależnej od danej architektury) długości bitowej. Wszystkie bardziej zaawansowane typy danych są implementowane w ramach mechanizmów tworzących poszczególne języki z użyciem tych podstawowych typów i operacji na nich. Dotyczy to także typów liczbowych bez ograniczonego zakresu, a na niektórych platformach także liczb zmiennoprzecinkowych. W związku z tym dostępność poszczególnych takich typów danych mocno zależy od języka programowania. Do najważniejszych należy zaliczyć:<ul>
+				<li>liczby – całkowite bez znaku, całkowite ze znakiem i zmiennoprzecinkowe</li>
+				<li>tablice – uporządkowany zbiór kolejnych wartości tego samego typu danych z dostępem poprzez numer kolejny elementu (indeks), często w postaci ciągłego obszaru pamięci</li>
+				<li>struktury / klasy – zbiór wartości różnego typu danych, z dostępem poprzez nazwę</li>
+				<li>napisy – ciągi znakowe, niekiedy implementowane w postaci tablicy a niekiedy jako niezależny typ danych</li>
+				<li>listy – uporządkowany zbiór kolejnych wartości (tego samego lub różnych typów danych) z dostępem poprzez odwołanie do kolejnego / poprzedniego elementu<ul>
+					<li>jednokierunkowe – nie posiadają odwołań do poprzedniego elementu</li>
+					<li>cykliczne – elementem następnym po ostatnim jest pierwszy, a poprzednim do pierwszego jest ostatni</li>
+				</ul></li>
+				<li>słowniki / mapy / tablice asocjacyjne – zbiór par klucz-wartość z dostępem poprzez wartość unikalnego klucza, zależnie od implementacji wszystkie klucze / wartości muszą być tego samego lub mogą być różnych typów<ul>
+					<li>multimapy – wariant nie wymagający unikalności klucza</li>
+					<li>zbiory – wariant nie przechowujący wartości (same unikalne klucze)</li>
+				</ul></li>
+			</ul></p>
+		</section>
 		
 		<div class="demo_codes"><div>
 			<insertSourceCode file="code-src/podstawy/Pamięć_danych_-_zmienne.cpp" />
@@ -1366,8 +1600,8 @@
 		
 		<section>
 			<h4>Przepływ sterowania w programie - skoki, warunki, pętle, funkcje</h4>
-			<p>
-				<dfn>Licznik programu</dfn> (program counter, instruction pointer lub instruction address register) jest rejestrem procesora który określa adres następnej (w niektórych architekturach aktualnej) instrukcji która ma zostać przetworzona procesor.
+			<p><dfn>Licznik programu</dfn> (program counter, instruction pointer lub instruction address register)
+				jest rejestrem procesora który określa adres następnej (w niektórych architekturach aktualnej) instrukcji która ma zostać przetworzona procesor.
 			</p>
 			
 			<p>Skoki bezwarunkowe, instrukcje warunkowe, pętle, wywołania funkcji są realizowane poprzez modyfikację licznika programu. W przypadku wywołań funkcji dodatkowo wykonywane są operacje związane z obsługą stosu (zachowywaniem stanu rejestrów, umieszczaniem argumentów na stosie, ...). Instrukcja <code>goto</code> (realizująca skok bezwarunkowy) jest pełnoprawną instrukcją skoku, jedyną wadą jej stosowania jest to że przy niewłaściwym / zbyt częstym wykorzystywaniu (zamiast wywołań funkcji, warunków i pętli) kod programu staje się mniej czytelny.</p>
@@ -1380,16 +1614,32 @@
 				<insertSourceCode file="code-src/podstawy/Skoki_warunki_pętle_funkcje.php" />
 				<insertSourceCode file="code-src/podstawy/Skoki_warunki_pętle_funkcje.js" />
 			</div></div>
-			<p>
-				Typowo funkcja przyjmuje określoną ilość argumentów (może ich nie posiadać) i zwraca pojedynczą wartość. Istnieje możliwość zwracania przez funkcję struktury złożonej z kilku wartości, jednak na ogół odebranie z funkcji dodatkowych wyników działania odbywa się poprzez argument typu wskaźnikowego, wskazujący na zmienną w której mają zostać zapisane. Wiele języków pozwala także na definiowanie funkcji przyjmujących dowolną ilość argumentów.
+			
+			<section>
+				<h5>Funkcje</h5>
+				<p><dfn>Funkcja</dfn>
+					jest to grup instrukcji, która może być wywołana z innego miejsca w programie. W uproszczeniu polega to na wykonaniu skoku na początek takiej grupy i skoku powrotnego gdy wykonywanie tego fragmentu kodu zostanie zakończone. Celem zarządzania przechowywaniem adresów dla skoków powrotnych wykorzystywany jest stos (oprócz tego umieszczane są na nim argumenty, wartości zwracane oraz zmienne lokalne).
 				</p>
-			<div class="demo_codes"><div>
-				<insertSourceCode file="code-src/podstawy/Funkcje_dowolną_ilością_argumentów.cpp" />
-				<insertSourceCode file="code-src/podstawy/Funkcje_dowolną_ilością_argumentów.py" />
-				<insertSourceCode file="code-src/podstawy/Funkcje_dowolną_ilością_argumentów.sh" />
-				<insertSourceCode file="code-src/podstawy/Funkcje_dowolną_ilością_argumentów.php" />
-				<insertSourceCode file="code-src/podstawy/Funkcje_dowolną_ilością_argumentów.js" />
-			</div></div>
+				<p>Funkcja może otrzymywać argumenty, które będą dostępne jako zmienne wewnątrz niej oraz zwracać wartość. Zmienne definiowane wewnątrz funkcji nie będą widoczne poza nią, a modyfikacja wartości argumentów nie wpłynie na wartość zmiennych przekazanych jako argumenty – są one przekazywane przez kopiowanie wartości do nowej zmiennej. Typowo funkcje mogą używać (i modyfikować) zmienne globalne, czyli takie zdefiniowane poza zakresem funkcji.</p>
+				<p>Typowo funkcja przyjmuje określoną ilość argumentów (może ich nie posiadać) i zwraca pojedynczą wartość. Istnieje możliwość zwracania przez funkcję struktury złożonej z kilku wartości, jednak na ogół odebranie z funkcji dodatkowych wyników działania odbywa się poprzez argument typu wskaźnikowego, wskazujący na zmienną w której mają zostać zapisane. Wiele języków pozwala także na definiowanie funkcji przyjmujących dowolną ilość argumentów.</p>
+				<div class="demo_codes"><div>
+					<insertSourceCode file="code-src/podstawy/Funkcje_dowolną_ilością_argumentów.cpp" />
+					<insertSourceCode file="code-src/podstawy/Funkcje_dowolną_ilością_argumentów.py" />
+					<insertSourceCode file="code-src/podstawy/Funkcje_dowolną_ilością_argumentów.sh" />
+					<insertSourceCode file="code-src/podstawy/Funkcje_dowolną_ilością_argumentów.php" />
+					<insertSourceCode file="code-src/podstawy/Funkcje_dowolną_ilością_argumentów.js" />
+				</div></div>
+				
+				<section>
+					<h6>Przeciążanie funkcji i operatorów</h6>
+					<p>Wiele języków programowania pozwala na definiowanie funkcji o tej samej nazwie ale różniących się zbiorem argumentów - może to być liczba argumentów lub po prostu typ (nawet pojedynczego) argumentu – mechanizm ten określany jest mianem przeciążania funkcji. Podobnie w niektórych językach możliwe jest definiowanie własnych zachowań dla standardowych operatorów (np. dodawania) wywoływanych na obiektach jakiejś własnej klasy.</p>
+				</section>
+				<section>
+					<h6>Lamba</h6>
+					<p>Funkcje typu lambda to anonimowe funkcje, które nie mają przypisanej nazwy, a ich definicja jest zazwyczaj zwarta i jednozdaniowa. Są często wykorzystywane w krótkich operacjach, zwłaszcza gdy funkcje są przekazywane jako argumenty do innych funkcji. Typowo wartości argumentów i zmiennych są mapowane dopiero w momencie wykonania funkcji, a nie w chwili jej definicji, co oznacza, że środowisko, w którym funkcja zostanie uruchomiona, może wpływać na wynik (np. przez zmienne globalne lub zmienne z otaczającego zakresu). W niektórych językach możliwe jest jednak wymuszenie użycia wartości z chwili definicji, czyli tzw. zamrożenie (ang. "capture by value").</p>
+				</section>
+			</section>
+			
 			<section>
 				<h5>Punkt startu</h5>
 				<p>
@@ -1418,7 +1668,7 @@
 	</section>
 	
 	<section>
-		<h3>Więcej o (bardziej złożonych) zmiennych</h3>
+		<h3>Więcej o zmiennych</h3>
 		<section>
 			<h4>Grupowanie zmiennych</h4>
 			<section>
@@ -1443,6 +1693,24 @@
 				<p>
 					Metody wchodzące w skład struktury oraz pola statyczne nie wpływają na rozmiar obiektów których jest typem.
 				</p>
+				<section>
+					<h6>Dziedziczenie, polimorfizm, itp</h6>
+					
+					<p>Mechanizm dziedziczenia pozwala tworzyć nowe klasy na bazie istniejących, wykorzystując ich atrybuty i metody. Pozwala to na rozszerzanie istniejących typów oraz tworzenie typów bardziej specyficznych (np. klasy „trójkąt” i „kwadrat” dziedzicząca po klasie „wielobok”).</p>
+					
+					<p>Dodatkowo często możliwe jest redefiniowanie w klasie pochodnej (dziedziczącej) metod istniejących już w klasie bazowej. W przypadku użycia mechanizmu metod wirtualnych pozwala to na uruchamianie metody z odpowiedniej klasy pochodnej, także w sytuacji gdy w chwili kompilacji kodu wiemy jedynie że obiekt jest obiektem klasy bazowej (a nie znamy konkretnej klasy pochodnej). Na przykład:<ul>
+						<li>klasa „wielobok” dostarcza metodę wirtualną „oblicz pole”</li>
+						<li>klasy po niej dziedziczące („trójkąt” i „kwadrat”) dostarczają różne wersje tej metody</li>
+						<li>funkcja dostająca listę bądź tablicę obiektów typu „wielobok” (będących w istocie obiektami typu „trójkąt” lub „kwadrat”) może wywoływać funkcję „oblicz pole” na każdym z nich (bez jawnego sprawdzenia jaki to konkretnie typ) i będzie użyta właściwa funkcja</li>
+					</ul></p>
+					
+					<p>Pozwala to na tworzenie interfejsów klas, które wystawiają do użycia w programie jedynie to co o obiektach klasy powinno być widoczne i pozwalają ukryć szczegóły implementacyjne.</p>
+					
+					<div class="demo_codes"><div>
+						<insertSourceCode file="code-src/zmienne_i_struktury_danych/Dziedziczenie_polimorfizm_itp.cpp" />
+						<insertSourceCode file="code-src/zmienne_i_struktury_danych/Dziedziczenie_polimorfizm_itp.py" />
+					</div></div>
+				</section>
 			</section>
 			<section>
 				<h5>Tablice</h5>
@@ -1451,6 +1719,7 @@
 					Dostęp do elementów tablicy odbywa się w oparciu o obliczanie ich adresu na podstawie zależności: AdresElementu = AdresPoczatkuTablicy + IndexElementu * RozmiarElementu.
 				</p>
 				<div class="demo_codes"><div>
+					<insertSourceCode file="code-src/zmienne_i_struktury_danych/Tablice.c" />
 					<insertSourceCode file="code-src/zmienne_i_struktury_danych/Tablice.cpp" />
 					<insertSourceCode file="code-src/zmienne_i_struktury_danych/Tablice.sh" />
 					<insertSourceCode file="code-src/zmienne_i_struktury_danych/Tablice.js" />
@@ -1511,21 +1780,44 @@
 		</section>
 		
 		<section>
-			<h4>Wskaźniki i referencje</h4>
-			<p>
-				Wskaźnik jest zmienną, która przechowuje adres pamięci, pod którym znajdują się jakieś dane (inna zmienna). Jako że wskaźnik jest zmienną która też jest umieszczona gdzieś w pamięci można utworzyć wskaźnik do wskaźnika itd.
-				Na wskaźnikach można wykonywać operacje arytmetyczne (najczęściej jest to dodawanie offsetu). Na wskaźniku można wykonać operację wyłuskania czyli odwołania się do wartości zmiennej pod adresem na który wskazuje, a nie do zmiennej wskaźnikowej (zawierającej adres).
-			</p>
-			<p>
-				Wskaźniki pozwalają na operowanie dużymi zbiorami danych (duże struktury, napisy, etc) bez konieczności ich kopiowania przy przekazywaniu do funkcji, umieszczaniu w różnych strukturach danych, sortowaniu, itd (kopiowaniu ulega jedynie wskaźnik czyli adres) oraz na współdzielenie tych samych danych pomiędzy różnymi obiektami.
-			</p>
-			<p>
-				Wskaźnik może wskazywać na niewłaściwy adres w pamięci (np. na skutek zwolnienia tego fragmentu lub błędu w operacjach matematycznych na wskaźnikach - wyjściu poza dozwolony zakres), typowo wskaźnikowi który nic nie wskazuje przypisuje się wartość NULL (zero).
-				Wyłuskania wskaźników o wartości NULL lub wskazujących niewłaściwy obszar pamięci prowadzą do błędów programu, często do zakończenia programu z powodu naruszenia ochrony pamięci ("Segmentation fault").
-			</p>
-			<p>
-				Referencja jest zbliżona do wskaźników (w zasadzie jest to wskaźnik trochę inaczej traktowany przez kompilator) - także pozwala na unikanie kopiowania dużych danych. W odróżnieniu od wskaźnika odwołania do referencji zawsze skutkują wyłuskaniem, nie jest możliwa arytmetyka wskaźnikowa na referencjach, referencja musi też wskazywać na poprawny obszar pamięci (minimalizacja ryzyka błędu odwołania do niewłaściwego adresu). Możliwa jest referencja na wskaźnik a także wskaźnik do referencji.
-			</p>
+			<h4>Adres zmiennej</h4>
+			<p>Wszelkie dane na których operuje program komputerowy przechowywane są w jakimś rodzaju pamięci - najczęściej jest to pamięć operacyjna. W pewnych sytuacjach niektóre dane mogą być przechowywane np. tylko w rejestrach procesora lub rejestrach urządzeń wejścia-wyjścia.</p>
+			
+			<p>W programowaniu na poziomie wyższym od kodu maszynowego i asemblera używa się pojęcia zmiennej i (niemal zawsze) pozostawia kompilatorowi/interpretatorowi decyzję o tym gdzie ona jest przechowywana. Wyjątkiem są grupy zmiennych, czy też bufory alokowane w sposób jawny w pamięci. Ze względu na ograniczoną liczbę rejestrów procesora większość zmiennych (w szczególności tych dłużej istniejących i większych) będzie znajdowała się w pamięci i będą przenoszone do rejestrów celem wykonania jakiś operacji na nich po czym wynik będzie przenoszony do pamięci.</p>
+			
+			<p>Z każdą zmienną przechowywaną w pamięci związany jest adres pamięci pod którym się ona znajduje. Niektóre z języków programowania pozwalają na odwoływanie się do niego poprzez wskaźnik na zmienną lub referencję do zmiennej (odwołania do adresu zmiennej mogą wymusić umieszczenie jej w pamięci nawet gdyby normalnie znajdowała się tylko w rejestrze procesora). </p>
+			
+			<section>
+				<h5>Wskaźniki</h5>
+				<p>
+					Wskaźnik jest zmienną, która przechowuje adres pamięci, pod którym znajdują się jakieś dane (inna zmienna). Jako że wskaźnik jest zmienną która też jest umieszczona gdzieś w pamięci można utworzyć wskaźnik do wskaźnika itd.
+					Na wskaźnikach można wykonywać operacje arytmetyczne (najczęściej jest to dodawanie offsetu). Na wskaźniku można wykonać operację wyłuskania czyli odwołania się do wartości zmiennej pod adresem na który wskazuje, a nie do zmiennej wskaźnikowej (zawierającej adres).
+				</p>
+				<p>
+					Wskaźniki pozwalają na operowanie dużymi zbiorami danych (duże struktury, napisy, etc) bez konieczności ich kopiowania przy przekazywaniu do funkcji, umieszczaniu w różnych strukturach danych, sortowaniu, itd (kopiowaniu ulega jedynie wskaźnik czyli adres) oraz na współdzielenie tych samych danych pomiędzy różnymi obiektami.
+				</p>
+				<p>
+					Wskaźnik może wskazywać na niewłaściwy adres w pamięci (np. na skutek zwolnienia tego fragmentu lub błędu w operacjach matematycznych na wskaźnikach - wyjściu poza dozwolony zakres), typowo wskaźnikowi który nic nie wskazuje przypisuje się wartość NULL (zero).
+					Wyłuskania wskaźników o wartości NULL lub wskazujących niewłaściwy obszar pamięci prowadzą do błędów programu, często do zakończenia programu z powodu naruszenia ochrony pamięci ("Segmentation fault").
+				</p>
+			</section>
+			
+			<section>
+				<h5>Referencja</h5>
+				<p>
+					Referencja jest zbliżona do wskaźników (w zasadzie jest to wskaźnik trochę inaczej traktowany przez kompilator) - także pozwala na unikanie kopiowania dużych danych. W odróżnieniu od wskaźnika odwołania do referencji zawsze skutkują wyłuskaniem, nie jest możliwa arytmetyka wskaźnikowa na referencjach, referencja musi też wskazywać na poprawny obszar pamięci (minimalizacja ryzyka błędu odwołania do niewłaściwego adresu). Możliwa jest referencja na wskaźnik a także wskaźnik do referencji.
+				</p>
+				<p>
+					Główną różnicą pomiędzy korzystaniem bezpośrednio ze zmiennej (z wartości) a korzystaniem z referencji na zmienną (jej adresu, wskaźnika) można zauważyć przy przekazywaniu takiej zmiennej przez kopiowanie (np. w wyniku przypisania lub przekazania do funkcji).
+				</p>
+				<p>
+					W przypadku korzystania ze „zwykłej” zmiennej kopia nie ma możliwości modyfikowania oryginału. W przypadku przekazania referencji wszystkie zmiany na wartości na którą wskazuje będa widoczne przez obie referencje (orginalną i kopię), przynajmniej do momentu gdy pozostają sobie równe (wskazują na ten sam adres w pamięci).
+				</p>
+				<p>
+					Może to być użyte jako inna metoda zwracania wartości z funkcji – poprzez modyfikowanie wartości zmiennych na które funkcja dostała referencje (wskaźniki) w swoich argumentach.
+				</p>
+			</section>
+			
 			<div class="demo_codes"><div>
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych/Wskaźniki_i_referencje.cpp" />
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych/Wskaźniki_i_referencje.py" />
@@ -1549,6 +1841,20 @@
 			<div class="demo_codes"><div>
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych/Zasięg_zmiennej.cpp" />
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych/Zasięg_zmiennej.py" />
+			</div></div>
+		</section>
+		
+		<section>
+			<h4>Szablony</h4>
+			
+			<p>Silne, statyczne typowanie, pomimo swoich zalet, posiada także wady. Jedną z nich jest prowadzenie do duplikowania kodu m.in. w sytuacji gdy oczekujemy takiego samego zachowania funkcji dla różnych typów danych. Na przykład funkcja obliczająca jakieś wyrażenie matematyczne, która powinna działać dla różnych typów liczb stało i zmiennoprzecinkowych bez dokonywania konwersji tych typów powinna być zdefiniowana dla każdego z nich osobno w identyczny sposób.</p>
+			
+			<p>Rozwiązaniem tego problemu jest stosowanie mechanizmu szablonów (udostępnianego przez niektóre języki z silnym typowaniem), który pozwala na definiowanie szablonów funkcji i klas, stanowiących ich uogólnienie dla różnych typów.</p>
+			
+			<p>W oparciu o definicję szablony funkcji i/lub klas kompilator będzie mógł wytworzyć funkcje/klasy dla potrzebnych typów w oparciu o ten szablon (zdefiniowany dla ogólnego typu zastępczego).</p>
+			
+			<div class="demo_codes"><div>
+				<insertSourceCode file="code-src/zmienne_i_struktury_danych/Szablony.cpp" />
 			</div></div>
 		</section>
 		
@@ -1643,6 +1949,11 @@ $      - koniec napisu/linii
 	
 	<section>
 		<h3>Podstawowe I/O</h3>
+	
+		<p>Zależnie od tego na na jaki system tworzony jest nasz program, czy będzie on działać pod kontrolą systemu operacyjny czy bezpośrednio na sprzęcie realizacja operacji I/O może wyglądać inaczej. W przypadku tworzenia programu działającego pod kontrolą systemu operacyjnego praktycznie wszystkie operacje I/O realizowane są poprzez wywołania odpowiednich mechanizmów tego systemu za pośrednictwem funkcji biblioteki standardowej. Natomiast w przypadku bezpośrednie programowania sprzętu nierzadko konieczne jest samodzielne napisanie całych takich funkcji, bądź przynajmniej funkcji „systemowych” realizujących rzeczywistą operację I/O używanych przez funkcje biblioteki standardowej.</p>
+		
+		<p>Przykładem może być korzystanie z funkcji `printf` biblioteki standardowej C. Na systemach linuxowych korzysta ona z systemowego mechanizmu standardowego wyjścia, które jest wypisywane na terminalu lub może być przekierowane do innego procesu. Jeżeli chcemy użyć tej funkcji na platformie STM32 musimy zaimplementować funkcję realizującą fizyczne wysyłanie danych poprzez wybrany port szeregowy lub wyświetlanie ich na alfanumerycznym wyświetlaczu LCD.</p>
+		
 		<section>
 			<h4>Standardowe wejście / wyjście</h4>
 			<p>Typowo program posiada trzy strumienie danych: jeden wejściowy (stdin) i dwa wyjściowe (stdout i stderr). Jeżeli nie zostało dokonane przekierowanie strumieni (np. na plik lub strumień innego procesu) to standardowe wejście (stdin) powiązane jest z danymi wprowadzanymi interaktywnie z klawiatury, a standardowe wyjście (stdout) i standardowe wyjście błędu (stderr) z danymi wyświetlanymi na terminalu na którym uruchomiono program (i typowo później wyświetlanymi gdzieś na ekranie).</p>
@@ -1997,26 +2308,20 @@ if (!blokada) {
 		<h3>Wzorce projektowe, algorytmy, itp</h3>
 		<section>
 			<h4>Obiektowość</h4>
-			<p>
-				Obiektowość jest podejściem do programowania polegającym na łączeniu danych i powiązanych z nimi procedur w obiekty. W rezultacie zamiast grupy funkcji operujących na jakiejś strukturze danych i osobnych instancjach tej struktury (np. napis typu <code>char*</code> i funkcje z rodziny <code>string.h</code>) operuje się obiektami zawierającymi w sobie dane i posiadającym metody na nich operujące (np. napis typu <code>std::string</code>).
-				Z obiektowością związane są zagadnienia takie jak: określanie interfejsów klas odnoszących się jedynie do kluczowych dla danego zagadnienie elementów i ukrywaniu pozostałych aspektów wewnątrz implementacji klasy, wydzielanie wspólnych cech obiektów różnego typu do klas bazowych po których dziedziczą.
-			</p>
-		</section>
-		
-		<section>
-			<h4>Dziedziczenie, polimorfizm, itp</h4>
-			<p>Dziedziczenie jest jednym z mechanizmów pozwalających na konstrukcję klas opisujących bardziej złożone obiekty z klas prostszych.</p>
-			<div class="demo_codes"><div>
-				<insertSourceCode file="code-src/wzorce_projektowe_i_algorytmy/Dziedziczenie_polimorfizm_itp.cpp" />
-			</div></div>
-		</section>
-		
-		<section>
-			<h4>Szablony</h4>
-			<p>Niektóre z języków z silnym typowaniem pozwalają na definiowanie szablonów funkcji i klas, stanowiące ich uogólnienie dla różnych typów.</p>
-			<div class="demo_codes"><div>
-				<insertSourceCode file="code-src/wzorce_projektowe_i_algorytmy/Szablony.cpp" />
-			</div></div>
+			
+			<p>Programowanie obiektowe jest podejściem polegającym na powiązaniu danych z funkcjami na nich operującymi w ramach klas / obiektów.</p>
+				
+			<p>Klasa definiuje typ danych, który będą posiadały obiekty tej klasy poprzez określenie jakie będą posiadały atrybuty (pola składowe przechowujące dane) i metody (funkcje udostępniane przez obiekt i operujące na nim). Obiekt to konkretna instancja klasy, która zawiera rzeczywiste dane. Klasy różnią się od złożonych typów nieobiektowych (np. struktur czy tablic) tym, że definiują zarówno dane, jak i związane z nimi zachowanie, co ułatwia modelowanie rzeczywistych bytów w kodzie.</p>
+			
+			<p>W rezultacie zamiast grupy funkcji operujących na jakiejś strukturze danych i osobnych instancjach tej struktury (np. napis typu <code>char*</code> i funkcje z rodziny <code>string.h</code>) operuje się obiektami zawierającymi w sobie dane i posiadającym metody na nich operujące (np. napis typu <code>std::string</code>).</p>
+			
+			<p>Z obiektowością związane są zagadnienia takie jak: określanie interfejsów klas odnoszących się jedynie do kluczowych dla danego zagadnienie elementów i ukrywaniu pozostałych aspektów wewnątrz implementacji klasy, wydzielanie wspólnych cech obiektów różnego typu do klas bazowych po których dziedziczą.</p>
+			
+			<section>
+				<h4>Metody</h4>
+				
+				<p>Funkcje zdefiniowane w klasie określa się mianem metod tej klasy. Typowo funkcje takie wymagają do swojego działania obiektu danej klasy, który jest do nich przekazywany jako (jawny lub ukryty) argument. Wyróżnia się metody statyczne, które pomimo zdefiniowania wewnątrz klasy nie wymagają do swojego działania obiektu tej klasy (a przynajmniej otrzymania go w postaci tego specjalnego argumentu, jak zwykłe metody). Pozwalają one na traktowanie klasy jako pewnej przestrzeni nazw i umieszczanie w niej funkcji logicznie powiązanych (ale nie operujących na obiekcie), np. funkcji tworzących obiekty klasy i innych funkcji pomocniczych.</p>
+			</section>
 		</section>
 		
 		<section>
@@ -2288,7 +2593,7 @@ if (!blokada) {
 			</p>
 			<p>
 				Jednym z zadań tych protokołów jest identyfikowanie usługi (procesu) w ramach systemu posiadającego dany adres IP, do którego mają trafić dane.
-				W tym celu zarówno UDP jak i TCP na każdym z hostów wyróżniają numeryczny identyfikator dla aplikacji/procesu/usługi będącego odbiorcą czy też nadawcą informacji zwany \strong{numerem portu}.
+				W tym celu zarówno UDP jak i TCP na każdym z hostów wyróżniają numeryczny identyfikator dla aplikacji/procesu/usługi będącego odbiorcą czy też nadawcą informacji zwany <dfn>numerem portu</dfn>}.
 			</p>
 			<p>
 				Najprostszym protokołem warstwy transmisji wydaje się być UDP, protokół ten umożliwia przesłanie informacji pomiędzy dwoma hostami IP i nie kontroluje on tego czy została ona przesłana poprawnie.
@@ -2385,7 +2690,7 @@ if (!blokada) {
 		</section>
 		<section>
 			<h4>Quality of Service</h4>
-			<p>QoS są to techniki gwarantujące jakość usługi. Najczęściej stosowaną techniką zaliczaną do QoS jest dynamiczny podział przepustowości łącza z wykorzystaniem algorytmów takich jak: HTB (Hierarchical Token Bucket), CBQ (Class Based Queueing). Nie jest to jednak prawdziwy QoS, gdyż mechanizmy te to coś więcej niż tylko prosty podział pasma. O QoS'ie możemy zaczynać mówić gdy system kolejkowania uwzględnia priorytety dla pewnych typów ruchu (m.in. na podstawie pola ToS - Type of service). Kolejki priorytetowe mogą być realizowane jako wagowe - cyklicznie z każdej klasy wysyłamy proporcjonalnie do wagi, lub bez-wagowy (klasa ważniejsza może zagłodzić klasy o mniejszym priorytecie, gdyż brany jest z ważniejszej dopóki są lub nie pojawią się jeszcze ważniejsze). Istnieją dwie podstawowe architektury systemów QoS:<ul>
+			<p>QoS są to techniki gwarantujące jakość usługi. Najczęściej stosowaną techniką zaliczaną do QoS jest dynamiczny podział przepustowości łącza z wykorzystaniem algorytmów takich jak: HTB (Hierarchical Token Bucket), CBQ (Class Based Queueing). Nie jest to jednak prawdziwy QoS, gdyż mechanizmy te to coś więcej niż tylko prosty podział pasma. O QoS'ie można zaczynać mówić gdy system kolejkowania uwzględnia priorytety dla pewnych typów ruchu (m.in. na podstawie pola ToS - Type of service). Kolejki priorytetowe mogą być realizowane jako wagowe - cyklicznie z każdej klasy wysyłamy proporcjonalnie do wagi, lub bez-wagowy (klasa ważniejsza może zagłodzić klasy o mniejszym priorytecie, gdyż brany jest z ważniejszej dopóki są lub nie pojawią się jeszcze ważniejsze). Istnieją dwie podstawowe architektury systemów QoS:<ul>
 				<li>DiffServ - nie ma ścisłych gwarancji dla jakiegokolwiek strumienia, na brzegu użytkownik negocjuje SLA i ruch jest kontrolowany pod względem tego SLA (m.in. ustawianie i kontrola pola ToS). Może występować także zarządca pasma (Bandwidth Broker), z którym klienci komunikują się przy pomocy protokołu RSVP (Resource Reservation Protocol) i negocjują z nim kontrakty SLA, natomiast sam BB dokonuje rezerwacji zasobów w routerach i kontroluje ich stan (zazwyczaj z wykorzystaniem protokołu Common Open Policy Service).</li>
 				<li>IntServ - odbiorca w oparciu o informacje uzyskane od nadawcy na temat parametrów transmisji dokonuje rezerwacji zasobów w wszystkich routerach na ścieżce łączącej go z nadawcą (wykorzystuje do tego protokół RSVP), każdy z routerów decyduje czy może spełnić te wymagania (gdy jeden nie może cała operacja nie udaje się). Każdy strumień negocjowany jest indywidualnie, poprzez mechanizm Addmision Control (podawane są specyfikacje filtru - jak identyfikować ten ruch, specyfikacje przepływu, itd), ponadto informacje o rezerwacji muszą być okresowo odnawiane. Wyróżnia się klasy ruchu: Best Effort (standardowa), Guaranteed Service (gwarancja dostępności pasma i opóźnienia), Control Load Service (zapewniamy mało obciążony kanał, ale bez gwarancji).</li>
 			</ul></p>
@@ -2431,9 +2736,9 @@ if (!blokada) {
 		<section>
 			<h4>Zarządzanie pamięcią</h4>
 			<!-- BEGIN: Zarządzanie pamięcią -->
-			
-			<p>Drugą podstawową funkcją systemu operacyjnego, wspomnianą na początku, jest zarządzanie pamięcią. Zarządzanie pamięcią polega na odpowiednim mapowaniu adresów logicznych (używanych przez procesy) na adresy fizyczne (używane przez procesor), korzysta ono z wsparcia sprzętowego ze strony procesora.
-				Jest to najczęściej realizowane w oparciu o wspomniany mechanizm stronicowania. Polega to na podziale pamięci dostępnej pamięci fizycznej na jednakowe bloki zwane ramkami oraz podziale pamięci logicznej na jednakowe bloki (o tej całej wielkości co ramki) zwane stronami. Strony które są wykorzystywane przez program są mapowane na dowolne ramki pamięci fizycznej (w przypadku gdy dana strona nie zamapowana - w zależności od okoliczności błąd braku strony lub błąd ochrony strony).
+			<p>Kolejną podstawową funkcją systemu operacyjnego jest zarządzanie pamięcią.
+				Polega ono na odpowiednim mapowaniu adresów logicznych (używanych przez procesy) na adresy fizyczne (używane przez procesor), korzysta ono z wsparcia sprzętowego ze strony procesora.
+				Jest to najczęściej realizowane w oparciu o wspomniany mechanizm stronicowania. Polega to na podziale pamięci dostępnej pamięci fizycznej na jednakowe bloki zwane ramkami oraz podziale pamięci logicznej na jednakowe bloki (o tej całej wielkości co ramki) zwane stronami. Strony które są wykorzystywane przez program są mapowane na dowolne ramki pamięci fizycznej (w przypadku gdy dana strona nie zamapowana – w zależności od okoliczności błąd braku strony lub błąd ochrony strony).
 				Rozwiązuje to problem fragmentacji zewnętrznej, polegającej na braku spójnego obszaru pamięci o żądanej długości pomimo iż łączna ilość wolnej pamięci jest dostateczna, jednak nie rozwiązuje problemu fragmentacji wewnętrznej, polegającej na przydzielaniu zbyt dużych fragmentów pamięci dla procesu (a wręcz można powiedzieć że go pogłębia).
 				Mechanizm ten wymaga trzymania tablicy wolnych ramek, tablicy stron dla każdego procesu (zawierającej przypisania mapowań stron danego procesu na ramki) oraz wykonywania tłumaczenia adresów logicznych (strona + przesunięcie na stronie). Także sama tablica stron procesu procesu może być stronicowania (mamy tablicę która informuje nas że przypisania stron w danym zakresie adresów są przechowywane w jakiejś ramce).
 				<br /><img src="pamięć_wirtualna.svg" style="height:470px;margin-top:13px;margin-left:7px" alt="pamięć wirtualna" />
@@ -2452,6 +2757,53 @@ if (!blokada) {
 			<!-- END: Zarządzanie pamięcią -->
 		</section>
 	</section>
+	
+	<section>
+		<h3>Program w działaniu</h3>
+		
+		<p>W przypadku uruchamiania naszego kodu bezpośrednio na sprzęcie, bez pośrednictwa systemu operacyjnego, jest on jedynym kodem który przetwarza procesor. Typowo program taki korzysta bezpośrednio z mechanizmów sprzętowych oferowanych przez dany procesor i platformę, a jego zakończenie, przerwanie wykonywania powoduje zawieszenie się lub wyłączenie całego systemu.</p>
+		
+		<p>Sytuacja zmienia się gdy korzystamy z (wielozadaniowego) systemu operacyjnego. Wtedy nasz program jest jednym z wielu działających procesów. Każdy z procesów może znajdować się w jednym z kilku stanów, do najważniejszych należą:<ul>
+			<li>wykonywanie (kod procesu jest w danej chwili aktywnie wykonywany na procesorze)</li>
+			<li>oczekiwanie na dostępność CPU (kod procesu jest gotowy do wykonywania, jednak nie jest aktualnie wykonywany ze względu na brak wolnego procesora / rdzenia)</li>
+			<li>oczekiwanie na inne zdarzenia (np. oczekiwania na dane wprowadzane przez użytkownika, na dane odbierane z sieci, na upłynięcie wyznaczonego okresu czasu, itd)</li>
+		</ul></p>
+
+		<p>Kolejkowanie procesów oczekujących na możliwość wykonywania na CPU i przełączanie pomiędzy nimi (w celu podziału czasu procesora na różne zadania) jest jednym z zadań systemu operacyjnego.</p>
+		
+		<p>Innymi zadaniami systemu operacyjnego jest wsparcie dla tworzenia nowych procesów, czyli tworzenia procesów potomnych (rozgałęziania procesu) oraz zapewnienia mechanizmu przekazywania parametrów do nowo tworzonego procesu i możliwości komunikacji z nim. Na mechanizmy te składają się:<ul>
+			<li>argumenty linii poleceń, czyli lista napisów przekazana w trakcie uruchamiania programu, wykorzystywana typowo do określenia opcji i argumentów wpływających na jego zachowanie oraz określających dane do przetworzenia</li>
+			<li>zmienne środowiskowe, czyli (określony przez proces rodzica) zbiór par klucz-wartość, z którego wartości mogą być pozyskane przez program z pomocą klucza i mogą wpływać na działanie programu</li>
+			<li>kod powrotu, czyli numeryczna wartość określająca status zakończenia procesu zwracana do procesu rodzica</li>
+			<li>strumienie standardowego wejścia, wyjścia i wyjścia błędu, umożliwiające przekazywanie danych pomiędzy procesami, a domyślnie wykorzystywane do przekazywania (tekstowego) inputu i output od/do użytkownika programu</li>
+		</ul></p>
+		
+		<p>W przypadku programów działających w środowisku graficznym (i korzystających z jego mechanizmów) do mechanizmów tych należy dodać przekazywanie zdarzeń i danych związanych z tym środowiskiem (takich jak np. miejsce kliknięcia myszą, dane schowka systemowego, itd.). Funkcjonalność ta często realizowana jest przez usługę systemową odpowiedzialną za działanie środowiska graficznego.</p>
+		
+		<section>
+			<h4>Aplikacje, procesy, wątki i separacja zasobów</h4>
+			<ul>
+				<li>W ramach systemu operacyjnego może być uruchomionych nie tylko wiele różnych programów, ale także wiele kopi tego samego programu (nawet uruchamianych z tego samego pliku wykonywalnego).</li>
+				<li>Pojedynczy program może działać w ramach jednego lub (gdy wykorzystuje mechanizmy tworzenia procesów potomnych i wykonuje w nich własny kod) wielu procesów.</li>
+				<li>Proces:<ul>
+					<li>Posiada przydzielane zasoby systemowe (takie jak pamięć, uchwyty do plików, dostęp do urządzeń, ...).</li>
+					<li>Może być wstrzymany i/lub zakończony zewnętrznie (bez jego woli, przez system operacyjny).</li>
+					<li>System operacyjny zwalnia automatycznie wszystkie przydzielone zasoby po zakończeniu procesu.</li>
+					<li>Procesy mogą być wykonywane równolegle (czyli w tym samym czasie na różnych rdzeniach procesora mogą wykonywać się procesy związane z różnymi programami, jak również z tym samym programem).</li>
+					<li>Każdy z procesów działających na komputerze ma dostęp do pełnej przestrzeni adresowej pamięci operacyjnej, jednak nie posiada dostępu do pamięci innych procesów. Czyli proces A i proces B pod tym samym adresem mogą przechowywać różne dane.</li>
+					<li>W przypadku zakończenia działania procesu rodzica procesy potomne mogą zostać zakończone) lub mogą kontynuować swoje działanie (funkcję rodzica przejmuje wtedy inny proces).</li>
+				</ul></li>
+				<li>Oprócz pełnoprawnych procesów wyróżnia się także wątki (lekkie procesy). Wątki:<ul>
+					<li>Są ściśle związane z procesem który je utworzył (w szczególności zostaną zakończone razem z nim, często nie są zewnętrznie kontrolowalne).</li>
+					<li>Mogą wykonywać się niezależnie od siebie, czyli być w różnych miejscach programu w tym samym czasie (tak samo jak normalne procesy).</li>
+					<li>Mogą (w większości wypadków) wykonywać się równolegle, czyli na różnych rdzeniach mogą działać w tym samym czasie różne wątki (nawet tego samego procesu).</li>
+					<li>Wszystkie wątki w ramach pojedynczego procesu współdzielą pamięć - czyli modyfikacja wartości pod jakimś adresem w pamięci będzie widoczna we wszystkich wątkach danego procesu (nie będzie widoczna w innych procesach, nawet wykonujących ten sam kod).</li>
+					<li>Celem zapewnienia komunikacji między procesami stosowane są różne mechanizmy programistyczne oferowane przez system operacyjny - jednym z nich jest <dfn>pamięć współdzielona</dfn>. Stosuje się też mechanizmy <dfn>synchronizacji procesów i wątków</dfn> celem zapewnienia atomowości operacji wykonywanych na wspólnej pamięci (ochrona przed jednoczesną modyfikacją tej samej wartości przez kilka wątków). Bardziej szczegółowo mechanizmy te będą omówione przy tematyce programowania równoległego.</li>
+				</ul></li>
+			</ul>
+		</section>
+	</section>
+	
 	<section>
 		<h3>Proces uruchamiania komputera</h3>
 		<!-- BEGIN: Proces uruchamiania komputera -->
@@ -2469,48 +2821,204 @@ if (!blokada) {
 	<section>
 		<h3>Systemy "unix-owate"</h3>
 		<p>Jest to grupa systemów operacyjnych, będących (przynajmniej w jakimś stopniu) zgodnych z specyfikacją POSIX / Single UNIX Specification. Charakteryzują się zbliżonym zbiorem wywołań systemowych dostępnych z poziomu jęzka C oraz funkcji biblioteki standardowej C, co ułatwia zapewnienie przenośności oprogramowania (w postaci źródłowej). Zapewniają podobny zbiór podstawowych komend linii poleceń (konsoli).</p>
-		<!-- BEGIN: Struktura katalogów -->
-		<p>
-			Systemy unix'owe posiadają drzewiasty system plików zaczynający się w katalogu głównym oznaczanym przez ukośnik (<code>/</code>), w którym zamontowany jest główny system plików (rootfs), inne systemy plików mogą być montowane w kolejnych katalogach. Do najistotniejszych katalogów należy zaliczyć: <dl class="cmdlist">
-				<dt><dfn>/bin</dfn></dt>
-					<dd>zawierający pliki wykonywalne podstawowych programów</dd>
-				<dt><dfn>/sbin</dfn></dt>
-					<dd>zawierający pliki wykonywalne podstawowych programów administracyjnych</dd>
-				<dt><dfn>/lib</dfn></dt>
-					<dd>zawierający pliki podstawowych bibliotek</dd>
-				<dt><dfn>/usr</dfn></dt>
-					<dd>zawierający oprogramowanie dodatkowe (wewnętrznie ma podobną strukturę do głównego - tzn. katalogi <dfn>/usr/bin</dfn>, <dfn>/usr/sbin</dfn>, <dfn>/usr/lib</dfn>, itd)</dd>
-				
-				<dt><dfn>/etc</dfn></dt>
-					<dd>zawierający konfiguracje ogólnosystemowe</dd>
-				<dt><dfn>/var</dfn></dt>
-					<dd>zawierający dane programów i usług (takie jak kolejka poczty, harmonogramy zadań, bazy danych)</dd>
-				<dt><dfn>/home</dfn></dt>
-					<dd>zawierający katalogi domowe użytkowników (często montowany z innego systemu plików, dlatego też root ma swój katalog domowy w <code>/root</code>, aby był dostępny nawet gdy takie montowanie nie doszło do skutku)</dd>
-				<dt><dfn>/tmp</dfn></dt>
-					<dd>zawierający pliki tymczasowe (typowo czyszczony przy starcie systemu); w Linuxie występuje też <code>/run</code> przeznaczony do trzymania danych tymczasowych działających usług takich jak numery pid, blokady, itp</dd>
-				
-				<dt><dfn>/dev</dfn></dt>
-					<dd>zawierający pliki reprezentujące urządzenia; w Linuxie występuje też <code>/sys</code> zawierający informacje i ustawienia dotyczące m.in. urządzeń</dd>
-				<dt><dfn>/proc</dfn></dt>
-					<dd>zawierający informacje o działających procesach (w Linuxie także interfejs konfiguracyjny dla wielu parametrów jądra)</dd>
-			</dl>
-			Pliki i katalogi których nazwa rozpoczyna się od kropki traktowane są jako pliki ukryte.
-		</p>
-		<p>Z punktu widzenia programisty czy też użytkownika (prawie) wszystko jest plikiem, których istnieją różne rodzaje (zwykły plik, katalog, urządzenie znakowe, urządzenie blokowe, link symboliczny, kolejka FIFO, ...); pewnym wyjątkiem są urządzenia sieciowe (które nie mają reprezentacji w systemie plików (ale gniazda związane z nawiązanymi połączeniami obsługuje się zasadniczo tak jak pliki).</p>
-		<!-- END: Struktura katalogów -->
 		
 		<section>
+			<h4>Praca w terminalu</h4>
+			
+			<p>Podstawowym sposobem wydawania poleceń w systemach typu Unix jest wpisywanie ich w terminalu.</p>
+			
+			<section>
+				<h5>Terminal</h5>
+				
+				<p>Terminal może pracować zarówno w środowisku graficznym - jako tak zwany emulator terminala, działający pod kontrolą X serwera. Może on także działać w ramach linuxowej wirtualnej konsoli - czyli w trybie tekstowym lub pseudo tekstowym nie wymagającym środowiska graficznego lub być uruchomiony na prawdziwym połączeniu czysto tekstowym, takim jak na przykład port szeregowy.</p>
+				
+				<p>Terminal zapewnia obsługę wejścia-wyjścia czyli wprowadzania znaków (przyjmowanych typowo z klawiatury) oraz wyświetlania znaków, typowo na ekranie. Szczegóły tego działania zależne są od konkretnej implementacji terminala i sprzętu na którym funkcjonuje. Inaczej będzie realizowane działanie terminala na porcie szeregowym, a inaczej w środowisku X serwera. Terminal zapewnia też obsługę sekwencji sterujących związanych z ruchem kursora, ustalaniem miejsca wypisywania informacji, przełączania kolorów i innego formatowania tekstu.</p>
+			</section>
+			
+			<section>
+				<h5>Powłoka</h5>
+				
+				<p>Wprowadzane polecenia interpretowane są przez działający w terminalu program nazywany powłoką (interpreterem poleceń).
+				W terminalu mogą być uruchamiane kolejne (takie same lub różne) interpretery poleceń.
+				Różne interpretery korzystają z różnych składni oraz często różnią się znakiem zachęty (czyli wypisanym tekstem poprzedzającym wprowadzane polecenia).</p>
+				
+				<p>Praca w POSIXowej (Unix'owej / Linux'owej) linii poleceń (*command line*) jest pracą w interpreterze skryptowego języka programowania. Można wykonywać interaktywnie poszczególne „linie kodu” (komendy), można także zapisać je w pliku i wykonywać jako całość. Możemy definiować funkcje, korzystać z instrukcji warunkowych i pętli, itd. Standardowa powłoka w systemach POSIXowych jest jednak specyficznym językiem, przeznaczonym głównie do uruchamiania innych programów, operowania na plikach (dokładniej raczej ścieżkach w systemie plików), itd. a nie wykonywania obliczeń. Dlatego na przykład uruchomienie programu, operowanie na jego standardowym wejściu i wyjściu będzie realizowane prostą składnią (będzie wymagało mniej kodu niż chyba w jakimkolwiek innym języku), za to zapis zwykłego dodawania będzie wyglądał dość egzotycznie.</p>
+				
+				<p>Powłoka na ogół używana jest albo do wyciągania jakieś rzeczy z plików albo do wykonywania operacji typu przenoszenie, czy zmiany nazw plików, czyli wywoływania jakiś innych komend na plikach lub odpowiednio przygotowanych nazwach przyszłych plików. Programowanie w tym języku polega w dużej mierze właśnie na wywoływaniu zewnętrznych programów, na które można patrzeć trochę jak na funkcje biblioteczne, a w przypadku bardziej rozbudowanych programów całe biblioteki. Powłoka jest też traktowana jako język mający przygotować środowisko pracy dla innej aplikacji, ustawić odpowiednie zmienne środowiskowe, przygotować katalogi, przetworzyć ścieżki, itd.</p>
+				
+				<section>
+					<h6>bash i zsh</h6>
+					
+					<p>Chyba najpopularniejszymi powłoki systemowymi (interpreteremi poleceń) jest bash i zsh. Są one zgodne ze składnią z sh, zapewniają m.in. obsługę zmiennych (zasadniczo napisowych), znaków uogólniających, itd.</p>
+					
+					<p><strong>Edycja i historia linii poleceń</strong></p>
+					<p>Oba programy pozwalają na edycję linii poleceń oraz korzystanie z historii, dzięki czemu przy pomocy strzałek góra-dół można przeglądać historię wprowadzonych poleceń, a za pomocą skrótu Control R można ją przeszukiwać. Wprowadzane lub wybrane z historii polecenia można także edytować poruszając się po nich strzałkami prawo-lewo i uruchomić naciskając Enter.</p>
+					
+					<p>Istotnym ułatwieniem przy wprowadzaniu poleceń jest funkcja auto uzupełniania z użyciem przycisku Tab. Obejmująca zarówno same nazwy poleceń, jak również ścieżki, a nierzadko także inne argumenty poleceń. W przypadku bash'a pojedyncze naciśnięcie klawisza Tab powoduje dopełnienie wpisywanego tekstu, jeżeli jest ono jednoznaczne. Jeżeli jest kilka możliwości, dopełniony zostanie najdłuższy jednoznaczny fragment. Dwukrotne naciśnięcie klawisza Tab spowoduje wyświetlenie dostępnych możliwości. Po ujednoznacznieniu można ponownie użyć klawisza Tab, aby nastąpiło dopełnienie, i tak dalej. Domyślne zachowanie zsh jest trochę inne.</p>
+					
+					<p>Warto zauważyć że taka obsługa linii poleceń i jej historii nie jest cechą terminala, tylko samej powłoki. A jako że jest to często funkcjonalność dostarczana przez dedykowaną bibliotekę to można ją także wielu innych programach.</p>
+				</section>
+				
+				<section>
+					<h6>screen i tmux</h6>
+				
+					<p><code>screen</code> i <code>tmux</code> są tzw. multiplexerami terminala - pozwala na uzyskanie wielu okien konsoli (także np. wyświetlanych jedno obok drugiego) na pojedynczym terminalu. Ponadto pozwalają na odłączanie i podłączanie sesji, co pozwala na łatwe pozostawienie działającego programu po wylogowaniu i powrót do niego później.</p>
+				</section>
+			</section>
+		</section>
+		
+		<section>
+			<!-- BEGIN: system plików -->
+			<h4>System plików</h4>
+			
+			<p>System plików ma strukturę hierarchiczną (drzewiastą) i rozpoczyna się w korzeniu oznaczanym ukośnikiem: <code>/</code>. W tym punkcie zamontowany jest główny system plików (rootfs), inne systemy plików mogą być montowane w kolejnych katalogach.</p>
+			
+			<p>Wchodząc w katalogi znajdujące się bezpośrednio w korzeniu, ich podkatalogi i tak dalej, można dojść do dowolnego pliku w systemie. Zapisując nazwy katalogów przez które przechodziliśmy i rozdzielając je od siebie oraz od nazwy pliku przy pomocy ukośników tworzymy bezwzględną ścieżkę do danego pliku, czyli taką która właśnie rozpoczyna się od tego korzenia (pierwszym znakiem w takiej ścieżce zawsze jest <code>/</code> oznaczający właśnie korzeń).</p>
+	
+			<p>Możliwe jest wyrażanie wszystkich ścieżek od korzenia, jednak nie zawsze jest to wygodne. W wielu wypadkach chcemy móc wyrazić ścieżkę względem jakiegoś innego katalogu i w tym celu stosuje się ścieżki względne. Katalogiem względem którego, wyrażana jest ścieżka względna może być katalog, w którym znajduje się obiekt ją zawierający lub, znacznie częściej, jest to tak zwany bieżący katalog roboczy.</p>
+			
+			<section>
+				<h5>Katalog roboczy</h5>
+				
+				<p>Interpreter poleceń taki jak <code>bash</code> potrafi "znajdować się" gdzieś w tej strukturze plików i miejsce to nazywane jest bieżącym katalogiem roboczym (Present Working Directory). Względem niego będą wyrażane ścieżki nie zaczynające się od korzenia, może być też oznaczony jawnie przy pomocy pojedynczej kropki.</p>
+				
+				<p>Bieżący katalog roboczy jest określany niezależnie dla każdego z działających programów. Typowo pierwotna jego wartość jest ustawiana na bieżący katalog roboczy powłoki która uruchomiła dany program. Może być on zmieniony przez działający program przy użyciu odpowiedniej funkcji systemowej.</p>
+
+				<p>W przypadku powłoki zgodnej z <code>sh</code> informację o jej bieżącym katalogu roboczym można wypisać przy pomocy polecenia <code>pwd</code>. Często jest ona także podawana przed znakiem zachęty. Natomiast zmiany tego katalogu można dokonać przy pomocy polecenia <code>cd</code>, po którym podawana jest ścieżka do katalogu który ma być ustawiony jako katalog roboczy. W ten sposób zmienimy katalog względem którego będą interpretowane ścieżki względne w danej powłoce i w programach przez nią uruchamianych po wykonaniu tego polecenia. Zmiana ta nie wpłynie na uruchomione wcześniej i nadal działające w tle programy. Uruchomiony program w trakcie działania może także zmienić swój bieżący katalog roboczy wywołaniem odpowiedniej funkcji systemowej.</p>
+			</section>
+			
+			<section>
+				<h5>Ścieżki względne</h5>
+				
+				<p>Ścieżką względną jest dowolna ścieżka nie zaczynająca się od korzenia, czyli nie rozpoczynająca się od ukośnika.</p>
+
+				<p>Zarówno w ścieżkach bezwzględnych jak i względnych można użyć pojedynczej kropki (<code>.</code>) oznaczającej aktualny katalog w ścieżce oraz dwóch kropek (<code>..</code>) oznaczających katalog nadrzędny (np. <code>../../abc</code> to katalog <code>abc</code> w katalogu nadrzędnym katalogu nadrzędnego). W ścieżkach bezwględnych są one jednak zawsze nadmiarowe i dlatego rzadko spotykane, natomiast w ścieżkach względnych pełnią bardzo istotną rolę. Dwie kropki (<code>..</code>) użyte odpowiednio wiele razy (z rozdzielającym je <code>/</code>) pozwalają wrócić ścieżką względną z dowolnego katalogu nawet aż do korzenia, a zatem dojść także do dowolnego innego pliku w naszym drzewie.</p>
+
+				<p>Pojedyncza kropka (<code>.</code>) użyteczna jest praktycznie jedynie na początku ścieżki (gdzie oznacza katalog względem którego jest interpretowana ścieżka względna, na przykład bieżący katalog roboczy). Nierzadko jest używana nawet jako cała ścieżka do aktualnego katalogu.</p>
+
+				<p>Sama nazwa pliku lub katalogu również stanowi ścieżkę względną (względem katalogu w którym się on znajduje), niekiedy jednak stosowany jest zapis kropka ukośnik nazwa pliku (<code>./nazwa</code>), który pozwala na bardziej jednoznaczne zasugerowanie iż mamy na myśli ścieżkę a nie jakąś nazwę. Dotyczy to zwłaszcza uruchamiania programów znajdujących się w bieżącym katalogu, gdyż w tym wypadku nazwa polecenia nie zawierająca ukośnika nie jest traktowana jako ścieżka.</p>
+			</section>
+			
+			<section>
+				<h5>Pliki ukryte</h5>
+			
+				<p>Pliki (i katalogi) których nazwy zaczynają się od kropki (<code>.</code>) traktowane są jako pliki ukryte i nie będą domyślnie pokazywane przez niektóre z programów.</p>
+			</section>
+			
+			<section>
+				<h5>Znaki uogólniające</h5>
+			
+				<p>W napisie opisującym ścieżkę można także umieścić pewne znaki specjalne, pozwalające na uogólnienie takiej ścieżki, tak aby opisywała wiele plików lub plik, którego pewnych szczegółów położenia/nazwy nie chcemy określić jednoznacznie. Tymi snakami specjalnymi są znaki uogólniające powłoki (<dfn>glob</dfn>):<ul>
+					<li><code>?</code> oznacza dowolny znak</li>
+					<li><code>*</code> oznacza dowolny (także pusty) ciąg znaków</li>
+					<li><code>[a-z AD]</code> oznacza dowolny znak z wymienionych w zbiorze ujętym w nawiasach kwadratowych, zbiór może być definiowany z użyciem zakresów, np. a-z AD oznacza dowolną małą literę od a do z włącznie, spację, dużą literą A lub D</li>
+					<li><code>[!a-z]</code> oznacza dowolny znak z wyjątkiem znaków wymienionych w podanym zbiorze, zbiór może być definiowany z użyciem zakresów, np. a-z oznacza dowolną małą literę od a do z włącznie</li>
+				</ul></p>
+				
+				<p>Na przykład:<ul>
+					<li><code>a[0-9]/*</code> oznacza wszystkie (nieukryte) pliki i katalogi znajdujące się wewnątrz katalogów których nazwa jest dwuznakowa, gdzie pierwszym znakiem jest <code>a</code> a kolejnym cyfra.</li>
+					<li><code>[^ad]*</code> oznacza wszystkie (nieukryte) pliki i katalogi w bieżącym katalogu których nazwa nie zaczyna się na literę a lub d</li>
+					<li><code>.[!.]*</code> oznacza wszystkie ukryte pliki i katalogi w bieżącym katalogu (z wyjątkiem odwołania do katalogu bieżącego i nadrzędnego</li>
+				</ul></p>
+				
+				<p>Znaki uogólniające rozwijane są (t.j. zamieniane na listę pasujących ścieżek) przez powłokę. A jedynie w przypadku braku dopasowań przekazywane w niezmienionej postaci do uruchamianego programu. Niektóre programy oczekują jednak otrzymania i operowania na znakach uogólniających. Niekiedy też chcemy przekazać jako argument jakiegoś polecenia coś co ścieżką nie jest a zawiera któreś z tych znaków. W obu wypadkach dla poprawnego działania polecenia niezależnie od ewentualnego istnienia pasujących plików ciąg zawierający te znaki należy zabezpieczyć cudzysłowami lub apostrofami (ew. użyć odwrotnych ukośników do zabezpieczenia tych znaków).</p>
+			</section>
+			
+			<section>
+				<h5>Plik, katalog, link, i-node ... czyli technikalia</h5>
+				
+				<p>Podstawowym obiektem w systemie plików jest plik. Wyróżnia się kilka typów plików na poziomie file systemu (których nie należy mylić z typem związanym z zawartością danego pliku, takim jak film, obrazek, plik tekstowy, etc). Najważniejszymi tymi typami są:<ul>
+					<li>katalog - będący pojemnikiem na pliki różnych typów (także inne katalogi)</li>
+					<li>zwykły plik - będący odniesieniem do danych zapisanych gdzieś na dysku twardym</li>
+					<li>link symboliczny - wskazujący na inny plik poprzez jego ścieżkę</li>
+				</ul></p>
+				<p>Z każdym plikiem (niezależnie od jego rodzaju) związana jest jego nazwa (to te nazwy, głównie katalogów, budują ścieżki). W przypadku zwykłych plików posiadają one też uchwyt do danych (które stanowią treść tego pliku) - numer <dfn>i-node</dfn>. Mechanizm ten pozwala aby kilka różnych plików (innych wpisów w tym samym lub różnych katalogach) wskazywało na ten sam i-node i jest to wykorzystywane w postaci linków twardych.</p>
+				
+				<p>Linki są odniesieniami do jakiś plików, z użyciem innej ścieżki / nazwy. Wyróżnia się dwa ich typy – link twardy (<em>hard link</em>) i link symboliczny (<em>symbolic link</em>).</p>
+				<p><img src="link_twardy_i_symboliczny.svg" style="height:230px;margin-top:13px;margin-left:47px" alt="link twardy i symboliczny" /></p>
+				
+				<p><dfn>Link twardy</dfn> jest innym dowiązaniem na te same dane na dysku twardym. Jak wspomniano występuje kilka poziomów dostępu do danych znajdujących się na dysku twardym – fizyczną lokalizację tych danych gdzieś na dysku, uchwyt do takich danych (nazywany i-node) oraz wpis w katalogu (który określa nazwę pliku i odnośnik do i-node'a).</p>
+				<p>Link twardy <code>link1.txt</code>, pokazany ilustracji zaznaczony kolorem czerwonym, utworzony komendą <code>ln plik2.txt link1.txt</code>, stanowi po prostu kolejne dowiązanie do tych samych danych do których dowiązaniem był <code>plik2.txt</code>. Jest on równoprawny oryginalnemu dowiązaniu do tych danych, czyli:<ul>
+					<li>modyfikacja danych z jego pomocą zmieni wspólne dane na które wskazują oba dowiązania, zatem będzie widoczna także poprzez nazwę <code>plik2.txt</code>, podobnie w drógą stronę - modyfikacja dokonana za pomocą <code>plik2.txt</code> będzie widoczna przy dostępie poprzez nazwę <code>link1.txt</code></li>
+					<li>może być używany (i zapewnia dostęp do danych) także po skasowaniu oryginalnego pliku, dane zostaną usunięte (a dokładniej oznaczone jako do nadpisania) w momencie gdy ten liczba odwołań do nich spadnie do zera</li>
+				</ul></p>
+				<p>Liczbę dowiązań do danego pliku pokazuje m.in. komenda <code>ls</code> z opcją <code>-l</code>. Warto także zwrócić uwagę na wpisy związane z kropką i dwiema kropkami – są to automatycznie tworzone dowiązania typu link twardy odpowiednio do katalogu bieżącego i nadrzędnego. Liczba dowiązań do <code>.</code> to 2 plus liczba podkatalogów, a liczba dowiązań do <code>..</code> równa jest liczbie dowiązań do kropki w katalogu nadrzędnym.</p>
+				<p>Ze względu na taką naturę linków twardych ograniczają się one do pojedynczego systemu plików (urządzenia) na którym znajdują się dane. Typowo nie jest również dopuszczalne tworzenie linków twardych do katalogów.</p>
+
+				<p><dfn>Link symboliczny</dfn> wskazuje na konkretną ścieżkę (względną lub bezwzględną – co może mieć znaczenie przy przenoszeniu takiego linku) do dowolnego (nawet nie istniejącego – wtedy mówimy o zerwanym linku) pliku lub katalogu. Dzięki takim cechom linki te mogą wskazywać na pliki położone na innych urządzeniach, systemach plików. Linki symboliczne można tworzyć do dowolnych obiektów w systemie plików – także katalogów.</p>
+				<p>Link symboliczny, pokazany ilustracji zaznaczony kolorem niebieskim, stanowi wpis w strukturze katalogu informujący że pod daną nazwą (w tym przykładzie <code>link2.txt</code>) jest odniesienie do innej ścieżki (w tym przykładzie <code>./plik1.txt</code>). Jest on w istocie odniesieniem do innej ścieżki, a nie danych na dysku jako takich.</p>
+				<p>Link symboliczny funkcjonuje podobnie do linku twardego, zapewniając dostęp do tych samych danych przez dwie różne ścieżki.</p>
+				<p>Dla obiektów typu link symboliczny polecenie ls będzie pokazywać typ pliku <code>l</code> a podawany rozmiar wynika z długości przechowywanej ścieżki – tyle danych zawiera sam link symboliczny. Zajętość dysku (podawana przez <code>du</code>) dla linku symbolicznego będzie najczęściej wynosiła zero, gdyż sam link (jeżeli jest odpowiednio krótki) nie zajmuje osobnego miejsca na dysku - zapisywany jest bezpośrednio w strukturze systemu plików (najczęściej bezpośrednio w i-node).</p>
+				<p>W przypadku linków symbolicznych nie ma takiego podobieństwa linku do obiektu na który wskazuje ten link, jak w przypadku linków twardych. W przypadku linków symbolicznych, usunięcie pliku na który wskazywał link, czy też nawet zmiana lokalizacji bądź nazwy takiego pliku, prowadzi do tego że link symboliczny staje się linkiem zerwanym i tracimy dostęp do danych z wykorzystaniem tego linku. Jeżeli plik na który wskazywał link zostanie skutecznie usunięty, czyli nie będzie ani tego pliku ani linków twardych do niego to dane też zostaną usunięte, bez względu na to czy już wskazywały na nie jakieś linki symboliczne, czy nie.</p>
+				<p>Ponadto:<ul>
+					<li>ścieżki względne zapisane w linku nie są interpretowane względem bieżącego katalogu roboczego, czy nawet katalogu użytego w ścieżce dostępu do linku a względem katalogu w którym znajduje się link</li>
+					<li>polecenie <code>ln</code> (używane do tworzenia linków) standardowo zapisze do tworzonego linku literalnie podaną w linii poleceń ścieżkę. Oznacza to że można tworzyć linki symboliczne do nieistniejących plików, ale też przez pomyłkę można utworzyć błędne dowiązania.</li>
+				</ul></p>
+			</section>
+			
+			<section>
+				<h5>Katalog domowy</h5>
+			
+				<p>Mianem katalogu domowego określamy domyślny katalog użytkownika (określony w konfiguracji jego konta) w którym ma on prawo zapisu swoich plików oraz (w postaci ukrytych plików i katalogów) przechowywana jest konfiguracja używanych przez niego programów.</p>
+				
+				<p>Tylda (<code>~</code>) użyta jako pierwszy znak w ścieżce oznacza że jest ona wyrażona względem katalogu domowego naszego lub wskazanego użytkownika - np. <code>~/abc</code> to katalog <code>abc</code> w naszym katalogu domowym, a <code>~xyz/abc</code> to katalog <code>abc</code> w katalogu domowym użytkownika <code>xyz</code>.</p>
+			</section>
+			
+			<section>
+				<h5>Wszystko jest plikiem</h5>
+				<p>Z punktu widzenia programisty czy też użytkownika (prawie) wszystko jest plikiem, których istnieją różne rodzaje (zwykły plik, katalog, urządzenie znakowe, urządzenie blokowe, link symboliczny, kolejka FIFO, ...); pewnym wyjątkiem są urządzenia sieciowe (które nie mają reprezentacji w systemie plików (ale gniazda związane z nawiązanymi połączeniami obsługuje się zasadniczo tak jak pliki).</p>
+			</section>
+			
+			<!-- BEGIN: Struktura katalogów -->
+			<section>
+				<h5>Struktura katalogów</h5>
+				<p>
+					Do najistotniejszych standardowych katalogów w systemach unix'oych należy zaliczyć: <dl class="cmdlist">
+						<dt><dfn>/bin</dfn></dt>
+							<dd>zawierający pliki wykonywalne podstawowych programów</dd>
+						<dt><dfn>/sbin</dfn></dt>
+							<dd>zawierający pliki wykonywalne podstawowych programów administracyjnych</dd>
+						<dt><dfn>/lib</dfn></dt>
+							<dd>zawierający pliki podstawowych bibliotek</dd>
+						<dt><dfn>/usr</dfn></dt>
+							<dd>zawierający oprogramowanie dodatkowe (wewnętrznie ma podobną strukturę do głównego - tzn. katalogi <dfn>/usr/bin</dfn>, <dfn>/usr/sbin</dfn>, <dfn>/usr/lib</dfn>, itd)</dd>
+						
+						<dt><dfn>/etc</dfn></dt>
+							<dd>zawierający konfiguracje ogólnosystemowe</dd>
+						<dt><dfn>/var</dfn></dt>
+							<dd>zawierający dane programów i usług (takie jak kolejka poczty, harmonogramy zadań, bazy danych)</dd>
+						<dt><dfn>/home</dfn></dt>
+							<dd>zawierający katalogi domowe użytkowników (często montowany z innego systemu plików, dlatego też root ma swój katalog domowy w <code>/root</code>, aby był dostępny nawet gdy takie montowanie nie doszło do skutku)</dd>
+						<dt><dfn>/tmp</dfn></dt>
+							<dd>zawierający pliki tymczasowe (typowo czyszczony przy starcie systemu); w Linuxie występuje też <code>/run</code> przeznaczony do trzymania danych tymczasowych działających usług takich jak numery pid, blokady, itp</dd>
+						
+						<dt><dfn>/dev</dfn></dt>
+							<dd>zawierający pliki reprezentujące urządzenia; w Linuxie występuje też <code>/sys</code> zawierający informacje i ustawienia dotyczące m.in. urządzeń</dd>
+						<dt><dfn>/proc</dfn></dt>
+							<dd>zawierający informacje o działających procesach (w Linuxie także interfejs konfiguracyjny dla wielu parametrów jądra)</dd>
+					</dl>
+					Pliki i katalogi których nazwa rozpoczyna się od kropki traktowane są jako pliki ukryte.
+				</p>
+			</section>
+			<!-- END: Struktura katalogów -->
+		</section>
+		<!-- END: system plików -->
+			
+		<section>
 			<h4>Polecenia</h4>
-			<p>Unixowe komendy (czyli polecenia rozumiane przez bash lub inny interpreter zgodny z sh) składają się z nazwy polecenia oraz opcji i argumentów. Nazwą polecenia może być nazwa funkcji wbudowanej, nazwa programu (znajdującego się w ścieżce wyszukiwania programów) lub pełna ścieżka do programu. Po nazwie polecenia mogą występować opcje i/lub argumenty. Są one oddzielane od nazwy polecenia i od siebie przy pomocy spacji (zasadniczo dowolnego ciągu białych znaków: spacji, tabulatorów, escapowanych nowych linii). Nie ma silnego rozróżnienia opcji od argumentów, typowo stosowaną konwencją jest rozpoczynanie opcji od pojedynczego myślnika (opcje krótkie - jednoliterowe) lub dwóch myślników (opcje długie). W przypadku stosowania tej konwencji po pojedynczym myślniku może występować kilka bezargumentowych opcji jednoliterowych. Typowo argumenty opcji oddzielane są od nich spacją (w przypadku opcji krótkich) lub znakiem równości (w przypadku opcji długich). Jeżeli któryś z składników komendy (np. argument) zawiera spacje należy je zabezpieczyć przy pomocy odwrotnego ukośnika lub ujęcia zawierającego je napisu w apostrofy lub cudzysłowa.</p>
+			<p>Unixowe komendy (czyli polecenia rozumiane przez bash lub inny interpreter zgodny z sh) składają się z nazwy polecenia oraz opcji i argumentów. Nazwą polecenia może być nazwa funkcji wbudowanej, nazwa programu (znajdującego się w ścieżce wyszukiwania programów) lub pełna ścieżka do programu. Po nazwie polecenia mogą występować opcje i/lub argumenty. Są one oddzielane od nazwy polecenia i od siebie przy pomocy spacji (zasadniczo dowolnego ciągu białych znaków: spacji, tabulatorów, escapowanych nowych linii).</p>
+			
+		<p>Nie ma silnego rozróżnienia opcji od argumentów, typowo stosowaną konwencją jest rozpoczynanie opcji od pojedynczego myślnika (opcje krótkie - jednoliterowe) lub dwóch myślników (opcje długie). W przypadku stosowania tej konwencji po pojedynczym myślniku może występować kilka bezargumentowych opcji jednoliterowych. Typowo argumenty opcji oddzielane są od nich spacją (w przypadku opcji krótkich) lub znakiem równości (w przypadku opcji długich). Jeżeli któryś z składników komendy (np. argument) zawiera spacje należy je zabezpieczyć przy pomocy odwrotnego ukośnika (<code>\</code>) lub ujęcia zawierającego je napisu w apostrofy (<code>'</code>) lub cudzysłowa (<code>"</code>).</p>
 			
 			<section>
 				<h5>Przekierowania</h5>
-				<p>Typowo program posiada trzy strumienie danych: jeden wejściowy (stdin) i dwa wyjściowe (stdout i stderr). Standardowe wyjście możemy przekierować na standardowe wejście innego programu przy pomocy <code>|</code>, np: <code>ls --help | less</code>. Konstrukcja ta przekieruje wynik komendy <code>ls</code> uruchomionej z opcją <code>--help</code> do komendy <code>less</code>.</p>
+				<p>Typowo program posiada trzy strumienie danych: jeden wejściowy (stdin) i dwa wyjściowe (stdout i stderr). Standardowe wyjście można przekierować na standardowe wejście innego programu przy pomocy <code>|</code>. Na przykład: <code>ls --help | less</code>. Konstrukcja ta przekieruje wynik komendy <code>ls</code> uruchomionej z opcją <code>--help</code> do komendy <code>less</code>.</p>
 				
-				<p>Możemy także przekierować standardowe wyjście do pliku (przy pomocy~<code>&gt;</code> lub~<code>&gt;&gt;</code>, gdy chcemy dopisywać do pliku) lub pobrać standardowe wejście z pliku (przy pomocy <code>&lt;</code>). <code>2&gt;</code> pozwala na przekierowanie standardowego wyjścia błędu do pliku.</p>
+				<!-- TODO streams_pl.svg -->
 				
-				<p>Jeżeli zachodzi potrzeba połączenia obu strumieni możemy użyć <code>2&gt;&amp;1</code> w celu przekierowania strumienia drugiego do pierwszego. Następnie możemy użyć <code>|</code> aby przekierować połączony strumień do następnej komendy. Jeżeli chcemy przekierować go do pliku połączenie strumieni powinno mieć miejsce po przekierowaniu pierwszego z nich do pliku, np.: <code>ls . NieIstniejącyPlik &gt;log.txt 2&gt;&amp;1</code>. Bash pozwala użyć <code>&gt;&amp;</code> i <code>|&amp;</code>, które przekierowują oba strumienie odpowiednio do pliku lub standardowego wejścia innego polecenia, ale jest to rozszerzenie wykraczające poza standardową składnię sh.</p>
+				<p>Możemy także przekierować standardowe wyjście do pliku (przy pomocy <code>&gt;</code> lub <code>&gt;&gt;</code>, gdy chcemy dopisywać do pliku) lub pobrać standardowe wejście z pliku (przy pomocy <code>&lt;</code>). <code>2&gt;</code> pozwala na przekierowanie standardowego wyjścia błędu do pliku.</p>
+				
+				<p>Jeżeli zachodzi potrzeba połączenia obu strumieni można użyć <code>2&gt;&amp;1</code> w celu przekierowania strumienia drugiego do pierwszego. Następnie można użyć <code>|</code> aby przekierować połączony strumień do następnej komendy. Jeżeli chcemy przekierować go do pliku połączenie strumieni powinno mieć miejsce po przekierowaniu pierwszego z nich do pliku, np.: <code>ls . NieIstniejącyPlik &gt;log.txt 2&gt;&amp;1</code>. Bash pozwala użyć <code>&gt;&amp;</code> i <code>|&amp;</code>, które przekierowują oba strumienie odpowiednio do pliku lub standardowego wejścia innego polecenia, ale jest to rozszerzenie wykraczające poza standardową składnię sh.</p>
 			</section>
 			
 			<section>
@@ -2520,7 +3028,7 @@ if (!blokada) {
 				<p>Polecenia mogą być łączone na różne sposoby – z wykorzystaniem tej informacji lub nie:
 					<ul>
 						<li><code>a &amp;&amp; b</code> – polecenie b wykona się gdy a zakończyło się sukcesem (zwróciło kod 0)</li>
-						<li><code>a || b</code> – polecenie b wykona się gdy a zakończyło się porażką lub błędem (zwróciło kod różny od~0)</li>
+						<li><code>a || b</code> – polecenie b wykona się gdy a zakończyło się porażką lub błędem (zwróciło kod różny od 0)</li>
 						<li><code>a ; b</code> – polecenie b po zakończeniu polecenia a (bez względu na jego kod powrotu)</li>
 						<li><code>a &amp; b</code> – polecenie b będzie wykonywane równocześnie z a (dokładniej polecenie a zostanie uruchomione w tle, a na terminal zajmie polecenie b)</li>
 					</ul></p>
@@ -2539,6 +3047,15 @@ if (!blokada) {
 			
 			<section>
 				<h5>Uzyskiwanie pomocy</h5>
+			
+				<p>Informację na temat działania danej komendy oraz jej opcji można uzyskać w wbudowanym systemie pomocy przy pomocy poleceń <code>man</code> lub <code>info</code> / <code>pinfo</code>. Większość poleceń obsługuje także opcje <code>--help</code> lub <code>-h</code>, które wyświetlają informację na temat ich użycia.</p>
+				
+				<section>
+					<h6>notacja</h6>
+					
+					<p>Zarówno w tekstach pomocy jak i w tym dokumencie stosowana jest konwencja polegająca na oznaczaniu opcjonalnych argumentów poprzez umieszczanie ich w nawiasach kwadratowych (jeżeli podajemy ten argument do komendy nie obejmujemy go już tymi nawiasami) oraz rozdzielaniu alternatywnych opcji przy pomocy <code>|</code>. Np. <code>a [b] c|d</code> oznacza iż polecenie <code>a</code> wymaga argumentu postaci <code>c</code> albo <code>d</code>, który może być poprzedzony argumentem <code>b</code>.</p>
+				</section>
+				
 				<dl class="cmdlist">
 					<dt><dfn>man</dfn> <var>[nazwa polecenia]</var></dt>
 						<dd>wyświetla stronę podręcznika systemowego na temat wskazanego polecenia, funkcji systemowej, pliku konfiguracyjnego</dd>
@@ -2552,6 +3069,7 @@ if (!blokada) {
 				<p>Większość poleceń obsługuje także opcje <code>--help</code> lub <code>-h</code>, które wyświetlają informację na temat ich użycia. W tym miejscu warto też zauważyć że typowo opcje krótkie (pojedyncza litera) poprzedzane są pojedynczym myślnikiem (i po jednym myślniku może wystąpić kilka kolejnych opcji), natomiast opcje długie poprzedzane są dwoma myślnikami.</p>
 				<p>Zarówno w tekstach pomocy jak i w tym dokumencie stosowana jest konwencja polegająca na oznaczaniu opcjonalnych argumentów poprzez umieszczanie ich w nawiasach kwadartowych (jeżeli podajemy ten argument do komendy nie obejmujemy go już tymi nawiasami) oraz rozdzielaniu alternatywnych opcji przy pomocy~<code>|</code>. Np. <code>a [b] c|d</code> oznacza iż polecenie <code>a</code> wymaga argumentu postaci <code>c</code> albo <code>d</code>, który może być poprzedzony argumentem <code>b</code>.</p>
 			</section>
+			
 			<section>
 				<h5>Powłoka (i okolice)</h5>
 				<dl class="cmdlist">
@@ -2581,25 +3099,20 @@ if (!blokada) {
 					<dt><dfn>script</dfn></dt>
 						<dd>tworzy zapis sesji (stdin, stdout, ...)</dd>
 				</dl>
-				
-				<!-- BEGIN: katalog roboczy -->
-				<h6>katalog roboczy</h6>
-				<p>Możliwe jest wyrażanie wszystkich ścieżek od korzenia systemu plików (<code>/</code>), jednak nie jest to zbytnio wygodne. Interpreter poleceń taki jak <code>bash</code> potrafi "znajdować się" gdzieś w tej strukturze plików i miejsce to nazywane jest bieżącym katalogiem roboczym (Present Working Directory). Względem niego będą wyrażane ścieżki nie zaczynające się od korzenia, może być też oznaczony jawnie przy pomocy pojedynczej kropki.</p>
-				<dl class="cmdlist">
-					<dt><dfn>cd</dfn> <var>[ścieżka]</var></dt>
-						<dd>zmiana bieżącego katalogu,<br />
-							warto zauważyć, iż katalogi w ścieżce oddzielamy ukośnikami <code>/</code>, bieżący katalog oznaczamy kropką <code>.</code>, nadrzędny oznaczamy dwiema kropkami <code>..</code>,<br />
-							ścieżki zaczynające się od ukośnika <code>/</code> oznaczają ścieżki bezwzględne (od korzenia systemu plików), pozostałe oznaczają ścieżkę względną (wyrażoną względem bierzącego katalogu),<br />
-							katalog domowy oznacza się tyldą <code>~</code>
-						</dd>
-					<dt><dfn>pwd</dfn></dt>
-						<dd>wyświetla ścieżkę do bieżącego katalogu</dd>
-				</dl>
-				<!-- END: katalog roboczy -->
 			</section>
+			
 			<section>
-				<h5>wyświetlanie i edycja plików</h5>
+				<h5>Wyświetlanie i edycja plików tekstowych</h5>
 				<dl class="cmdlist">
+					<dt><dfn>less</dfn> lub <dfn>more</dfn></dt>
+						<dd>przeglądanie tekstu (zarówno z standardowego wejścia jak i wskazanego pliku) ekran po ekranie.<br />
+							Przewijanie dokumentu możliwe jest z użyciem strzałek, page up/dow oraz spacji i enter. Wyjście z programu przy pomocy klawisza <code>q</code>.<br />
+							<code>less</code> posiada większe możliwości od <code>more</code>, w szczególności posiada możliwość przeglądanie dokumentu w tył oraz umożliwia także wyszukiwanie -- klawisz <code>/</code> pozwala na wprowadzenie szukanej frazy, a <code>n</code> na wyszukanie kolejnego wystąpienia.<br />
+							przydatne opcje <code>less</code>:<br />
+								<code>-X</code> nie czyści ekranu przy wychodzeniu z less'a (całość historii wyświetlania pliku pozostaje w historii terminala)<br />
+								<code>-F</code> automatycznie kończy gdy wyświetlany tekst mieści się na jednym ekranie
+								<code>-R</code> przepuszcza surowe sekwencje sterujące terminalem dotyczące kolorów
+						</dd>
 					<!-- BEGIN: vi i vim -->
 					<dt><dfn>vim</dfn> lub <dfn>vi</dfn></dt>
 						<dd>vi jest chyba najbardziej zaawansowanym edytorem, którego obecność gwarantuje standard POSIX.
@@ -2696,26 +3209,9 @@ if (!blokada) {
 							</ul>
 						</dd>
 						<!-- END: vi i vim -->
-					<dt><dfn>less</dfn> lub <dfn>more</dfn></dt>
-						<dd>przeglądanie tekstu ekran po ekranie,<br />
-							less posiada większe możliwości od more (w szczególności posiada możliwość przeglądanie dokumentu w tył), przydatne opcje:<br />
-								<code>-X</code> nie czyści ekranu przy wychodzeniu z less'a (całość historii wyświetlania pliku pozostaje w historii terminala)<br />
-								<code>-F</code> automatycznie kończy gdy wyświetlany tekst mieści się na jednym ekranie
-								<code>-R</code> przepuszcza surowe sekwencje sterujące terminalem dotyczące kolorów
-						</dd>
-						
-					<dt><dfn>bvi</dfn> </dt>
-						<dd>wzorowany na vim'ie edytor hexalny (binarny)</dd>
-					<dt><dfn>od</dfn> lub <dfn>xxd</dfn> lub <dfn>hexdump</dfn></dt>
-						<dd>wypisywanie plików interperowanych binarnie w postaci liczby oktalne, szesnastkowe, itd, przykłady:<br />
-							<code>hexdump -e <var>'1/4 "%010d " 1/2 "%05d " 2/1 "%02x " "\n"'</var> <var>plik</var></code> każde kolejne 8 bajtów pliku zostanie zinterpretowane jako:
-								jedna liczba 32 bitowa liczba całkowita (4 bajty), 16 bitowowa liczba całkowita (2 bajty) i dwie liczby jedno bajtowe (wyświetlane szesnastkowo)
-						</dd>
-					
-					<dt><dfn>vbindiff</dfn></dt>
-						<dd>porównuje wizualnie pliki binarne (interfejs ncurces)</dd>
 				</dl>
 			</section>
+			
 			<section>
 				<h5>Operacje na systemie plików</h5>
 				<!-- BEGIN: Operacje na systemie plików -->
@@ -2799,10 +3295,6 @@ if (!blokada) {
 						<dd>tworzy link twardy do wskazanego pliku (lub plików) w wskazanej lokalizacji, w przypadku wskazania wielu plików źródłowych <var>cel</var> powinien być katalogiem, do ważniejszych opcji należy zaliczyć:<br />
 							<code>-s</code> tworzy dowiązania symboliczne zamiast twardych<br />
 							<code>-r</code> używa ścieżki względnej zamiast bezwzględnej przy tworzeniu dowiązań symbolicznych<br />
-							<img src="link_twardy_i_symboliczny.svg" style="height:230px;margin-top:13px;margin-left:47px" alt="link twardy i symboliczny" /><br />
-							Link twardy jest innym uchwytem do tych samych danych i może być używany także po skasowaniu oryginalnego pliku. Liczbę dowiązań do danego pliku pokazuje m.in. komenda <code>ls</code> z opcją <code>-l</code>.
-							Nie można utworzyć linków twardych do katalogów, ani do plików na innym zasobie dyskowym (innym systemie plików).<br />
-							Link symboliczny wskazuje na konkretną ścieżkę (względną lub bezwzględną – co może mieć znaczenie przy przenoszeniu takiego linku) do dowolnego (nawet nie istniejącego – wtedy mówimy o zerwanym linku) pliku lub katalogu.
 						</dd>
 					<dt><dfn>mv</dfn> <var>[opcje]</var> <var>źródło1 [źródło2 [...]]</var> <var>cel</var></dt>
 						<dd>przenosi wskazane pliki / katalogi do wskazanej lokalizacji, w przypadku przenoszenia wielu plików <var>cel</var> powinien być katalogiem, do ważniejszych opcji należy zaliczyć:<br />
@@ -2878,6 +3370,7 @@ if (!blokada) {
 						<dd>archiwizer obsługujące wiele formatów, w tym formaty z silną kompresją</dd>
 				</dl>
 			</section>
+			
 			<section>
 				<h5>Operacje na plikach (tekstowych)</h5>
 				<dl class="cmdlist">
@@ -2935,10 +3428,10 @@ if (!blokada) {
 					<dt><dfn>vimdiff</dfn> <var>ścieżka1</var> <var>ścieżka2</var></dt>
 						<dd>porównuje pliki wyświetlając je jeden obok drugiego (podobnie jak <code>diff</code> z opcją <code>-y</code>), pozwalając jednak na edycję tych plików</dd>
 					<dt><dfn>patch</dfn></dt>
-					<dd>stosuje plik łaty (wynik diff'a) w celu zmodyfikowania plików, typowo:<br />
-						<code>patch -p<var>n</var> &lt; <var>plik.diff</var></code> co powoduje zastosowanie zmian opisanych w <var>plik.diff</var> na plikach w bieżącym katalogu,
-						<var>n</var> określa ilość poziomów ścieżek podanych w pliku łaty które mają zostać zignorowane
-					</dd>
+						<dd>stosuje plik łaty (wynik diff'a) w celu zmodyfikowania plików, typowo:<br />
+							<code>patch -p<var>n</var> &lt; <var>plik.diff</var></code> co powoduje zastosowanie zmian opisanych w <var>plik.diff</var> na plikach w bieżącym katalogu,
+							<var>n</var> określa ilość poziomów ścieżek podanych w pliku łaty które mają zostać zignorowane
+						</dd>
 					
 					<dt><dfn>combinediff</dfn> / <dfn>splitdiff</dfn></dt>
 						<dd>łączy dwa pliki łat / dzieli plik łat złożony z przyrostowych zmian na osobne (pakiet <i>patchutils</i>)</dd>
@@ -3025,6 +3518,24 @@ if (!blokada) {
 						<dd>narzędzie do przetwarzania XSLT 1.0</dd>
 				</dl>
 			</section>
+			<section>
+				<h5>Operacje na plikach (binarnych)</h5>
+				
+				<p>Wiele z poleceń dla plików tekstowych (np. <code>grep</code>) zadziała też (mniej lub baradziej sensownie) na plikach tekstowych. Istnieją też narzędzia do pracy z takimi plikami:</p>
+				
+				<dl class="cmdlist">
+					<dt><dfn>od</dfn> lub <dfn>xxd</dfn> lub <dfn>hexdump</dfn></dt>
+						<dd>wypisywanie plików interperowanych binarnie w postaci liczby oktalne, szesnastkowe, itd, przykłady:<br />
+							<code>hexdump -e <var>'1/4 "%010d " 1/2 "%05d " 2/1 "%02x " "\n"'</var> <var>plik</var></code> każde kolejne 8 bajtów pliku zostanie zinterpretowane jako:
+								jedna liczba 32 bitowa liczba całkowita (4 bajty), 16 bitowowa liczba całkowita (2 bajty) i dwie liczby jedno bajtowe (wyświetlane szesnastkowo)
+						</dd>
+					<dt><dfn>vbindiff</dfn></dt>
+						<dd>porównuje wizualnie pliki binarne (interfejs ncurces)</dd>
+					<dt><dfn>bvi</dfn> </dt>
+						<dd>wzorowany na vim'ie edytor hexalny (binarny)</dd>
+				</dl>
+			</section>
+			
 			<!-- BEGIN: Użytkownicy, uprawnienia i procesy -->
 			<section>
 				<h5>Uprawnienia do plików</h5>
@@ -3483,7 +3994,7 @@ if (!blokada) {
 					<dt><dfn>reset</dfn></dt>
 						<dd>przywraca ustawienia terminala (np. gdy po wyświetleniu pliku binarnego są dziwne krzaczki)</dd>
 					<dt><dfn>stty</dfn></dt>
-						<dd>konfiguruje terminal (np. port szeregowy /dev/tyyS* , później możemy korzystać z niego np. za pomocą cat, echo, ... i przekierowań potoków - np. <code>cat /dev/ttyS0 &gt; ~/serial.log</code> będzie logowało informacje z portu do wskazanego pliku)</dd>
+						<dd>konfiguruje terminal (np. port szeregowy /dev/tyyS* , później można korzystać z niego np. za pomocą cat, echo, ... i przekierowań potoków - np. <code>cat /dev/ttyS0 &gt; ~/serial.log</code> będzie logowało informacje z portu do wskazanego pliku)</dd>
 					
 					<dt><dfn>startx</dfn></dt>
 						<dd>uruchamia środowisko graficzne</dd>
@@ -4354,7 +4865,7 @@ if (!blokada) {
 <section id="licencja">
 	<h2>Licencja</h2>
 <pre>
-<b>Copyright (c) 2003-2020, Robert Ryszard Paciorek &lt;rrp@opcode.eu.org&gt;</b>
+<b>Copyright (c) 2003-2025, Robert Ryszard Paciorek &lt;rrp@opcode.eu.org&gt;</b>
 
 To jest wolny i otwarty dokument/oprogramowanie. Redystrybucja, użytkowanie
 i/lub modyfikacja SĄ DOZWOLONE na warunkach licencji MIT.

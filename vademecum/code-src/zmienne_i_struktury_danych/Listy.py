@@ -14,7 +14,7 @@ print("dwa kolejne =", l[1:3])
 # wypisanie wszystkich elementów
 for e in l:
 	# możemy modyfikować zmienną "e",
-	# ale nie będzie maiło to wplywu na listę
+	# ale nie będzie maiło to wpływu na listę
 	print(e)
 
 # alternatywne iterowanie po elementach

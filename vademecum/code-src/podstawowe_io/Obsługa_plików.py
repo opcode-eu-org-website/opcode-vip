@@ -3,14 +3,12 @@ import os.path
 
 # otwarcie pliku do odczytu
 f=open("/etc/passwd", "r")
-# funkcja pozwala na określenie kodowania pliku poprzez
-# argument nazwany "encoding" (np. encoding='utf8'),
-# domyślne kodowanie zależne jest od ustawień systemowych
-# można je sprawdzić poprzez locale.getpreferredencoding()
-#
-# jeżeli plik ma być otwarty w trybie binarnym a nie
-# tekstowym konieczne jest podanie flagi b w ramach
-# drugiego argumentu
+# funkcja pozwala na określenie kodowania pliku poprzez argument nazwany "encoding"
+# (np. encoding='utf8'), domyślne kodowanie zależne jest od ustawień systemowych
+# i można je sprawdzić poprzez locale.getpreferredencoding()
+
+# jeżeli plik ma być otwarty w trybie binarnym a nie tekstowym
+# konieczne jest podanie flagi b w ramach drugiego argumentu
 
 # odczyt po linii
 l1 = f.readline()
@@ -43,6 +41,10 @@ print( f.read() )
 
 f.close()
 
+#
+# tworzenie pliku oraz dopisywanie
+#
+
 # jeżeli plik istnieje to:
 if os.path.isfile("/tmp/plik3.txt"):
 	# otwieramy w trybie do zapisu i odczytu
@@ -65,7 +67,10 @@ f.write("0123456789")
 
 f.close()
 
+#
 # obsługa plików binarnych
+#
+
 # wymagane jest dodanie flagi b w flagach funkcji open():
 f=open("/tmp/plik1.txt", "rb")
 

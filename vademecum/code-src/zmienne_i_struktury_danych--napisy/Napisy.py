@@ -1,9 +1,21 @@
 
 import re
 
+# napisem w Pythonie jest ciąg znaków ujęty w cudzysłowa lub apostrofy
+# (nie ma różnicy którego zapisu użyjemy).
+
 x = "abcdefg"
 y = "aa bb cc bb dd bb ee"
 z = "qw=rt"
+
+# Potrójne cudzysłowa / apostrofy pozwalają na definiowanie napisów wieloliniowych
+# (a także zawierających pojedyncze cudzysłowa / apostrofy w tekście).
+
+q = '''abc
+def'''
+
+'''rozpoczynający się z początkiem linii nieprzypisany do zmiennej napis
+jest ignorowany i może być użyty jako komentarz, typowo komentarz dokumentacyjny'''
 
 # wypisanie długości napisu
 print(len(x))
@@ -26,20 +38,24 @@ print (y.find("bb", 5))
 if x == "a":
 	print("x == \"a\"")
 
+# sprawdzanie czy zawiera pod-napis (z listy)
+for podnapis in ["ab", "bc"]:
+	if podnapis in x:
+		print (podnapis, "jest pod-napisem:", x)
+
+#
+# Wyrażenia regularne
+#
+
+# sprawdzanie czy pasuje do wyrażenia regularnego
 if re.search("[dz]", x):
 	print(x, "zawiera d lub z")
 
-# sprawdzanie czy jest pod-napisem
-if "ab" in x:
-	print ("ab jest pod-napisem:", x)
-
-# sprawdzanie czy jest pod-napisem
-if "ba" in x:
-	print ("ba jest pod-napisem:", x)
-
-# zastępowanie
-print (re.sub('[bc]+', "XX", y, 2))
+# zastępowanie (dowolny niepusty ciąg złożony z liter b oraz c na XX)
 print (re.sub('[bc]+', "XX", y))
+
+# czwarty (opcjonalny) argument określa ile razy ma być wykonane zastępowanie
+print (re.sub('[bc]+', "XX", y, 2))
 
 # zastępowanie z użyciem podstawienia
 # \\2 zostanie zastąpione wartością drugie pod-wyrażenia,
@@ -64,8 +80,11 @@ print (re.sub('.*?bb (.*) bb.*', "\\1", y))
 # pytajnik (.? ?? +? {n,m}?) aby wskazać że ma on dopasowywać
 # najmniejszy możliwy fragment, czyli ma działać nie zachłannie.
 
+#
+# Modyfikowanie napisów
+#
 
-# nie da się modyfikować napisu z użyciem odwołań x[numer] np.
+# w Pythonie nie da się modyfikować napisu z użyciem odwołań x[numer] np.
 # x[2]="X"
 # nie zadziała
 
@@ -101,6 +120,10 @@ print(s)
 print(y.split(" "))
 print(y.split(" cc "))
 
+#
+# Konwersja liczba - napis
+#
+
 # konwersja liczb na napis w systemach:
 # dwójkowym, ósemkowym, dziesiętnym i szesnastkowym
 print( bin(7), oct(0xf), str(0o10), hex(0b11) )
@@ -113,7 +136,11 @@ print( bin(7), oct(0xf), str(0o10), hex(0b11) )
 s = "0o%o %d 0x%x" % (0xf, 0o10, 0b11)
 print(s)
 
-# wypisywanie znaków z użyciem ich numeru w unikodzie
+# 
+# Konwersja znak - numer znaku i kodowania znaków
+#
+
+# uzyskiwanie znaków z użyciem ich numeru w unikodzie
 # - funkcja chr() zwraca napis złożony ze znaku o podanym numerze
 # w ramach napisów można też użyć \uNNNN gdzie NNNN jest numerem znaku
 # lub po prostu umieścić dany znak w pliku kodowanym UTF8

@@ -1,10 +1,7 @@
 
-i, k, j = 0, 0, 0 # wielokrotne przypisanie
-# najpierw oblicza wartości wyrażeń po prawej,
-# potem przypisuje. Pozwala na a, b = b, a
-# celem zamiany wartości zmiennych
+i, k, j = 0, 0, 0
 
-# instrukcja waunkowa if - else
+# instrukcja warunkowa if - else
 if i<j :
 	print("i<j")
 elif j<k :
@@ -12,11 +9,19 @@ elif j<k :
 else:
 	print("i>=j AND j>=k")
 
+'''
+Uwaga:
+ * Bloki kodu w Pythonie rozpoczynają się dwukropkiem i wydzielane są z użyciem wcięć.
+ * Blok kodu trwa do momentu zmniejszenia wcięcia do poziomu na którym była instrukcja
+   go rozpoczynająca.
+ * Zagnieżdżony blok kodu wiąże się z zwiększeniem wcięcia.
+ * Wcięcia mogą być wykonywane spacjami albo tabulatorami (ale nie należy ich mieszać).
+'''
+
 # podstawowe operatory logiczne
 if i<j or j<k:
 	print("i<j OR j<k")
 # innymi operatorami logicznymi są `and` oraz `not`
-
 
 # pętla for
 for i in range(2, 9):

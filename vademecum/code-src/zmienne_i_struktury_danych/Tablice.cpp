@@ -3,7 +3,8 @@
 #include <vector>
 
 int main() {
-	// klasyczna tablica
+	// klasyczna tablica z C
+	// wartości elementów może zainicjalizować od razu przy deklaracji tablicy:
 	int t[4] = {1, 8, 3, 2};
 	std::cout << t[2] << " -> ";
 	t[2] = 55;

@@ -39,6 +39,8 @@ struct Kolor {
 class Cena {
 public:
 	Cena(float c);
+	// taki zapis oznacza że definicja funkcji znajduje się poza definicją klasy
+	// (typowo w pliku .cpp o tej samej nazie co .h zawierający definicję klasy)
 };
 
 class Material {

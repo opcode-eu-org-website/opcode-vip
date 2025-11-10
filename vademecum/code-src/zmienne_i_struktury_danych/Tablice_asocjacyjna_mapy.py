@@ -7,15 +7,15 @@ m[x] = True;
 for k in m:
 	print (k, "=>", m[k])
 
-# sprawdzenie istnienia 
+# sprawdzenie istnienia
 if "ab" in m:
 	print ("jest ab")
 	# usunięcie elementu
 	del m['ab']
 
-# modyfikacja wartosci
+# modyfikacja wartości
 m["cd"] = "oi"
 
-# pobranie par klucz wartosc
+# pobranie par klucz wartość
 for k,v in m.items():
 	print (k, "=>", v)

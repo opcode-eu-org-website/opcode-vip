@@ -4,14 +4,14 @@ b = 3
 x = 5
 y = 6
 
-# dodawanie, mnożenie, odejmowanie zapisuje się
-# i działają one tak jak w normalnej matematyce:
+# dodawanie, mnożenie, odejmowanie zapisuje się i działają
+# tak jak w normalnej matematyce:
 e = (a + b) * 4 - y
 
 # dzielenie zmiennoprzecinkowe
 c = x / y
 
-#dzielenie całkowite
+# dzielenie całkowite
 b = a // b
 
 # reszta z dzielenia
@@ -40,9 +40,9 @@ print(hex(x), hex(y), hex(z & 0xffff));
 # wypisując z musimy określić jego bitowość
 
 # wieloargumentowa operacja przypisania
-# może być użyta do zamiany wartości pomiędzy dwoma zmiennymi
-# bez jawnego używania zmiennej tymczasowej
-print(a, b)
+a, b, c = 1, 2, 3
+# Najpierw oblicza wartości wyrażeń po prawej, a dopiero potem przypisuje.
+# Pozwala to np. na:
 a, b = b, a
+# celem zamiany wartości zmiennych bez jawnego używania zmiennej tymczasowej
 print(a, b)
-# oczywiście można w jej ramach używać więcej niż dwóch zmiennych
