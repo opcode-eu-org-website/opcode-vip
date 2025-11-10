@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="lib/menu.css" type="text/css" />
 	<link rel="stylesheet" href="lib/highlight.css" type="text/css" />
 	<script type="text/javascript" src="lib/menu.js" />
+	<script type="text/javascript" src="lib/tabs.js" />
 	<script type="text/javascript" src="https://rpaciorek.github.io/mathml.css/mspace.js" />
 </head><body>
 
@@ -1554,13 +1555,13 @@ exit(0)
 			</ul></p>
 		</section>
 		
-		<div class="demo_codes"><div>
+		<div class="demo_codes">
 			<insertSourceCode file="code-src/podstawy/Pamięć_danych_-_zmienne.cpp" />
 			<insertSourceCode file="code-src/podstawy/Pamięć_danych_-_zmienne.py" />
 			<insertSourceCode file="code-src/podstawy/Pamięć_danych_-_zmienne.sh" />
 			<insertSourceCode file="code-src/podstawy/Pamięć_danych_-_zmienne.php" />
 			<insertSourceCode file="code-src/podstawy/Pamięć_danych_-_zmienne.js" />
-		</div></div>
+		</div>
 	</section>
 	
 	<section>
@@ -1590,12 +1591,12 @@ exit(0)
 				</ul>
 				Dość istotnym wyjątkiem są niektóre języki skryptowe (takie jak bash), których głównym zadaniem jest uruchamianie innych programów i to jest operacją podstawową w tych językach.</p>
 			
-			<div class="demo_codes"><div>
+			<div class="demo_codes">
 				<insertSourceCode file="code-src/podstawy/Podstawowe_operacje_arytmetyczne_bitowe_i_logiczne.cpp" />
 				<insertSourceCode file="code-src/podstawy/Podstawowe_operacje_arytmetyczne_bitowe_i_logiczne.py" />
 				<insertSourceCode file="code-src/podstawy/Podstawowe_operacje_arytmetyczne_bitowe_i_logiczne.sh" />
 				<insertSourceCode file="code-src/podstawy/Podstawowe_operacje_arytmetyczne_bitowe_i_logiczne.js" />
-			</div></div>
+			</div>
 		</section>
 		
 		<section>
@@ -1607,13 +1608,13 @@ exit(0)
 			<p>Skoki bezwarunkowe, instrukcje warunkowe, pętle, wywołania funkcji są realizowane poprzez modyfikację licznika programu. W przypadku wywołań funkcji dodatkowo wykonywane są operacje związane z obsługą stosu (zachowywaniem stanu rejestrów, umieszczaniem argumentów na stosie, ...). Instrukcja <code>goto</code> (realizująca skok bezwarunkowy) jest pełnoprawną instrukcją skoku, jedyną wadą jej stosowania jest to że przy niewłaściwym / zbyt częstym wykorzystywaniu (zamiast wywołań funkcji, warunków i pętli) kod programu staje się mniej czytelny.</p>
 			
 			<p>W większości przypadków pętle realizowane są na poziomie kodu maszynowego jako zestaw instrukcji (np. inkrementacji zmiennej, sprawdzania warunku, skoku), jednak w niektórych rozwiązaniach pętle (np. typu "powtórz n razy") mogą być realizowane sprzętowo przy pomocy pojedynczej instrukcji.</p>
-			<div class="demo_codes"><div>
+			<div class="demo_codes">
 				<insertSourceCode file="code-src/podstawy/Skoki_warunki_pętle_funkcje.cpp" />
 				<insertSourceCode file="code-src/podstawy/Skoki_warunki_pętle_funkcje.py" />
 				<insertSourceCode file="code-src/podstawy/Skoki_warunki_pętle_funkcje.sh" />
 				<insertSourceCode file="code-src/podstawy/Skoki_warunki_pętle_funkcje.php" />
 				<insertSourceCode file="code-src/podstawy/Skoki_warunki_pętle_funkcje.js" />
-			</div></div>
+			</div>
 			
 			<section>
 				<h5>Funkcje</h5>
@@ -1622,13 +1623,13 @@ exit(0)
 				</p>
 				<p>Funkcja może otrzymywać argumenty, które będą dostępne jako zmienne wewnątrz niej oraz zwracać wartość. Zmienne definiowane wewnątrz funkcji nie będą widoczne poza nią, a modyfikacja wartości argumentów nie wpłynie na wartość zmiennych przekazanych jako argumenty – są one przekazywane przez kopiowanie wartości do nowej zmiennej. Typowo funkcje mogą używać (i modyfikować) zmienne globalne, czyli takie zdefiniowane poza zakresem funkcji.</p>
 				<p>Typowo funkcja przyjmuje określoną ilość argumentów (może ich nie posiadać) i zwraca pojedynczą wartość. Istnieje możliwość zwracania przez funkcję struktury złożonej z kilku wartości, jednak na ogół odebranie z funkcji dodatkowych wyników działania odbywa się poprzez argument typu wskaźnikowego, wskazujący na zmienną w której mają zostać zapisane. Wiele języków pozwala także na definiowanie funkcji przyjmujących dowolną ilość argumentów.</p>
-				<div class="demo_codes"><div>
+				<div class="demo_codes">
 					<insertSourceCode file="code-src/podstawy/Funkcje_dowolną_ilością_argumentów.cpp" />
 					<insertSourceCode file="code-src/podstawy/Funkcje_dowolną_ilością_argumentów.py" />
 					<insertSourceCode file="code-src/podstawy/Funkcje_dowolną_ilością_argumentów.sh" />
 					<insertSourceCode file="code-src/podstawy/Funkcje_dowolną_ilością_argumentów.php" />
 					<insertSourceCode file="code-src/podstawy/Funkcje_dowolną_ilością_argumentów.js" />
-				</div></div>
+				</div>
 				
 				<section>
 					<h6>Przeciążanie funkcji i operatorów</h6>
@@ -1651,18 +1652,18 @@ exit(0)
 			<section>
 				<h5>Wyjątki</h5>
 				<p>Języki wyższego poziomu (np. C++, Python) pozwalają na stosowanie mechanizmu wyjątków do obsługi błędów. Wyjątek powoduje przerwanie wykonywania kodu w momencie gdy jest generowany i „zwinięcie” stosu wykonywanych funkcji aż do tej w której jest obsługiwany, a jeżeli takiej nie ma to zakończenie programu.</p>
-				<div class="demo_codes"><div>
+				<div class="demo_codes">
 					<insertSourceCode file="code-src/podstawy/Wyjątki.cpp" />
 					<insertSourceCode file="code-src/podstawy/Wyjątki.py" />
-				</div></div>
+				</div>
 			</section>
 			<section>
 				<h5>Rekurencja</h5>
 				<p>Rekurencja jest mechanizmem, polegającym na wywoływaniu funkcji przez samą siebie, który ma na celu implementację niektórych algorytmów. Może być zastosowana chyba w każdym języku pozwalającym na definiowanie funkcji. Ograniczeniem jest maksymalna ilość wywołań funkcji związana z wielkością stosu - w przypadku zbyt wielu wywołań kolejnych funkcji program zakończy się błędem. Każdy algorytm zapisywany rekurencyjnie może zostać zamieniony na algorytm iteracyjny (wykorzystujący pętle).</p>
-				<div class="demo_codes"><div>
+				<div class="demo_codes">
 					<insertSourceCode file="code-src/podstawy/Rekurencja-Iteracja-1.py" />
 					<insertSourceCode file="code-src/podstawy/Rekurencja-Iteracja-2.py" />
-				</div></div>
+				</div>
 			</section>
 		</section>
 	</section>
@@ -1685,11 +1686,11 @@ exit(0)
 				<p>
 					Niektóre z języków pozwalają na definiowanie w ramach struktury lub klasy pól i/lub metod <dfn>statycznych</dfn>, które nie są powiązane z żadnym istniejącym egzemplarzem danej struktury czy klasy - są wspólne dla wszystkich i można się do nich odwoływać bez istnienia obiektu.
 				</p>
-				<div class="demo_codes"><div>
+				<div class="demo_codes">
 					<insertSourceCode file="code-src/zmienne_i_struktury_danych/Struktury_i_klasy.cpp" />
 					<insertSourceCode file="code-src/zmienne_i_struktury_danych/Struktury_i_klasy.py" />
 					<insertSourceCode file="code-src/zmienne_i_struktury_danych/Struktury_i_klasy.php" />
-				</div></div>
+				</div>
 				<p>
 					Metody wchodzące w skład struktury oraz pola statyczne nie wpływają na rozmiar obiektów których jest typem.
 				</p>
@@ -1706,10 +1707,10 @@ exit(0)
 					
 					<p>Pozwala to na tworzenie interfejsów klas, które wystawiają do użycia w programie jedynie to co o obiektach klasy powinno być widoczne i pozwalają ukryć szczegóły implementacyjne.</p>
 					
-					<div class="demo_codes"><div>
+					<div class="demo_codes">
 						<insertSourceCode file="code-src/zmienne_i_struktury_danych/Dziedziczenie_polimorfizm_itp.cpp" />
 						<insertSourceCode file="code-src/zmienne_i_struktury_danych/Dziedziczenie_polimorfizm_itp.py" />
-					</div></div>
+					</div>
 				</section>
 			</section>
 			<section>
@@ -1718,12 +1719,12 @@ exit(0)
 					Tablica jest strukturą danych w której elementy (takiego samego typu) są ułożone w porządku liniowym i są dostępne za pomocą indeksów (kluczy). Typowo tablica indeksowana jest liczbami całkowitymi nie ujemnymi oraz zajmuje ciągły obszar pamięci.<br />
 					Dostęp do elementów tablicy odbywa się w oparciu o obliczanie ich adresu na podstawie zależności: AdresElementu = AdresPoczatkuTablicy + IndexElementu * RozmiarElementu.
 				</p>
-				<div class="demo_codes"><div>
+				<div class="demo_codes">
 					<insertSourceCode file="code-src/zmienne_i_struktury_danych/Tablice.c" />
 					<insertSourceCode file="code-src/zmienne_i_struktury_danych/Tablice.cpp" />
 					<insertSourceCode file="code-src/zmienne_i_struktury_danych/Tablice.sh" />
 					<insertSourceCode file="code-src/zmienne_i_struktury_danych/Tablice.js" />
-				</div></div>
+				</div>
 			</section>
 			<section>
 				<h5>Listy</h5>
@@ -1740,10 +1741,10 @@ exit(0)
 						<dd>(zarówno jedno i dwukierunkowe) w których ostatni element wskazuje jako następny pierwszy element, a (w przypadku dwukierunkowych) pierwszy element wskazuje ostatni jako swojego poprzednika</dd>
 					</dl>
 				</p>
-				<div class="demo_codes"><div>
+				<div class="demo_codes">
 					<insertSourceCode file="code-src/zmienne_i_struktury_danych/Listy.cpp" />
 					<insertSourceCode file="code-src/zmienne_i_struktury_danych/Listy.py" />
-				</div></div>
+				</div>
 				<p>
 					Listy umożliwiają łatwą implementację m.in.:
 					<dl>
@@ -1763,12 +1764,12 @@ exit(0)
 				<p>
 					Tablica asocjacyjna (nazywana także mapą lub słownikiem) podobnie do zwykłej tablicy jest zbiorem par klucz-wartość, z tym że klucze nie muszą tutaj być kolejnymi liczbami całkowitymi zaczynającymi się od zera a mogą być dowolnymi wartościami (napisami, wskaźnikami, etc). Często (np. C++) tablice takie implementowane są jako posortowane drzewa binarne, dzięki czemu dostęp do szukanego elementu realizowany jest w czasie logarytmicznym.
 				</p>
-				<div class="demo_codes"><div>
+				<div class="demo_codes">
 					<insertSourceCode file="code-src/zmienne_i_struktury_danych/Tablice_asocjacyjna_mapy.cpp" />
 					<insertSourceCode file="code-src/zmienne_i_struktury_danych/Tablice_asocjacyjna_mapy.py" />
 					<insertSourceCode file="code-src/zmienne_i_struktury_danych/Tablice_asocjacyjna_mapy.php" />
 					<insertSourceCode file="code-src/zmienne_i_struktury_danych/Tablice_asocjacyjna_mapy.js" />
-				</div></div>
+				</div>
 				<p>
 					W standardowej mapie klucz jest unikalny (tzn. nie mogą występować elementy z takim samym kluczem), zapewnia to jednoznaczność odwołań poprzez operator tablicowy [].
 					W C++ jeżeli chcemy mieć kilka jednakowych kluczy z różnymi wartościami można skorzystać <code>std::multimap&lt;&gt;</code>.
@@ -1818,12 +1819,12 @@ exit(0)
 				</p>
 			</section>
 			
-			<div class="demo_codes"><div>
+			<div class="demo_codes">
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych/Wskaźniki_i_referencje.cpp" />
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych/Wskaźniki_i_referencje.py" />
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych/Wskaźniki_i_referencje.sh" />
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych/Wskaźniki_i_referencje.php" />
-			</div></div>
+			</div>
 		</section>
 		
 		<section>
@@ -1838,10 +1839,10 @@ exit(0)
 			<p>
 				W przypadku manualnej alokacji pamięci lub tworzenia obiektów poprzez <code>new</code> limitowana jest widoczność i istnienie otrzymanego wskaźnika, ale nie zaalokowanego bloku pamięci. Zatem ograniczona jest widoczność takich zmiennych ale nie czas ich istnienia, dlatego też przed utratą wskaźnika na nie należy je usunąć (zwolnić zaalokowaną pamięć).
 			</p>
-			<div class="demo_codes"><div>
+			<div class="demo_codes">
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych/Zasięg_zmiennej.cpp" />
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych/Zasięg_zmiennej.py" />
-			</div></div>
+			</div>
 		</section>
 		
 		<section>
@@ -1853,17 +1854,17 @@ exit(0)
 			
 			<p>W oparciu o definicję szablony funkcji i/lub klas kompilator będzie mógł wytworzyć funkcje/klasy dla potrzebnych typów w oparciu o ten szablon (zdefiniowany dla ogólnego typu zastępczego).</p>
 			
-			<div class="demo_codes"><div>
+			<div class="demo_codes">
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych/Szablony.cpp" />
-			</div></div>
+			</div>
 		</section>
 		
 		<section>
 			<h4>Kolejność bajtów</h4>
 			
-			<div class="demo_codes"><div>
+			<div class="demo_codes">
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych/Endianness.c" />
-			</div></div>
+			</div>
 			<p>Fakt, że różne komputery ten sam ciąg zero-jedynkowy mogą interpretować jako różne liczby (w zależności od architektury <em>big endian</em> vs <em>little endian</em>), powoduje że przy wymianie danych między systemami konieczne jest ustalenie sposobu tej interpretacji (np. protokoły sieciowe takie jak IP używają <em>big endian</em>) lub zawarcie tej informacji w wymienianych danych (kodowania Unicode UTF-16 i UTF-32 zawierają na początku danych znacznik BOM).</p>
 		</section>
 		
@@ -1894,56 +1895,54 @@ $      - koniec napisu/linii
 ()     - pod-wyrażenie (może być używane dla operatorów powtórzeń, a także dla referencji wstecznych)
 |      - alternatywa: wystąpienie wyrażenia podanego po lewej stronie albo wyrażenia podanego prawej stronie
 </pre>
-			<div class="demo_codes"><div>
+			<div class="demo_codes">
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych--napisy/Napisy.cpp" />
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych--napisy/Napisy.py" />
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych--napisy/Napisy.php" />
-			</div><br /><div>
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych--napisy/Napisy-wbudowane.sh" />
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych--napisy/Napisy-komendy.sh" />
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych--napisy/Napisy.js" />
-			</div></div>
+			</div>
 			<section>
 				<h5>XML</h5>
 				<p>Extensible Markup Language (XML) jest tekstowym formatem wymiany danych. W odróżnieniu od formatu klasycznego formatu utożsamiającego linię z rekordem złożonym z pól oddzielanych wskazanym separatorem może on w łatwy sposób opisywać bardziej złożoną (drzewiastą a nie tabelkową) postać danych.
 					Dokument XML składa się z zagnieżdżonych w sobie znaczników, każdy z nich może posiadać atrybuty oraz wartość, którą jest tekst zawierający lub nie kolejne znaczniki. Kolejność występowania elementów w dokumencie jest znacząca.
 					Każdy znacznik otwierający posiada odpowiadający mu znacznik zamykający (np. <code>&lt;b&gt;aa&lt;/b&gt;</code>), znaczniki bez wartości mogą być samo-zamykające (np. <code>&lt;g /&gt;</code>).
 					Dokumenty HTML mogą być zgodne z wymogami formalnymi XML tym samym stanowiąc dokumenty XML.</p>
-				<div class="demo_codes"><div>
+				<div class="demo_codes">
 					<insertSourceCode file="code-src/zmienne_i_struktury_danych--napisy/XML.cpp" />
 					<insertSourceCode file="code-src/zmienne_i_struktury_danych--napisy/XML.py" />
-				</div><br/><div>
 					<insertSourceCode file="code-src/zmienne_i_struktury_danych--napisy/XML.xml" />
-				</div></div>
+				</div>
 			</section>
 			<section>
 				<h5>JSON</h5>
 				<p>JavaScript Object Notation (JSON) jest tekstowym formatem wymiany danych. Podobnie jak XML reprezentuje on drzewiasta strukturę, jednak w odróżnieniu od XML kolejność elementów w danych wejściowych nie zawsze przekłada się na kolejność w danych zinterpretowanych. Wiąże się to z tym iż wyróżnia się dwa typu elementów.
 					Pierwszy z nich obejmowany w nawiasy klamrowe i składa się z par klucz-wartość, jest on interpretowany jako słownik / tablica asocjacyjna i w jego wypadku identyfikacja elementu odbywa się wyłącznie po kluczu (który musi być unikalny), a kolejność nie ma znaczenia.
 					Drugi jest obejmowany w nawiasy kwadratowe i składa się wyłącznie z kolejnych wartości, jest on interpretowany jako zwykła tablica lub lista.</p>
-				<div class="demo_codes"><div>
+				<div class="demo_codes">
 					<insertSourceCode file="code-src/zmienne_i_struktury_danych--napisy/JSON.py" />
-				</div></div>
+				</div>
 			</section>
 			<section>
 				<h5>wykonywanie napisu</h5>
 				<p>Często wygodnie jest mieć możliwość wykonania kawałka kodu danego języka, który jest zapisany w zmiennej napisowej. Większość języków skryptowych pozwala to zrobić. Jako że funkcje te pozwalają na wykonywanie dowolnego kodu to szczególną ostrożność należy zachować przekazując do nich dane wprowadzane przez użytkownika.</p>
-				<div class="demo_codes"><div>
+				<div class="demo_codes">
 					<insertSourceCode file="code-src/zmienne_i_struktury_danych--napisy/wykonywanie_napisu.py" />
 					<insertSourceCode file="code-src/zmienne_i_struktury_danych--napisy/wykonywanie_napisu.sh" />
 					<insertSourceCode file="code-src/zmienne_i_struktury_danych--napisy/wykonywanie_napisu.php" />
 					<insertSourceCode file="code-src/zmienne_i_struktury_danych--napisy/wykonywanie_napisu.js" />
-				</div></div>
+				</div>
 			</section>
 		</section>
 		
 		<section>
 			<h4>Iteratory</h4>
 			<p>Iterator jest obiektem pozwalającym na dostęp do elementów jakiegoś innego obiektu (np. kolekcji typu lista, tablica, itd).</p>
-			<div class="demo_codes"><div>
+			<div class="demo_codes">
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych/Iteratory.cpp" />
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych/Iteratory_generatory.py" />
-			</div></div>
+			</div>
 		</section>
 	</section>
 	
@@ -1962,45 +1961,44 @@ $      - koniec napisu/linii
 				<li>przekazywania między programami kolejnych etapów przetwarzania jakiegoś zbioru danych (zwykle tekstowego): np. <code>grep in.txt | sort &gt; out.txt</code> (grep wybiera linie spełniające kryteria, a sort sortuje wynik)</li>
 				<li>interaktywnej obsługi programu: program pyta o kolejne parametry i pobiera je z standardowego wyjścia (podejście należy stosować z rozwagą gdyż takie programy ciężko używa się w skryptach - lepszym rozwiązaniem jest przyjmowanie parametrów z linii poleceń)</li>
 			</ul></p>
-		<div class="demo_codes"><div>
+		<div class="demo_codes">
 			<insertSourceCode file="code-src/podstawowe_io/Standardowe_wejście__wyjście--c.cpp" />
 			<insertSourceCode file="code-src/podstawowe_io/Standardowe_wejście__wyjście--cpp.cpp" />
 			<insertSourceCode file="code-src/podstawowe_io/Standardowe_wejście__wyjście.py" />
-		</div><br /><div>
 			<insertSourceCode file="code-src/podstawowe_io/Standardowe_wejście__wyjście.sh" />
 			<insertSourceCode file="code-src/podstawowe_io/Standardowe_wejście__wyjście.php" />
-		</div></div>
+		</div>
 		</section>
 		<section>
 			<h4>Obsługa plików</h4>
 			<p>Zasadniczo obsługa plików pod względem operacji wykonywanych pomiędzy otwarciem a zamknięciem pliku niewiele różni się od obsługi standardowego/wejścia i wyjścia. W zdecydowanej większości (jeżeli nawet nie we wszystkich) języków interfejs obsługi standardowego wejścia i wyjścia jest zunifikowany z interfejsem obsługi plików.</p>
-			<div class="demo_codes"><div>
+			<div class="demo_codes">
 				<insertSourceCode file="code-src/podstawowe_io/Obsługa_plików--c.cpp" />
 				<insertSourceCode file="code-src/podstawowe_io/Obsługa_plików--cpp.cpp" />
 				<insertSourceCode file="code-src/podstawowe_io/Obsługa_plików.py" />
-			</div></div>
+			</div>
 			<section>
 				<h5>Czekanie na dane</h5>
 				<p>Niekiedy program musi poczekać na jakieś dane (np. wprowadzane z standardowego wejścia przez użytkownika). Typowo funkcje odczytu czekają w nieskończoność na koniec wczytywanych danych (lub na koniec linii). Jeżeli program ma czekać na dane z jednego z kilku źródeł lub czekać z ograniczeniem czasowym przydatna jest funkcja select.</p>
-				<div class="demo_codes"><div>
+				<div class="demo_codes">
 					<insertSourceCode file="code-src/podstawowe_io/Czekanie_na_dane.py" />
-				</div></div>
+				</div>
 			</section>
 			<section>
 				<h5>Mapowanie plików w pamięci</h5>
 				<p>Możliwe jest także operowanie na plikach zmapowanych do pamięci z użyciem mmap, operacje wykonywane są wtedy na ich zawartości tak jak na tablicach / napisach C.</p>
-				<div class="demo_codes"><div>
+				<div class="demo_codes">
 					<insertSourceCode file="code-src/podstawowe_io/Mapowanie_plików_w_pamięci.cpp" />
-				</div></div>
+				</div>
 			</section>
 			<section>
 				<h5>Operacje na plikach</h5>
 				<p>Często oprócz zapisywania i czytania plików zachodzi potrzeba sprawdzenia czy plik istnieje, wylistowania plików z jakiegoś katalogu, zmiany nazwy lub usunięcia pliku. Stosowne funkcje oferuje biblioteka standardowa C (w oparciu o nie realizowane są komendy shellowe wykonujące takie operacje), a także większość innych języków. W przypadku C++ można korzystać z biblioteki standardowej C lub biblioteki boost (jak w poniższym przykładzie).</p>
-				<div class="demo_codes"><div>
+				<div class="demo_codes">
 					<insertSourceCode file="code-src/podstawowe_io/Operacje_na_plikach.cpp" />
 					<insertSourceCode file="code-src/podstawowe_io/Operacje_na_plikach.py" />
 					<insertSourceCode file="code-src/podstawowe_io/Operacje_na_plikach.sh" />
-				</div></div>
+				</div>
 			</section>
 		</section>
 		<section>
@@ -2014,13 +2012,12 @@ $      - koniec napisu/linii
 			</p><p>
 				Obsługę takiego stylu przekazywania opcji do programu (w oparciu o surową tablicę argumentów) zapewniają liczne biblioteki (także standardowe biblioteki różnych języków programowania).
 			</p>
-			<div class="demo_codes"><div>
+			<div class="demo_codes">
 				<insertSourceCode file="code-src/podstawowe_io/Argumenty_linii_poleceń.cpp" />
 				<insertSourceCode file="code-src/podstawowe_io/Argumenty_linii_poleceń.py" />
-				</div><br /><div>
 				<insertSourceCode file="code-src/podstawowe_io/Argumenty_linii_poleceń.sh" />
 				<insertSourceCode file="code-src/podstawowe_io/Argumenty_linii_poleceń.php" />
-			</div></div>
+			</div>
 		</section>
 	</section>
 	
@@ -2035,10 +2032,10 @@ $      - koniec napisu/linii
 				</ul>
 				W przypadku zastosowania fork proces potomny otrzymuje kopię pamięci rodzica (ma dostęp do wszystkich jego zmiennych oraz zasobów uzyskanych przed fork(); dalsze operacje na zmiennych są niezależne). Po utworzeniu kopi procesu można (ale nie trzeba) zastąpić wykonywany w nim program innym poprzez funkcje z rodziny exec. Cechy te powodują że mechanizm fork jest bardziej elastyczny od spawn.
 			</p>
-			<div class="demo_codes"><div>
+			<div class="demo_codes">
 				<insertSourceCode file="code-src/procesy_i_watki/Rozgałęzienie_procesu_-_fork.cpp" />
 				<insertSourceCode file="code-src/procesy_i_watki/Rozgałęzienie_procesu_-_fork.py" />
-			</div></div>
+			</div>
 		</section>
 		<section>
 			<h4>Komunikacja międzyprocesowa</h4>
@@ -2052,18 +2049,18 @@ $      - koniec napisu/linii
 				</p><p>
 					Każdy sygnał ma zdefiniowane domyślne zachowanie procesu po jego otrzymaniu. Wiele sygnałów związanych jest z standardowymi operacjami (np. wciśnięcie Ctrl+C, Ctrl+Z, Ctrl+/, wykonanie <code>kill <var>$PID</var></code>) i ma odpowiednie do tego zachowania domyślne. Proces może zablokować lub zdefiniować własną obsługę większości (ale nie wszystkich) sygnałów.
 				</p>
-				<div class="demo_codes"><div>
+				<div class="demo_codes">
 					<insertSourceCode file="code-src/procesy_i_watki/Sygnały.cpp" />
 					<insertSourceCode file="code-src/procesy_i_watki/Sygnały.py" />
-				</div></div>
+				</div>
 			</section>
 			<section>
 				<h5>Kolejki komunikatów</h5>
 				<p>W przypadku gdy grupa procesów ma ze sobą współpracować potrzebne są bardziej zaawansowane (od sygnałów) mechanizmy komunikacji - pozwalające na przekazywanie jakiś danych między procesami. Jednym z takich mechanizmów są kolejki wiadomości. W pewnym stopniu są one podobne do omówionych wcześniej łącz (pipe-ów), jednak w odróżnieniu od nich zamiast jednolitego strumienia danych pomiędzy dwoma procesami (producentem i konsumentem) służą do przekazywania wiadomości pomiędzy grupą producentów i grupą konsumentów.</p>
-				<div class="demo_codes"><div>
+				<div class="demo_codes">
 					<insertSourceCode file="code-src/procesy_i_watki/Kolejki_komunikatów.cpp" />
 					<insertSourceCode file="code-src/procesy_i_watki/Kolejki_komunikatów.py" />
-				</div></div>
+				</div>
 			</section>
 			<section>
 				<h5>Pamięć współdzielona</h5>
@@ -2083,10 +2080,10 @@ if (!blokada) {
 					</ol>
 					Dlatego też korzysta się z mechanizmów systemowych (semaforów, lock'ów, etc) które zapewniają atomowość (nie podzielność) operacji sprawdzenia wartości zmiennej i jej modyfikacji.
 				</p>
-				<div class="demo_codes"><div>
+				<div class="demo_codes">
 					<insertSourceCode file="code-src/procesy_i_watki/Pamięć_współdzielona.cpp" />
 					<insertSourceCode file="code-src/procesy_i_watki/Pamięć_współdzielona.py" />
-				</div></div>
+				</div>
 			</section>
 		</section>
 		<section>
@@ -2095,11 +2092,11 @@ if (!blokada) {
 				Oprócz możliwości rozgałęzienia procesu (utworzenia potomka) z użyciem np. <code>fork()</code> możliwe jest także tworzenie wątków (zwanych tez lekkimi procesami) w ramach procesu. Podstawowa różnica między procesem a wątkiem polega na tym iż wszystkie wątki (w ramach danego procesu) współdzielą całość pamięci (przestrzeni adresowej), podczas gdy każdy z procesów posiada niezależną pamięć i co najwyżej jakiś współdzielony z innymi fragment.
 				Każdy z wątków posiada natomiast niezależny stos (umieszczony we wspólnej przestrzeni adresowej), który jest używany m.in. do przechowywania zmiennych lokalnych (w tym argumentów funkcji). Jednak ze względu na umieszczenie tych danych w wspólnej przestrzeni adresowej są one także dostępne dla innych wątków (poprzez wskaźnik lub referencję).
 			</p>
-			<div class="demo_codes"><div>
+			<div class="demo_codes">
 				<insertSourceCode file="code-src/procesy_i_watki/Wątki-pthread.cpp" />
 				<insertSourceCode file="code-src/procesy_i_watki/Wątki-boost.cpp" />
 				<insertSourceCode file="code-src/procesy_i_watki/Wątki.py" />
-			</div></div>
+			</div>
 		</section>
 	</section>
 	
@@ -2130,19 +2127,19 @@ if (!blokada) {
 				<li>wskazanie adresu i numeru portu na którym oczekujemy na dane (jeżeli nie zostanie wykonane, co jest typowe w klientach UDP, będzie użyty losowy numer portu)</li>
 			</ul></p>
 			<p>W UDP nie ma zestawionego połączenia zatem nie ma silnego rozróżnienia pomiędzy klientem (nawiązującym połączenie) a serwerem (odczekującym na połączenie / odbierającym je). Jedyna różnica polega na tym że: klient (typowo) nie wywołuje funkcji bind() służącej do określenia adresu wraz z numerem portu używanego do odbioru danych, a zamiast tego korzysta z automatycznie przydzielonego przez system operacyjny (losowego) numeru portu.</p>
-			<div class="demo_codes"><div>
+			<div class="demo_codes">
 				<insertSourceCode file="code-src/sieciowe/UDP.cpp" />
 				<insertSourceCode file="code-src/sieciowe/UDP.py" />
-			</div></div>
+			</div>
 		</section>
 		<section>
 			<h4>TCP - klient</h4>
 			<p>Transmission Control Protocol (TCP) jest protokołem działającym powyżej protokołu IP gwarantującym niezawodność i kolejność dostarczania danych. Podobnie jak w przypadku UDP pakiety TCP oprócz numerów IP także zawierają docelowy i źródłowy numer portu, służący do identyfikacji procesu otrzymującego i nadającego.</p>
 			<p>Działanie TCP opiera się na zestawianiu (i kontrolowaniu) połączenia, w związku z tym klient po otwarciu gniazda musi nawiązać połączenie z wskazanym adresem IP i numerem portu, a dopiero potem może wysyłać lub odbierać dane (nie określając już adresów, gdyż odbywa się to w ramach nawiązanego połączenia) nawet poprzez zwykłe funkcje write() i read(). Połączenie należy zamknąć korzystając z funkcji <code>close()</code>, co informuje zarówno nasz system jak i serwer o zakończeniu połączenia.</p>
-			<div class="demo_codes"><div>
+			<div class="demo_codes">
 				<insertSourceCode file="code-src/sieciowe/TCP_-_klient.cpp" />
 				<insertSourceCode file="code-src/sieciowe/TCP_-_klient.py" />
-			</div></div>
+			</div>
 		</section>
 		<section>
 			<h4>TCP - serwer</h4>
@@ -2155,10 +2152,10 @@ if (!blokada) {
 				</ol>
 				Po nawiązaniu połączenia TCP (realizowanym na poziomie systemu operacyjnego) funkcja <code>accept()</code> zwraca nowe gniazdo związane z nawiązanym połączeniem TCP. Ma ono ustawiony adresem IP i portem używany przez klienta oraz inny (niż używany do nasłuchiwania) numer portu po stronie serwera.
 			</p>
-			<div class="demo_codes"><div>
+			<div class="demo_codes">
 				<insertSourceCode file="code-src/sieciowe/TCP_-_serwer.cpp" />
 				<insertSourceCode file="code-src/sieciowe/TCP_-_serwer.py" />
-			</div></div>
+			</div>
 		</section>
 	</section>
 	
@@ -2172,28 +2169,28 @@ if (!blokada) {
 				Stos posiada ograniczony rozmiar, którego przekroczenie (np. na skutek zbyt długiego ciągu wywołań funkcji lub zdefiniowania zbyt dużych zmiennych lokalnych) kończy się błędem przepełnienia stosu. Rozmiar stosu może jednak być zmieniony zarówno przed uruchomieniem procesu (przy pomocy <code>ulimit -s</code>), lub w trakcie jego pracy (przy pomocy <code>setrlimit(RLIMIT_STACK, ...)</code>), pod warunkiem że mieści się w ramach ogólnosystemowego limitu. Zwiększenie rozmiaru stosu wpływa na rozmiar pamięci wirtualnej przydzielonej procesowi, jednak (samo w sobie) nie wpływa na rzeczywiste zużycie pamięci przez proces.
 			</p>
 			<p>Często nawet samo zadeklarowanie dużej tablicy nie wpływa na rzeczywistą zajętość pamięci, wpływ ma dopiero używanie takiej tablicy:</p>
-			<div class="demo_codes"><div>
+			<div class="demo_codes">
 				<insertSourceCode file="code-src/inne_funkcje_systemowe/Alokacja_pamięci--1.cpp" />
-			</div></div>
+			</div>
 			<p>Mimo możliwości zwiększenia rozmiaru stosu typowo większe bufory czy też obiekty alokowane są poza stosem. W C++ stosowane są dwie techniki takie alokacji: operator <code>new</code> i funkcje z rodziny <code>malloc</code>. Alokacja pamięci poza stosem powoduje konieczność jawnego zwalniania pamięci (nie jest ona zwalniana wraz z zniknięciem zmiennej) przy pomocy odpowiednio operatora <code>delete</code> lub funkcji <code>free</code>.</p>
-			<div class="demo_codes"><div>
+			<div class="demo_codes">
 				<insertSourceCode file="code-src/inne_funkcje_systemowe/Alokacja_pamięci--2.cpp" />
-			</div></div>
+			</div>
 		</section>
 		<section>
 			<h4>Czas</h4>
 			<p>Bieżący czas w systemach komputerowych może być reprezentowany na różne sposoby. W przypadku systemów POSIXowych jest to ilość sekund od początku epoki czyli 1970-01-01 00:00:00 UTC. Na podstawie tej wartości może zostać obliczona przez funkcje biblioteczne aktualna data i godzina w ustawionej (poprzez zmienną środowiskową TZ) strefie czasowej.</p>
-			<div class="demo_codes"><div>
+			<div class="demo_codes">
 				<insertSourceCode file="code-src/inne_funkcje_systemowe/Czas.cpp" />
 				<insertSourceCode file="code-src/inne_funkcje_systemowe/Czas.py" />
-			</div></div>
+			</div>
 		</section>
 		<section>
 			<h4>Timery</h4>
 			<p>Jeżeli program ma wykonywać jakąś czynność co określony czas może korzystać z funkcji <code>sleep</code> lub podobnych celem przeczekania podanego czasu lub skorzystać z timerów celem otrzymania sygnału po zadanym czasie.</p>
-			<div class="demo_codes"><div>
+			<div class="demo_codes">
 				<insertSourceCode file="code-src/inne_funkcje_systemowe/Timery.cpp" />
-			</div></div>
+			</div>
 		</section>
 		<!-- TODO:  asynchroniczne IO także sieciowe - http://opcode.eu.org/programing/c_cpp/semafory_posix.c/ i TheGame.git/SRC/engine/utils/misc/asioSyn.cpp -->
 	</section>
@@ -2217,19 +2214,19 @@ if (!blokada) {
 					Podstawowy interpreter Pythona stworzony jest w C, podobnie wiele z popularnych modułów (bibliotek) pythonowych jest tworzony w C lub C++.
 					Python potrafi korzystać z zwykłych bibliotek C (poprzez moduł ctypes), jednak aby z biblioteki korzystało się wygodnie powinna ona wystawiać bardziej natywny interfejs pythonowy w postaci modułu. Na utworzenie takiego interfejsu z poziomu C pozwala biblioteka programistyczna dostarczana wraz z Pythonem, w przypadku C++ można także korzystać z obudowującego wywołania tej biblioteki boost::python.
 				</p>
-				<div class="demo_codes"><div>
+				<div class="demo_codes">
 					<insertSourceCode file="code-src/biblioteki/API_pythonowe_biblioteki_C++.cpp" />
 					<insertSourceCode file="code-src/biblioteki/API_pythonowe_biblioteki_C++.py" />
 					<insertSourceCode file="code-src/biblioteki/natywna_biblioteka_C_w_Pythonie.py" />
-				</div></div>
+				</div>
 			</section>
 			<section>
 				<h5>interfejs skryptowy programu C++</h5>
 				<p>W wielu przypadkach zachodzi potrzeba połączenia zalet programów kompilowanych (szybkość działania) i interpretowanych (elastyczność, łatwość modyfikacji). Jednym z rozwiązań to umożliwiających jest utworzenie w ramach kodu kompilowanego C++ interfejsu modułu pythonowego, przy jednoczesnej możliwości zapewnienia wywoływania skryptów pythonowych z poziomu kodu C++ korzystających do komunikacji z tym kodem z tego interfejsu.</p>
-				<div class="demo_codes"><div>
+				<div class="demo_codes">
 					<insertSourceCode file="code-src/biblioteki/interfejs_skryptowy_programu_C++.cpp" />
 					<insertSourceCode file="code-src/biblioteki/interfejs_skryptowy_programu_C++.py" />
-				</div></div>
+				</div>
 			</section>
 		</section>
 		<section>
@@ -2240,12 +2237,11 @@ if (!blokada) {
 				Typowo komunikacja z bazą danych odbywa się za pośrednictwem biblioteki odpowiedzialnej za nawiązanie połączenia z serwerem i przekazywanie do niego zapytań SQL. Wymaga to działania osobnego procesu (często nawet na innej maszynie) obsługującego silnik bazodanowy, co jest pożądanym rozwiązaniem dla baz danych z których równocześnie może korzystać wielu klientów. Typowym przykładem może być komunikacja skryptów jakiegoś serwisu interetowego z bazą danych.
 			<br />
 				Jednak takie podejście nie jest wygodne w rozwiązaniach nie wymagających współdzielenia bazy danych. Do zastosowań takich można użyć biblioteki SQLite, która pozwala na łatwe stosowanie bazy SQLowej do wewnętrznych potrzeb aplikacji, bez konieczności uruchamiania osobnego systemu bazodanowego.</p>
-			<div class="demo_codes"><div>
+			<div class="demo_codes">
 				<insertSourceCode file="code-src/biblioteki/Bazy_danych.cpp" />
 				<insertSourceCode file="code-src/biblioteki/Bazy_danych.py" />
-			</div><br /><div>
 				<insertSourceCode file="code-src/biblioteki/Bazy_danych.php" />
-			</div></div>
+			</div>
 		</section>
 		<section>
 			<h4>(Graficzny) interfejs użytkownika</h4>
@@ -2254,11 +2250,11 @@ if (!blokada) {
 				
 				Interfejs pseudo-graficzny jest zasadniczo bardziej wyrafinowaną formą interakcji przez standardowe wyjście i wejście programu i wykorzystuje standardowe wyjście do rysowania różnego typu okienek dialogowych, itp. w trybie tekstowym.
 			</p>
-			<div class="demo_codes"><div>
+			<div class="demo_codes">
 				<insertSourceCode file="code-src/biblioteki/Graficzny_interfejs_użytkownika.py" />
 				<insertSourceCode file="code-src/biblioteki/Graficzny_interfejs_użytkownika-qt4.py" />
 				<insertSourceCode file="code-src/biblioteki/Graficzny_interfejs_użytkownika-gtk3.py" />
-			</div></div>
+			</div>
 		</section>
 	</section>
 	
@@ -2297,9 +2293,9 @@ if (!blokada) {
 			<p>Obsługa sprzętu nie zawsze wiąże się z tworzeniem kodu działającego bez systemu operacyjnego, na większych układach może działać normalny system operacyjny (np. Linux na płytkach typu Raspberry Pi czy Orange Pi). W takiej sytuacji obsługę sprzętu można zrealizować poprzez własny moduł jądra za nią odpowiedzialny lub (gdy to jest możliwe) poprzez funkcje udostępnione do przestrzeni użytkownika przez system operacyjny i jakąś bibliotekę. Przykładem drugiego podejścia może być wykorzystywanie plików funkcji operujących na przestrzeni I/O (plik nagłówkowy asm/io.h), funkcji realizujących komunikację I2C (plik nagłówkowy linux/i2c-dev.h), czy też biblioteki libusb pozwalającej na obsługę komunikacji USB.</p>
 			<section>
 				<h5>komunikacja I2C</h5>
-				<div class="demo_codes"><div>
+				<div class="demo_codes">
 					<insertSourceCode file="code-src/inne_funkcje_systemowe/komunikacja_I2C.c" />
-				</div></div>
+				</div>
 			</section>
 		</section>
 	</section>
@@ -2330,9 +2326,9 @@ if (!blokada) {
 				<h5>metoda wytwórcza</h5>
 				<p>jest to kreacyjny wzorzec projektowy (inaczej nazywany <dfn>wirtualny konstruktor</dfn>) realizowany poprzez utworzenie klasy fabryki z metodą statyczną odpowiedzialną za tworzenie różnych produktów (dziedziczących po wspólnej klasie bazowej).</p>
 				<p>Efektem zastosowanie jest ukrycie szczegółów implementacji poszczególnych produktów przez użytkownikiem (korzysta on tylko z klasy bazowej produktu i fabryki).</p>
-				<div class="demo_codes"><div>
+				<div class="demo_codes">
 					<insertSourceCode file="code-src/wzorce_projektowe_i_algorytmy/metoda_wytwórcza.cpp" />
-				</div></div>
+				</div>
 			</section>
 			<section>
 				<h5>fabryka abstrakcyjna</h5>
@@ -2340,38 +2336,38 @@ if (!blokada) {
 				<p>Efektem zastosowanie jest ukrycie szczegółów implementacji poszczególnych produktów przez użytkownikiem (korzysta on tylko z klasy bazowej produktu i fabryki).
 					W odróżnieniu od metody wytwórczej stosowany jest do produkcji spójnych gam produktów dzięki jednokrotnemu określaniu typu produktów przy tworzeniu fabryki (zamiast niezależnego określania typu każdego produktu). Pozwala tylko raz określić używany typ fabryki i wytwarzać produktu uzyskaną fabryką konkretnego typu, jest to przydatne wtedy gdy konkretna implementacja fabryki jest zależna np. od stosowanej biblioteki lub systemu.
 				</p>
-				<div class="demo_codes"><div>
+				<div class="demo_codes">
 					<insertSourceCode file="code-src/wzorce_projektowe_i_algorytmy/fabryka_abstrakcyjna.cpp" />
-				</div></div>
+				</div>
 			</section>
 			<section>
 				<h5>budowniczy</h5>
 				<p>jest to kreacyjny wzorzec projektowy realizowany poprzez utworzenie klasy kierownika korzystającego z bazowego interfejsu klasy budowniczego do realizacji jakiegoś algorytmu (często konwersji formatów). Użytkownik odpowiedzialny jest za utworzenie konkretnego budowniczego, przekazanie wskaźnika na niego kierownikowi (ewentualnie wraz z danymi potrzebnymi do budowy, np. danymi które mają zostać poddane konwertowaniu) oraz odebraniu wyniku od budowniczego.</p>
 				<p>Efektem jest pełne ukrycie szczegółów implementacji przed klasą implementującą kierownika (nie wie nic o produkcie, używa tylko bazowego budowniczego).</p>
-				<div class="demo_codes"><div>
+				<div class="demo_codes">
 					<insertSourceCode file="code-src/wzorce_projektowe_i_algorytmy/budowniczy.cpp" />
-				</div></div>
+				</div>
 			</section>
 			<section>
 				<h5>singleton</h5>
 				<p>Singleton jest kreacyjnym wzorcem projektowym zapewniającym istnienie tylko jednej instancji (jednego obiektu) klasy go implementującej. Uzyskiwane jest to poprzez ukrycie konstruktorów i zastąpienie ich metodą statyczną zwracającą zawsze ten sam obiekt danej klasy.</p>
-				<div class="demo_codes"><div>
+				<div class="demo_codes">
 					<insertSourceCode file="code-src/wzorce_projektowe_i_algorytmy/singleton.cpp" />
-				</div></div>
+				</div>
 			</section>
 			<section>
 				<h5>dekorator</h5>
 				<p>jest strukturalnym wzorcem projektowym pozwalającym na rozbudowę funkcjonalności jakiejś klasy bez ingerencji w nią, realizowany jest poprzez dziedziczenie po wspólnym z obudowywaną klasą interfejsie i zawieranie w sobie wskaźnika na obudowywaną klasę. Dekorator reimplementuje wybrane funkcje klasy oryginalnej jednak wywołując w nich funkcje klasy oryginalnej, co pozwala na wielokrotne obudowywanie pierwotnego obiektu.</p>
-				<div class="demo_codes"><div>
+				<div class="demo_codes">
 					<insertSourceCode file="code-src/wzorce_projektowe_i_algorytmy/dekorator.cpp" />
-				</div></div>
+				</div>
 			</section>
 			<section>
 				<h5>kompozyt</h5>
 				<p>jest strukturalnym wzorcem projektowym pozwalającym na zapewnienie interfejsu zgodnego z interfejsem obiektu dla grupy obiektów.</p>
-				<div class="demo_codes"><div>
+				<div class="demo_codes">
 					<insertSourceCode file="code-src/wzorce_projektowe_i_algorytmy/kompozyt.cpp" />
-				</div></div>
+				</div>
 			</section>
 		</section>
 		
@@ -2380,16 +2376,16 @@ if (!blokada) {
 			<section>
 				<h5>listener</h5>
 				<p>Obserwator (określany też jako listener) jest czynnościowym wzorcem projektowym pozwalającym jednemu obiektowi powiadomić wiele innych obiektów o jakimś zdarzeniu, obiekty te powinny być uprzednio zarejestrowane w klasie powiadamiającej jako zainteresowane danym zdarzeniem). Może być też wykorzystywany do realizacji wzorca <dfn>łańcuch zobowiązań</dfn> wtedy gdy powiadamiane obiekty mają / mogą wykonać jakieś operacje i od kodu powrotu funkcji powiadamiającej zależy powiadamianie dalszych obiektów.</p>
-				<div class="demo_codes"><div>
+				<div class="demo_codes">
 					<insertSourceCode file="code-src/wzorce_projektowe_i_algorytmy/listener.cpp" />
-				</div></div>
+				</div>
 			</section>
 			<section>
 				<h5>Mediator</h5>
 				<p>jest czynnościowym wzorcem projektowy realizującym przekazywanie wiadomości pomiędzy obiektami poprzez pośrednika, w przypadku nie natychmiastowego wysyłania wiadomości przez mediatora pozwala także na realizację <dfn>kolejki wiadomości</dfn> / <dfn>pętli komunikatów</dfn>.</p>
-				<div class="demo_codes"><div>
+				<div class="demo_codes">
 					<insertSourceCode file="code-src/wzorce_projektowe_i_algorytmy/Mediator.cpp" />
-				</div></div>
+				</div>
 			</section>
 		</section>
 		
@@ -2455,9 +2451,9 @@ if (!blokada) {
 			<p>Regulator PID jest to algorytm regulacji parametru procesu działający w pętli sprzężenia zwrotnego posiadający człony: proporcjonalny (P), całkujący (I) i różniczkujący (D).</p>
 			<p>Wyjściem algorytmu jest wartość zmiany jakiegoś sygnału sterującego - może być wykorzystana bezpośrednio przy sterowaniu krokowym lub akumulowana celem uzyskania stałej wartości sygnału sterującego.</p>
 			<p>Wejściem algorytmu jest wartość mierzona (bądź od razu różnica wartości zadanej i mierzonej). Jeżeli kierunek zmiany sterowania jest zgodny ze zmianą wartości mierzonej (zwiększenie wartości sygnału sterującego powoduje zwiększenie wartości mierzonej) to należy odejmować wartość mierzoną od zadanej, w przeciwnym razie od zadanej mierzoną.</p>
-			<div class="demo_codes"><div>
+			<div class="demo_codes">
 				<insertSourceCode file="code-src/wzorce_projektowe_i_algorytmy/pid.cpp" />
-			</div></div>
+			</div>
 		</section>
 	</section>
 </section>
@@ -2559,10 +2555,10 @@ if (!blokada) {
 				<h5>Przynależność do sieci</h5>
 				<p>Adres sieci zapisuje się typowo z wyzerowanymi bitami stanowiącymi adres hosta (czyli po dokonaniu bitowego <i>and</i> z maską danej sieci) oraz podaną informacją o długości prefixu, dla powyższego przykładu będzie to <code>2001:db8::/48</code>. Informacja taka jest wystarczająca do sprawdzenia czy dowolny inny adres IP należy do tej sieci czy nie.</p>
 				
-				<div class="demo_codes"><div>
+				<div class="demo_codes">
 					<insertSourceCode file="code-src/sieciowe/Adresacja_i_routing--ipv6.py" />
 					<insertSourceCode file="code-src/sieciowe/Adresacja_i_routing--ipv4.py" />
-				</div></div>
+				</div>
 			</section>
 			<!-- END: adresacja IP -->
 			
