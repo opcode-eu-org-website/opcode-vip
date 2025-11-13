@@ -32,3 +32,16 @@ int main() {
 	//  a=59 bo przekazanie przez wartość i funkcja operowała na własnej kopii
 	//  b=52 bo przekazane przez referencję i funkcja operowała na tej samej kopii
 }
+
+/*
+ * Podsumowanie:
+ * 	* Zasięg zmiennych (widoczność i istnienie) jest limitowany do bloku
+ * 	  (wydzielanego nawiasami klamrowymi) w którym zostały zadeklarowane,
+ * 	  zmienne z bloków wewnętrznych mogą przesłaniać zmienne zadeklarowane wcześniej.
+ * 	* Wywołanie funkcji powoduje rozpoczęcie nowego kontekstu, w którym zmienne
+ * 	  z bloku wywołującego funkcję nie są widoczne (ale nadal istnieją).
+ * 	* Argumenty do funkcji przekazywane są przez kopiowanie, więc funkcja nie ma
+ * 	  możliwości modyfikacji zmiennych z bloku ją wywołującego nawet do niej
+ * 	  przekazanych (wyjątkiem jest przekazanie przez referencję lub wskaźnik).
+*/
+

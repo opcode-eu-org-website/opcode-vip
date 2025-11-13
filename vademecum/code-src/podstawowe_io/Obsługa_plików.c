@@ -36,7 +36,7 @@ int main() {
 	
 	puts(napis);
 	
-	// powrot do poprzedniej pozycji
+	// powrót do poprzedniej pozycji
 	fseek(plik, poz, SEEK_SET);
 	
 	// operacje binarne - w ten sposób możemy zapisywać
@@ -53,7 +53,7 @@ int main() {
 	
 	printf("zapisano: %f, odczytano: %f\n", x, y);
 	
-	// są także funkcje read() i write() działające w oparciu o
+	// dostępne są także funkcje read() i write() działające w oparciu o
 	// numeryczny deskryptor pliku uzyskiwany np. z funkcji open()
 	// a nie obiekt FILE uzyskiwany z fopen()
 	

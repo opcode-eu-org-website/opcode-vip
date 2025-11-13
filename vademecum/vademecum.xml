@@ -20,7 +20,7 @@
 		<a href="vademecum.pdf"><img src="lib/pdfFile.svg" alt="Pobierz jako PDF" title="Pobierz jako PDF"/></a>
 	</p>
 </div>
-<p id="updateInfo">(aktualizacja: 2025-11-10)</p>
+<p id="updateInfo">(aktualizacja: 2025-11-13)</p>
 
 <section>
 	<p>
@@ -30,8 +30,8 @@
 	<!--
 	ZAŁOŻENIA:
 		1) nie jest to tutorial / samouczek, ale raczej materiał służący przypomnieniu / uzupełnieniu posiadanej wiedzy na przedstawiane tematy lub pomocniczy do zająć dydaktycznych
-		2) przedewszystkim suche fakty, definicje, opisane przykłady; bez komentarzy typu "obecnie już", "nadal jest używany"; czysty tryb bezosobowy - bez pierwszoosobowych komentarzy i bez bezpośrednich zwrotów do czytelnika
-		3) nie linkujemy w tekście (także do wikipedii) - ten tekst ma być kompletny i zamknięty (jedynym, być może tymczasowym, wyjątkiem są repozytoria z przykłądami dla mikrokontrolerów)
+		2) przede wszystkim suche fakty, definicje, opisane przykłady; bez komentarzy typu "obecnie już", "nadal jest używany"; czysty tryb bezosobowy - bez pierwszoosobowych komentarzy i bez bezpośrednich zwrotów do czytelnika
+		3) nie linkujemy w tekście (także do wikipedii) - ten tekst ma być kompletny i zamknięty (jedynym, być może tymczasowym, wyjątkiem są repozytoria z przykładami dla mikrokontrolerów)
 	-->
 	<p>
 		Założeniem tego dokumentu było że ma być kompletny i zamknięty, jednym z efektów tego jest unikanie odsyłania do innych materiałów bezpośrednio w tekście, wszystkie odnośniki do zewnętrznych źródeł (za wyjątkiem powoływania się na dokumentację narzędzi/bibliotek) znajdują się wyłącznie w dziale "Literatura".
@@ -1299,7 +1299,7 @@
 			<p>Do programowania tego typu układów służą języki opisu sprzętu typu HDL (hardware description language). Najczęściej jest to VHDL lub Verilog i zamiast wykonywanego kodu opisuje strukturę układu logicznego (połączenia bramek, tablice prawdy, etc), która następnie jest programowana w fizycznej kości. Pozwala to na zaprogramowanie jakiegoś algorytmu, który realizowany będzie czysto sprzętowo. Taka realizacja sprzętowa, dzięki urównolegleniu wielu procesów jest zazwyczaj znacznie szybsza w działaniu niż wersja programowa.</p>
 
 			<p>Najprostszym koncepcyjnie sposobem realizacji czegoś takiego jest układ pamięciowy, który pozwala na zrealizowanie dowolnej funkcji logicznej, czyli dowolnego układu bramek. Jeżeli weźmiemy pamięć która będzie miała 2<sup>n</sup> bitów i będzie adresowana n-bitową szyną adresową, to z każdym adresem związany jest jakiś jeden bit i każdy bit odpowiada jednemu adresowi. Pamięć tego typu pozwala na zapisanie tabeli prawdy dowolnej funkcji która posiada n wejść i jedno wyjście – każdemu wejściu odpowiada jeden bit adresu, a związana z daną kombinacją wejść, wartość wyjścia zapisana jest w tej pamięci.
-				<br /><img src="pld_memory.svg" style="height:230px;margin-top:13px;margin-left:47px" alt="realizacja logiki w oparciu o pamięć" /></p>
+				<br /><img src="pld_memory.svg" style="height:460px;margin-top:13px;margin-left:47px" alt="realizacja logiki w oparciu o pamięć" /></p>
 
 			<p>Układy tego typu mają spore zastosowanie praktyczne i pozwalają na konstruowanie układów działających szybciej niż układy procesorowe Zastosowanie programowalnych układów logicznych jest prostsze i szybsze niż konstruowanie takich rozwiązań z pojedynczych elementów takich jak bramki, a przy produkcji na małą i średnią skalę także tańsze od projektowania i produkcji dedykowanych układów scalonych. Pozwala też na aktualizację takiego „sprzętu” poprzez zaprogramowanie poprawionej jego wersji.</p>
 			
@@ -1334,7 +1334,7 @@
 			
 			<p>Instrukcje skoku polegają na załadowaniu nowej wartości do <i>licznika programu</i>, w przypadku skoków warunkowych jest to uzależnione od stanu <i>rejestru flag</i>, które ustawiane są w oparciu o wynik ostatniej operacji wykonywanej przez ALU.</p>
 			
-			<p><img src="pld_memory.svg" style="height:230px;margin-top:13px;margin-left:47px" alt="realizacja logiki w oparciu o pamięć" /></p>
+			<p><img src="cpu.svg" style="height:570px;margin-top:13px;margin-left:47px" alt="realizacja logiki w oparciu o pamięć" /></p>
 			
 			<p>Trochę uproszczony model działania procesora może wyglądać w sposób następujący: Procesor wystawia na szynę adresową magistrali umożliwiającej dostęp do pamięci adres będący zawartością tak zwanego licznika programu. Jest to adres instrukcji, która ma zostać pobrana i wykonana. Po wystawieniu tego adresu generowany jest cykl odczytu na tej szynie. A odczytany kod instrukcji zapamiętywany jest w rejestrze instrukcji, następuje też zwiększenie licznika programu o 1 po to żeby móc w następnym cyklu pobrać kolejną instrukcję.</p>
 				
@@ -1445,17 +1445,11 @@ cc -o plik_wykonywalny plik_wynikowy_1.o plik_wynikowy_2.o plik_wynikowy_3.o
 					
 					<section>
 						<h6>Punkt startu programu</h6>
-						<p>Wykonywanie programu stworzonego w C rozpocznie się od funkcji <storng>main</storng>. W ramach całego programu (nieważne czy zapisanego w jednym czy w wielu plikach) musi być dokładnie jedna funkcja <code>main</code>. Zakończenie tej funkcji oznacza zakończenie programu, a wartość przez nią zwracana odpowiedzialna jest za <storng>kod powrotu</storng> przekazany procesowi wywołującemu program.</p>
+						<p>Wykonywanie programu stworzonego w C rozpocznie się od funkcji <strong>main</strong>. W ramach całego programu (nieważne czy zapisanego w jednym czy w wielu plikach) musi być dokładnie jedna funkcja <code>main</code>. Zakończenie tej funkcji oznacza zakończenie programu, a wartość przez nią zwracana odpowiedzialna jest za <strong>kod powrotu</strong> przekazany procesowi wywołującemu program.</p>
 					</section>
 					<section>
 						<h6>Kod programu</h6>
-<pre>
-#include &lt;stdio.h&gt; /* plik nagłówkowy zawierający deklarację funkcji puts */
-int main() {
-	puts("Hello from C"); // wywołanie funkcji puts wypisującej teskt na standardowe wyjście
-	return 0; // kod powrotu ustawiony na zero = sukces
-}
-</pre>
+						<insertSourceCode file="code-src/intro/HelloWorld.c" />
 						<p><ul>
 							<li>tekst ujęty pomiędzy <code>/*</code> a <code>*/</code> oraz teksty od <code>//</code> do końca linii stanowi komentarz, czyli informacje dla programisty (np. opis działania algorytmu) ignorowane przez kompilator</li>
 							<li>definicja funkcji rozpoczyna się od typu zwracanego (w wypadku funkcji <code>main</code> jest to <code>int</code>, czyli liczba całkowita), po którym (po spacji) następuje nazwa funkcji, następnie nawiasy okrągłe zawierające listę argumentów (w tym przykładzie puste) a następnie kod funkcji</li>
@@ -1470,6 +1464,16 @@ int main() {
 					<h5>Dokumentacja</h5>
 					<p>Biblioteka standardowa C opisana jest w rozdziałach 2 i 3 manuala systemowego. W rozdziale 2 opisane są wywołania systemowe, a w rozdziale 3 pozostałe elementy biblioteki standardowej C. Zatem wykonując komendę <code>man 3 printf</code> zapoznamy się z dokumentacją funkcji <code>printf</code>.</p>
 				</section>
+				
+				<section>
+					<h5>Preprocesor</h5>
+					<p>Oprócz włączania plików nagłówkowych (lub dowolnego innego kodu z innych plików) preprocesor C może być użyty także do:<ul>
+						<li>definiowania stałych</li>
+						<li>definiowania makr</li>
+						<li>warunkowej kompilacji kodu oraz komentowania jego fragmentów (<code>#if 0</code> oraz <code>#endif</code>)</li>
+					</ul></p>
+					<insertSourceCode file="code-src/intro/Preprocesor.c" />
+				</section>
 			</section>
 			<section class="demo_tab" data-title="Python">
 				<h4>Python</h4>
@@ -1483,18 +1487,9 @@ int main() {
 					<section>
 						<h6>Skrypty</h6>
 						
-						<p>Plik zawierający polecenia powłoki określany jest mianem skryptu. Wykonywanie skryptu powłoki rozpocznie się od pierwszej jego linii. Skrypt może przyjmować dowolną ilość parametrów pozycyjnych, są one dostępne w tablicy <code>sys.argv</code>.</p>
-
-<pre>
-#!/usr/bin/env python3
-
-import sys
-
-print("Hello World")
-print(sys.argv)
-
-exit(0)
-</pre>
+						<p>Plik zawierający polecenia do zinterpretowania określany jest mianem skryptu. Wykonywanie skryptu rozpocznie się od pierwszej jego linii. Skrypt może przyjmować dowolną ilość parametrów pozycyjnych, są one dostępne w tablicy <code>sys.argv</code>.</p>
+					
+						<insertSourceCode file="code-src/intro/HelloWorld.py" />
 						<p><ul>
 							<li>tekst tekst od <code>#</code> do końca linii stanowi komentarz, czyli informacje dla programisty (np. opis działania algorytmu) ignorowane przez kompilator</li>
 							<li>komentarz w pierwszej linii rozpoczynający się od <code>!</code> jest komentarzem sterującym określającym program który ma być użyty do interpretacji kodu z pliku tekstowego</li>
@@ -1523,7 +1518,7 @@ exit(0)
 			Ze względu na ograniczoną liczbę rejestrów procesora większość zmiennych (w szczególności tych dłużej istniejących i większych) będzie znajdowała się w pamięci i będą przenoszone do rejestrów celem wykonania jakiś operacji na nich po czym wynik będzie przenoszony do pamięci.
 		</p>
 		<p>
-			Z każdą zmienną przechowywaną w pamięci związany jest adres pamięci pod którym się ona znajduje. Niektóre z języków programowania pozwalają na odwoływanie się do niego poprzez wskaźnik na zmienną lub referencję do zmiennej (odwołania do adresu zmiennej mogą wymusić umieszczenie jej w pamięci nawet gdyby normalnie znajdowała się tylko w rejestrze procesora).
+			Z każdą zmienną przechowywaną w pamięci związany jest <em>adres pamięci</em> pod którym się ona znajduje. Niektóre z języków programowania pozwalają na odwoływanie się do niego poprzez wskaźnik na zmienną lub referencję do zmiennej (odwołania do adresu zmiennej mogą wymusić umieszczenie jej w pamięci nawet gdyby normalnie znajdowała się tylko w rejestrze procesora).
 		</p>
 		<p>
 			Wszystkie dane są zapisywane w postaci liczb lub ciągów liczb. Typ zmiennej (jawny lub nie) informuje o tym jakiej długości jest dana liczba i jak należy ją interpretować (jak należy interpretować ciąg liczb).
@@ -1556,7 +1551,46 @@ exit(0)
 		</section>
 		
 		<div class="demo_codes">
-			<insertSourceCode file="code-src/podstawy/Pamięć_danych_-_zmienne.cpp" />
+			<div class="demo_tab" data-title="C i C++">
+				<insertSourceCode file="code-src/podstawy/Pamięć_danych_-_zmienne.c" />
+				<div class="code_comment">
+					<p>Deklarowanie i definiowanie zmiennych w C</p>
+					<ul>
+						<li>deklaracja zmiennej składa się z typu zmiennej i jej nazwy</li>
+						<li>definicja zmiennej oprócz tego zawiera przypisanie wartości</li>
+						<li>podstawowe typy zmiennych to:<ul>
+							<li>liczby całkowite zależne od architektury:<ul>
+								<li>ze znakiem - takie jak: <code>char</code>, <code>short</code>, <code>int</code>, <code>long</code>, <code>long long</code></li>
+								<li>bez znaku - takie jak <code>unsigned char</code>, <code>unsigned short</code>, <code>unsigned int</code>, <code>unsigned long</code>, <code>unsigned long long</code></li>
+								<li>ilośc bitów (a zatem też obsługiwany zares wartości) takiej liczby zależna jest od architektury/kompilatora, standard określa jedynie minimalną wielkość np. 16 bitów dla typu <code>int</code>, choć ten najczęściej ma 32 bity</li>
+							</ul></li>
+							<li>liczby całkowite o uslonej ilosci bitów (mogą wymagać nagłówka <code>stdint.h</code>):<ul>
+								<li>ze znakiem - takie jak: <code>int8_t</code>, <code>int16_t</code>, <code>int32_t</code>,<code>int64_t</code></li>
+								<li>bez znaku - takie jak: <code>uint8_t</code>, <code>uint16_t</code>, <code>uint32_t</code>,<code>uint64_t</code></li>
+							</ul></li>
+							<li>liczby zmiennoprzecinkowe - takie jak: <code>float</code>, <code>double</code></li>
+						</ul></li>
+						<li>odwołanie do zmiennej następuje poprzez jej nazwę</li>
+						<li>niezainicjalizowane zmienne mogą mieć dowolną wartość</li>
+					</ul>
+					
+					<p>Do wypisywania wartości zmiennych może być użyta funkcja <code>printf</code> z biblioteki standardowej języka C (z nagłówka <code>stdio.h</code>).</p><ul>
+						<li>w pierwszym argumencie przyjmuje ona napis formatujący zawierający ciągi rozpoczynające się od znaku procenta (<code>%</code>) pod które będą podstawiane wartości kolejnych zmiennych</li>
+						<li>ciąg znaków po <code>%</code> określa sposób wypisywania, np.:<ul>
+							<li><code>%d</code> - liczba całkowita typu <code>int</code> wypisana dziesiętnie</li>
+							<li><code>%x</code> - liczba całkowita bez znaku wypisana szesnastkowo</li>
+							<li><code>%f</code> - liczba zmiennoprzecinkowa</li>
+							<li><code>%s</code> - napis</li>
+						</ul></li>
+						<li>może on określać też sposób wypisania liczby, np:<ul>
+							<li><code>%3d</code> - całkowita rezerwująca 3 miejsca (dopełnianie spacjami od przodu)</li>
+							<li><code>%03d</code> - całkowita rezerwująca 3 miejsca (dopełnianie zerami wiodącymi)</li>
+							<li><code>%.2d</code> - zmiennoprzecinkowa z dwoma miejscami po kropce</li>
+							<li><code>%6.2d</code> - zmiennoprzecinkowa z dwoma miejscami po kropce, rezerwująca 6 miejsc (wliczając kropkę i miejsca po kropce)</li>
+						</ul></li>
+					</ul>
+				</div>
+			</div>
 			<insertSourceCode file="code-src/podstawy/Pamięć_danych_-_zmienne.py" />
 			<insertSourceCode file="code-src/podstawy/Pamięć_danych_-_zmienne.sh" />
 			<insertSourceCode file="code-src/podstawy/Pamięć_danych_-_zmienne.php" />
@@ -1589,10 +1623,36 @@ exit(0)
 					<li>operacje logiczne: AND, OR, NOT, niekiedy XOR, porównania (równość, nierówność, większe, mniejsze, większe równe, mniejsze równe)</li>
 					<li>operacje bitowe(wykonywane niezależnie na każdym bicie argumentów): AND, OR, NOT, XOR, przesunięcia bitowe</li>
 				</ul>
-				Dość istotnym wyjątkiem są niektóre języki skryptowe (takie jak bash), których głównym zadaniem jest uruchamianie innych programów i to jest operacją podstawową w tych językach.</p>
+			</p>
+			<p>Dość istotnym wyjątkiem są niektóre języki skryptowe (takie jak bash), których głównym zadaniem jest uruchamianie innych programów i to jest operacją podstawową w tych językach.</p>
+			
+			<p>Operacje logiczne i bitowe są operacjami działającymi w algebrze Boole'a. W przypadku operacji logicznych są one wykonywane na poziomie całej zmiennej (czyli to cała wartość zmiennej odpowiada logicznej jedynce lub logicznemu zeru). Natomiast operacje bitowe wykonywane sa na poszczególnych bitach zmiennych będących argumentami operacji, czyli bity na pozycji zero obu argumentów dają wynik w bicie na pozycji zero zmiennej wynikowej, bity na pozycjach jeden dają wynik na pozycji jeden itd.</p>
 			
 			<div class="demo_codes">
-				<insertSourceCode file="code-src/podstawy/Podstawowe_operacje_arytmetyczne_bitowe_i_logiczne.cpp" />
+				<div class="demo_tab" data-title="C i C++">
+					<insertSourceCode file="code-src/podstawy/Podstawowe_operacje_arytmetyczne_bitowe_i_logiczne.c" />
+					<div class="code_comment">
+						<p>Podstawowe operacje arytmetyczne realizowane są z użyciem operatorów zapisywanych pomiędzy argumentami, czyli w taki sposób jak wygląda zapis matematyczny.</p>
+						<ul>
+							<li>dodawanie: <code>+</code> np. <code>int a = 3 + 2;</code> (zmienna <code>a</code> będzie miała wartość 5)</li>
+							<li>odejmowanie: <code>-</code> np. <code>int a = 3 - 2;</code> (zmienna <code>a</code> będzie miała wartość 1)</li>
+							<li>mnożenie: <code>*</code> np. <code>int a = 3 * 2;</code> (zmienna <code>a</code> będzie miała wartość 6)<ul>
+								<li>w C mnożenie zawsze musi być zapisane z użyciem znaku mnożenia (operatora), znany z matematyki zapis [i]3a[/i] jako [i]3 * a[/i] nie jest dopuszczalny</li>
+								<li>możliwe i stosowane jest dodanie znaku <code>-</code> przed nazwą zmiennej celem odwrócenia jej znaku (pomnożenia przez -1), np. <code>int b = -a;</code></li>
+							</ul></li>
+							<li>dzielenie: <code>/</code> np. <code>int a = 3 / 2; float b = 3 / 2; float c = 3.0 / 2;</code><ul>
+								<li>w C typ dzielenia (całkowite lub zmiennoprzecinkowe) zależy od typów argumentów)<ul>
+									<li>zmienna <code>a</code> i zmienna <code>b</code> będą miały wartość 1 (dzielenie całkowite)</li>
+									<li>natomiast <code>c</code> będzie miało 1.5 (dzielenie zmiennoprzecinkowe, bo jeden z argumentów jest zmiennoprzecinkowy)</li>
+								</ul></li>
+							</ul></li>
+							<li>reszta z dzielenia: <code>%</code> np. <code>int a = 3 % 2;</code> (zmienna <code>a</code> będzie miała wartość 1)</li>
+						</ul>
+						
+						<p>Zachowywana jest kolejność działań, a operacje mogą być grupowane przy pomocy nawiasów okrągłych <code>(</code> i <code>)</code>, np. <code>int a = 3 + 2 * 2</code> ustawi wartość zmiennej <code>a</code> na 7, natomiast <code>int a = (3 + 2) * 2</code> ustawi wartość zmiennej <code>a</code> na 10.</p>
+						
+					</div>
+				</div>
 				<insertSourceCode file="code-src/podstawy/Podstawowe_operacje_arytmetyczne_bitowe_i_logiczne.py" />
 				<insertSourceCode file="code-src/podstawy/Podstawowe_operacje_arytmetyczne_bitowe_i_logiczne.sh" />
 				<insertSourceCode file="code-src/podstawy/Podstawowe_operacje_arytmetyczne_bitowe_i_logiczne.js" />
@@ -1609,26 +1669,27 @@ exit(0)
 			
 			<p>W większości przypadków pętle realizowane są na poziomie kodu maszynowego jako zestaw instrukcji (np. inkrementacji zmiennej, sprawdzania warunku, skoku), jednak w niektórych rozwiązaniach pętle (np. typu "powtórz n razy") mogą być realizowane sprzętowo przy pomocy pojedynczej instrukcji.</p>
 			<div class="demo_codes">
-				<insertSourceCode file="code-src/podstawy/Skoki_warunki_pętle_funkcje.cpp" />
-				<insertSourceCode file="code-src/podstawy/Skoki_warunki_pętle_funkcje.py" />
-				<insertSourceCode file="code-src/podstawy/Skoki_warunki_pętle_funkcje.sh" />
-				<insertSourceCode file="code-src/podstawy/Skoki_warunki_pętle_funkcje.php" />
-				<insertSourceCode file="code-src/podstawy/Skoki_warunki_pętle_funkcje.js" />
+				<insertSourceCode file="code-src/podstawy/Skoki_warunki_pętle.c" />
+				<insertSourceCode file="code-src/podstawy/Skoki_warunki_pętle.py" />
+				<insertSourceCode file="code-src/podstawy/Skoki_warunki_pętle.sh" />
+				<insertSourceCode file="code-src/podstawy/Skoki_warunki_pętle.php" />
+				<insertSourceCode file="code-src/podstawy/Skoki_warunki_pętle.js" />
 			</div>
 			
 			<section>
 				<h5>Funkcje</h5>
+				
 				<p><dfn>Funkcja</dfn>
 					jest to grup instrukcji, która może być wywołana z innego miejsca w programie. W uproszczeniu polega to na wykonaniu skoku na początek takiej grupy i skoku powrotnego gdy wykonywanie tego fragmentu kodu zostanie zakończone. Celem zarządzania przechowywaniem adresów dla skoków powrotnych wykorzystywany jest stos (oprócz tego umieszczane są na nim argumenty, wartości zwracane oraz zmienne lokalne).
 				</p>
 				<p>Funkcja może otrzymywać argumenty, które będą dostępne jako zmienne wewnątrz niej oraz zwracać wartość. Zmienne definiowane wewnątrz funkcji nie będą widoczne poza nią, a modyfikacja wartości argumentów nie wpłynie na wartość zmiennych przekazanych jako argumenty – są one przekazywane przez kopiowanie wartości do nowej zmiennej. Typowo funkcje mogą używać (i modyfikować) zmienne globalne, czyli takie zdefiniowane poza zakresem funkcji.</p>
 				<p>Typowo funkcja przyjmuje określoną ilość argumentów (może ich nie posiadać) i zwraca pojedynczą wartość. Istnieje możliwość zwracania przez funkcję struktury złożonej z kilku wartości, jednak na ogół odebranie z funkcji dodatkowych wyników działania odbywa się poprzez argument typu wskaźnikowego, wskazujący na zmienną w której mają zostać zapisane. Wiele języków pozwala także na definiowanie funkcji przyjmujących dowolną ilość argumentów.</p>
 				<div class="demo_codes">
-					<insertSourceCode file="code-src/podstawy/Funkcje_dowolną_ilością_argumentów.cpp" />
-					<insertSourceCode file="code-src/podstawy/Funkcje_dowolną_ilością_argumentów.py" />
-					<insertSourceCode file="code-src/podstawy/Funkcje_dowolną_ilością_argumentów.sh" />
-					<insertSourceCode file="code-src/podstawy/Funkcje_dowolną_ilością_argumentów.php" />
-					<insertSourceCode file="code-src/podstawy/Funkcje_dowolną_ilością_argumentów.js" />
+					<insertSourceCode file="code-src/podstawy/Funkcje.c" />
+					<insertSourceCode file="code-src/podstawy/Funkcje.py" />
+					<insertSourceCode file="code-src/podstawy/Funkcje.sh" />
+					<insertSourceCode file="code-src/podstawy/Funkcje.php" />
+					<insertSourceCode file="code-src/podstawy/Funkcje.js" />
 				</div>
 				
 				<section>
@@ -1638,6 +1699,10 @@ exit(0)
 				<section>
 					<h6>Lamba</h6>
 					<p>Funkcje typu lambda to anonimowe funkcje, które nie mają przypisanej nazwy, a ich definicja jest zazwyczaj zwarta i jednozdaniowa. Są często wykorzystywane w krótkich operacjach, zwłaszcza gdy funkcje są przekazywane jako argumenty do innych funkcji. Typowo wartości argumentów i zmiennych są mapowane dopiero w momencie wykonania funkcji, a nie w chwili jej definicji, co oznacza, że środowisko, w którym funkcja zostanie uruchomiona, może wpływać na wynik (np. przez zmienne globalne lub zmienne z otaczającego zakresu). W niektórych językach możliwe jest jednak wymuszenie użycia wartości z chwili definicji, czyli tzw. zamrożenie (ang. "capture by value").</p>
+					<div class="demo_codes">
+						<insertSourceCode file="code-src/podstawy/Lambda.cpp" />
+						<insertSourceCode file="code-src/podstawy/Lambda.py" />
+					</div>
 				</section>
 			</section>
 			
@@ -1665,6 +1730,16 @@ exit(0)
 					<insertSourceCode file="code-src/podstawy/Rekurencja-Iteracja-2.py" />
 				</div>
 			</section>
+		</section>
+		
+		<section>
+			<h4>Jak wykonywany jest kod C</h4>
+			
+			<p>Instrukcje skoku, które w programowaniu są związane z takimi konstrukcjami jak pętle i warunki, polegają na załadowaniu nowej wartości do licznika programu. W przypadku skoków warunkowych (takich jakich używają instrukcje warunkowe) może to być np. zależne od rejestru flag jednostki ALU, ustawianych w wyniku wykonania poprzedniej operacji arytmetycznej.</p>
+			
+			<insertSourceCode file="code-src/intro/Kompilacja.asm" />
+			
+			<p>Powyżej znajduje się fragment kodu asemblerowego x86 wygenerowanego przez kompilator gcc dla widocznej konstrukcji if - else. Celem wykonania warunku if, sprawdzającego czy jakaś zmienna jest jeden, najpierw wykonywana jest ta operacja arytmetyczna porównania. A następnie wykonywana jest instrukcja skoku warunkowego zależna od ustawienia bądź nie ustawienia flagi informującej że była równość. Jako że ten if ma blok else to skok warunkowy (dla niespełnionego warunku) realizowany jest na pierwszą instrukcje bloku else, czyli adres tej instrukcji zostanie załadowany do licznika programu. Natomiast po ostatniej instrukcji bloku if mamy skok bezwarunkowy na pierwszą instrukcję po całej konstrukcji if - else, tak aby ominąć blok else. Skok bezwarunkowy jest po prostu instrukcją, która ładuje odpowiednią wartość adresu do licznika programu.</p>
 		</section>
 	</section>
 	
@@ -1720,7 +1795,18 @@ exit(0)
 					Dostęp do elementów tablicy odbywa się w oparciu o obliczanie ich adresu na podstawie zależności: AdresElementu = AdresPoczatkuTablicy + IndexElementu * RozmiarElementu.
 				</p>
 				<div class="demo_codes">
-					<insertSourceCode file="code-src/zmienne_i_struktury_danych/Tablice.c" />
+					<div class="demo_tab" data-title="C">
+						<insertSourceCode file="code-src/zmienne_i_struktury_danych/Tablice.c" />
+						<div class="code_comment">
+							<ul>
+								<li>definicja tablicy określa jej rozmiar (ilość elementów)<ul>
+									<li>C nie pilnuje przechodzenia poza zakres tablicy - jest to odpowiedzialność programisty</li>
+									<li>w powyższym przykładzie odwołanie się do np. piątego elementu tablicy nie zostanie wykryte przez kompilator jako błąd i może (ale nie musi) powodowć błąd naruszenia ochrony pamięci w trakcie działania programu</li>
+								</ul></li>
+								<li>elementy tablicy indeksujemy od zera</li>
+							</ul>
+						</div>
+					</div>
 					<insertSourceCode file="code-src/zmienne_i_struktury_danych/Tablice.cpp" />
 					<insertSourceCode file="code-src/zmienne_i_struktury_danych/Tablice.sh" />
 					<insertSourceCode file="code-src/zmienne_i_struktury_danych/Tablice.js" />
@@ -1837,7 +1923,7 @@ exit(0)
 				Wywołanie funkcji powoduje rozpoczęcie nowego kontekstu w którym zmienne z bloku wywołującego funkcję nie są widoczne (ale nadal istnieją). Typowo argumenty do funkcji przekazywane są przez kopiowanie, więc funkcja nie ma możliwości modyfikacji zmiennych z bloku ją wywołującego nawet do niej przekazanych (wyjątkiem jest przekazanie przez referencję lub wskaźnik).
 			</p>
 			<p>
-				W przypadku manualnej alokacji pamięci lub tworzenia obiektów poprzez <code>new</code> limitowana jest widoczność i istnienie otrzymanego wskaźnika, ale nie zaalokowanego bloku pamięci. Zatem ograniczona jest widoczność takich zmiennych ale nie czas ich istnienia, dlatego też przed utratą wskaźnika na nie należy je usunąć (zwolnić zaalokowaną pamięć).
+				W przypadku manualnej alokacji pamięci (np. z użyciem <code>malloc</code>) lub tworzenia obiektów poprzez <code>new</code> limitowana jest widoczność i istnienie otrzymanego wskaźnika, ale nie zaalokowanego bloku pamięci. Zatem ograniczona jest widoczność takich zmiennych ale nie czas ich istnienia, dlatego też przed utratą wskaźnika na nie należy je usunąć (zwolnić zaalokowaną pamięć).
 			</p>
 			<div class="demo_codes">
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych/Zasięg_zmiennej.cpp" />
@@ -1962,8 +2048,8 @@ $      - koniec napisu/linii
 				<li>interaktywnej obsługi programu: program pyta o kolejne parametry i pobiera je z standardowego wyjścia (podejście należy stosować z rozwagą gdyż takie programy ciężko używa się w skryptach - lepszym rozwiązaniem jest przyjmowanie parametrów z linii poleceń)</li>
 			</ul></p>
 		<div class="demo_codes">
-			<insertSourceCode file="code-src/podstawowe_io/Standardowe_wejście__wyjście--c.cpp" />
-			<insertSourceCode file="code-src/podstawowe_io/Standardowe_wejście__wyjście--cpp.cpp" />
+			<insertSourceCode file="code-src/podstawowe_io/Standardowe_wejście__wyjście.c" />
+			<insertSourceCode file="code-src/podstawowe_io/Standardowe_wejście__wyjście.cpp" />
 			<insertSourceCode file="code-src/podstawowe_io/Standardowe_wejście__wyjście.py" />
 			<insertSourceCode file="code-src/podstawowe_io/Standardowe_wejście__wyjście.sh" />
 			<insertSourceCode file="code-src/podstawowe_io/Standardowe_wejście__wyjście.php" />
@@ -1973,8 +2059,8 @@ $      - koniec napisu/linii
 			<h4>Obsługa plików</h4>
 			<p>Zasadniczo obsługa plików pod względem operacji wykonywanych pomiędzy otwarciem a zamknięciem pliku niewiele różni się od obsługi standardowego/wejścia i wyjścia. W zdecydowanej większości (jeżeli nawet nie we wszystkich) języków interfejs obsługi standardowego wejścia i wyjścia jest zunifikowany z interfejsem obsługi plików.</p>
 			<div class="demo_codes">
-				<insertSourceCode file="code-src/podstawowe_io/Obsługa_plików--c.cpp" />
-				<insertSourceCode file="code-src/podstawowe_io/Obsługa_plików--cpp.cpp" />
+				<insertSourceCode file="code-src/podstawowe_io/Obsługa_plików.c" />
+				<insertSourceCode file="code-src/podstawowe_io/Obsługa_plików.cpp" />
 				<insertSourceCode file="code-src/podstawowe_io/Obsługa_plików.py" />
 			</div>
 			<section>
@@ -2013,6 +2099,7 @@ $      - koniec napisu/linii
 				Obsługę takiego stylu przekazywania opcji do programu (w oparciu o surową tablicę argumentów) zapewniają liczne biblioteki (także standardowe biblioteki różnych języków programowania).
 			</p>
 			<div class="demo_codes">
+				<insertSourceCode file="code-src/podstawowe_io/Argumenty_linii_poleceń.c" />
 				<insertSourceCode file="code-src/podstawowe_io/Argumenty_linii_poleceń.cpp" />
 				<insertSourceCode file="code-src/podstawowe_io/Argumenty_linii_poleceń.py" />
 				<insertSourceCode file="code-src/podstawowe_io/Argumenty_linii_poleceń.sh" />

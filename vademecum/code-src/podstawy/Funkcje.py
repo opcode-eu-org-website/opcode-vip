@@ -7,8 +7,7 @@ def f1():
 a = f1()
 print(a)
 
-# funkcja przyjmująca jeden obowiązkowy
-# argument oraz dwa opcjonalne
+# funkcja przyjmująca jeden obowiązkowy argument oraz dwa opcjonalne
 def f2(a, b=2, c=0):
 	print(a**b+c)
 

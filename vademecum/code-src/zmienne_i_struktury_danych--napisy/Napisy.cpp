@@ -1,43 +1,19 @@
 
+/* w C++ można korzystać także z napisów w stylu C
+ * jednak C++ oferuje własny typ obudowujący w sposób obiektowy
+ * tablicę znaków znaną z języka C
+ * oraz kilka innych udogodnień (jak np. strumienie)
+ */
+
 #include <stdio.h>
 #include <iostream>
 
 #include <string>
-#include <string.h>
 #include <bitset>
 #include <regex>
 #include <sstream>
 
 int main() {
-	// napisy w stylu C
-	// czyli tak naprawdę tablice bajtów (znaków)
-	const char* x = "abcdefg";
-	
-	// wypisanie długości napisu
-	printf("%d\n", strlen(x));
-	
-	// wypisanie pod-napisu od 2 do końca
-	puts(x+2);
-	
-	// wyszukiwanie
-	// pod-napisu "cd" w x od pozycji 1
-	const char* cd = strstr(x+1, "cd");
-	printf("%d\n", cd-x);
-	
-	// 3 znakowy pod-napis napisu x
-	// rozpoczynający się od cd 
-	char buf[16];
-	strncpy(buf, cd, 3);
-	buf[3]=0; // NULL end
-	puts(buf);
-	
-	// porównywanie
-	if (strcmp(x, "a") == 0)
-		puts("x == \"a\"");
-	if (strncmp(x, "a", 1) == 0)
-		puts("pierwsze 1 znaków x to \"a\"");
-	
-	
 	// napisy w stylu C++
 	std::string xx(x);
 	std::string y = "aa bb cc bb dd bb ee";
