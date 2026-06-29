@@ -1,3 +1,11 @@
+# podstawowa obsługa argumentów linii poleceń dla skryptów shellowych
+# jest identyczna jak obsługa argumentów dla funkcji:
+# $1 - pierwszy argument, $2 - drugi, itd
+# $@ - wszystkie, $# - liczba argumentów
+# w $0 znajduje się nazwa/ścieżka poprzez jaką skrypt został wywołany
+
+# przetwarzania opcji w stylu unixowym (z myślnikami)
+# można zrealizować z użyciem narzędzia getopt
 
 # przetworzenie argumentów określonych w wywołaniu getopt
 # dalsze argumenty dostępne są w $1, $2, itd po zakończeniu pętli

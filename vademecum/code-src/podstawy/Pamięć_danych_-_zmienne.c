@@ -12,6 +12,6 @@ int main() {
 	
 	// zmienna napisowa "C NULL-end string"
 	char* napisA = "q we";
-	// zmienna napisowa typu "C++ string"
+	// zmienna napisowa typu "C++ string" (to nie skompiluje się w C)
 	std::string napisB = "a bc";
 }

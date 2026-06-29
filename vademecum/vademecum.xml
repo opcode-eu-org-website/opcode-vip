@@ -20,7 +20,7 @@
 		<a href="vademecum.pdf"><img src="lib/pdfFile.svg" alt="Pobierz jako PDF" title="Pobierz jako PDF"/></a>
 	</p>
 </div>
-<p id="updateInfo">(aktualizacja: 2025-11-13)</p>
+<p id="updateInfo">(aktualizacja: 2026-06-29)</p>
 
 <section>
 	<p>
@@ -1591,6 +1591,7 @@ cc -o plik_wykonywalny plik_wynikowy_1.o plik_wynikowy_2.o plik_wynikowy_3.o
 					</ul>
 				</div>
 			</div>
+			<insertSourceCode file="code-src/podstawy/Pamięć_danych_-_zmienne.rs" />
 			<insertSourceCode file="code-src/podstawy/Pamięć_danych_-_zmienne.py" />
 			<insertSourceCode file="code-src/podstawy/Pamięć_danych_-_zmienne.sh" />
 			<insertSourceCode file="code-src/podstawy/Pamięć_danych_-_zmienne.php" />
@@ -1686,6 +1687,7 @@ cc -o plik_wykonywalny plik_wynikowy_1.o plik_wynikowy_2.o plik_wynikowy_3.o
 				<p>Typowo funkcja przyjmuje określoną ilość argumentów (może ich nie posiadać) i zwraca pojedynczą wartość. Istnieje możliwość zwracania przez funkcję struktury złożonej z kilku wartości, jednak na ogół odebranie z funkcji dodatkowych wyników działania odbywa się poprzez argument typu wskaźnikowego, wskazujący na zmienną w której mają zostać zapisane. Wiele języków pozwala także na definiowanie funkcji przyjmujących dowolną ilość argumentów.</p>
 				<div class="demo_codes">
 					<insertSourceCode file="code-src/podstawy/Funkcje.c" />
+					<insertSourceCode file="code-src/podstawy/Funkcje.rs" />
 					<insertSourceCode file="code-src/podstawy/Funkcje.py" />
 					<insertSourceCode file="code-src/podstawy/Funkcje.sh" />
 					<insertSourceCode file="code-src/podstawy/Funkcje.php" />
@@ -1715,10 +1717,13 @@ cc -o plik_wykonywalny plik_wynikowy_1.o plik_wynikowy_2.o plik_wynikowy_3.o
 				</p>
 			</section>
 			<section>
-				<h5>Wyjątki</h5>
+				<h5>Obsługa błędów i wyjątki</h5>
+				<p>Podstawowe podejście do sygnalizacji błędów polega na umieszczaniu informacji o wystąpieniu błędu w wartości zwracanej przez funkcję. Na przykład wartość ujemna oznacza wystąpienie błędu, a wartości dodatnie są wynikiem poprawnego działania funkcji. Podejście to stosowane jest w bibliotece standardowej języka C, która dodatkowo korzysta z globalnej (bezpiecznej wątkowo) zmiennej <code>errno</code> do umieszczenia kodu błędu. Problemem w takim podejściu trudność obsłużenia funkcji która powinna móc zwrócić dowolną wartość (w takim wypadku często wartość zwracana jest poprzez argument będący wskaźnikiem na zmienną w której ma być umieszczony wynik). Rozwiązanie to skutkuje też rozbudowaniem kodu korzystającego z takiej biblioteki, gdyż po każdym wywołaniu takich funkcji umieszczany powinien być blok warunkowy sprawdzający ten kod powrotu i zajmujący się obsługą ewentualnego błędu.</p>
 				<p>Języki wyższego poziomu (np. C++, Python) pozwalają na stosowanie mechanizmu wyjątków do obsługi błędów. Wyjątek powoduje przerwanie wykonywania kodu w momencie gdy jest generowany i „zwinięcie” stosu wykonywanych funkcji aż do tej w której jest obsługiwany, a jeżeli takiej nie ma to zakończenie programu.</p>
+				<p>Mechanizm wyjątków jest jednak dość kosztowny wydajnościowo. Z tego względu spotkać się można z podejściem będącym unowocześnioną wersją umieszczania informacji o błędzie w zwracanej wartości. W odróżnieniu od klasycznego podejścia funkcja zwraca strukturę zawierającą informację o błędzie lub jego braku oraz (w przypadku braku błędu) wartość będącą wynikiem działania funkcji.</p>
 				<div class="demo_codes">
 					<insertSourceCode file="code-src/podstawy/Wyjątki.cpp" />
+					<insertSourceCode file="code-src/podstawy/Błędy.rs" />
 					<insertSourceCode file="code-src/podstawy/Wyjątki.py" />
 				</div>
 			</section>
@@ -1763,6 +1768,7 @@ cc -o plik_wykonywalny plik_wynikowy_1.o plik_wynikowy_2.o plik_wynikowy_3.o
 				</p>
 				<div class="demo_codes">
 					<insertSourceCode file="code-src/zmienne_i_struktury_danych/Struktury_i_klasy.cpp" />
+					<insertSourceCode file="code-src/zmienne_i_struktury_danych/Struktury_i_klasy.rs" />
 					<insertSourceCode file="code-src/zmienne_i_struktury_danych/Struktury_i_klasy.py" />
 					<insertSourceCode file="code-src/zmienne_i_struktury_danych/Struktury_i_klasy.php" />
 				</div>
@@ -1927,6 +1933,7 @@ cc -o plik_wykonywalny plik_wynikowy_1.o plik_wynikowy_2.o plik_wynikowy_3.o
 			</p>
 			<div class="demo_codes">
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych/Zasięg_zmiennej.cpp" />
+				<insertSourceCode file="code-src/zmienne_i_struktury_danych/Zasięg_zmiennej.rs" />
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych/Zasięg_zmiennej.py" />
 			</div>
 		</section>
@@ -1942,6 +1949,7 @@ cc -o plik_wykonywalny plik_wynikowy_1.o plik_wynikowy_2.o plik_wynikowy_3.o
 			
 			<div class="demo_codes">
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych/Szablony.cpp" />
+				<insertSourceCode file="code-src/zmienne_i_struktury_danych/Szablony.rs" />
 			</div>
 		</section>
 		
@@ -4535,6 +4543,33 @@ if (!blokada) {
 			<td> CC-SA </td>
 			<td> Podręcznik wprowadzający do programowania </td>
 			<td> <a href="https://en.wikibooks.org/wiki/Programming_Language_Concepts_Using_C_and_C%2B%2B">EN</a> </td>
+			<td> </td>
+		</tr>
+		<tr>
+			<td> Rust </td>
+			<td> Rust by Example </td>
+			<td>  </td>
+			<td> MIT /  Apache-2.0 </td>
+			<td> Kolekcja przykładowych kodów ilustrujących programowanie w Rust </td>
+			<td> <a href="https://doc.rust-lang.org/stable/rust-by-example/">EN</a> </td>
+			<td> </td>
+		</tr>
+		<tr>
+			<td> Rust </td>
+			<td> The Rust Programming Language </td>
+			<td> Steve Klabnik, Carol Nichols, and Chris Krycho, with contributions from the Rust Community </td>
+			<td> MIT /  Apache-2.0 </td>
+			<td> Podręcznik do Rust </td>
+			<td> <a href="https://doc.rust-lang.org/book/">EN</a> </td>
+			<td> </td>
+		</tr>
+		<tr>
+			<td> Rust </td>
+			<td> Learning Rust </td>
+			<td>  </td>
+			<td> CC0 </td>
+			<td> Zbiór materiałów dla uczących się Rust </td>
+			<td> <a href="https://quinedot.github.io/rust-learning/">EN</a> </td>
 			<td> </td>
 		</tr>
 		<tr>
