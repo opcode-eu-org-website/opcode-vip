@@ -65,7 +65,8 @@ int main(int argc, char *argv[]) {
 			reg_addr = strtol(argv[4], NULL, 0);
 			res = i2c_smbus_write_byte(fd, reg_addr);
 			if (res < 0) {
-				fprintf(stderr, "ERROR write (register address) %d to i2c device 0x%02x on %s: %s\n", reg_addr, i2c_addr, argv[1], strerror(errno));
+				fprintf(stderr, "ERROR write (register address) %d to i2c device 0x%02x on %s: %s\n",
+						reg_addr, i2c_addr, argv[1], strerror(errno));
 				return 4;
 			}
 		}
@@ -73,7 +74,8 @@ int main(int argc, char *argv[]) {
 		// czytamy dane z urządzenia
 		res = i2c_smbus_read_byte(fd);
 		if (res < 0) {
-			fprintf(stderr, "ERROR read from i2c device 0x%02x on %s: %s\n", i2c_addr, argv[1], strerror(errno));
+			fprintf(stderr, "ERROR read from i2c device 0x%02x on %s: %s\n",
+					i2c_addr, argv[1], strerror(errno));
 			return 5;
 		}
 		printf("0x%02x\n", res);
@@ -86,14 +88,16 @@ int main(int argc, char *argv[]) {
 			reg_addr = strtol(argv[4], NULL, 0);
 			res = i2c_smbus_write_byte_data(fd, reg_addr, d);
 			if (res < 0) {
-				fprintf(stderr, "ERROR write %d to i2c device 0x%02x, register 0x%02x on %s: %s\n", d, i2c_addr, reg_addr, argv[1], strerror(errno));
+				fprintf(stderr, "ERROR write %d to i2c device 0x%02x, register 0x%02x on %s: %s\n",
+						d, i2c_addr, reg_addr, argv[1], strerror(errno));
 				return 5;
 			}
 		} else {
 			// w przeciwnym razie po prostu zapisujemy dane do urządzenia
 			res = i2c_smbus_write_byte(fd, d);
 			if (res < 0) {
-				fprintf(stderr, "ERROR write %d to i2c device 0x%02x on %s: %s\n", d, i2c_addr, argv[1], strerror(errno));
+				fprintf(stderr, "ERROR write %d to i2c device 0x%02x on %s: %s\n",
+						d, i2c_addr, argv[1], strerror(errno));
 				return 5;
 			}
 		}
@@ -101,9 +105,11 @@ int main(int argc, char *argv[]) {
 	} else if (argv[3][0] == 'R' && argc == 5 && argv[4][0] != '-') { // odczyt z rejestru jedną funkcją
 		
 		reg_addr = strtol(argv[4], NULL, 0);
-		res = i2c_smbus_read_byte_data(fd, reg_addr); // odczyt z rejestru o danym adresie może być wykonany także jedną funkcją (analogicznie jak zapis)
+		res = i2c_smbus_read_byte_data(fd, reg_addr); // odczyt z rejestru o danym adresie może być wykonany
+		                                              // także jedną funkcją (analogicznie jak zapis)
 		if (res < 0) {
-			fprintf(stderr, "ERROR read from i2c device 0x%02x, register 0x%02x on %s: %s\n", i2c_addr, reg_addr, argv[1], strerror(errno));
+			fprintf(stderr, "ERROR read from i2c device 0x%02x, register 0x%02x on %s: %s\n",
+					i2c_addr, reg_addr, argv[1], strerror(errno));
 			return 5;
 		}
 		printf("0x%02x\n", res);

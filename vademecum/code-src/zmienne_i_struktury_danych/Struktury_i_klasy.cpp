@@ -23,8 +23,7 @@ struct NazwaStruktury {
 		std::cout << " a=" << a << " d=" << d << "\n";
 	}
 	
-	// deklaracja metody
-	// definicja musi być podana gdzieś indziej
+	// deklaracja metody, definicja musi być podana gdzieś indziej
 	int getSum(int b) ;
 	
 	/// metody statyczna
@@ -49,8 +48,7 @@ struct NazwaStruktury {
 // jest to niezbędne aby była ona widoczna ...
 int NazwaStruktury::x = 13;
 
-// wcześniej zdeklarowane metody
-// możemy definiować także poza deklaracją klasy
+// wcześniej zdeklarowane metody możemy definiować także poza deklaracją klasy
 int NazwaStruktury::getSum(int b) {
 	return a + b;
 }

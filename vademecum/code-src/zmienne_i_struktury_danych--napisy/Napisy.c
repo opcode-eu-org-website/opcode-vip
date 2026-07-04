@@ -1,8 +1,13 @@
 
-/* Napisy w języku C są tablicami bajtów (tablicami typu `char`)
- * zakończonymi bajtem o wartości zero (NULL),
- * będącym znacznikiem końca napisu.
- */
+/* 
+Napisy w języku C są tablicami bajtów (tablicami typu `char`)
+zakończonymi bajtem o wartości zero (NULL),
+będącym znacznikiem końca napisu.
+
+Pojedynczy znak reprezentowany jest poprzez jeden element tablicy
+(dla znaków kodowanych jednobajtowo) lub grupę takich elementów
+(dla znaków kodowanych wielobajtowo, np. polskich znaczków w UTF8).
+*/
 
 #include <stdio.h>
 #include <string.h>
@@ -35,4 +40,13 @@ int main() {
 		puts("x == \"a\"");
 	if (strncmp(x, "a", 1) == 0)
 		puts("pierwsze 1 znaków x to \"a\"");
+	
+	/*
+	W C pojedynczy znak napisu (czyli np. `char x = napis[i]` albo `char x = 'A';`)
+	nie jest napisem – jest liczbą (zauważ różnicę między apostrofami i cudzysłowami).
+	Można go wypisać z użyciem `printf()` jako wartość numeryczną poprzez `%d`
+	lub jako znak poprzez `%c`:
+	*/
+	
+	printf("%d <=> %c", 'A', 'A');
 }

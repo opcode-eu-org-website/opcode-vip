@@ -47,13 +47,13 @@ echo XXX $(ls -ld /tmp)
 grep '^root:' /etc/passwd > /dev/null
 
 # przekierowanie wyjścia cat do pliku /tmp/liczby
-# << EOF powoduje że bash podaje na standardowe
-# wejście komendy (w tym wypadku "cat") dane czytane
-# z skryptu (lub swojego wejścia) dopóki nie wystąpi
-# w nowej linii słowo podane po << (w tym
-# wypadku EOF), jeżeli słowo to jest ujęte w '' to
-# w przekazywanym tekście nie są dokonywane podstawienia
-# shellowe (np. rozwijane zmienne)
+
+# Operator << powoduje że tekst podawany po nim w kolejnych liniach
+# będzie kierowany na standardowe wejście komendy po której wystąpił (w tym wypadku "cat"),
+# aż do momentu napotkania linii zawierającej jedynie słowo podane po nim
+# (w tym wypadku EOF, ale może to być dowolne inne słowo - np. KONIEC
+# lub nawet ciąg znaków ze spacjami ujęty w cudzysłowa).
+
 cat << EOF > /tmp/liczby
 1 3
 13 9
@@ -61,6 +61,60 @@ cat << EOF > /tmp/liczby
 7 10
 EOF
 
+# Jeżeli słowo to jest ujęte w apostrofy bądź cudzysłowy to w przekazywanym tekście
+# nie są dokonywane podstawienia shellowe (np. rozwijane zmienne):
+
+cat << EOF
+HOME: $HOME
+EOF
+
+cat << 'EOF'
+HOME: $HOME
+EOF
+
 # przekierowanie pliku /tmp/liczby
 # na standardowe wejście f2
 f2 < /tmp/liczby
+
+
+# Innym poleceniem przydatnym przy manipulacji strumieniami jest tee.
+# Podobnie jak cat kopiuje on swoje standardowe wejście na standardowe wyjście.
+# Natomiast jeżeli poda mu się ścieżkę do pliku będzie on zapisywał
+# te dane także do wskazanego pliku.
+
+echo ABC | tee /tmp/xxx
+cat /tmp/xxx
+
+
+# Wiele programów jeżeli w miejscu w którym oczekuje ścieżki do pliku otrzyma myślnik
+# zinterpretuje to jako użycie w tym miejscu standardowego wejścia / wyjścia.
+# Nawet jeżeli program nie wspiera tej konwencji możemy użyć specjalnych urządzeń
+# reprezentujących te strumienie: /dev/stdin, /dev/stdout, /dev/stderr. Na przykład:
+
+echo "ABC" > /dev/stderr
+
+# spowoduje wypisanie komunikatu ABC na standardowym wyjściu błędu.
+
+
+#
+# standardowe wejście/wyjście w miejscu ścieżki do pliku
+#
+
+# Bash pozwala także na podstawienie standardowego wyjścia różnych komend
+# w miejsce kilku plików bez potrzeby jawnego tworzenia plików tymaczasowych. Na przykład:
+
+diff <(cat /etc/passwd) <(cat /etc/passwd-)
+
+# które poleceniu diff jako jeden plik postawia standardowe wyjście pierwszego cat,
+# a jako drugi plik drugiego cat.
+# Oczywiście zaprezentowane zastosowanie tego z poleceniami cat
+# jest bezsensowne (prościej podać ścieżki do plików),
+# ale gdyby występował tam już np. jakiś grep mogłoby to być użyteczne.
+
+# Możliwe jest też działanie w drugą stronę czyli przesłanie danych wpisywanych przez
+# jeden proces do pliku jasko standardowego wejścia innego programu
+# również trochę bezsensowny przykład:
+
+echo "ABC" | tee >(grep A)
+
+# <() i >() są rozszerzeniami bashowymi nie występującymi w czystym sh.

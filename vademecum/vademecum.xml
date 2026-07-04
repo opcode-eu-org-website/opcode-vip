@@ -20,7 +20,7 @@
 		<a href="vademecum.pdf"><img src="lib/pdfFile.svg" alt="Pobierz jako PDF" title="Pobierz jako PDF"/></a>
 	</p>
 </div>
-<p id="updateInfo">(aktualizacja: 2026-06-29)</p>
+<p id="updateInfo">(aktualizacja: 2026-07-04)</p>
 
 <section>
 	<p>
@@ -76,7 +76,7 @@
 				
 				<dt><dfn>Masa</dfn>, <dfn>GND</dfn></dt>
 				<dd>
-					umowny potencjał zerowy, względem którego wyraża się inne potencjały w układzie (co umożliwia traktowanie ich jako różnic potencjałów - napięć elektrycznych). Potencjał ten może być równy potencjałowi ziemi (masie ochronnej PE), bądź może być z nim nie związany (układy izolowane).<br />
+					jest to umowny potencjał zerowy, względem którego wyraża się inne potencjały w układzie (co umożliwia traktowanie ich jako różnic potencjałów - napięć elektrycznych). Potencjał ten może być równy potencjałowi ziemi (masie ochronnej PE), bądź może być z nim nie związany (układy izolowane).<br />
 					Można też spotkać się z układami w których wyróżnia się więcej niż jedną masę, a także (jeszcze rzadziej) takie w których nie wyróżnia się żadnego z potencjałów.
 					O kilku osobnych masach możemy mówić w sytuacji gdy w układzie występują części nie połączone ze sobą elektrycznie (na przykład zasilane z osobnych źródeł napięcia lub odizolowane transformatorem).
 				</dd>
@@ -647,21 +647,22 @@
 	
 	<section>
 		<h3>Cyfrowa</h3>  <!-- wspominać numery użytych w przykładach układów scalonych -->
+		<p>
+			Cyfrowość elektroniki polega na reprezentacji sygnałów w formie abstrakcyjnych wartości liczbowych, zamiast bezpośredniej wartości elektrycznych.
+			Liczby te zazwyczaj zapisywane są w systemie dwójkowym. Napięcie poniżej jakiejś wartości odpowiada zeru na danej cyfrze, natomiast powyżej jakiegoś poziomu jedynce. Kolejnymi cyframi są napięcia w różnych miejscach obwodu („na kolejnych przewodach”) lub w na pojedynczym przewodzie w kolejnych jednostkach czasu.
+			Taka reprezentacja w postaci dyskretnych poziomów napięć, identyfikowanych jako zera i jedynki – wartości logicznego fałszu i prawdy, pozwala między innymi zwiększyć odporność na zakłócenia i bezstratnie replikować taką cyfrową informację.
+		</p>
 		<section>
-			<p>
-				Cyfrowość elektroniki polega na reprezentacji sygnałów w formie abstrakcyjnych wartości liczbowych, zamiast bezpośredniej wartości elektrycznych.
-				Liczby te zazwyczaj zapisywane są w systemie dwójkowym. Napięcie poniżej jakiejś wartości odpowiada zeru na danej cyfrze, natomiast powyżej jakiegoś poziomu jedynce. Kolejnymi cyframi są napięcia w różnych miejscach obwodu („na kolejnych przewodach”) lub w na pojedynczym przewodzie w kolejnych jednostkach czasu.
-				Taka reprezentacja w postaci dyskretnych poziomów napięć, identyfikowanych jako zera i jedynki – wartości logicznego fałszu i prawdy, pozwala między innymi zwiększyć odporność na zakłócenia i bezstratnie replikować taką cyfrową informację.
-			</p>
-			<h4>Algebra Boole'a i system dwójkowy</h4>
+			<h4>Algebra Boole'a</h4>
 			
+			<section>
 			<h5>podstawowe operacje i elementy neutralne</h5>
-			<section><table>
-				<tr><td>suma logiczna (OR, +, |)</td>
+			<table>
+				<tr><td>suma logiczna (OR, +, |, ||)</td>
 					<td>a OR 1 = 1</td>
 					<td>a OR 0 = a</td>
 					<td>a OR a = a</td></tr>
-				<tr><td>iloczyn logiczny (AND, *, &amp;)</td>
+				<tr><td>iloczyn logiczny (AND, *, &amp;, &amp;&amp;)</td>
 					<td>a AND 1 = a</td>
 					<td>a AND 0 = 0</td>
 					<td>a AND a = a</td></tr>
@@ -671,30 +672,32 @@
 					<td>NOT (NOT a) = a</td></tr>
 			</table></section>
 			
+			<section>
 			<h5>własności działań</h5>
-			<section><table>
-				<tr><td>łączność</td>
+			<table>
+				<tr><td>łączność:</td>
 					<td>(a OR b) OR c = a OR (b OR c)</td>
 					<td>(a AND b) AND c = a AND (b AND c)</td></tr>
-				<tr><td>przemienność</td>
+				<tr><td>przemienność:</td>
 					<td>a OR b = b OR a</td>
 					<td>a AND b = b AND a</td></tr>
-				<tr><td>rozdzielność</td>
+				<tr><td>rozdzielność:</td>
 					<td>a AND (b OR c) = (a AND b) OR (a AND c)</td>
 					<td>a OR (b AND c) = (a OR b) AND (a OR c)</td></tr>
-				<tr><td>absorpcja</td>
+				<tr><td>absorpcja:</td>
 					<td>a AND (b OR a) = a</td>
 					<td>a OR (b AND a) = a</td></tr>
-				<tr><td>negacja sumy i iloczynu</td>
+				<tr><td>negacja sumy i iloczynu:</td>
 					<td>NOT (a OR b) = (NOT a) AND (NOT b)</td>
 					<td>NOT (a AND b) = (NOT a) OR (NOT b)</td></tr>
-				<tr><td>pochłanianie</td>
+				<tr><td>pochłanianie:</td>
 					<td>a OR (NOT a) = 1</td>
 					<td>a AND (NOT a) = 0</td></tr>
 			</table></section>
 			
+			<section>
 			<h5>dodatkowe operacje</h5>
-			<section><table>
+			<table>
 				<tr><td>alternatywa wykluczająca (XOR)</td>
 				<td>a XOR b = (a AND (NOT b)) OR (b AND (NOT a))</td>
 				<td>a XOR 0 = a</td>
@@ -708,41 +711,54 @@
 				<tr><td colspan="4">a XNOR b = NOT (a XOR b)</td></tr>
 			</table></section>
 			
+			<section>
 			<h5>tablice prawdy</h5>
-			<section><table style="text-align:center">
+			<table style="text-align:center">
 				<tr><td> a </td><td> b </td><td> a OR b </td><td> a AND b </td><td> a NOR b </td><td> a NAND b </td><td> a XOR b </td><td> a XNOR b </td><td>     NOT a     </td></tr>
 				<tr><td> 0 </td><td> 0 </td><td>   0    </td><td>    0    </td><td>    1    </td><td>    1     </td><td>    0    </td><td>    1     </td><td rowspan="2"> 1 </td></tr>
 				<tr><td> 0 </td><td> 1 </td><td>   1    </td><td>    0    </td><td>    0    </td><td>    1     </td><td>    1    </td><td>    0     </td>                        </tr>
 				<tr><td> 1 </td><td> 0 </td><td>   1    </td><td>    0    </td><td>    0    </td><td>    1     </td><td>    1    </td><td>    0     </td><td rowspan="2"> 0 </td></tr>
 				<tr><td> 1 </td><td> 1 </td><td>   1    </td><td>    1    </td><td>    0    </td><td>    0     </td><td>    0    </td><td>    1     </td>                        </tr>
 			</table></section>
+		
+		</section>
+		<section>
+			<h4>System dwójkowy</h4>
 			
-			<h5>reprezentacja liczb</h5>
 			<section>
+				<h5>reprezentacja liczb</h5>
+				
 				<p>Pojedynczą cyfrę systemu dwójkowego (przybierającą wartość 0 albo 1) określa się mianem <dfn>bit</dfn>u, liczby reprezentowane są jako ciągi takich cyfr. Terminem <dfn>bajt</dfn> określa się zazwyczaj ciąg o długości 8 bitów (ale w niektórych systemach ciąg o innej długości).</p>
+				
 				<p>Podstawowym sposobem zapisy liczb całkowitych nie ujemnych w systemie dwójkowym jest <dfn>naturalny kod binarny</dfn> (<dfn>NKB</dfn>), w którym np. 4 bitowy ciąg <code>a<sub>3</sub> a<sub>2</sub> a<sub>1</sub> a<sub>0</sub></code> reprezentuje liczbę <m>2^0 \cdot a_0 + 2^1 \cdot a_1 + 2^2 \cdot a_2 + 2^3 \cdot a_3</m>.</p>
-				<p>Podstawowym sposobem zapisy liczb całkowitych (ze znakiem) jest <dfn>kod uzupełnień do dwóch</dfn> (<dfn>U2</dfn>) w którym n-bitowa liczba reprezentowana przez ciąg <code>a<sub>n-1</sub> ... a<sub>3</sub> a<sub>2</sub> a<sub>1</sub> a<sub>0</sub></code> będzie miała wartość <m>2^0 \cdot a_0 + 2^1 \cdot a_1 + 2^2 \cdot a_2 + ... + 2^{n-2} \cdot a_{n-2} - 2^{n-1} \cdot a_{n-1}</m>. Jako że najstarszy bit wchodzi z ujemną wagą, jego ustawienie na 1 oznacza liczbę ujemną (ale nie jest to kod znaku). Warto zauważyć kompatybilność z NKB.</p>
+				
+				<p>Podstawowym sposobem zapisy liczb całkowitych (ze znakiem) jest <dfn>kod uzupełnień do dwóch</dfn> (<dfn>U2</dfn>) w którym n-bitowa liczba reprezentowana przez ciąg <code>a<sub>n-1</sub> ... a<sub>3</sub> a<sub>2</sub> a<sub>1</sub> a<sub>0</sub></code> będzie miała wartość <m>2^0 \cdot a_0 + 2^1 \cdot a_1 + 2^2 \cdot a_2 + ... + 2^{n-2} \cdot a_{n-2} - 2^{n-1} \cdot a_{n-1}</m>.
+					Jako że najstarszy bit wchodzi z ujemną wagą, jego ustawienie na 1 oznacza liczbę ujemną (ale nie jest to kod znaku). Warto zauważyć kompatybilność z NKB.</p>
+				
 				<p>Liczby zapisywane w tych kodowaniach systemu dwójkowego oznacza się często przy pomocy prefiksu "0b" albo sufiksu "b", np. <code>0b101 = 101b</code> reprezentuje liczbę 5 w systemie dziesiętnym (<m>2^0 \cdot 1 + 2^1 \cdot 0 + 2^2 \cdot 1 = 5</m>).</p>
+				
 				<p>Oprócz podanych istnieje jeszcze kilka stosowanych sposobów zapisu liczb binarnych takich jak (dla liczb bez znaku): kod "1 z n", kod Graya, kod Johnsona, (dla liczb ze znakiem): kod znak-moduł, kod uzupełnień do jedności (U1). Odmiennym zagadnieniem jest kodowanie liczb zmiennoprzecinkowych.</p>
 			</section>
 			
-			<h5>zapis hexalny (szesnastkowy)</h5>
 			<section>
+				<h5>zapis hexalny (szesnastkowy)</h5>
+				
 				<p>Celem skrócenia zapisu liczb binarnych często zapisuje się je w postaci szesnastkowej, jest on wygodniejszy od dziesiątkowego gdyż każda cyfra systemu szesnastkowego rozkłada się na dokładnie 4 bity, co pozwala na niezależne konwertowanie poszczególnych cyfr szesnastkowych / ciągów 4 bitowych i ich łączenie w dłuższe ciągi.</p>
+				
 				<p>Cyfry o wartościach powyżej 9 zapisuje się jako kolejne małe lub wielkie litery a, b, c, d, e, f. Liczby zapisywane w systemie szesnastkowym oznacza się przy pomocy prefiksu "0x" lub "#" albo sufiksu "h" np. <code>0xc7 = #c7 = c7h</code> reprezentuje liczbę 199 w systemie dziesiątkowym (<m>16^0 \cdot 7 + 16^1 \cdot 12 = 199</m>).
 					Konwersja na system binarny może odbywać się niezależnie dla każdej cyfry, jako że: <code>0xc = 0b1100</code> oraz <code>0x7 = 0b0111</code> to<code> 0xc7 = 0b 1100 0111</code>.
 				</p>
 			</section>
 			
-			<h5>reprezentacja elektryczna</h5>
 			<section>
+				<h5>reprezentacja elektryczna</h5>
 				<p>Typowo logicznej 1 odpowiada stan wysoki (napięcie dodatnie), a logicznemu 0 stan niski (potencjał masy). W przypadku logiki odwróconej (ujemnej) logicznej 1 odpowiada stan niski a logicznemu zeru wysoki.</p>
 			</section>
 		</section>
 		<section><!-- BEGIN: Elektronika - Bramki -->
 			<h4>Bramki</h4>
 			<img src="img/bramki.svg" class="right_img" style="height:260px;" alt="symbole bramek logicznych" />
-			<p>Bramki są układami elektronicznymi realizującymi podstawowe, opisane powyżej funkcje logiczne. Obok zostały przedstawione podstawowe symbole poszczególnych bramek w wariancie dwu wejściowym, spotkać się można także z symbolami z zanegowanymi wejściami - w takiej konwencji np. bramka AND reprezentowana jest przez NOR z zanegowanymi wejściami. Bramki (z wyjątkiem buforów oraz bramki NOT), mogą występować także w wariantach wielo-wejściowych (ze względu na łączność podstawowych operacji nie ma wątpliwości co don wyniku jaki powinna dawać np. 8 wejściowa bramka OR). Na ogół w pojedynczym układzie scalonym znajduje się kilka jednakowych bramek.</p>
+			<p>Bramki są układami elektronicznymi realizującymi podstawowe funkcje logiczne. Obok zostały przedstawione podstawowe symbole poszczególnych bramek w wariancie dwu wejściowym, spotkać się można także z symbolami z zanegowanymi wejściami - w takiej konwencji np. bramka AND reprezentowana jest przez NOR z zanegowanymi wejściami. Bramki (z wyjątkiem buforów oraz bramki NOT), mogą występować także w wariantach wielo-wejściowych (ze względu na łączność podstawowych operacji nie ma wątpliwości co don wyniku jaki powinna dawać np. 8 wejściowa bramka OR). Na ogół w pojedynczym układzie scalonym znajduje się kilka jednakowych bramek.</p>
 			<section class="noclear">
 				<h5>trój-stanowe</h5>
 				<p>
@@ -946,11 +962,15 @@
 		</section><!-- END: Elektronika - Przerzutniki i rejestry -->
 		<section>
 			<h4>Przetworniki ADC i DAC</h4>
-			<p>Przetwornik analogowo-cyfrowe (ADC) służy do konwersji sygnału analogowego na postać cyfrową. Realizowane jest to poprzez pomiar napięcia, na ogół w regularnych odstępach czasowych (celem uzyskania przebiegu sygnału a nie tylko wartości chwilowej).
+			<p>
+				Przetwornik analogowo-cyfrowe (ADC) służy do konwersji sygnału analogowego na postać cyfrową. Realizowane jest to poprzez pomiar napięcia, na ogół w regularnych odstępach czasowych (celem uzyskania przebiegu sygnału a nie tylko wartości chwilowej).
 				Przetwornik ADC o porównaniu bezpośrednim realizowany jest w oparciu o zespół komparatorów analogowych (od ich liczby zależy bitowość danego przetwornika, ale ich liczba nie jest równa bitowości) które używają różnych napięć referencyjnych (typowo uzyskiwanych z jednego napięcia referencyjnego poprzez dzielnik). Stan z komparatorów podawany jest na enkoder celem konwersji do kodu binarnego.
 				Inne stosowane sposoby realizacji przetworników ADC opierają się o pojedynczy komparator i podawanie na niego narastającego napięcia referencyjnego oraz zliczanie liczby kroków podnoszenia tego napięcia bądź podawaniu kolejnych napięć z przetwornika DAC i wyszukiwaniu tego które jest najbliższe wejściowemu.
 			</p>
-			<p>Przetwornik cyfrowo-analogowy (DAC) służy do konwersji sygnału cyfrowego na analogowy. Oparty jest na zasadzie sumatora napięć, którego wejścia załączane są w zależności od ustawienia lub nie danego bitu w konwertowanej wartości. Typowo zamiast stosowania różnych wartości napięć i jednakowych rezystorów (jak w sumatorze), stosuje się różne wartości załączanych rezystorów i jednakowe napięcie do którego są podłączone.</p>
+			<p>
+				Przetwornik cyfrowo-analogowy (DAC) służy do konwersji sygnału cyfrowego na analogowy. Oparty jest na zasadzie sumatora napięć, którego wejścia załączane są w zależności od ustawienia lub nie danego bitu w konwertowanej wartości. Typowo zamiast stosowania różnych wartości napięć i jednakowych rezystorów (jak w sumatorze), stosuje się różne wartości załączanych rezystorów i jednakowe napięcie do którego są podłączone.
+				Może być też oparty na wytwarzaniu sygnału PWM i podawaniu go na kondensator filtrujący, z ewentualnym sprzężeniem zwrotnym (do korekcji wartości PWM) realizowanym przez ADC.
+			</p>
 			<section>
 				<h5>pomiar napięcia i prądu</h5>
 				<p>Pomiar napięcia realizuje bezpośrednio przetwornik ADC. W przypadku konieczności pomiaru wysokich napięć stosuje się przekładniki napięciowe, będące w istocie transformatorami o dobrze ustalonych parametrach pomiarowych. W przypadku małych napięć konieczne może okazać się ich wzmocnienie np. z użyciem wzmacniacza operacyjnego.</p>
@@ -1101,7 +1121,7 @@
 					<dt><dfn>linear bus</dfn> (magistrala)</dt>
 					<dd>wszystkie urządzenia są podłączone do jednej linii (wspólnego medium transmisyjnego), okablowanie nie wyróżnia punktu centralnego</dd>
 					
-					<dt><dfn>daisy chain</dfn></dt>
+					<dt><dfn>daisy chain</dfn> (łańcuch)</dt>
 					<dd>struktura okablowania podobna jak w magistrali, ale medium transmisyjne jest podzielone (połączenie n urządzeń składa się z n-1 łączy punkt-punkt pomiędzy urządzeniami)</dd>
 					
 					<dt><dfn>ring</dfn> (pierścień)</dt>
@@ -1118,9 +1138,14 @@
 			<p>
 				Wyróżnić można typy transmisji:
 				<dl>
-					<dt><dfn>simplex</dfn></dt><dd>umożliwia tylko transmisję jednokierunkową</dd>
-					<dt><dfn>half-duplex</dfn></dt><dd>umożliwia transmisję dwukierunkową, ale tylko w jedną stronę równocześnie</dd>
-					<dt><dfn>full-duplex</dfn></dt><dd>umożliwia pełną transmisję dwukierunkową (równoczesne nadawanie i odbiór)</dd>
+					<dt><dfn>simplex</dfn></dt>
+					<dd>umożliwia tylko transmisję jednokierunkową</dd>
+					
+					<dt><dfn>half-duplex</dfn></dt>
+					<dd>umożliwia transmisję dwukierunkową, ale tylko w jedną stronę równocześnie</dd>
+					
+					<dt><dfn>full-duplex</dfn></dt>
+					<dd>umożliwia pełną transmisję dwukierunkową (równoczesne nadawanie i odbiór)</dd>
 				</dl>
 			</p>
 		</section>
@@ -1270,20 +1295,45 @@
 		</section>
 		<section>
 			<h4>Rezystory terminujące</h4>
-			<p>Niektóre  ze standardów interfejsów komunikacyjnych przewidują kończenie swoich magistral rezystorem terminującym. Zastosowanie takiego rezystora ma na celu eliminację odbić sygnału, które mogłyby powstać na końcu linii transmisyjnej.</p>
+			<p>
+				Niektóre ze standardów interfejsów komunikacyjnych przewidują kończenie swoich magistral rezystorem terminującym.
+				Zastosowanie takiego rezystora ma na celu eliminację odbić sygnału, które mogłyby powstać na końcu linii transmisyjnej.
+			</p>
 			
-			<p>Zjawisko to występuje w przypadku <i>linii długich</i>, czyli takich których długość jest zbliżona lub większa od długości fali związanej z przesyłanym sygnałem. Jeżeli rozważymy np. impuls o czasie trwania 1μs to zajmie on na kablu odcinek o długości około 200m (zależy to od prędkości rozchodzenia się fali elektromagnetycznej w ośrodku który stanowi dany przewód). Zatem dla sygnału 1MHz (czyli takiego gdzie pojedyncze impulsy są właśnie długości 1μs) przewód o długości kilkuset metrów będzie linią długą.</p>
+			<p>
+				Zjawisko to występuje w przypadku <i>linii długich</i>, czyli takich których długość jest zbliżona lub większa od długości fali związanej z przesyłanym sygnałem.
+				Jeżeli rozważymy np. impuls o czasie trwania 1μs to zajmie on na kablu odcinek o długości około 200m (zależy to od prędkości rozchodzenia się fali elektromagnetycznej w ośrodku który stanowi dany przewód).
+				Zatem dla sygnału 1MHz (czyli takiego gdzie pojedyncze impulsy są właśnie długości 1μs) przewód o długości kilkuset metrów będzie linią długą.
+			</p>
 			
-			<p>Odbicia te wynikają z faktu, iż przemieszczanie się sygnału (np. naszego impulsu 5V o czasie trwania 1μs) wzdłuż przewodu związane jest z ładowaniem kolejnych pojemności pasożytniczych, związanych z odcinkiem przewodu do którego dociera sygnał. Dzieje się to kosztem rozładowania pojemności odcinka przewodu który sygnał już opuścił.</p>
-			<p>W momencie gdy sygnał trafia na koniec przewodnika nie ma możliwości rozładowania tej pojemności na kolejny odcinek przewodu, więc ładunek z nią związany „rozpływa się po kablu” powodując powstanie odbicia. Odbicie takie (biegnące od końca przewodu w stronę nadajnika) nakłada się na kolejne impulsy naszego sygnału (biegnące od nadajnika) i powoduje zakłócenia w ich odbiorze (interpretacji).</p>
+			<p>
+				Odbicia te wynikają z faktu, iż przemieszczanie się sygnału (np. naszego impulsu 5V o czasie trwania 1μs) wzdłuż przewodu związane jest
+					z ładowaniem kolejnych pojemności pasożytniczych, związanych z odcinkiem przewodu do którego dociera sygnał.
+				Dzieje się to kosztem rozładowania pojemności odcinka przewodu który sygnał już opuścił.
+			</p><p>
+				W momencie gdy sygnał trafia na koniec przewodnika nie ma możliwości rozładowania tej pojemności na kolejny odcinek przewodu, więc ładunek z nią związany „rozpływa się po kablu” powodując powstanie odbicia.
+				Odbicie takie (biegnące od końca przewodu w stronę nadajnika) nakłada się na kolejne impulsy naszego sygnału (biegnące od nadajnika) i powoduje zakłócenia w ich odbiorze (interpretacji).
+			</p>
 			
-			<p>Zastosowanie odpowiedniego rezystora na końcu linii pozwala na rozładowanie tej pojemności (tak jakby był tam kolejny nieskończenie długi odcinek przewodu) i eliminację odbicia. Wartość tej rezystancji jest charakterystyczna dla danego przewodu i określana przez parametr nazywany <i>impedancją falową</i>.</p>
-			<p>Rezystor terminujący stanowi obciążenie dla nadajnika i powinien on być stosowany tylko na końcach magistrali, czyli np. na ostatnich urządzeniach podłączonych do magistrali (a nie przy każdym urządzeniu do niej włączonym).</p>
-
-			<p>Jeżeli długość linii jest dużo mniejsza (dla sygnałów prostokątnych przyjmuje się że około 20-40 razy) od długości odcinka jaką zajmuje pojedynczy impuls (np. linia długości 3m, dla przykładowego sygnału 1MHz) to nie ma potrzeby stosowania rezystorów terminujących (często nawet gdy w ogólności dany standard je przewiduje), gdyż stan całej linii jest spójny i wymuszany przez nadajnik (nie jest to przypadek linii długiej).</p>
+			<p>
+				Zastosowanie odpowiedniego rezystora na końcu linii pozwala na rozładowanie tej pojemności (tak jakby był tam kolejny nieskończenie długi odcinek przewodu) i eliminację odbicia.
+				Wartość tej rezystancji jest charakterystyczna dla danego przewodu i określana przez parametr nazywany <i>impedancją falową</i>.
+			</p>
+			<p>
+				Rezystor terminujący stanowi obciążenie dla nadajnika i powinien on być stosowany tylko na końcach magistrali, czyli np. na ostatnich urządzeniach podłączonych do magistrali (a nie przy każdym urządzeniu do niej włączonym).
+			</p>
 			
-			<p>Standard I2C nie przewiduje rezystorów terminujących (i nie powinny być w nim używane, zwłaszcza że są to linie open drain i powstawałby dzielnik z rezystorem pull-up). Wynika to z tego iż przy maksymalnej prędkości tego interfejsu za linie długie należałoby uznać odcinki co najmniej kilkunastometrowe, a z innych względów standard ten posiada ograniczenie do kilku metrów.</p>
-			<p>Standard RS-485 przewiduje stosowanie rezystorów terminujących 120 Ω, jednak w przypadku krótkich połączeń i/lub małych prędkości transmisji mogą one być pominięte.</p>
+			<p>
+				Jeżeli długość linii jest dużo mniejsza (dla sygnałów prostokątnych przyjmuje się że około 20-40 razy) od długości odcinka jaką zajmuje pojedynczy impuls (np. linia długości 3m, dla przykładowego sygnału 1MHz)
+				to nie ma potrzeby stosowania rezystorów terminujących (często nawet gdy w ogólności dany standard je przewiduje), gdyż stan całej linii jest spójny i wymuszany przez nadajnik (nie jest to przypadek linii długiej).
+			</p>
+			
+			<p>
+				Standard I2C nie przewiduje rezystorów terminujących (i nie powinny być w nim używane, zwłaszcza że są to linie open drain i powstawałby dzielnik z rezystorem pull-up).
+				Wynika to z tego iż przy maksymalnej prędkości tego interfejsu za linie długie należałoby uznać odcinki co najmniej kilkunastometrowe, a z innych względów standard ten posiada ograniczenie do kilku metrów.
+			</p><p>
+				Standard RS-485 przewiduje stosowanie rezystorów terminujących 120 Ω, jednak w przypadku krótkich połączeń i/lub małych prędkości transmisji mogą one być pominięte.
+			</p>
 		</section>
 		<!-- END: Elektronika - Typy transmisji -->
 	</section>
@@ -1406,7 +1456,7 @@
 	<section>
 		<h3>Uruchamianie kodu i pierwszy program</h3>
 	
-		<p>Język C++ oraz C są językami kompilowalnymi to znaczy (po zmodyfikowaniu źródeł) przed uruchomieniem programu konieczne jest dokonanie tłumaczenia kodu źródłowego na kod maszynowy przy pomocy odpowiedniego programu (np. <code>clang++</code> lub <code>g++</code>). Kompilacja C i C++ przebiega kilku etapowo. W pierwszej kolejności wywoływany jest preprocesor, który jest odpowiedzialny za włączanie plików określonych poprzez <code>#include</code> (jest to literalne włączenie zawartości wskazanego pliku w danym miejscu, obsługę rozwijania stałych makr preprocesora (definiowanych z użyciem <code>#define</code>) oraz kompilację warunkową z wykorzystaniem poleceń takich jak <code>#ifdef</code> czy <code>#if</code>. Kompilatory pozwalają na uzyskanie nie tylko wynikowego pliku binarnego, ale także plików po przetworzeniu przez preprocesor czy też po konwersji na assembler.</p>
+		<p>Język C oraz C++ są językami kompilowalnymi to znaczy (po zmodyfikowaniu źródeł) przed uruchomieniem programu konieczne jest dokonanie tłumaczenia kodu źródłowego na kod maszynowy przy pomocy odpowiedniego programu (np. <code>clang++</code> lub <code>g++</code>). Kompilacja C i C++ przebiega kilku etapowo. W pierwszej kolejności wywoływany jest preprocesor, który jest odpowiedzialny za włączanie plików określonych poprzez <code>#include</code> (jest to literalne włączenie zawartości wskazanego pliku w danym miejscu, obsługę rozwijania stałych makr preprocesora (definiowanych z użyciem <code>#define</code>) oraz kompilację warunkową z wykorzystaniem poleceń takich jak <code>#ifdef</code> czy <code>#if</code>. Kompilatory pozwalają na uzyskanie nie tylko wynikowego pliku binarnego, ale także plików po przetworzeniu przez preprocesor czy też po konwersji na assembler.</p>
 	
 		<p>Python, Bash i PHP są językami interpretowanymi, czyli uruchamianiu podlega bezpośrednio kod źródłowy który jest analizowany i wykonywany przez interpreter danego języka. Mogą one uruchamiać kod z podanego pliku lub interaktywnie wprowadzany w konsoli interpretera. Kod wprowadzany interaktywnie może być wykonywany bezpośrednio po jego wprowadzeniu (tzn. wprowadzeniu znaku nowej linii, a w przypadku bloków instrukcji - zakończenia takiego bloku). W Bashu i Pythonie jest to zachowanie domyślne, natomiast w przypadku PHP wymaga podania opcji <code>-a</code> (jej podanie zakłada że podawany kod jest tylko częścią ujętą w <code>&lt;?php</code> i <code>?&gt;</code>, bez tej opcji kod zostanie zinterpretowany i wykonany dopiero po wczytaniu znaku końca pliku, który można wprowadzić Ctrl+D).</p>
 	
@@ -1418,7 +1468,7 @@
 				<section>
 					<h5>Kompilacja</h5>
 					
-					<p>Programy w C wymagają kompilacji i konsolidacji, celem zamiany kodu źródłowego na kod wykonywalny. W środowisku linuxowym tym celu możemy skorzystać z jednego z kilku dostępnych kompilatorów (zauważ że w każdym przypadku podstawowa składnia jest taka sama):<ul>
+					<p>Programy w C wymagają kompilacji i konsolidacji, celem zamiany kodu źródłowego na kod wykonywalny. W środowisku linuxowym tym celu możemy skorzystać z jednego z kilku dostępnych kompilatorów (warto zauważyć, że w każdym przypadku podstawowa składnia jest taka sama):<ul>
 						<li>Domyślnego kompilatora C (zazwyczaj jeden z poniższych): <code>cc -o plik_wykonywalny plik_zrodlowy.c</code></li>
 						<li>Tiny C Compiler: <code>tcc -o plik_wykonywalny plik_zrodlowy.c</code></li>
 						<li>kompilatora C z GNU Compiler Collection: <code>gcc -o plik_wykonywalny plik_zrodlowy.c</code></li>
@@ -1474,13 +1524,29 @@ cc -o plik_wykonywalny plik_wynikowy_1.o plik_wynikowy_2.o plik_wynikowy_3.o
 					</ul></p>
 					<insertSourceCode file="code-src/intro/Preprocesor.c" />
 				</section>
+				
+				<section>
+					<h5>C a C++</h5>
+					<p>Powyższe kody źródłowe C są jednocześnie poprawnymi kodami źródłowymi C++ i mogą zostać skompilowane kompilatorami tego języka takimi jak:<ul>
+						<li>Domyślny kompilator C++ (zazwyczaj jeden z poniższych): <code>c++ -o plik_wykonywalny plik_zrodlowy.cpp</code></li>
+						<li>kompilator C++ z GNU Compiler Collection: <code>g++ -o plik_wykonywalny plik_zrodlowy.cpp</code></li>
+						<li>clang i LLVM: <code>clang++ -o plik_wykonywalny plik_zrodlowy.cpp</code></li>
+					</ul></p>
+					
+					<p>C++ posiada własną bibliotekę standardową, pozwala też na bezproblemowe korzystanie z biblioteki standardowej C. Biblioteka C++ dostarcza nawet wiele funkcji całkowicie zgodnych z biblioteką standardową C (korzystając jednak z innych plików nagłówkowych).</p>
+				</section>
 			</section>
 			<section class="demo_tab" data-title="Python">
 				<h4>Python</h4>
 				<section>
 					<h5>Uruchamianie kodu</h5>
 					
-					<p>Kod pythonowy może być tworzony i wykonywany w linii poleceń interpretera. Dłuższe fragmenty kodu pythonowego często wygodniej jest pisać w pliku tekstowym niż bezpośrednio w linii poleceń. Plik taki może zostać wykonany przy pomocy polecenia: <code>./nazwa_pliku</code> pod warunkiem że ma prawo wykonalności (powinien także zawierać w pierwszą linii komentarz określający program używany do interpretacji tekstowego pliku wykonywalnego, w postaci: <code>#!/usr/bin/python3</code> lub <code>#!/usr/bin/env python3</code>). Może też być wykonany za pomocą wywołania: <code>python3 nazwa_pliku</code>.</p>
+					<p>
+						Kod pythonowy może być tworzony i wykonywany w linii poleceń interpretera. Dłuższe fragmenty kodu pythonowego często wygodniej jest pisać w pliku tekstowym niż bezpośrednio w linii poleceń.
+						Plik taki może być wykonany za pomocą wywołania: <code>python3 nazwa_pliku</code>.
+					</p><p>
+						Może też zostać wykonany przy pomocy polecenia <code>./nazwa_pliku</code> pod warunkiem że ma prawo wykonalności oraz zawiera w pierwszej linii komentarz sterujący określający program używany do interpretacji tekstowego pliku wykonywalnego (<em>shebang</em>) wskazujący na interpreter pythona (w postaci na przykład: <code>#!/usr/bin/python3</code> lub <code>#!/usr/bin/env python3</code>).
+					</p>
 					
 					<p>Polecenie <code>python3 -i nazwa_pliku</code> (opcja <code>-i</code>_ pozwala na uzyskanie interpretera w stanie po wykonaniu poleceń z pliku <code>nazwa_pliku</code>.</p>
 					
@@ -1506,6 +1572,58 @@ cc -o plik_wykonywalny plik_wynikowy_1.o plik_wynikowy_2.o plik_wynikowy_3.o
 					<p>Python posiada wbudowany system dokumentacji, celem jej użycia należy wykonać funkcję <code>help</code> od funkcji, typu, etc z dokumentacją którego chcemy się zapoznać, np. <code>help(print)</code> wypisze dokumentację funkcji <code>print</code>, <code>help(sys)</code> (po <code>import sys</code>) wypisze dokumentację modułu <code>sys</code>.</p>
 				</section>
 			</section>
+			<section class="demo_tab" data-title="Bash">
+				<h4>Python</h4>
+				<section>
+					<h5>Uruchamianie kodu</h5>
+					<p>
+						Kod shellowy może być tworzony i wykonywany w linii poleceń interpretera.
+						Dłuższe fragmenty kodu shellowego często wygodniej jest pisać w pliku tekstowym niż bezpośrednio w linii poleceń.
+						Plik taki może być wykonany za pomocą wywołania: <code>bash nazwa_pliku</code>, <code>zsh nazwa_pliku</code>, <code>sh nazwa_pliku</code> zależnie jakiej powłoki chcemy użyć.
+					</p><p>
+						Plik taki może zostać wykonany przy pomocy polecenia: <code>./nazwa_pliku</code> pod warunkiem że ma prawo wykonalności.
+						Powinien także także zawierać w pierwszą linii komentarz określający program używany do interpretacji tekstowego pliku wykonywalnego – <em>shebang</em> (np. <code>#!/bin/bash</code>).
+						Jednak wykonywalny plik bez takiego komentarza też zostanie wykonany jako skrypt shellowy, jednak niekoniecznie z użyciem właściwej powłoki.
+					</p><p>
+						Przydatną alternatywą dla powyższych metod wykonania kodu zawartego w pliku jest włączenie go do aktualnej sesji basha przy pomocy <code>. ./nazwa_pliku</code>.
+						W odróżnieniu od poprzednich metod kod zostanie wykonany w bieżącej instancji powłoki.
+						Pozwala to na korzystanie z funkcji i zmiennych zdefiniowanych w tym pliku w kolejnych poleceniach.
+					</p>
+					<section>
+						<h6>Skrypty</h6>
+						<p>Plik zawierający polecenia powłoki określany jest mianem skryptu. Wykonywanie skryptu powłoki rozpocznie się od pierwszej jego linii. Skrypt może przyjmować dowolną ilość parametrów pozycyjnych. Ilość parametrów znajduje się w zmiennej <code>$#</code>, lista wszystkich parametrów w <code>$@</code>, a do kolejnych parametrów możemy odwoływać się z użyciem <code>$1</code>, <code>$2</code>, itd.</p>
+						
+						<insertSourceCode file="code-src/intro/HelloWorld.sh" />
+						
+						<p><ul>
+							<li>Powyższy kod po zapisaniu w pliku skrypt.sh być uruchomiony poprzez <code>bash skrypt.sh argumnet_A agrument_B</code>.</li>
+							<li>tekst tekst od <code>#</code> do końca linii stanowi komentarz, czyli informacje dla programisty (np. opis działania algorytmu) ignorowane przez kompilator<ul>
+								<li>komentarz w pierwszej linii rozpoczynający się od <code>!</code> jest komentarzem sterującym określającym program który ma być użyty do interpretacji kodu z pliku tekstowego</li>
+							</ul></li>
+							<li>polecenie <code>echo</code> wypisuje tekst określony w argumentach na standardowe wyjście<ul>
+								<li>Przykłady:<ul>
+									<li><code>echo abc   xyz</code> wypisze <em><code>abc xyz</code></em></li>
+									<li><code>echo *</code> wypisze pliki nie ukryte w bieżącym katalogu (ze względu na znaki uogólniające powłoki).</li>
+								</ul></li>
+								<li>Aby poprawnie wypisywać wiele spacji, znaki nowej linii i inne znaki specjalne należy użyć cudzysłowów lub apostrofów (te drugi w odróżnieniu od cudzysłowów zabezpieczają także znak dolara <code>$</code>):<ul>
+									<li><code>echo "abc   xyz"</code> oraz <code>echo 'abc   xyz'</code> wypiszą <em><code>abc   xyz</code></em></li>
+									<li><code>echo "*"</code> oraz <code>echo '*'</code> wypiszą <em><code>*</code></em></li>
+									<li><code>echo "$abc"</code> wypisze wartość zmiennej abc (czyli najprawdopodobniej nic), natomiast <code>echo '$abc'</code> wypisze <em><code>$abc</code></em></li>
+								</ul></li>
+							</ul></li>
+							<li>słowo kluczowe <code>exit</code> kończy działanie skryptu i ustawia kod powrotu, stosowanie jej na końcu skryptu (jak w tym przykładzie) nie jest obowiązkowe</li>
+						</ul></p>
+					</section>
+				</section>
+				
+				<section>
+					<h5>Dokumentacja</h5>
+					<p>
+						Informację na temat komend będących osobnymi programami można uzyskać w wbudowanym systemie pomocy przy pomocy poleceń <code>man</code> lub <code>info</code> / <code>pinfo</code>.
+						Na temat poleceń wbudowanych bash przy pomocy polecenia <code>help</code> (np. <code>help while</code>), a w przypadku zsh poprzez <code>man zshbuiltins</code>.
+					</p>
+				</section>
+			</section>
 		</div>
 	</section>
 	<section>
@@ -1514,11 +1632,8 @@ cc -o plik_wykonywalny plik_wynikowy_1.o plik_wynikowy_2.o plik_wynikowy_3.o
 			Wszelkie dane na których operuje program komputerowy przechowywane są w jakimś rodzaju pamięci - najczęściej jest to pamięć operacyjna. W pewnych sytuacjach niektóre dane mogą być przechowywane np. tylko w rejestrach procesora lub rejestrach urządzeń wejścia-wyjścia.
 		</p>
 		<p>
-			W programowaniu na poziomie wyższym od kodu maszynowego i asemblera używa się pojęcia zmiennej i (niemal zawsze) pozostawia kompilatorowi/interpretatorowi decyzję o tym gdzie ona jest przechowywana. Oczywistym wyjątkiem są grupy zmiennych, czy też bufory alokowane w sposób jawny w pamięci.
+			W programowaniu na poziomie wyższym od kodu maszynowego i asemblera używa się pojęcia zmiennej i (niemal zawsze) pozostawia kompilatorowi/interpretatorowi decyzję o tym gdzie ona jest przechowywana. Wyjątkiem są zmienne alokowane w sposób jawny w pamięci (np. bufory, czy bardziej złożone obiekty).
 			Ze względu na ograniczoną liczbę rejestrów procesora większość zmiennych (w szczególności tych dłużej istniejących i większych) będzie znajdowała się w pamięci i będą przenoszone do rejestrów celem wykonania jakiś operacji na nich po czym wynik będzie przenoszony do pamięci.
-		</p>
-		<p>
-			Z każdą zmienną przechowywaną w pamięci związany jest <em>adres pamięci</em> pod którym się ona znajduje. Niektóre z języków programowania pozwalają na odwoływanie się do niego poprzez wskaźnik na zmienną lub referencję do zmiennej (odwołania do adresu zmiennej mogą wymusić umieszczenie jej w pamięci nawet gdyby normalnie znajdowała się tylko w rejestrze procesora).
 		</p>
 		<p>
 			Wszystkie dane są zapisywane w postaci liczb lub ciągów liczb. Typ zmiennej (jawny lub nie) informuje o tym jakiej długości jest dana liczba i jak należy ją interpretować (jak należy interpretować ciąg liczb).
@@ -1574,20 +1689,22 @@ cc -o plik_wykonywalny plik_wynikowy_1.o plik_wynikowy_2.o plik_wynikowy_3.o
 						<li>niezainicjalizowane zmienne mogą mieć dowolną wartość</li>
 					</ul>
 					
-					<p>Do wypisywania wartości zmiennych może być użyta funkcja <code>printf</code> z biblioteki standardowej języka C (z nagłówka <code>stdio.h</code>).</p><ul>
-						<li>w pierwszym argumencie przyjmuje ona napis formatujący zawierający ciągi rozpoczynające się od znaku procenta (<code>%</code>) pod które będą podstawiane wartości kolejnych zmiennych</li>
-						<li>ciąg znaków po <code>%</code> określa sposób wypisywania, np.:<ul>
-							<li><code>%d</code> - liczba całkowita typu <code>int</code> wypisana dziesiętnie</li>
-							<li><code>%x</code> - liczba całkowita bez znaku wypisana szesnastkowo</li>
-							<li><code>%f</code> - liczba zmiennoprzecinkowa</li>
-							<li><code>%s</code> - napis</li>
+					<p>Do wypisywania tekstu oraz wartości zmiennych może być użyta funkcja <code>printf()</code> z biblioteki standardowej języka C (z nagłówka <code>stdio.h</code>).</p><ul>
+						<li>W pierwszym argumencie przyjmuje ona napis formatujący, który może zawierać ciągi rozpoczynające się od znaku procenta (<code>%</code>) pod które będą podstawiane wartości kolejnych zmiennych.</li>
+						<li>Ciąg znaków po <code>%</code> określa sposób interpretacji i wypisywania kolejnych argumentów, np.:<ul>
+							<li><code>%d</code> - liczba całkowita typu <code>int</code> wypisana dziesiętnie,</li>
+							<li><code>%x</code> - liczba całkowita bez znaku wypisana szesnastkowo,</li>
+							<li><code>%f</code> - liczba zmiennoprzecinkowa,</li>
+							<li><code>%s</code> - napis,</li>
+							<li><code>%c</code> - pojedynczy znak (liczba całkowita wypisana jako znak ASCII).</li>
 						</ul></li>
-						<li>może on określać też sposób wypisania liczby, np:<ul>
-							<li><code>%3d</code> - całkowita rezerwująca 3 miejsca (dopełnianie spacjami od przodu)</li>
-							<li><code>%03d</code> - całkowita rezerwująca 3 miejsca (dopełnianie zerami wiodącymi)</li>
-							<li><code>%.2d</code> - zmiennoprzecinkowa z dwoma miejscami po kropce</li>
-							<li><code>%6.2d</code> - zmiennoprzecinkowa z dwoma miejscami po kropce, rezerwująca 6 miejsc (wliczając kropkę i miejsca po kropce)</li>
+						<li>Może on określać też sposób wypisania liczby, np:<ul>
+							<li><code>%3d</code> - całkowita rezerwująca 3 miejsca (dopełnianie spacjami od przodu),</li>
+							<li><code>%03d</code> - całkowita rezerwująca 3 miejsca (dopełnianie zerami wiodącymi),</li>
+							<li><code>%.2d</code> - zmiennoprzecinkowa z dwoma miejscami po kropce,</li>
+							<li><code>%6.2d</code> - zmiennoprzecinkowa z dwoma miejscami po kropce, rezerwująca 6 miejsc (wliczając kropkę i miejsca po kropce).</li>
 						</ul></li>
+						<li>Funkcja ta nie dodaje do wypisywanego napisu znaku nowej linii, więc jeżeli chcemy przejść do nowej linii to musi on być umieszczony w nim w sposób jawny jako <code>\n</code> (niekiedy jako <code>\r\n</code> - protokoły sieciowe, Windows, ...).</li>
 					</ul>
 				</div>
 			</div>
@@ -1644,7 +1761,7 @@ cc -o plik_wykonywalny plik_wynikowy_1.o plik_wynikowy_2.o plik_wynikowy_3.o
 							<li>dzielenie: <code>/</code> np. <code>int a = 3 / 2; float b = 3 / 2; float c = 3.0 / 2;</code><ul>
 								<li>w C typ dzielenia (całkowite lub zmiennoprzecinkowe) zależy od typów argumentów)<ul>
 									<li>zmienna <code>a</code> i zmienna <code>b</code> będą miały wartość 1 (dzielenie całkowite)</li>
-									<li>natomiast <code>c</code> będzie miało 1.5 (dzielenie zmiennoprzecinkowe, bo jeden z argumentów jest zmiennoprzecinkowy)</li>
+									<li>zmienna <code>c</code> będzie miała wartość 1.5 (dzielenie zmiennoprzecinkowe, bo jeden z argumentów jest zmiennoprzecinkowy)</li>
 								</ul></li>
 							</ul></li>
 							<li>reszta z dzielenia: <code>%</code> np. <code>int a = 3 % 2;</code> (zmienna <code>a</code> będzie miała wartość 1)</li>
@@ -1713,7 +1830,7 @@ cc -o plik_wykonywalny plik_wynikowy_1.o plik_wynikowy_2.o plik_wynikowy_3.o
 				<p>
 					Jako że program komputerowy jest sekwencją wykonywanych instrukcji musi rozpoczynać się od określonego miejsca.<br />
 					W przypadku języków interpretowanych jest to na ogół początek pliku z kodem programu. Często w pierwszej linii znajduje się specjalny komentarz (postaci <code>#!/ścieżka/do/programu</code>) stanowiący informację dla programu uruchamiającego skrypt jakiego interpretera ma użyć w celu wykonania kodu zawartego w pliku (niekiedy zawiera też opcje z jakimi należy uruchomić interpreter).<br />
-					Natomiast w przypadku skompilowanego kodu C/C++ punktem startu jest funkcja <code>main</code>. Zakończenie tej funkcji oznacza zakończenie programu, a wartość przez nią zwracana odpowiedzialna jest za tzw. kod powrotu przekazany procesowi wywołującemu program.
+					Natomiast w przypadku skompilowanego kodu C/C++ punktem startu jest funkcja <code>main()</code>. Zakończenie tej funkcji oznacza zakończenie programu, a wartość przez nią zwracana odpowiedzialna jest za tzw. kod powrotu przekazany procesowi wywołującemu program.
 				</p>
 			</section>
 			<section>
@@ -1725,6 +1842,7 @@ cc -o plik_wykonywalny plik_wynikowy_1.o plik_wynikowy_2.o plik_wynikowy_3.o
 					<insertSourceCode file="code-src/podstawy/Wyjątki.cpp" />
 					<insertSourceCode file="code-src/podstawy/Błędy.rs" />
 					<insertSourceCode file="code-src/podstawy/Wyjątki.py" />
+					<insertSourceCode file="code-src/podstawy/Błędy.sh" />
 				</div>
 			</section>
 			<section>
@@ -1805,6 +1923,7 @@ cc -o plik_wykonywalny plik_wynikowy_1.o plik_wynikowy_2.o plik_wynikowy_3.o
 						<insertSourceCode file="code-src/zmienne_i_struktury_danych/Tablice.c" />
 						<div class="code_comment">
 							<ul>
+								<li>tablica jest to zbiór zmiennych tego samego typu, do których odwołujemy się korzystając z nazwy zmiennej tablicowej i indeksu</li>
 								<li>definicja tablicy określa jej rozmiar (ilość elementów)<ul>
 									<li>C nie pilnuje przechodzenia poza zakres tablicy - jest to odpowiedzialność programisty</li>
 									<li>w powyższym przykładzie odwołanie się do np. piątego elementu tablicy nie zostanie wykryte przez kompilator jako błąd i może (ale nie musi) powodowć błąd naruszenia ochrony pamięci w trakcie działania programu</li>
@@ -1874,11 +1993,9 @@ cc -o plik_wykonywalny plik_wynikowy_1.o plik_wynikowy_2.o plik_wynikowy_3.o
 		
 		<section>
 			<h4>Adres zmiennej</h4>
-			<p>Wszelkie dane na których operuje program komputerowy przechowywane są w jakimś rodzaju pamięci - najczęściej jest to pamięć operacyjna. W pewnych sytuacjach niektóre dane mogą być przechowywane np. tylko w rejestrach procesora lub rejestrach urządzeń wejścia-wyjścia.</p>
-			
-			<p>W programowaniu na poziomie wyższym od kodu maszynowego i asemblera używa się pojęcia zmiennej i (niemal zawsze) pozostawia kompilatorowi/interpretatorowi decyzję o tym gdzie ona jest przechowywana. Wyjątkiem są grupy zmiennych, czy też bufory alokowane w sposób jawny w pamięci. Ze względu na ograniczoną liczbę rejestrów procesora większość zmiennych (w szczególności tych dłużej istniejących i większych) będzie znajdowała się w pamięci i będą przenoszone do rejestrów celem wykonania jakiś operacji na nich po czym wynik będzie przenoszony do pamięci.</p>
-			
-			<p>Z każdą zmienną przechowywaną w pamięci związany jest adres pamięci pod którym się ona znajduje. Niektóre z języków programowania pozwalają na odwoływanie się do niego poprzez wskaźnik na zmienną lub referencję do zmiennej (odwołania do adresu zmiennej mogą wymusić umieszczenie jej w pamięci nawet gdyby normalnie znajdowała się tylko w rejestrze procesora). </p>
+			<p>
+				Z każdą zmienną przechowywaną w pamięci związany jest <em>adres pamięci</em> pod którym się ona znajduje. Niektóre z języków programowania pozwalają na odwoływanie się do niego poprzez wskaźnik na zmienną lub referencję do zmiennej (odwołania do adresu zmiennej mogą wymusić umieszczenie jej w pamięci nawet gdyby normalnie znajdowała się tylko w rejestrze procesora).
+			</p>
 			
 			<section>
 				<h5>Wskaźniki</h5>
@@ -1912,6 +2029,7 @@ cc -o plik_wykonywalny plik_wynikowy_1.o plik_wynikowy_2.o plik_wynikowy_3.o
 			</section>
 			
 			<div class="demo_codes">
+				<insertSourceCode file="code-src/zmienne_i_struktury_danych/Wskaźniki_i_referencje.c" />
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych/Wskaźniki_i_referencje.cpp" />
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych/Wskaźniki_i_referencje.py" />
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych/Wskaźniki_i_referencje.sh" />
@@ -1922,11 +2040,13 @@ cc -o plik_wykonywalny plik_wynikowy_1.o plik_wynikowy_2.o plik_wynikowy_3.o
 		<section>
 			<h4>Zasięg zmiennej</h4>
 			<p>
-				Często (np. C / C++) zasięg zmiennych (widoczność i istnienie) jest limitowany do bloku w którym zostały zadeklarowane, zmienne z bloków wewnętrznych mogą przesłaniać zmienne zadeklarowane wcześniej.
+				Często (np. C / C++) zasięg zmiennych (widoczność i istnienie) jest limitowany do bloku (np. wydzielanego nawiasami klamrowymi) w którym zostały zadeklarowane, zmienne z bloków wewnętrznych mogą przesłaniać zmienne zadeklarowane wcześniej.
 				W niektórych językach (np. Pythonie, Bash'u) mechanizm ten nie jest stosowany (utworzenie zmiennej wewnątrz if'a lub pętli powoduje jej widoczność poza tym blokiem).
 			</p>
 			<p>
-				Wywołanie funkcji powoduje rozpoczęcie nowego kontekstu w którym zmienne z bloku wywołującego funkcję nie są widoczne (ale nadal istnieją). Typowo argumenty do funkcji przekazywane są przez kopiowanie, więc funkcja nie ma możliwości modyfikacji zmiennych z bloku ją wywołującego nawet do niej przekazanych (wyjątkiem jest przekazanie przez referencję lub wskaźnik).
+				Wywołanie funkcji powoduje rozpoczęcie nowego kontekstu w którym zmienne z bloku wywołującego funkcję nie są widoczne (ale nadal istnieją).
+				Argumenty do funkcji przekazywane mogą być przekazywane przez kopiowanie (domyślny sposób np. w C i C++), wskaźnik lub referencję (czy też kopię wskaźnika/referencji - domyślne dla zmiennych typów modyfikowalnych w Python) lub mogą być do niej przenoszone (domyślne zachowanie w Rust).
+				Funkcja nie ma możliwości modyfikacji zmiennych z bloku ją wywołującego (tak aby modyfikacja ta była widoczna na tej oryginalnej zmiennej), chyba że są jej argumentami przekazanymi przez referencję lub wskaźnik lub (w niektórych językach) są zmiennymi globalnymi.
 			</p>
 			<p>
 				W przypadku manualnej alokacji pamięci (np. z użyciem <code>malloc</code>) lub tworzenia obiektów poprzez <code>new</code> limitowana jest widoczność i istnienie otrzymanego wskaźnika, ale nie zaalokowanego bloku pamięci. Zatem ograniczona jest widoczność takich zmiennych ale nie czas ich istnienia, dlatego też przed utratą wskaźnika na nie należy je usunąć (zwolnić zaalokowaną pamięć).
@@ -1990,6 +2110,7 @@ $      - koniec napisu/linii
 |      - alternatywa: wystąpienie wyrażenia podanego po lewej stronie albo wyrażenia podanego prawej stronie
 </pre>
 			<div class="demo_codes">
+				<insertSourceCode file="code-src/zmienne_i_struktury_danych--napisy/Napisy.c" />
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych--napisy/Napisy.cpp" />
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych--napisy/Napisy.py" />
 				<insertSourceCode file="code-src/zmienne_i_struktury_danych--napisy/Napisy.php" />
@@ -2101,6 +2222,8 @@ $      - koniec napisu/linii
 				System pozwala na przekazanie do uruchamianego programu zbioru argumentów / opcji, które program może dowolnie zinterpretować i wykorzystać w swoim działaniu.
 			</p><p>
 				Od systemu program otrzymuje nie zinterpretowaną tablicę argumentów. Za podział całego zbioru argumentów, na poszczególne elementy tablicy odpowiada program tworzący nowy proces. Typowo napis przekazany w linii poleceń dzielony jest na słowa (ciągi znaków, rozdzielane białymi znakami) i każde słowo stanowi osobny element tablicy, wyjątkiem są napisy ujęte w cudzysłowia które przekazywane są jako pojedynczy argument (element tablicy).
+			</p><p>
+				Argumenty linii poleceń są na ogół dużo lepszą metodą odbierania danych od użytkownika niż zadawanie pytań i oczekiwanie na wprowadzenie danych z klawiatury na standardowe wejście – umożliwiają łatwe wykorzystanie takich programów w bardziej złożonych poleceniach, czy skryptach. Wystarczy zastanowić się jak wyglądałoby programowanie w bashu gdyby komendy takie jak ls, grep, find, itd oczekiwały na wprowadzenie swoich opcji i argumentów na standardowym wejściu.
 			</p><p>
 				W świecie POSIXowym przyjętym standardem jest podawanie opcji jednoliterowych po pojedynczym myślniku z możliwością ich grupowania (np. <code>ls -la</code> to to samo co <code>ls -l -a</code>), a opcji długich po dwóch myślnikach. Ewentualne argumenty opcji podawane są zaraz po opcji i w przypadku opcji krótkich oddzielone od niej spacją, a w przypadku opcji długich po znakiem równości (np. <code>ls --color=auto</code>). Po opcjach występują argumenty pozycyjne (np. lista plików które ma wyświetlić ls).
 			</p><p>
@@ -2791,6 +2914,9 @@ if (!blokada) {
 
 <section>
 	<h2>Systemy operacyjne</h2>
+	
+	<p>System operacyjny jest programem uruchamianym po starcie komputera (co prawda nie jako pierwszym, ale zastępującym uruchomione wcześniej, więc najstarszym z działających).</p>
+	
 	<section>
 		<h3>Co robi system operacyjny?</h3>
 		<!-- BEGIN: Co robi system operacyjny -->
@@ -2804,6 +2930,8 @@ if (!blokada) {
 		
 		<section>
 			<h4>Procesy i szeregowanie zadań</h4>
+			
+			<p>Jednym z głównych zadań systemu operacyjnego jest zarządzanie procesami na nim uruchomionymi - obejmuje to zarówno czynności związane z ich tworzeniem oraz kończeniem, jak też szeregowanie zadań. To system operacyjny przejmuje okresowo procesor (z użyciem przerwania zegarowego), aby podjąć decyzję (w oparciu o jakiś algorytm szeregowania zadań) który/które z porcesów gotowych do działania (czyli takich, które aktualnie nie oczekują na "coś") ma dostać przydział czasu porcesora.</p>
 			
 			<p>Istotną rolą systemu operacyjnego w zarządzaniu procesami (obok czynności administracyjnych jak ich tworzenie powielanie, usuwanie, czy też wstrzymywanie itp) jest zapewnienie ochrony pamięci (każdy proces może pisać po swojej i ewentualnie współdzielonej gdy dostał do tego prawo) oraz procesora (przerwanie zegarowe powoduje wywołanie planisty, który ustala jaki proces dostanie następny kwant czasu procesora). Niektóre systemy wyróżniają obok procesów także wątki, które różnią się od nich współdzieloną (między wątkami jednego procesu) pamięcią i zasobami (np. otwartymi plikami). System operacyjny zapewnia także zestaw usług i funkcji (wywołań) systemowych zapewniających pośrednictwo między interfejsem trybu użytkownika a sprzętem.</p>
 			
@@ -2828,7 +2956,7 @@ if (!blokada) {
 			<h4>Zarządzanie pamięcią</h4>
 			<!-- BEGIN: Zarządzanie pamięcią -->
 			<p>Kolejną podstawową funkcją systemu operacyjnego jest zarządzanie pamięcią.
-				Polega ono na odpowiednim mapowaniu adresów logicznych (używanych przez procesy) na adresy fizyczne (używane przez procesor), korzysta ono z wsparcia sprzętowego ze strony procesora.
+				Zarządzanie pamięcią polega na odpowiednim mapowaniu adresów logicznych (używanych przez procesy) na adresy fizyczne (używane przez procesor), korzysta ono z wsparcia sprzętowego ze strony procesora.
 				Jest to najczęściej realizowane w oparciu o wspomniany mechanizm stronicowania. Polega to na podziale pamięci dostępnej pamięci fizycznej na jednakowe bloki zwane ramkami oraz podziale pamięci logicznej na jednakowe bloki (o tej całej wielkości co ramki) zwane stronami. Strony które są wykorzystywane przez program są mapowane na dowolne ramki pamięci fizycznej (w przypadku gdy dana strona nie zamapowana – w zależności od okoliczności błąd braku strony lub błąd ochrony strony).
 				Rozwiązuje to problem fragmentacji zewnętrznej, polegającej na braku spójnego obszaru pamięci o żądanej długości pomimo iż łączna ilość wolnej pamięci jest dostateczna, jednak nie rozwiązuje problemu fragmentacji wewnętrznej, polegającej na przydzielaniu zbyt dużych fragmentów pamięci dla procesu (a wręcz można powiedzieć że go pogłębia).
 				Mechanizm ten wymaga trzymania tablicy wolnych ramek, tablicy stron dla każdego procesu (zawierającej przypisania mapowań stron danego procesu na ramki) oraz wykonywania tłumaczenia adresów logicznych (strona + przesunięcie na stronie). Także sama tablica stron procesu procesu może być stronicowania (mamy tablicę która informuje nas że przypisania stron w danym zakresie adresów są przechowywane w jakiejś ramce).
@@ -2947,13 +3075,20 @@ if (!blokada) {
 					
 					<p>Istotnym ułatwieniem przy wprowadzaniu poleceń jest funkcja auto uzupełniania z użyciem przycisku Tab. Obejmująca zarówno same nazwy poleceń, jak również ścieżki, a nierzadko także inne argumenty poleceń. W przypadku bash'a pojedyncze naciśnięcie klawisza Tab powoduje dopełnienie wpisywanego tekstu, jeżeli jest ono jednoznaczne. Jeżeli jest kilka możliwości, dopełniony zostanie najdłuższy jednoznaczny fragment. Dwukrotne naciśnięcie klawisza Tab spowoduje wyświetlenie dostępnych możliwości. Po ujednoznacznieniu można ponownie użyć klawisza Tab, aby nastąpiło dopełnienie, i tak dalej. Domyślne zachowanie zsh jest trochę inne.</p>
 					
-					<p>Warto zauważyć że taka obsługa linii poleceń i jej historii nie jest cechą terminala, tylko samej powłoki. A jako że jest to często funkcjonalność dostarczana przez dedykowaną bibliotekę to można ją także wielu innych programach.</p>
+					<p>
+						Warto zauważyć że taka obsługa linii poleceń i jej historii nie jest cechą terminala, tylko samej powłoki.
+						A jako że jest to często funkcjonalność dostarczana przez dedykowaną bibliotekę
+						to można ją także wielu innych programach.
+					</p>
 				</section>
 				
 				<section>
 					<h6>screen i tmux</h6>
 				
-					<p><code>screen</code> i <code>tmux</code> są tzw. multiplexerami terminala - pozwala na uzyskanie wielu okien konsoli (także np. wyświetlanych jedno obok drugiego) na pojedynczym terminalu. Ponadto pozwalają na odłączanie i podłączanie sesji, co pozwala na łatwe pozostawienie działającego programu po wylogowaniu i powrót do niego później.</p>
+					<p>
+						<code>screen</code> i <code>tmux</code> są tzw. multiplexerami terminala - pozwala na uzyskanie wielu okien konsoli (także np. wyświetlanych jedno obok drugiego) na pojedynczym terminalu.
+						Ponadto pozwalają na odłączanie i podłączanie sesji, co pozwala na łatwe pozostawienie działającego programu po wylogowaniu i powrót do niego później.
+					</p>
 				</section>
 			</section>
 		</section>
@@ -3006,13 +3141,39 @@ if (!blokada) {
 					<li><code>[!a-z]</code> oznacza dowolny znak z wyjątkiem znaków wymienionych w podanym zbiorze, zbiór może być definiowany z użyciem zakresów, np. a-z oznacza dowolną małą literę od a do z włącznie</li>
 				</ul></p>
 				
-				<p>Na przykład:<ul>
-					<li><code>a[0-9]/*</code> oznacza wszystkie (nieukryte) pliki i katalogi znajdujące się wewnątrz katalogów których nazwa jest dwuznakowa, gdzie pierwszym znakiem jest <code>a</code> a kolejnym cyfra.</li>
-					<li><code>[^ad]*</code> oznacza wszystkie (nieukryte) pliki i katalogi w bieżącym katalogu których nazwa nie zaczyna się na literę a lub d</li>
-					<li><code>.[!.]*</code> oznacza wszystkie ukryte pliki i katalogi w bieżącym katalogu (z wyjątkiem odwołania do katalogu bieżącego i nadrzędnego</li>
-				</ul></p>
+				<p>Należy zwrócić uwagę że sama gwiazdka nie dopasowuje plików ukrytych (zaczynających się od kropki), czyli np. <code>echo *</code> wypisze wszystkie pliki w bieżącym katalogu, z wyjątkiem tych których pierwszym znakiem w nazwie jest kropka. Aby je wypisać możemy użyć <code>echo .*</code> lub (gdy chcemy pominąć kropkę i dwie kropki, będące specjalnymi dowiązaniami do bieżącego i nadrzędnego katalogu):  <code>echo .[!.]*</code></p>
 				
-				<p>Znaki uogólniające rozwijane są (t.j. zamieniane na listę pasujących ścieżek) przez powłokę. A jedynie w przypadku braku dopasowań przekazywane w niezmienionej postaci do uruchamianego programu. Niektóre programy oczekują jednak otrzymania i operowania na znakach uogólniających. Niekiedy też chcemy przekazać jako argument jakiegoś polecenia coś co ścieżką nie jest a zawiera któreś z tych znaków. W obu wypadkach dla poprawnego działania polecenia niezależnie od ewentualnego istnienia pasujących plików ciąg zawierający te znaki należy zabezpieczyć cudzysłowami lub apostrofami (ew. użyć odwrotnych ukośników do zabezpieczenia tych znaków).</p>
+				<p>Znaki uogólniające mogą być także stosowne nie tylko do dopasowywania nazw plików, czy też ścieżek, ale także ogólnego dopasowywania napisów (są takim prostszym odpowiednikiem wyrażeń regularnych).</p>
+				
+				<p>
+					Znaki uogólniające rozwijane są (t.j. zamieniane na listę pasujących ścieżek) przez powłokę. A jedynie w przypadku braku dopasowań przekazywane w niezmienionej postaci do uruchamianego programu.
+					Niektóre programy oczekują jednak otrzymania i operowania na znakach uogólniających. Niekiedy też chcemy przekazać jako argument jakiegoś polecenia coś co nie ma być dopasowywane a jedynie zawiera któreś z tych znaków.
+					W obu wypadkach dla poprawnego działania polecenia niezależnie od ewentualnego istnienia pasujących plików ciąg zawierający te znaki należy zabezpieczyć cudzysłowami lub apostrofami (ew. użyć odwrotnych ukośników do zabezpieczenia tych znaków).
+				</p>
+				
+				<p>Przykłady dopasowań nazw i ścieżek z użyciem znaków uogólniających:<ul>
+					<li><code>?</code> → pliki (z bieżącego katalogu) z jedno znakową nazwą</li>
+					<li><code>\?*</code> lub <code>'?'*</code> → pliki (z bieżącego katalogu) których nazwa zaczyna się od znaku zapytania</li>
+					
+					<li><code>*b*</code> → wszystkie (nieukryte) pliki (z bieżącego katalogu) których nazwa zawiera małą literę b</li>
+					<li><code>*[ab]*</code> → wszystkie (nieukryte) pliki (z bieżącego katalogu) których nazwa zawiera małą literę a lub b</li>
+					
+					<li><code>[a-d]*</code> → wszystkie (nieukryte) pliki (z bieżącego katalogu których nazwa zaczyna się od liter a,b,c,d</li>
+					<li><code>[^ad]*</code> → wszystkie (nieukryte) pliki (z bieżącego katalogu których nazwa nie zaczyna się na małą literę a lub d</li>
+					<li><code>a[0-9]/*</code> → wszystkie (nieukryte) pliki znajdujące się wewnątrz katalogów których nazwa jest dwuznakowa, gdzie pierwszym znakiem jest <code>a</code> a kolejnym cyfra.</li>
+					
+					<li><code>.*</code> → wszystkie ukryte pliki (z bieżącego katalogu)</li>
+					<li><code>.[!.]*</code> → wszystkie ukryte pliki (z bieżącego katalogu), z wyjątkiem odwołania do katalogu bieżącego i nadrzędnego</li>
+				</ul></p>
+				<p>Katalog jest specjalnym rodzajem pliku, zatem, w powyższych opisach "pliki" oznacza także katalogi.</p>
+			
+				<p>
+					W niektórych sytuacjach należy mieć na uwadze ograniczenia dotyczących maksymalnej długości listy argumentów (zarówno całej jak i pojedynczego argumentu).
+					Mogą one okazać się problemem na przykład, gdy korzystamy ze znaków uogólniających powłoki i dopasowanych zostanie zbyt wiele plików dopasowanych,
+					lub gdy wykorzystujemy przechwycenie standardowego wyjścia jakiegoś polecenia, aby użyć go jako argumentów innego polecenia.
+					W takich sytuacjach warto skorzystać na przykład z pętli while-read działającej na standardowym wyjściu polecenia zwracającego te dane.
+					W przypadku listy plików może to być ls bez argumentów lub (gdy potrzebujemy wybrać tylko niektóre pliki) find.
+				</p>
 			</section>
 			
 			<section>
@@ -3028,23 +3189,38 @@ if (!blokada) {
 				<p>Linki są odniesieniami do jakiś plików, z użyciem innej ścieżki / nazwy. Wyróżnia się dwa ich typy – link twardy (<em>hard link</em>) i link symboliczny (<em>symbolic link</em>).</p>
 				<p><img src="link_twardy_i_symboliczny.svg" style="height:230px;margin-top:13px;margin-left:47px" alt="link twardy i symboliczny" /></p>
 				
-				<p><dfn>Link twardy</dfn> jest innym dowiązaniem na te same dane na dysku twardym. Jak wspomniano występuje kilka poziomów dostępu do danych znajdujących się na dysku twardym – fizyczną lokalizację tych danych gdzieś na dysku, uchwyt do takich danych (nazywany i-node) oraz wpis w katalogu (który określa nazwę pliku i odnośnik do i-node'a).</p>
-				<p>Link twardy <code>link1.txt</code>, pokazany ilustracji zaznaczony kolorem czerwonym, utworzony komendą <code>ln plik2.txt link1.txt</code>, stanowi po prostu kolejne dowiązanie do tych samych danych do których dowiązaniem był <code>plik2.txt</code>. Jest on równoprawny oryginalnemu dowiązaniu do tych danych, czyli:<ul>
-					<li>modyfikacja danych z jego pomocą zmieni wspólne dane na które wskazują oba dowiązania, zatem będzie widoczna także poprzez nazwę <code>plik2.txt</code>, podobnie w drógą stronę - modyfikacja dokonana za pomocą <code>plik2.txt</code> będzie widoczna przy dostępie poprzez nazwę <code>link1.txt</code></li>
-					<li>może być używany (i zapewnia dostęp do danych) także po skasowaniu oryginalnego pliku, dane zostaną usunięte (a dokładniej oznaczone jako do nadpisania) w momencie gdy ten liczba odwołań do nich spadnie do zera</li>
-				</ul></p>
-				<p>Liczbę dowiązań do danego pliku pokazuje m.in. komenda <code>ls</code> z opcją <code>-l</code>. Warto także zwrócić uwagę na wpisy związane z kropką i dwiema kropkami – są to automatycznie tworzone dowiązania typu link twardy odpowiednio do katalogu bieżącego i nadrzędnego. Liczba dowiązań do <code>.</code> to 2 plus liczba podkatalogów, a liczba dowiązań do <code>..</code> równa jest liczbie dowiązań do kropki w katalogu nadrzędnym.</p>
-				<p>Ze względu na taką naturę linków twardych ograniczają się one do pojedynczego systemu plików (urządzenia) na którym znajdują się dane. Typowo nie jest również dopuszczalne tworzenie linków twardych do katalogów.</p>
+				<p>
+					<dfn>Link twardy</dfn> jest innym dowiązaniem (uchwytem) wskazującym na te same dane na dysku twardym i może być używany także po skasowaniu oryginalnego pliku (jest równoważny oryginalnemu uchwytowi).
+					Jak wspomniano występuje kilka poziomów dostępu do danych znajdujących się na dysku twardym – fizyczną lokalizację tych danych gdzieś na dysku, uchwyt do takich danych (nazywany i-node) oraz wpis w katalogu (który określa nazwę pliku i odnośnik do i-node'a).
+				</p><p>
+					Link twardy <code>link1.txt</code>, pokazany ilustracji zaznaczony kolorem czerwonym, utworzony komendą <code>ln plik2.txt link1.txt</code>, stanowi po prostu kolejne dowiązanie do tych samych danych do których dowiązaniem był <code>plik2.txt</code>. Jest on równoprawny oryginalnemu dowiązaniu do tych danych, czyli:<ul>
+						<li>modyfikacja danych z jego pomocą zmieni wspólne dane na które wskazują oba dowiązania, zatem będzie widoczna także poprzez nazwę <code>plik2.txt</code>, podobnie w drógą stronę - modyfikacja dokonana za pomocą <code>plik2.txt</code> będzie widoczna przy dostępie poprzez nazwę <code>link1.txt</code></li>
+						<li>może być używany (i zapewnia dostęp do danych) także po skasowaniu oryginalnego pliku, dane zostaną usunięte (a dokładniej oznaczone jako do nadpisania) w momencie gdy ten liczba odwołań do nich spadnie do zera</li>
+					</ul>
+				</p><p>
+					Liczbę dowiązań do danego pliku pokazuje m.in. komenda <code>ls</code> z opcją <code>-l</code>.
+					Warto także zwrócić uwagę na wpisy związane z kropką i dwiema kropkami – są to automatycznie tworzone dowiązania typu link twardy odpowiednio do katalogu bieżącego i nadrzędnego. Liczba dowiązań do <code>.</code> to 2 plus liczba podkatalogów, a liczba dowiązań do <code>..</code> równa jest liczbie dowiązań do kropki w katalogu nadrzędnym.
+				</p><p>
+					Ze względu na taką naturę linków twardych ograniczają się one do pojedynczego systemu plików (urządzenia) na którym znajdują się dane. Typowo nie jest również dopuszczalne tworzenie linków twardych do katalogów.
+				</p>
 
-				<p><dfn>Link symboliczny</dfn> wskazuje na konkretną ścieżkę (względną lub bezwzględną – co może mieć znaczenie przy przenoszeniu takiego linku) do dowolnego (nawet nie istniejącego – wtedy mówimy o zerwanym linku) pliku lub katalogu. Dzięki takim cechom linki te mogą wskazywać na pliki położone na innych urządzeniach, systemach plików. Linki symboliczne można tworzyć do dowolnych obiektów w systemie plików – także katalogów.</p>
-				<p>Link symboliczny, pokazany ilustracji zaznaczony kolorem niebieskim, stanowi wpis w strukturze katalogu informujący że pod daną nazwą (w tym przykładzie <code>link2.txt</code>) jest odniesienie do innej ścieżki (w tym przykładzie <code>./plik1.txt</code>). Jest on w istocie odniesieniem do innej ścieżki, a nie danych na dysku jako takich.</p>
-				<p>Link symboliczny funkcjonuje podobnie do linku twardego, zapewniając dostęp do tych samych danych przez dwie różne ścieżki.</p>
-				<p>Dla obiektów typu link symboliczny polecenie ls będzie pokazywać typ pliku <code>l</code> a podawany rozmiar wynika z długości przechowywanej ścieżki – tyle danych zawiera sam link symboliczny. Zajętość dysku (podawana przez <code>du</code>) dla linku symbolicznego będzie najczęściej wynosiła zero, gdyż sam link (jeżeli jest odpowiednio krótki) nie zajmuje osobnego miejsca na dysku - zapisywany jest bezpośrednio w strukturze systemu plików (najczęściej bezpośrednio w i-node).</p>
-				<p>W przypadku linków symbolicznych nie ma takiego podobieństwa linku do obiektu na który wskazuje ten link, jak w przypadku linków twardych. W przypadku linków symbolicznych, usunięcie pliku na który wskazywał link, czy też nawet zmiana lokalizacji bądź nazwy takiego pliku, prowadzi do tego że link symboliczny staje się linkiem zerwanym i tracimy dostęp do danych z wykorzystaniem tego linku. Jeżeli plik na który wskazywał link zostanie skutecznie usunięty, czyli nie będzie ani tego pliku ani linków twardych do niego to dane też zostaną usunięte, bez względu na to czy już wskazywały na nie jakieś linki symboliczne, czy nie.</p>
-				<p>Ponadto:<ul>
-					<li>ścieżki względne zapisane w linku nie są interpretowane względem bieżącego katalogu roboczego, czy nawet katalogu użytego w ścieżce dostępu do linku a względem katalogu w którym znajduje się link</li>
-					<li>polecenie <code>ln</code> (używane do tworzenia linków) standardowo zapisze do tworzonego linku literalnie podaną w linii poleceń ścieżkę. Oznacza to że można tworzyć linki symboliczne do nieistniejących plików, ale też przez pomyłkę można utworzyć błędne dowiązania.</li>
-				</ul></p>
+				<p>
+					<dfn>Link symboliczny</dfn> wskazuje na konkretną ścieżkę (względną lub bezwzględną – co może mieć znaczenie przy przenoszeniu takiego linku) do dowolnego (nawet nie istniejącego – wtedy mówimy o zerwanym linku) pliku lub katalogu.
+					Dzięki takim cechom linki te mogą wskazywać na pliki położone na innych urządzeniach, systemach plików. Linki symboliczne można tworzyć do dowolnych obiektów w systemie plików – także katalogów.
+				</p><p>
+					Link symboliczny, pokazany ilustracji zaznaczony kolorem niebieskim, stanowi wpis w strukturze katalogu informujący że pod daną nazwą (w tym przykładzie <code>link2.txt</code>) jest odniesienie do innej ścieżki (w tym przykładzie <code>./plik1.txt</code>). Jest on w istocie odniesieniem do innej ścieżki, a nie danych na dysku jako takich.
+				</p><p>
+					Link symboliczny funkcjonuje podobnie do linku twardego, zapewniając dostęp do tych samych danych przez dwie różne ścieżki.
+				</p><p>
+					Dla obiektów typu link symboliczny polecenie ls będzie pokazywać typ pliku <code>l</code> a podawany rozmiar wynika z długości przechowywanej ścieżki – tyle danych zawiera sam link symboliczny. Zajętość dysku (podawana przez <code>du</code>) dla linku symbolicznego będzie najczęściej wynosiła zero, gdyż sam link (jeżeli jest odpowiednio krótki) nie zajmuje osobnego miejsca na dysku - zapisywany jest bezpośrednio w strukturze systemu plików (najczęściej bezpośrednio w i-node).
+				</p><p>
+					W przypadku linków symbolicznych nie ma takiego podobieństwa linku do obiektu na który wskazuje ten link, jak w przypadku linków twardych. W przypadku linków symbolicznych, usunięcie pliku na który wskazywał link, czy też nawet zmiana lokalizacji bądź nazwy takiego pliku, prowadzi do tego że link symboliczny staje się linkiem zerwanym i tracimy dostęp do danych z wykorzystaniem tego linku. Jeżeli plik na który wskazywał link zostanie skutecznie usunięty, czyli nie będzie ani tego pliku ani linków twardych do niego to dane też zostaną usunięte, bez względu na to czy już wskazywały na nie jakieś linki symboliczne, czy nie.
+				</p><p>
+					Ponadto:<ul>
+						<li>ścieżki względne zapisane w linku nie są interpretowane względem bieżącego katalogu roboczego, czy nawet katalogu użytego w ścieżce dostępu do linku a względem katalogu w którym znajduje się link</li>
+						<li>polecenie <code>ln</code> (używane do tworzenia linków) standardowo zapisze do tworzonego linku literalnie podaną w linii poleceń ścieżkę. Oznacza to że można tworzyć linki symboliczne do nieistniejących plików, ale też przez pomyłkę można utworzyć błędne dowiązania.</li>
+					</ul>
+				</p>
 			</section>
 			
 			<section>
@@ -3064,7 +3240,7 @@ if (!blokada) {
 			<section>
 				<h5>Struktura katalogów</h5>
 				<p>
-					Do najistotniejszych standardowych katalogów w systemach unix'oych należy zaliczyć: <dl class="cmdlist">
+					Do najistotniejszych standardowych katalogów w systemach unix'oych należy zaliczyć:<dl class="cmdlist">
 						<dt><dfn>/bin</dfn></dt>
 							<dd>zawierający pliki wykonywalne podstawowych programów</dd>
 						<dt><dfn>/sbin</dfn></dt>
@@ -3097,24 +3273,64 @@ if (!blokada) {
 			
 		<section>
 			<h4>Polecenia</h4>
-			<p>Unixowe komendy (czyli polecenia rozumiane przez bash lub inny interpreter zgodny z sh) składają się z nazwy polecenia oraz opcji i argumentów. Nazwą polecenia może być nazwa funkcji wbudowanej, nazwa programu (znajdującego się w ścieżce wyszukiwania programów) lub pełna ścieżka do programu. Po nazwie polecenia mogą występować opcje i/lub argumenty. Są one oddzielane od nazwy polecenia i od siebie przy pomocy spacji (zasadniczo dowolnego ciągu białych znaków: spacji, tabulatorów, escapowanych nowych linii).</p>
+			<p>
+				Unixowe komendy (czyli polecenia rozumiane przez bash lub inny interpreter zgodny z sh) składają się z nazwy polecenia oraz opcji i argumentów.
+				Nazwą polecenia może być nazwa funkcji wbudowanej, nazwa programu (znajdującego się w ścieżce wyszukiwania programów) lub pełna ścieżka do programu.
+				Po nazwie polecenia mogą występować opcje i/lub argumenty. Są one oddzielane od nazwy polecenia i od siebie przy pomocy spacji
+				(zasadniczo dowolnego ciągu białych znaków: spacji, tabulatorów, escapowanych nowych linii).
+			</p>
 			
-		<p>Nie ma silnego rozróżnienia opcji od argumentów, typowo stosowaną konwencją jest rozpoczynanie opcji od pojedynczego myślnika (opcje krótkie - jednoliterowe) lub dwóch myślników (opcje długie). W przypadku stosowania tej konwencji po pojedynczym myślniku może występować kilka bezargumentowych opcji jednoliterowych. Typowo argumenty opcji oddzielane są od nich spacją (w przypadku opcji krótkich) lub znakiem równości (w przypadku opcji długich). Jeżeli któryś z składników komendy (np. argument) zawiera spacje należy je zabezpieczyć przy pomocy odwrotnego ukośnika (<code>\</code>) lub ujęcia zawierającego je napisu w apostrofy (<code>'</code>) lub cudzysłowa (<code>"</code>).</p>
+			<p>
+				Nie ma silnego rozróżnienia opcji od argumentów, typowo stosowaną konwencją jest rozpoczynanie opcji od pojedynczego myślnika (opcje krótkie - jednoliterowe) lub dwóch myślników (opcje długie).
+				W przypadku stosowania tej konwencji po pojedynczym myślniku może występować kilka bezargumentowych opcji jednoliterowych.
+				Typowo argumenty opcji oddzielane są od nich spacją (w przypadku opcji krótkich) lub znakiem równości (w przypadku opcji długich).
+			</p>
 			
 			<section>
+				<h5>Spacje znaki specjalne, cudzysłowy i apostrofy</h5>
+			
+				<p>Jeżeli któryś z składników komendy (np. argument) zawiera spacje należy je zabezpieczyć przy pomocy odwrotnego ukośnika (<code>\</code>) lub ujęcia zawierającego je napisu w apostrofy (<code>'</code>, zwane niekiedy także cudzysłowem pojedynczym) lub cudzysłowy (<code>"</code>, zwane niekiedy także cudzysłowem podwójnym).</p>
+				
+				<p>
+					W cudzysłowy bądź apostrofy ujęte moga być dowolne napisy. Zarówno celem ochrony zawartych w nich białych znaków (takich jak np. spacje) jak też celem ochrony innych znaków specjalnych powłoki.
+					Oba typy cudzysłowów zabezpieczają przed rozwijaniem znaków uogólniających (zastępowaniem napisu ze znakami listą pasujących nazw / ścieżek).
+					Apostrof (w odróżnieniu od cudzysłowu podwójnego) zabezpiecza także przed interpretacją umieszczonych wewnątrz innych znaków specjalnych takich jak odwołania do zmiennych.
+					Dowolny problematyczny znak może zostać zabezpieczony przy pomocy odwrotnego ukośnika, bez konieczności umieszczania go lub całości napisu w cudzysłowach bądź apostrofach.
+					Powłoka typu sh obsługuje bez operatorowe łączenie napisów, pozwala to na zmianę typu cudzysłowów w ramach jednego napisu np. <code>'a $b'"c 'd"</code> to jeden napis postaci <code>a $bc 'd</code>.
+				</p>
+			</section>
+			
+			<!-- BEGIN: Łączenie poleceń -->
+			<section>
 				<h5>Przekierowania</h5>
-				<p>Typowo program posiada trzy strumienie danych: jeden wejściowy (stdin) i dwa wyjściowe (stdout i stderr). Standardowe wyjście można przekierować na standardowe wejście innego programu przy pomocy <code>|</code>. Na przykład: <code>ls --help | less</code>. Konstrukcja ta przekieruje wynik komendy <code>ls</code> uruchomionej z opcją <code>--help</code> do komendy <code>less</code>.</p>
+				<p>
+					Typowo program posiada trzy strumienie danych: jeden wejściowy (stdin) i dwa wyjściowe (stdout i stderr). Standardowe wyjście można przekierować na standardowe wejście innego programu przy pomocy <code>|</code>, np.:
+					<code>ls --help | less</code>.
+					Konstrukcja ta przekieruje wynik komendy <code>ls</code> uruchomionej z opcją <code>--help</code> do komendy <code>less</code>.
+				</p>
 				
 				<!-- TODO streams_pl.svg -->
 				
-				<p>Możemy także przekierować standardowe wyjście do pliku (przy pomocy <code>&gt;</code> lub <code>&gt;&gt;</code>, gdy chcemy dopisywać do pliku) lub pobrać standardowe wejście z pliku (przy pomocy <code>&lt;</code>). <code>2&gt;</code> pozwala na przekierowanie standardowego wyjścia błędu do pliku.</p>
+				<p>
+					Możemy także przekierować standardowe wyjście do pliku (przy pomocy <code>&gt;</code> lub <code>&gt;&gt;</code>, gdy chcemy dopisywać do pliku) lub pobrać standardowe wejście z pliku (przy pomocy <code>&lt;</code>).
+					<code>2&gt;</code> pozwala na przekierowanie standardowego wyjścia błędu do pliku.
+				</p>
 				
-				<p>Jeżeli zachodzi potrzeba połączenia obu strumieni można użyć <code>2&gt;&amp;1</code> w celu przekierowania strumienia drugiego do pierwszego. Następnie można użyć <code>|</code> aby przekierować połączony strumień do następnej komendy. Jeżeli chcemy przekierować go do pliku połączenie strumieni powinno mieć miejsce po przekierowaniu pierwszego z nich do pliku, np.: <code>ls . NieIstniejącyPlik &gt;log.txt 2&gt;&amp;1</code>. Bash pozwala użyć <code>&gt;&amp;</code> i <code>|&amp;</code>, które przekierowują oba strumienie odpowiednio do pliku lub standardowego wejścia innego polecenia, ale jest to rozszerzenie wykraczające poza standardową składnię sh.</p>
+				<p>
+					Jeżeli zachodzi potrzeba połączenia obu strumieni można użyć <code>2&gt;&amp;1</code> w celu przekierowania strumienia drugiego do pierwszego.
+					Następnie można użyć <code>|</code> aby przekierować połączony strumień do następnej komendy.
+					Jeżeli chcemy przekierować go do pliku połączenie strumieni powinno mieć miejsce po przekierowaniu pierwszego z nich do pliku, np.:
+					<code>ls . NieIstniejącyPlik &gt;log.txt 2&gt;&amp;1</code>.
+					Bash pozwala użyć <code>&gt;&amp;</code> i <code>|&amp;</code>, które przekierowują oba strumienie odpowiednio do pliku lub standardowego wejścia innego polecenia, ale jest to rozszerzenie wykraczające poza standardową składnię sh.
+				</p>
 			</section>
 			
 			<section>
 				<h5>Kod powrotu polecenia oraz łączenie poleceń</h5>
-				<p>Każde uruchamiane polecenie po zakończeniu działania zwraca liczbowy kod powrotu (w przypadku programów w C jest to wartość zwracana z funkcji <code>main</code>). Zero oznacza że polecenie zakończyło się sukcesem (np. znaleziono szukane pliki), wartość nie zerowa że zakończyło się porażką (np. nie ma pasujących plików) lub błędem (np. składnia wprowadzonego polecenia była niepoprawna).</p>
+				<p>
+					Każde uruchamiane polecenie po zakończeniu działania zwraca liczbowy kod powrotu (w przypadku programów w C jest to wartość zwracana z funkcji <code>main</code>).
+					Zero oznacza że polecenie zakończyło się sukcesem (np. znaleziono szukane pliki), wartość nie zerowa że zakończyło się porażką (np. nie ma pasujących plików) lub błędem (np. składnia wprowadzonego polecenia była niepoprawna).
+				</p>
 				
 				<p>Polecenia mogą być łączone na różne sposoby – z wykorzystaniem tej informacji lub nie:
 					<ul>
@@ -3124,22 +3340,58 @@ if (!blokada) {
 						<li><code>a &amp; b</code> – polecenie b będzie wykonywane równocześnie z a (dokładniej polecenie a zostanie uruchomione w tle, a na terminal zajmie polecenie b)</li>
 					</ul></p>
 				
-				<p>Spacje w powyższych konstrukcjach są opcjonalne. Średnik i pojedynczy <code>&amp;</code> mogą być dodane do polecenia także gdy nie ma kolejnego w ciągu:
+				<p>
+					Spacje w powyższych konstrukcjach są opcjonalne.
+					Średnik i pojedynczy <code>&amp;</code> mogą być dodane do polecenia także gdy nie ma kolejnego w ciągu:
 					<ul>
 						<li><code>a&amp;</code> uruchomi polecenie a w tle i odda linię poleceń,</li>
 						<li><code>a;</code> uruchomi polecenie a (dokładnie tak samo jakby nie było tego średnika).</li>
-					</ul></p>
+					</ul>
+				</p>
 			</section>
+			
+			<section>
+				<h5>Zarządzanie procesami w tle</h5>
+				<p>
+					Użycie <code>&amp;</code> przy uruchamianiu polecenia nie jest jedynym sposobem aby uzyskjać program działający w tle.
+					Z użyciem polecenia <code>bg</code> możemy też przenieść w tło polecenie zawieszone za pomocą Control Z (natomiast <code>fg</code> użyte w tym momencie przywróci je na pierwszym planie).
+				</p><p>
+					Powłoka jako rodzic procesów związanych z tak uruchomionymi poleceniami posiada ich listę i pozwala na łatwe zarządzanie nimi.
+					Listę tą można wyświetlić z użyciem polecenia <code>jobs</code>, jeżeli dodana zostanie opcja <code>-l</code> to wyświetlone będą także identyfikatory procesów.
+				</p><p>
+					Korzystając z polecenia <code>fg</code> któremu jako argument podamy numer jobu (nie PID) można przenieść takie zadanie na pierwszy plan.
+					Ponowne przeniesienie w tło możliwe będzie na przykład dzięki Control Z i <code>bg</code>.
+					Można też przesłać sygnały do takich zadań z użyciem polecenia <code>kill</code> podając albo PID albo numer jobu poprzedzony znakiem procenta.
+					Zadanie można także usunąć z listy jobów pozostawiając je jednak działającym z użyciem <code>disown</code>.
+				</p>
+				
+				<p>
+					Powłoka domyślnie uruchamia wszystkie zewnętrzne programy tworząc nowy proces, tak aby powłoka nadal działała i był możliwy powrót do niej po wstrzymaniu (np. Control Z) lub zakończeniu takiego programu.
+					Jeżeli chcemy aby uruchamiany program zastąpił powłokę (i uniknąć tworzenia nowego procesu) należy skorzystać z polecenia <code>exec</code>.
+				</p>
+			</section>
+			<!-- END: Łączenie poleceń -->
 		</section>
 		
 		<section>
 			<h4>Najważniejsze polecenia</h4>
-			<p>Wiele z poniższych komend stanowi standardowe polecenia określone w POSIX / Single UNIX Specification, co gwarantuje ich obecność na kompatybilnych systemach (jednak nie jest to pełna lista poleceń wymaganych przez POSIX). Część z nich jest powszechnie dostępnym, wieloplatformowym oprogramowaniem dla systemów "unix-owatych". Niektóre (zwłaszcza związane z działaniami administracyjnymi) są specyficzne dla Debiana lub Linuxa.</p>
-			
+			<p>
+				Wiele z wymienianych tutaj komend stanowi standardowe polecenia określone w POSIX / Single UNIX Specification, co gwarantuje ich obecność na kompatybilnych systemach (jednak nie jest to pełna lista poleceń wymaganych przez POSIX).
+				Część z nich jest powszechnie dostępnym, wieloplatformowym oprogramowaniem dla systemów "unix-owatych", jednak mogącym wymagać zainstalowania na danym systemie.
+				Niektóre (zwłaszcza związane z działaniami administracyjnymi) są specyficzne dla Debiana lub Linuxa.
+			</p><p>
+				Oprócz poleceń tutaj wymienionych istnieje wiele innych standardowych lub mniej standardowych (wymagających doinstalowania na wielu systemach) narzędzi linii poleceń.
+			</p><p>
+				Ponadto dowolny program w środowisku linuxowym (unixowym) może być uruchomiony z linii poleceń poprzez podanie jego nazwy (jeżeli jest w ścieżce wyszukiwania <code>$PARTH</code>) lub pełnej ścieżki do niego.
+				W bardzo wielu przypadkach takie uruchamianie pozwala przekazać do niego argument w postaci pliku do otwarcia lub inne opcje, czy nawet użycie programu normalnie pracującego z graficznym interfejsem użytkownika (takiego jak blender, inkscape, ...) w trybie nie interaktywnym (np. do automatycznej konwersji, itp.).
+			</p>
 			<section>
 				<h5>Uzyskiwanie pomocy</h5>
 			
-				<p>Informację na temat działania danej komendy oraz jej opcji można uzyskać w wbudowanym systemie pomocy przy pomocy poleceń <code>man</code> lub <code>info</code> / <code>pinfo</code>. Większość poleceń obsługuje także opcje <code>--help</code> lub <code>-h</code>, które wyświetlają informację na temat ich użycia.</p>
+				<p>
+					Informację na temat działania danej komendy oraz jej opcji można uzyskać w wbudowanym systemie pomocy przy pomocy poleceń <code>man</code> lub <code>info</code> / <code>pinfo</code>.
+					Większość poleceń obsługuje także opcje <code>--help</code> lub <code>-h</code>, które wyświetlają informację na temat ich użycia.
+				</p>
 				
 				<section>
 					<h6>notacja</h6>
@@ -3158,26 +3410,19 @@ if (!blokada) {
 						</dd>
 				</dl>
 				<p>Większość poleceń obsługuje także opcje <code>--help</code> lub <code>-h</code>, które wyświetlają informację na temat ich użycia. W tym miejscu warto też zauważyć że typowo opcje krótkie (pojedyncza litera) poprzedzane są pojedynczym myślnikiem (i po jednym myślniku może wystąpić kilka kolejnych opcji), natomiast opcje długie poprzedzane są dwoma myślnikami.</p>
-				<p>Zarówno w tekstach pomocy jak i w tym dokumencie stosowana jest konwencja polegająca na oznaczaniu opcjonalnych argumentów poprzez umieszczanie ich w nawiasach kwadartowych (jeżeli podajemy ten argument do komendy nie obejmujemy go już tymi nawiasami) oraz rozdzielaniu alternatywnych opcji przy pomocy~<code>|</code>. Np. <code>a [b] c|d</code> oznacza iż polecenie <code>a</code> wymaga argumentu postaci <code>c</code> albo <code>d</code>, który może być poprzedzony argumentem <code>b</code>.</p>
 			</section>
 			
 			<section>
 				<h5>Powłoka (i okolice)</h5>
 				<dl class="cmdlist">
 					<dt><dfn>bash</dfn> <var></var></dt>
-						<dd>popularna powłoka (interpreter poleceń) zgodna z sh, zapewnia m.in. obsługę zmiennych (zasadniczo napisowych) oraz znaków uogólniających takich jak:<br />
-							<code>?</code> oznaczający dowolny znak<br />
-							<code>*</code> oznaczający dowolny (także pusty) ciąg znaków<br />
-							<code>[<var>a-z AD</var>]</code> oznaczający dowolny znak z wymienionych w zbiorze ujętym w nawiasach kwadratowych, zbiór może być definiowany z użyciem zakresów, np. <var>a-z AD</var> oznacza dowolną małą literę od a do z włącznie, spację, dużą literą A lub D<br />
-							<code>[!<var>a-z</var>]</code> oznaczający dowolny znak z wyjątkiem znaków wymienionych w podanym zbiorze, zbiór może być definiowany z użyciem zakresów, np. <var>a-z</var> oznacza dowolną małą literę od a do z włącznie<br />
-							Argumenty linii poleceń przekazywane do wywoływanych przez powłokę poleceń rozdzielane są dowolną ilością spacji. Jeżeli argument ma być napisem zawierającym spacje konieczne jest zabezpieczenie ich przy pomocy odwrotnego ukośnika (<code>\</code>, np. <code><var>aaa</var>\ <var>bbb</var></code>) lub ujęcie całego napisu w cudzysłowie pojedynczym (<code>'</code>, np. <code>'<var>aaa bbb</var>'</code>) lub podwójnym (<code>"</code>, np. <code>"<var>aaa bbb</var>"</code>). Oba typy cudzysłowów zabezpieczają przed rozwijaniem znaków uogólniających (zastępowaniem napisu ze znakami listą pasujących nazw / ścieżek). Cudzysłów pojedynczy (w odróżnieniu od podwójnego) zabezpiecza także przed interpretacją umieszczonych wewnątrz innych znaków specjalnych takich jak czy odwołania do zmiennych.
-						</dd>
+						<dd>popularna powłoka (interpreter poleceń) zgodna z sh</dd>
 					<!-- BEGIN: ssh -->
 					<dt><dfn>ssh</dfn> <var>[user@]host</var></dt>
 						<dd>umożliwia uzyskanie powłoki zdalnego systemu poprzez szyfrowane połączenie, przydatne opcje:<br />
 							<code>-D <var>port</var></code> tworzy tunel dynamiczny na wskazanym porcie (może on być użyty jako proxy typu SOCKS np. w Firefoxie w celu zapewnienia dostępu do zasobów WWW dostępnych z serwera SSH a niedostępny z komputera lokalnego)<br />
-							<code>-L <var>portNasłuchiwania</var>:<var>hostZdalny</var>:<var>portZdalny</var></code> tworzy tunel przekierowujący dane kierowane na <var>portNasłuchiwania</var> komputera na którym działa klient ssh do portu <var>portZdalny</var> na serwerze <var>hostZdalny</var> poprzez serwer SSH (przydatne gdy <var>hostZdalny</var> jest osiągalny z <var>hostSSH</var> ale nie z komputera lokalnego)<br />
-							<code>-R <var>portNasłuchiwania</var>:<var>hostZdalny</var>:<var>portZdalny</var></code> tworzy tunel przekierowujący dane kierowane na <var>portNasłuchiwania</var> komputera na którym działa serwer ssh do portu <var>portZdalny</var> na serwerze <var>hostZdalny</var> dostępnego z klienta SSH (podobnie jak -L, tyle że w drugą stronę - nasłuchiwanie po stronie serwera a host zdalny po stronie klienta)<br />
+							<code>-L <var>lokalnyPortNasłuchiwania</var>:<var>hostZdalny</var>:<var>portZdalny</var></code> tworzy tunel przekierowujący dane kierowane na <var>lokalnyPortNasłuchiwania</var> komputera na którym działa klient ssh do portu <var>portZdalny</var> na serwerze <var>hostZdalny</var> poprzez serwer SSH (przydatne gdy <var>hostZdalny</var> jest osiągalny z <var>hostSSH</var> ale nie z komputera lokalnego)<br />
+							<code>-R <var>zdalnyPortNasłuchiwania</var>:<var>hostZdalny</var>:<var>portZdalny</var></code> tworzy tunel przekierowujący dane kierowane na <var>zdalnyPortNasłuchiwania</var> komputera na którym działa serwer ssh do portu <var>portZdalny</var> na serwerze <var>hostZdalny</var> dostępnego z klienta SSH (podobnie jak -L, tyle że w drugą stronę - nasłuchiwanie po stronie serwera a host zdalny po stronie klienta)<br />
 							<img src="tunele_ssh_full.svg" style="height:390px;margin-top:13px;margin-left:7px" alt="tunele ssh" /><br />
 							<code>-p <var>port</var></code> określa inny niż domyślny port serwera SSH<br />
 							<code>-X</code> aktywuje przekazywanie komend X serwera ze strony zdalnej do klienta (pozwala na uruchomienie po stronie zdalnej aplikacji z GUI, które zostanie wyświetlone na lokalnym X serwerze)
@@ -3198,7 +3443,8 @@ if (!blokada) {
 					<dt><dfn>less</dfn> lub <dfn>more</dfn></dt>
 						<dd>przeglądanie tekstu (zarówno z standardowego wejścia jak i wskazanego pliku) ekran po ekranie.<br />
 							Przewijanie dokumentu możliwe jest z użyciem strzałek, page up/dow oraz spacji i enter. Wyjście z programu przy pomocy klawisza <code>q</code>.<br />
-							<code>less</code> posiada większe możliwości od <code>more</code>, w szczególności posiada możliwość przeglądanie dokumentu w tył oraz umożliwia także wyszukiwanie -- klawisz <code>/</code> pozwala na wprowadzenie szukanej frazy, a <code>n</code> na wyszukanie kolejnego wystąpienia.<br />
+							<code>less</code> posiada większe możliwości od <code>more</code>, w szczególności posiada możliwość przeglądanie dokumentu nie tylko w przód ale także w tył (strzałki, page up, page down) oraz umożliwia także wyszukiwanie (klawisz <code>/</code> pozwala na wprowadzenie szukanej frazy, a <code>n</code> na wyszukanie kolejnego wystąpienia).<br />
+							Programy te umożliwiają też wyświetlanie wskazanych jako argumenty plików, a kończą się po wciśnięciu klawisza <code>q</code>.<br />
 							przydatne opcje <code>less</code>:<br />
 								<code>-X</code> nie czyści ekranu przy wychodzeniu z less'a (całość historii wyświetlania pliku pozostaje w historii terminala)<br />
 								<code>-F</code> automatycznie kończy gdy wyświetlany tekst mieści się na jednym ekranie
@@ -3309,7 +3555,7 @@ if (!blokada) {
 				<h6>listowanie i  wyszukiwanie plików</h6>
 				<dl class="cmdlist">
 					<dt><dfn>ls</dfn> <var>[opcje]</var> <var>[ścieżka]</var></dt>
-						<dd>listowanie zawartości katalogu, do ważniejszych opcji należy zaliczyć:<br />
+						<dd>listowanie zawartości katalogu z możliwością sortowania, wypisywanie szczegółowych informacji o plikach, do ważniejszych opcji należy zaliczyć:<br />
 							<code>-a</code> wyświetlaj pliki ukryte (zaczynających się od kropki)<br />
 							<code>-l</code> wyświetlaj pliki w formie listy z szczegółowymi informacjami (uprawnienia, rozmiar, data modyfikacji, właściciel, grupa, rozmiar)<br />
 							<code>-1</code> wyświetlaj pliki w formie 1 plik w jednej linii (bez dodatkowych informacji; stosowane domyślne gdy wynik komendy przekazywany jest strumieniem do innej komendy lub pliku)<br />
@@ -3318,7 +3564,9 @@ if (!blokada) {
 							<code>-S</code> sortuj wg rozmiaru<br />
 							<code>-r</code> odwróć kolejność sortowania<br />
 							<code>-c</code> użyj daty utworzenia zamiast daty modyfikacji (stosowane w połączeniu z <code>-l</code> i/lub <code>-t</code>)<br />
-							<code>-d</code> wyświetlaj informacje o katalogu zamiast jego zawartości
+							<code>-d</code> wyświetlaj informacje o katalogu zamiast jego zawartości<br />
+							Należy pamiętać że polecenie <code>ls</code> nie rozumie znaków uogólniających i rozwijaniem ich dla niego zajmuje się powłoka która je wywołująca.<br />
+							Warto zauważyć także, że jeżeli komanda <code>ls</code> w wyniku rozwinięcia znaków uogólniających dostanie jako argument ścieżkę do katalogu to wylistuje jego zawartość (zachowanie to zmienia opcja <code>-d</code>).
 						</dd>
 					<dt><dfn>find</dfn> <var>[opcje]</var> <var>[katalog startowy]</var> <var>[wyrażenie]</var></dt>
 						<dd>wyszukiwanie w systemie plików w oparciu o nazwę/ścieżkę lub właściwości pliku, do ważniejszych opcji należy zaliczyć:<br />
@@ -3345,7 +3593,12 @@ if (!blokada) {
 						w powyższych testach <var>+</var> oznacza więcej niż, <var>-</var> oznacza mniej niż, uwaga: porównywaniu podlegają liczby całkowite, np. +1 oznacza <m>&gt;1</m> w liczbach całkowitych tzn. <m>\ge2</m><br />
 							
 							<code>-exec <var>polecenie \{\}</var> \;</code> dla każdego znalezionego pliku wykonaj <var>polecenie</var> podstawiając ścieżkę do tego pliku pod <var>\{\}</var> (zastosowane odwrotne ukośniki służą zabezpieczeniu nawiasów klamrowych i średnika przed zinterpretowaniem ich przez powłokę)<br />
-							<code>-execdir <var>polecenie \{\}</var> \;</code>, podobnie jak <code>-exec</code> tyle że polecenie zostanie uruchomione w katalogu w którym znajduje się wyszukany plik
+							<code>-execdir <var>polecenie \{\}</var> \;</code>, podobnie jak <code>-exec</code> tyle że polecenie zostanie uruchomione w katalogu w którym znajduje się wyszukany plik<br />
+					
+							Należy pamiętać że komenda <code>find</code> potrafi sama rozwijać znaki uogólniające (w przypadku argumentów niektórych z jej opcji) i w przypadku argumentów opcji takich jak np. <code>-name</code> na ogół chcemy aby znaki uogólniające nie były rozwijane przez powłokę, a interpretowane przez samą komendę <code>find</code> – w tym celu powinniśmy je zabezpieczyć przed rozwinięciem przy pomocy cudzysłowów.<br />
+							
+							Jednak, w przypadku określania katalogu startowego <code>find</code> zachowuje się jak inne komendy (np. <code>ls</code>) dla których znaki uogólniające musi rozwinąć powłoka (i tu na ogół nie chcemy ich zabezpieczać).
+							Na przykład jeżeli chcemy przeszukać wszystkie katalogi zaczynające się na literę a w poszukiwaniu plików zaczynających się na literę b to należy wykonać: <code>find a* -name "b*"</code>,	a nie <code>find "a*" -name "b*"</code> czy <code>find a* -name b*</code>, itd.
 						</dd>
 						
 					<dt><dfn>tree</dfn> <var>[ścieżka]</var></dt>
@@ -3365,7 +3618,7 @@ if (!blokada) {
 							<code>-s</code> podaje łączną ilość zajętego miejsca dla każdego argumentów (zamiast wypisywać rozmiar każdego pliku)<br />
 							<code>-c</code> podaje łączną ilość zajętego miejsca dla wszystkich argumentów<br />
 							<code>-h</code> stosuje jednostki typu k, M, G<br />
-							podawany rozmiar może się różnić (w obie strony) od wyniku ls: ls podaje rozmiar pliku (ile zawiera informacji lub ile zostało zadekarowane że może jej zawierać), a du to ile zajmuje na dysku
+							podawany rozmiar może się różnić (w obie strony) od wyniku ls: ls podaje rozmiar pliku (ile zawiera informacji lub ile zostało zadeklarowane że może jej zawierać), a du to ile zajmuje na dysku
 						</dd>
 					<dt><dfn>df [opcje]</dfn></dt>
 						<dd>wyświetlanie informacji o zajętości miejsca na poszczególnych systemach plików</dd>
@@ -3383,8 +3636,8 @@ if (!blokada) {
 							<code>-i</code> zawsze pytaj przed nadpisaniem
 						</dd>
 					<dt><dfn>ln</dfn> <var>źródło1 [źródło2 [...]]</var> <var>cel</var></dt>
-						<dd>tworzy link twardy do wskazanego pliku (lub plików) w wskazanej lokalizacji, w przypadku wskazania wielu plików źródłowych <var>cel</var> powinien być katalogiem, do ważniejszych opcji należy zaliczyć:<br />
-							<code>-s</code> tworzy dowiązania symboliczne zamiast twardych<br />
+						<dd>tworzy link (domyślnie „twardy”) do wskazanego pliku (lub plików) w wskazanej lokalizacji, w przypadku wskazania wielu plików źródłowych <var>cel</var> powinien być katalogiem, do ważniejszych opcji należy zaliczyć:<br />
+							<code>-s</code> tworzy dowiązania symboliczne (wskazujące na ścieżkę do oryginalnego pliku) zamiast twardych (wskazujących na te same dane co oryginalny plik)<br />
 							<code>-r</code> używa ścieżki względnej zamiast bezwzględnej przy tworzeniu dowiązań symbolicznych<br />
 						</dd>
 					<dt><dfn>mv</dfn> <var>[opcje]</var> <var>źródło1 [źródło2 [...]]</var> <var>cel</var></dt>
@@ -3449,8 +3702,12 @@ if (!blokada) {
 				<dl class="cmdlist">
 					<dt><dfn>tar</dfn> <var></var></dt>
 						<dd>archiwizuje wiele plików w postaci jednego, przykłady:<br />
-							<code>tar -xf <var>plik.tar</var></code> - wypakowuje zawartość niekompresowanego archiwum <var>plik.tar</var> interpretując zapisane w archiwum ścieżki względem bieżącego katalogu<br />
-							<code>tar -czf - <var>ścieżka1 [ścieżka2 [...]]</var> | ssh <var>[user@]</var><var>host</var> 'cat &gt; <var>plik.tgz</var>'</code> - archiwizuje wskazane pliki/katalogi bezpośrednio na zdalny system z użyciem ssh i kompresji gzip
+							<code>tar -xf <var>plik.tar</var></code>
+								- wypakowuje zawartość niekompresowanego archiwum <var>plik.tar</var> interpretując zapisane w archiwum ścieżki względem bieżącego katalogu<br />
+							<code>tar -czf - <var>ścieżka1 [ścieżka2 [...]]</var> | ssh <var>[user@]</var><var>host</var> 'cat &gt; <var>plik.tgz</var>'</code>
+								- archiwizuje wskazane pliki/katalogi bezpośrednio na zdalny system z użyciem tar, ssh i kompresji gzip do pliku <code><var>plik.tgz</var></code>
+							<code>tar -cf - <var>ścieżka1 [ścieżka2 [...]]</var> | ssh <var>[user@]</var><var>host</var> 'tar -xf - -C <var>cel</var>'</code>
+								- kopiuje wskazane pliki/katalogi na zdalny system z użyciem tar i ssh do katalogu <code><var>cel</var></code>
 						</dd>
 					<dt><dfn>ar</dfn> <var>polecenie</var><var>[modyfikatory]</var> <var>archiwum</var> <var>[pliki]</var></dt>
 						<dd>archiwizuje wiele plików w postaci jednego (format wykorzystywany w plikach bibliotek linkowanych statycznie i w pakietach Debiabna), przykłady:<br />
@@ -3466,9 +3723,15 @@ if (!blokada) {
 				<h5>Operacje na plikach (tekstowych)</h5>
 				<dl class="cmdlist">
 					<dt><dfn>cat</dfn> <var>[opcje]</var> <var>[plik1 [plik2 [...]]]</var></dt>
-						<dd>wypisywanie i łączenie plików</dd>
+						<dd>wypisywanie i łączenie plików<br/>
+							Polecenie cat wywołane z argumentami będącymi nazwami plików wypisze te pliki na standardowe wyjście.
+							Wywołane bez argumentów przeczyta swoje standardowe wejście i wypisze je na standardowe wyjście.
+							Jest to użyteczne w połączeniu z przekierowaniom strumieni – na przykład wywołanie <code>cat > plik</code> pozwala nam wprowadzić treść do wskazanego pliku, zobacz np. przesyłanie strumieniowe plików z użyciem ssh).
+						</dd>
 					<dt><dfn>tac</dfn> <var>[opcje]</var> <var>[plik]</var></dt>
 						<dd>wypisywanie plików z odwróceniem kolejności linii (odwrócenie kolejności wypisywania; może być użyte np. do odwrócenie porządku sortowania)</dd>
+					<dt><dfn>tee</dfn></dt>
+						<dd>zapisuje stdin do podanego pliku, równocześnie wypisując go na stdout</dd>
 						
 					<!-- BEGIN: tail head -->
 					<dt><dfn>tail</dfn> <var>[opcje]</var> <var>[plik]</var></dt>
@@ -3506,7 +3769,13 @@ if (!blokada) {
 							<code>-L</code> wypisuje pliki z bez pasujących linii<br />
 							
 							<code>-f</code> wczytaj wyrażenia z podanego pliku<br />
-							<code>-e</code> może być użyta do poprzedzenia wyrażenia (przydatne zwłaszcza jeżeli chcemy podać kilka)
+							<code>-e</code> może być użyta do poprzedzenia wyrażenia (przydatne zwłaszcza jeżeli chcemy podać kilka)<br />
+							
+							<br />
+							
+							Występowanie przełączników <code>-E</code> i <code>-P</code> wiąże  się z ewolucją składni wyrażeń regularnych przy jednoczesnym zachowywaniu kompatybilności z poprzednimi wersjami polecenia grep.
+							Jeżeli  coś było traktowane jako zwykły znak nie mogło się tak po prostu stać znakiem specjalnym i należało zastosować zabezpieczanie przy pomocy odwrotnym ukośnikiem lub wybór innego wariantu składni przy pomocy odpowiedniej opcji.
+							W efekcie <code>grep '^.\?$'</code> to to samo co <code>grep -E '^.?$'</code>, a <code>grep '^.?$'</code> to to samo co <code>grep -E '^.\?$'</code>.
 						</dd>
 					<!-- END: grep -->
 					<!-- BEGIN: diff patch -->
@@ -3572,7 +3841,7 @@ if (!blokada) {
 							<code>-E</code> - używaj rozszerzonych wyrażeń regularnych<br />
 							<code>-i</code> - modyfikuj podany plik zamiast wypisywać zmieniony na stdout<br />
 							<code>-n</code> - wyłącza domyślne wypisywanie linii, wypisanie musi być wykonane jawnie poleceniem <code>p</code><br />
-						 przydatne polecenia:<br />
+						 przykładowe przydatne polecenia (sed jest dość rozbudowanym narzędziem stanowiącym praktycznie coś na kształt interpretera języka programowania i nie ogranicza się jedynie do tych prostych przypadków):<br />
 							<code>s@<var>regexp</var>@<var>napis</var>@<var>[g]</var></code> - wyszukaj dopasowania do wyrażenia regularnego <var>regexp</var> i zastąp je przez <var>napis</var>, podanie opcji <var>g</var> powoduje zastępowanie wszystkich wystąpień a nie tylko pierwszego, znak <code>@</code> pełni rolę separatora i może zostać zamiast niego użyty inny znak<br />
 							<code>y@<var>zbiór1</var>@<var>zbiór2</var>@</code> - zastąp znaki z <var>zbiór1</var> znakami odpowiadającymi im pod względem kolejności znakami z <var>zbiór2</var>, znak <code>@</code> pełni rolę separatora i może zostać zamiast niego użyty inny znak<br />
 						możliwe jest też m.in. adresowanie linii na których ma być wykonywana operacja, np: <code>0,/<var>regexp</var>/ s@<var>regexp</var>@<var>napis</var>@</code> wykona polecenie s na liniach od początku pliku do linii pasującej do wyrażenia regularnego <var>regexp</var>, czyli zastąpi tylko pierwsze wystąpienie w pliku
@@ -3591,11 +3860,11 @@ if (!blokada) {
 					<!-- BEGIN: paste join comm uniq -->
 					<dt><dfn>paste</dfn></dt>
 						<dd>łączy (odpowiadające sobie pod względem numerów) linie z dwóch plików</dd>
-					<dt><dfn>join</dfn> <var></var></dt>
+					<dt><dfn>join</dfn></dt>
 						<dd>łączy linie  z dwóch plików w oparciu o porównanie wskazanego pola</dd>
-					<dt><dfn>comm</dfn> <var></var></dt>
+					<dt><dfn>comm</dfn></dt>
 						<dd>porównuje dwa posortowane pliki pod względem unikalności linii (może wypisać wspólne lub występujące tylko w jednym z plików)</dd>
-					<dt><dfn>uniq</dfn> <var></var></dt>
+					<dt><dfn>uniq</dfn></dt>
 						<dd>usuwa powtarzające się linie z posortowanego pliku, przydatne opcje:<br />
 							<code>-c</code> wypisz liczbę powtórzeń<br />
 							<code>-d</code> wypisz tylko linie z 2 lub więcej wystąpieniami<br />
@@ -3637,7 +3906,7 @@ if (!blokada) {
 				</p>
 				<p>
 					Rozszerzeniem podstawowych uprawnień opisanych powyżej jest mechanizm Filesystem Access Control List (ACL, fACL).<br />
-					Jest on opcjonalnym mechanizmem który (na wspierających go systemach plików) pozwala na definiowanie indywidualnych uprawnień do pliku dla poszczególnych użytkowników i grup - plik ma nadal swojego właściciela, grupę i wszystkich pozostałych, ale przed prawami dla "others" wchodzą prawa użytkowników i grup definiowanych w ACL. Wypadkowe prawa obliczane są jako suma wynikła z praw użytkownika i grup do których należy.<br />
+					Jest on opcjonalnym mechanizmem który (na wspierających go systemach plików) pozwala na definiowanie indywidualnych uprawnień do pliku dla poszczególnych użytkowników i grup – plik ma nadal swojego właściciela, grupę i wszystkich pozostałych, ale przed prawami dla "others" wchodzą prawa użytkowników i grup definiowanych w ACL. Wypadkowe prawa obliczane są jako suma wynikła z praw użytkownika i grup do których należy.<br />
 					ACL pozwala ponadto definiować uprawnienia domyślne dla nowo powstałych plików w katalogu (są one opcją katalogu).
 				</p>
 				<p>Wszystkie poniższe komendy przyjmują opcję <code>-R</code> powodującą rekursywne wykonywanie zmian na drzewku katalogów/plików rozpoczynającym się w podanej ścieżce.</p>
@@ -3650,7 +3919,7 @@ if (!blokada) {
 						<dd>zmiana prawa dostępu do pliku(ów)</dd>
 					
 					<dt><dfn>getfacl</dfn> <var>[opcje]</var> <var>[ścieżka]</var></dt>
-						<dd>dczyt uprawnień związanych z listami kontroli dostępu fACL</dd>
+						<dd>odczyt uprawnień związanych z listami kontroli dostępu fACL</dd>
 					<dt><dfn>setfacl</dfn> <var>[opcje]</var> <var>[ścieżka]</var></dt>
 						<dd>ustawianie uprawnień związanych z listami kontroli dostępu fACL</dd>
 				</dl>
@@ -3738,7 +4007,7 @@ if (!blokada) {
 					<p>Polecenie kill domyślnie wysyła sygnał SIGTERM, który jest prośbą o zakończenie procesu (proces może ją uszanować lub nie, np. zignorować). Więc sam kill nie zabija procesu.</p>
 					
 					<p>Wiele sygnałów może zostać przechwyconych i obsłużonych (zignorowanych) przez proces do którego są adresowane. Istnieją także sygnały, które nie mogą zostać obsłużone bądź zignorowane są to m.in.:
-						SIGKILL (zakończenie procesu bez dania mu jakiejkolwiek szansy zrobienia czegoś na „do widzenia”, wysyłany przez \Verb#kill -9#),
+						SIGKILL (zakończenie procesu bez dania mu jakiejkolwiek szansy zrobienia czegoś na „do widzenia”, wysyłany przez <code>kill -9</code>),
 						SIGSTOP (wstrzymanie procesu).</p>
 				</section>
 				<section>
@@ -4039,8 +4308,6 @@ if (!blokada) {
 						<dd>tworzy łącze nazwa (specjalny plik który może być wykorzystywany do komunikacji między procesami na zasadzie podobnej do |)</dd>
 					<dt><dfn>seq</dfn></dt>
 						<dd>wypisuje kolejne liczby (przydane np. w for)</dd>
-					<dt><dfn>tee</dfn></dt>
-						<dd>zapisuje stdin do podanego pliku, równocześnie wypisując go na stdout</dd>
 					
 					<dt><dfn>file</dfn></dt>
 						<dd>rozpoznaje typ pliku (w oparciu o zawartość)</dd>
@@ -4059,7 +4326,10 @@ if (!blokada) {
 						<dd>program do kodowania i dekodowania base64</dd>
 					<dt><dfn>strings</dfn></dt>
 						<dd>wypisuje sekwencje znaków drukowanych (określanie zawartości plików nietekstowych)</dd>
-						
+					
+					<dt><dfn>convert</dfn></dt>
+						<dd>konwersje plików graficznych</dd>
+					
 					<dt><dfn>command -v</dfn> <var>komenda</var></dt>
 						<dd>zwraca wykonywaną ścieżkę / polecenie przy wykonywaniu <var>komenda</var></dd>
 					
@@ -4126,7 +4396,7 @@ if (!blokada) {
 				</p>
 				<p>
 					Standardowe wyjście, wyjście błędu oraz powiadomienie o niezerowym kodzie powrotu domyślnie są wysyłane na lokalny adres mailowy użytkownika będącego właścicielem danego contaba.
-					Niekiedy dostępny jest także <code>anacron</code> pozwalający na mniej precyzyjne planowanie zadań
+					Niekiedy dostępny jest także <code>anacron</code> pozwalający na mniej precyzyjne planowanie zadań.
 				</p>
 				<!-- END: Planowanie zadań -->
 			</section>
@@ -4189,7 +4459,116 @@ if (!blokada) {
 -->
 
 <section>
-	<h2>Podsumowanie</h2>
+	<h2>Słowo końcowe</h2>
+	<section>
+		<h3>Zasady projektowania</h3>
+		<section>
+			<h4>Reguły DRY i KISS</h4>
+			<p>
+				<strong>„Don't Repeat Yourself”</strong> (<em>nie powtarzaj się</em>) jest jedną z dwóch głównych reguł programistycznych (ale ma także pewne zastosowania w innych dziedzinach techniki).
+				Zaleca ona unikanie potarzania tych samych czynności, czy też tworzenia takich samych, a nawet analogicznych, podobnych fragmentów kodu.
+			</p><p>
+				Narzędziami ułatwiającymi realizację tego celu są m.in.:<ul>
+					<li>systemy i skrypty służące automatyzacji różnego rodzaju czynności (takich jak np. kompilacja, instalacja, aktualizacja, monitoring działania) –
+						zarówno systemy takie jak make, cmake, doxygen ale również wszystkie drobne skrypty (np. shellowe czy pythonowe) tworzone w tym celu w codziennej pracy informatyka</li>
+					<li>elementy składniowe (m.in. takie jak pętle i funkcje) oraz mechanizmy (np. polimorfizm) dostępne w językach programowania pozwalające na eliminację powtórzeń kodu</li>
+					<li>biblioteki, moduły, itp pozwalające na współdzielenie tych samych rozwiązań, tego samego kodu, pomiędzy różnymi projektami</li>
+					<li>elementy biblioteki systemowej pozwalające na wywoływanie innych programów (np. exec) i komunikację z nimi (np. poprzez strumienie wejścia/wyjścia)</li>
+				</ul>
+			</p><p>
+				Unikanie powtórzeń takiego samego lub (co często nawet gorsze) tylko nieznacznie zmienionego kodu jest też szczególnie istotne ze względu na łatwość utrzymania kodu
+				– np. jakąś poprawkę wprowadza się tylko w odpowiednio sparametryzowanej funkcji, a nie kilkunastu podobnych (ale nie identycznych, ze względu na brak parametryzacji) fragmentach kodu.
+			</p><p>
+				W zastosowaniach nie programistycznych przejawia się często wydzielaniem modułów i dążeniem do ich powtarzalności, redukcji ilości ich typów (np. dzięki parametryzacji, czy konfigurowalności).
+			</p><p>
+				Drugą, nawet chyba ważniejszą, z tych dwóch reguł jest <strong>„Keep It Simple, Stupid”</strong> (niekiedy <em>Keep It Small and Simple</em>), którą można streścić jako <em>proste jest lepsze</em>.
+				Reguła KISS jest bardziej ogólna (można nawet powiedzieć że wynika z niej reguła DRY), posiada dużo szersze pole zastosowań (także nie technicznych) i może być uważana za implementację <em>Brzytwy Ockhama</em> w inżynierii.
+				Zaleca ona m.in.:<ul>
+					<li>tworzenie przejrzystych, czytelnych i prostych rozwiązań (zarówno pod względem samego projektu, koncepcji, jak też ich implementacji, wykonania)</li>
+					<li>wybór rozwiązania prostszego spośród (równie) skutecznych rozwiązań jakiegoś problemu</li>
+					<li>myślenie o łatwości późniejszego utrzymania i serwisu tworzonego rozwiązania (czy to kodu programu, czy urządzenia elektronicznego, a nawet budynku)</li>
+				</ul>
+			</p><p>
+				W duchu prostoty nakazywanej regułą KISS należy także starać się trzymać powszechnie stosowanych standardów
+				(gdy tylko jest to możliwe i nie powoduje zbyt wielkiej komplikacji naszego projektu),
+				zamiast każdorazowo tworzyć nowe, własne standardy, protokoły czy interfejsy.
+			</p>
+		</section>
+		<section>
+			<h4>Projektowanie (głównie) sprzętu</h4>
+			<p>
+				Reguły DRY i KISS mają zastosowanie także w elektronice, a zwłaszcza projektowaniu układów elektronicznych i różnego rodzaju systemów automatyki.
+				Przy projektowaniu elektroniki trochę trudniej niż w programowaniu jest zachować regułę DRY (zwłaszcza przy tworzeniu projektów płytek drukowanych <em>PCB</em>),
+					jednak należy dążyć do tego – wydzielać powtarzające się elementy do pod-schematów, modularyzować tworzony projekt, itd.
+			</p><p>
+				Dalsze rady będą dotyczyły głównie projektowania systemu/urządzenia opartego na jakimś mikrokontrolerze
+				(mimo to wiele z nich można zastosować także przy projektowaniu innych układów elektronicznych i nie tylko).
+			</p><p>Przy tworzeniu projektów tego typu systemów/urządzeń należy mieć szczególnie na uwadze:<ul>
+				<li>trzymanie się standardów i modułowość:<ul>
+					<li>należy stosować standardowe, popularne, otwarte protokoły komunikacyjne, takie jak I2C, RS-485/Modbus, Ethernet/IP</li>
+					<li>należy dokonywać podziału system na moduły funkcjonalne i określamy interfejsy pomiędzy nimi, zasadę tę należy stosować rekurencyjnie do wszystkich większych/bardziej złożonych jego elementów</li>
+					<li>należy unikać projektowania modułów „na miarę” (lepiej mieć n+2 jednakowych modułów niż n każdy innego rodzaju)</li>
+					<li>gdy oczekujemy większej niezawodności to należy zastosować redundancję – np. podwójne układy zasilania i komunikacji (dwa porty RS-485 lub dwa porty Ethernet) w każdym z urządzeń (modułów) składających się na system</li>
+					
+					<li>protokoły komunikacyjne, prędkość transmisji, etc należy dobierać z sporym zapasem (rzędu nawet 50-70\%), przewidując pojawienie się kolejnych rejestrów, funkcji, itp.</li>
+					<li>należy przewidzieć rezerwę miejsca w modułach (np. dostępnych wejść)</li>
+				</ul></li>
+				<li>dokumentacja, wersjonowanie:<ul>
+					<li>należy stosować wersjonowanie nie tylko kodu, ale również schematów, projektów PCB, dokumentacji, etc związanych z naszym projektem</li>
+					<li>należy także oznaczać wersje związane z wykonanymi prototypami (w taki sposób aby można było je jednoznacznie powiązać z fizycznie wykonanym prototypem) i trzymać je co najmniej do zakończenia życia tych prototypów</li>
+					<li>należy umieszczać identyfikator wersji na tworzonych płytkach PCB</li>
+					<li>należy tworzyć dokumentację, np. samo użycie modbus nie rozwiązuje kwestii dokumentacji komunikacji – konieczna jest rzetelna tabela rejestrów</li>
+				</ul></li>
+				<li>zachowanie prostoty:<ul>
+					<li>jeżeli używany mikrokontroler ma wbudowaną funkcję podciągania wejść – używać jej zamiast zewnętrznych rezystorów pull-up / pull-down,
+						jeżeli ma tylko pull-up to przyciski robić jako zwierane do masy aby móc z niej skorzystać</li>
+					<li>pamiętać że często (wbrew początkowej intuicji) sterowanie czymś przy pomocy wyjścia cyfrowego (zwłaszcza gdy wymagany jest do tego zewnętrzny tranzystor) prostsze jest od strony masy,
+						czyli poprzez odłączanie/podłączanie do sterowanego układu masy (a nie dodatniego bieguna zasilania)</li>
+					<li>warto także ograniczyć liczbę wykorzystywanych rodzin i modeli mikrokontrolerów
+						– w przypadku nie seryjnej produkcji oszczędności z zastosowania np. bardzo małego mikrokontrolera zostaną zatarte „kosztami” związanymi z trudnościami w jego użyciu (brak pinów do debugowania, mała pamięć programu, itd.)
+						oraz związanymi z rozwijaniem projektów na różnych mikroprocesorach (bo do kolejnego był już za mały)</li>
+				</ul></li>
+				<li>łatwość diagnostyki i serwisu:<ul>
+					<li>należy zapewnić reset układów peryferyjnych wraz z resetem mikrokontrolera (np. poprzez użycie jednego z pinów GPIO mikrokontrolera w tej roli),
+						dotyczy to także przypadków gdy naszymi urządzeniami peryferyjnymi są inne mikrokontrolery</li>
+					<li>należy zapewnić łatwą możliwość przeprogramowania mikrokontrolera (bez potrzeby rozmontowywania układu, czy też wyjmowania z niego mikrokontrolera),
+						a jeżeli aktualizacja wbudowanego oprogramowania odbywa się standardowo w jakiś wyżej poziomowy sposób to należy zapewnić zabezpieczenie przed awarią w jej trakcie,
+						np. poprzez umieszczanie go na wymiennej karcie SD lub dostęp (np. poprzez UART) do sprzętowego bootloadera danego mikrokontrolera, lub zewnętrzny dostęp do programowania odpowiedniej pamięci</li>
+					<li>warto zapewnić 2-3 diody sygnalizacyjne informujące o stanie pracy / awarii naszego urządzenia</li>
+					
+					<li>należy zapewniać możliwości naprawy i modyfikacji poszczególnych elementów systemu – przede wszystkim poprzez zapewnienie dostępu do nich
+						(a gdy będzie on nie możliwy lub bardzo trudny poprzez położenie zapasowych przewodów), wykonywanie połączeń w łatwo dostępnych miejscach, itd.</li>
+					<li>należy zachowywać kompatybilność wsteczną zawsze wtedy gdy tylko to jest możliwe (nowe urządzenie, nowa wersja muszą pracować w istniejącej sieci, nowa wersja musi w prosty sposób móc zastąpić poprzednią)</li>
+					<li>należy konsekwentnie trzymać się określonych interfejsów i protokołów, jest to szczególnie ważne w niskopoziomowych (trudno aktualizowalnych, debugowalnych, występujących w dużej liczbie egzemplarzy) urządzeniach</li>
+				</ul></li>
+				<li>nie tworzenie „potworków” (bo to się będzie mściło):<ul>
+					<li>należy unikać sztucznego ograniczania funkcjonalności tworzonego urządzenia (co jest nagminnie czynione w urządzeniach powszechnie dostępnych na rynku), na przykład:<ul>
+						<li>jeżeli urządzenia ma złącze Ethernet i używa je np. do wystawienia jakiegoś WWW to należy udostępnić pełną funkcjonalność monitoringu/konfiguracji tego urządzenia przez to TCP/IP z użyciem standardowych protokołów (np. Modbus TCP)a nie wymagać do tego osobnego modułu</li>
+						<li>jeżeli urządzenia ma system operacyjny (np. Linuxa) należy zapewnić możliwość pełnego dostępu do niego (z prawami root'a) – także użytkownikowi, jeżeli je od nas kupił to on jest jego właścicielem</li>
+					</ul></li>
+					<li>z drugiej strony należy jednak unikać upychania funkcjonalności do granic możliwości
+						(lepiej pozwolić „zmarnować się” kilku nóżkom mikrokontrolera niż zrezygnować z czytelności, powtarzalności czy możliwości diagnostycznych na rzecz np. obsłużenia kilku dodatkowych IO)</li>
+					<li>należy unikać oszczędzania kilka złotych minimalizując ponad miarę rozmiar PCB czy eliminując jakieś złącza lub je ograniczając
+						(na złączach oprócz sygnałów należy wystawiać też potrzebne zasilania/masy w odpowiednich ilościach)</li>
+					
+					<li>należy walczyć z z problemem plątaniny kabli już na etapie założeń projektowych poprzez:<ul>
+						<li>stosowanie modularności – np. 1 sterownik Ethernet/IP (lub co najmniej RS-485/Modbus) na niezbyt dużą grupę wejść (np. jeden panel przycisków) / wyjść (np. jedną grupę przekaźników)</li>
+						<li>nie oszczędzanie miejsca na PCB i funduszy na gniazdka przyłączeniowe (nie robić przylutowywanej na stałe wiązki kabli, pamiętać o masach i zasilaniach)</li>
+						<li>nie oszczędzanie miejsca na PCB na otwory montażowe (najlepiej na wszystkich modułach wykonywać je w identycznych miejscach - z myślą o przyszłej obudowie, a nie tam gdzie popadnie)</li>
+						<li>w przypadku wykonywania większych układów, złożonych z kilku sterowników rozważyć stosowanie korytek grzebieniowych do ukrycia plątaniny kabli</li>
+						<li>w przypadku stosowania magistrali równoległej rozważyć multipleksowanie linii adresowej i danych</li>
+					</ul></li>
+					<li>
+						należy pamiętać że źle zastosowane technologie, które mają służyć ułatwieniu serwisowania i obsługi systemu (koryta kablowe, stelaże/szafy rack 19", obudowy z mocowaniem na szynę DIN / TH-35) mogą przynieść odwrotny skutek,
+						a liczy efekt w postaci dobrze zaprojektowanego, czytelnego, dobrze działającego, serwisowalnego, rozbudowywalnego urządzenia/systemu a nie konkretnie zastosowane technologie
+					</li>
+				</ul></li>
+			</ul></p>
+		</section>
+	</section>
+	
+	<section>
+	<h3>Podsumowanie</h3>
 	<p>
 		W kontaktach z technologią, byciu dobrym "komputerowcem", elektronikiem, ... najważniejsze wydaje się być <strong>bawienie się technologią</strong>, eksperymentowanie, łączenie i integrowanie różnych systemów i technologii, poznawanie nowego, zagłębianie się w szczegóły aby nie tylko wiedzieć jak to obsłużyć, ale też wiedzieć jak działa, traktowanie problemów jako wyzwań, ... oraz czerpanie z tego radości. Do określenia kogoś o takiej postawie, takim podejściu do techniki, najlepszym terminem byłby <strong>haker</strong>, pomimo iż jest to termin różnie rozumiany, u wielu osób wywołujący negatywne skojarzenia, wydaje się on jednak najbliższy takiej postawie życiowej.
 	</p><p>
@@ -4202,7 +4581,7 @@ if (!blokada) {
 	</p>
 	
 	<section>
-		<h3>Informacja cyfrowa</h3>
+		<h4>Informacja cyfrowa</h4>
 		<p>
 			Podstawowym zadaniem chyba wszystkich systemów komputerowych i telekomunikacyjnych oraz ogromnej większości systemów elektronicznych jest przetwarzanie lub przekazywanie <strong>informacji</strong>. Obecnie jest to w znacznej większości informacja <strong>cyfrowa</strong> (w odróżnieniu od analogowej jest ona "skwantowana" - sygnał będący jej źródłem zmieniający się w sposób ciągły został poddany procesowi pomiaru i zamiany na liczbę o skończonej dokładności).
 			Fakt dyskretyzacji zbioru wartości oraz (możliwe do wprowadzenia dzięki postaci liczbowej) sumy kontrolne umożliwiają wierne kopiowanie informacji. Dzięki wprowadzeniu tego dodatkowego matematycznego poziomu w zapisie informacji odrywamy się po części od ograniczeń naszej fizycznej rzeczywistości; "bity to nie atomy" i fizyka (w szczególności kwantowa) ich nie dotyczy.
@@ -4213,7 +4592,7 @@ if (!blokada) {
 		</p>
 	</section>
 	<section>
-		<h3>Elektronika</h3>
+		<h4>Elektronika</h4>
 		<p>
 			Elektronika (zarówno analogowa jak i cyfrowa) zajmuje się zasadniczo przetwarzaniem informacji w postaci sygnałów elektrycznych. Podstawowymi pojęciami jest tutaj prąd (przepływ ładunku) oraz napięcie (<strong>różnica potencjałów</strong> czyli siła ten przepływ wymuszająca). Elementy elektroniczne podzielić możemy na elementy bierne (oporniki, kondensatory, cewki, diody) - wpływające na przepływ prądu w sposób nieregulowany oraz elementy aktywne (których działanie w odróżnieniu od biernych jest regulowane na drodze sygnałów elektrycznych). W elektronice (zwłaszcza cyfrowej) często dużo ważniejszym pojęciem niż prąd jest napięcie, a dokładniej nawet tylko potencjał w odniesieniu do umownego potencjału zerowego - masy (<strong>GND</strong>).
 		</p><p>
@@ -4239,7 +4618,7 @@ if (!blokada) {
 		</p>
 	</section>
 	<section>
-		<h3>Programowanie</h3>
+		<h4>Programowanie</h4>
 		<p>
 			Program jest to ciąg instrukcji (głównie operacji matematycznych i logicznych), zapisany w języku zrozumiałym dla danego procesora (kod maszynowy powstający w wyniku kompilacji kodu stworzonego w języku wyższego poziomu). Wśród tych instrukcji szczególne miejsce zajmują instrukcje skoków (warunkowych i bezwarunkowych), one właśnie umożliwiają warunkową realizację fragmentów programu oraz warunkowe powtarzanie (<strong>iterację</strong>) fragmentów programu. Za szczególny przypadek instrukcji skoku można uważać instrukcję wywołania procedury, powodującą przekazanie stosownych informacji i rozpoczęcie wykonywania podprogramu (poprzez warunkowe wywoływanie tej samej procedury z jej wnętrza możemy otrzymać "konkurencyjny" do iteracji sposób powtarzania fragmentu programu - <strong>rekurencję</strong>.
 		</p><p>
@@ -4248,7 +4627,7 @@ if (!blokada) {
 		</p>
 	</section>
 	<section>
-		<h3>Telekomunikacja</h3>
+		<h4>Telekomunikacja</h4>
 		<p>
 			Oprócz przetwarzania informacji liczne systemy zajmują się jej przekazywaniem. Aby mógł zajść proces komunikacji musi istnieć jakieś medium transmisyjne, które będzie odpowiedzialne za fizyczne przekazanie sygnału zawierającego informację. W <strong>telekomunikacji</strong> przekaz ten odbywa się zazwyczaj z wykorzystaniem zjawiska przepływu prądu przez przewodnik (tradycyjna łączność kablowa), bądź rozchodzenia się fali elektromagnetycznej (łączność radiowa, światłowody, ...).
 			Bardzo istotne jest dopasowanie parametrów medium transmisyjnego, urządzeń nadawczych i odbiorczych do sygnału który zamierzamy transmitować, na przykład w przypadku kabli jest to częstotliwość którą są one w stanie przenosić bez zakłóceń (głównie ona odpowiada za szybkość transmisji i najczęściej jest rzędu kilkuset MHz) oraz impedancja (wyrażana w omach, sygnały które transmitujemy są sygnałami zmiennymi dlatego jest ona ważnym parametrem przewodu ...). Jednak pomimo to zawsze należy mieć świadomość, że to tylko kabel, który przewodzi elektrony i niezależnie od parametrów jakoś będzie to robił ... .
@@ -4268,7 +4647,7 @@ if (!blokada) {
 		</p>
 	</section>
 	<section>
-	<h3>Oprogramowanie</h3>
+	<h4>Oprogramowanie</h4>
 		<p>
 			Oczywiście aby się zajmować, bawić komputerami, elektroniką, sieciami telekomunikacyjnymi konieczna jest wiedza na temat samej obsługi komputerów - zwłaszcza systemów unix'owatych. W tych systemach poszczególne osoby pracują na własnych kontach (identyfikowanych loginem i chronionych hasłem), szczególnym przypadkiem jest konto super użytkownika "<strong>root</strong>" - służy ono do czynności administracyjnych i umożliwia zrobienie z systemem (niemalże) wszystkiego. Standardowo stosowany jest też znany z adresów e-mail zapis z małpą - umożliwiający globalną identyfikację użytkownika - user@host.domena. Z użytkownikami związane są także uprawnienia - definiowane (w podstawowym wariancie) niezależnie dla właściciela, grupy i wszystkich innych w dziedzinach odczytu, zapisu i wykonania.
 		</p><p>
@@ -4276,7 +4655,7 @@ if (!blokada) {
 		</p>
 	</section>
 	<section>
-		<h3>Epilog</h3>
+		<h4>Epilog</h4>
 		<p>
 			Współczesna technika umożliwia korzystanie z komputera, a nawet tworzenie oprogramowania bez znajomości <strong>niskopoziomowych mechanizmów</strong> działania tych urządzeń. Wydaje się jednak, że aby zrozumieć współczesną technikę, być dobrym programistą, administratorem, ... poznanie tych mechanizmów wydaje się niezbędne (a na pewno jest bardzo pomocne) i jest też niewątpliwie bardzo przydatne gdy chcemy zrobić coś "bliżej sprzętu" ... .
 		</p><p>
@@ -4285,6 +4664,7 @@ if (!blokada) {
 			Wszystkich czytelników zachęcam także do zapoznania się oprócz samego "vademecum" także z dolinkowanymi materiałami oraz przede wszystkim do dużej porcji obycia z technologią, samodzielnego zgłębiania wybranych zagadnień oraz dużej ilości <strong>praktyki</strong> - bo to właśnie ona w tym wszystkim jest najistotniejsza (a to niestety wymaga dużo czasu).
 			Ważne jest aby robić to co się lubi - zawsze lepiej być dobrym sieciowcem z powołania niż kiepskim koderem (i na odwrót). Dokładny kierunek kształcenia nie jest bardzo istotny - lepiej żeby nie był zbyt odległy, ale i tak masy rzeczy trzeba się uczyć samemu. Warto mieć szersze spojrzenie na branże - to że specjalizujesz się np. w sieciach nie oznacza iż podstawy programowania (zarówno web-owego jak i systemowego) czy też elektroniki i innych pokrewnych zagadnień są zbędne - wręcz przeciwnie mogą być dodatkowym atutem (nie tylko w CV ale i w samej pracy). To czego się nauczysz jest Twoje, ale zdobytą wiedzę, doświadczenie warto notować (gdyż zdarza się ponownie odkrywać Amerykę i ze zdziwieniem stwierdzać "to ja się tym zajmowałem 10 lat temu???").
 		</p>
+	</section>
 	</section>
 </section>
 

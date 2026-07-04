@@ -12,6 +12,8 @@ int main() {
 	printf("A1: %x %x %x %x\n", (aa[0] >> 8) & 0xff, aa[0] & 0xff, (aa[0] >> 8) & 0xff, aa[0] & 0xff);
 	// efekt też jest oczywisty:  A1: 12 34 12 34
 	
+	// wskaźniki i rzutowanie typów pozwala patrzeć na dane w postaci poszczególnych bajtów ...
+	
 	// każemy na te same dane patrzeć jako na liczby 8 bitowe (poszczególne bajty)
 	uint8_t* bb = (uint8_t*) aa;
 	

@@ -23,5 +23,4 @@ except:
 # Możemy także generować wyjątki z naszego kodu, służy do tego instrukcja raise,
 # której należy przekazać obiektem dziedziczącym po \python{BaseException} np:
 
-\begin{CodeFrame*}[python]{}
 raise BaseException("jakiś błąd")

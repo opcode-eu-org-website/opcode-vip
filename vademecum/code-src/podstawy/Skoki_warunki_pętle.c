@@ -22,16 +22,18 @@ int main() {
 		puts("i<j OR j<k");
 	// innymi operatorami logicznymi są && (AND), ! (NOT)
 	
+	// operator warunkowy `warunek ? wartosc_gdy_prawda : wartosc_gdy_falsz`
+	// gdzie zarówno `wartosc_gdy_prawda`, jak i `wartosc_gdy_falsz`,
+	// mogą być wartością jak też wyrażeniem obliczającym jakąś wartość
+	// (wyrażeniem matematycznym, wywołaniem funkcji, itd.)
+	int z = (i==j) ? 5 : (2*13);
+	
 	// pętla for
 	for (i=2; i<=9; ++i) {
-		if (i==3) {
-			// pominięcie tego kroku pętli
-			continue;
-		}
-		if (i==7) {
-			// wyjście z pętli
-			break;
-		}
+		if (i==3)
+			continue; // pominięcie tego kroku pętli
+		if (i==7)
+			break; // wyjście z pętli
 		printf(" a: %d\n", i);
 	}
 	

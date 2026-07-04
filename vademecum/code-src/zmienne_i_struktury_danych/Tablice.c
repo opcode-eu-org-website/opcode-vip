@@ -10,7 +10,7 @@ int main() {
 	
 	printf("%d %d\n", tablica[0], tablica[1]);
 	// nie zainicializowane elementy (tak samo jak nie zainicjalizowane zmienne)
-	// będą mieć przypadkową wartość (nie jest to jednak dobre źródło losowości)
+	// będą mieć przypadkową wartość (ale nie jest to jednak dobre źródło losowości)
 }
 
 void xxx(int n) {

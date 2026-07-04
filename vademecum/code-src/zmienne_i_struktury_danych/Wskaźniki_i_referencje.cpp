@@ -37,7 +37,12 @@ int main() {
 	// dostęp do składowych poprzez wskaźnik na strukturę
 	(*wsk).a = 7;
 	wsk->b = 8;
-	// `x->y` jest skróconym, ładniejszym zapisem dla `(*x).y`
+	
+	// do elementów struktur możemy się odwoływać z użyciem `.` lub `->`
+	// w zależności od tego co stoi po lewej stronie (obiekt czy wskaźnik)
+	// `wskaznik->y` jest skróconym, ładniejszym zapisem dla `(*wskaznik).y`
+	// `obiekt.y` jest skróconym, ładniejszym zapisem dla `(&obiekt)->y`
+	
 	std::cout << obiekt.a << " " << obiekt.b << "\n";
 	
 	// wskaźniki na składowe
@@ -58,17 +63,22 @@ int main() {
 	// W odróżnieniu od wskaźników nie możemy bezpośrednio operować na wskazywanym
 	// przez nią adresie (np. spowodować aby wskazywała na inną zmienną).
 
+	// Przekazując referncję do funkcji uzyskamy takie samo zachowanie
+	// jak w przypadku wskaźnika - funkcja będzie mogła modyfikować wartość argumentu
+	// (inny jest sposób zapisu - zarówno w definicji funkcji jak i jej wywołaniu).
+	f3(x); // w wywołaniu funkcji pobierającej argument jako referencja
+	       // podajemy po prostu zmienną na którą chcemy uzyskać referencję
+	       // nie ma tu operatora pobrania adresu jak przy wskaźniku
+	std::cout << x "\n"; // wypisze 15
+	
 	int &y = x;
 	y = 6543; // brak operatora odwołania się do wskazywanej wartości
 	std::cout << x << " = " << y << "\n";
 	
-	// przekazując referncję do funkcji uzyskamy takie samo zachowanie
-	// jak w przypadku wskaźnika - funkcja będzie mogła modyfikować wartość argumentu
-	// (inny jest sposób zapisu - zarówno w definicji funkcji jak i jej wywołaniu)
-	f3(y); // w wywołaniu funkcji pobierającej argument jako referencja
-	             // podajemy po prostu zmienną na którą chcemy uzyskać referencję
-	              // nie ma tu operatora pobrania adresu jak przy wskaźniku
-	std::cout << y << "\n";
+	// funkcję przyjmującą referencję możemy także wywołać
+	// bezpośrednio na zmiennej będącej referencją
+	f3(y);
+	std::cout << x << " = " << y << "\n";
 	
 	//
 	// wskaźniki na funkcje
@@ -104,7 +114,7 @@ int main() {
 // Z wskaźników lub referencji stanowiących argumenty funkcji korzysta się także
 // aby uniknąć kopiowania dużych struktur,
 // w tym przypadku dobrym zwyczajem jest dodanie `const`,
-// aby funkcja nie mogła modyfikować tego na co wskazuje ten wskaźnik
+// aby funkcja nie mogła modyfikować tego na co wskazuje ten wskaźnik:
 
 void f4(const struct Struktura *s) {
 	// s->a = 15; // to spowodowałoby błąd kompilacji w tym miejscu,

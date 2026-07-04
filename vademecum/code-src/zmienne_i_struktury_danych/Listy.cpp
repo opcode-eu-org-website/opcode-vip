@@ -39,4 +39,9 @@ int main() {
 		//  - usuwanie elementu wskazanego przez iterator
 		//  - wstawianie elementu przed wskazanym przez iterator
 	}
+	
+	// W przypadku C++ listy implementowane są jako listy a nie tablice,
+	// (jak ma to miejsce np. w Pythonie - tablice wskaźników)
+	// W efekcie operacje wstawiania na początku i w środku są szybkie,
+	// ale operacja uzyskania n-tego elementu jest powolna.
 }

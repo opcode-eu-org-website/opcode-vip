@@ -9,7 +9,9 @@ int main() {
 	// i działają one tak jak w normalnej matematyce:
 	e = (a + b) * 4 - y;
 	
-	// dzielenie zależy od typów argumentów
+	// dzielenie zapisuje się przy pomocy ukośnika
+	// zależnie od typów na których operuje jest ono
+	// dzieleniem całkowitym lub zmiennoprzecinkowym.
 	d = a / b; // będzie dzieleniem zmiennoprzecinkowym bo a i b są typu float
 	c = x / y; // będzie dzieleniem całkowitym bo z i y są zmiennymi typu int
 	b = (int)a / (int)b; // będzie dzieleniem całkowitym

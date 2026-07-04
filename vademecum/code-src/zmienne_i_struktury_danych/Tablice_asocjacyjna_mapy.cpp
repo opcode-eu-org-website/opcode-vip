@@ -25,4 +25,9 @@ int main() {
 	for (iter = m.begin(); iter != m.end(); ++iter)
 		std::cout << iter->first << " => " << iter->second << "\n";
 	// jak widać mapa jest wewnętrznie posortowana
+	
+	// Mapa `std::map` nie zachowuje kolejności wkładania elementów,
+	// natomiast jest zawsze posortowana. C++ oferuje też inne rodzaje map, np.:
+	// * nie posortowaną `std::unordered_map`,
+	// * nie wymagającą unikalności klucza `std::multimap`.
 }
