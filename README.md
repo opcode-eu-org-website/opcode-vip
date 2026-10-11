@@ -1,4 +1,4 @@
-** This is source code repo for [vip.opcode.eu.org](http://vip.opcode.eu.org) **
+**This is source code repo for [vip.opcode.eu.org](https://vip.opcode.eu.org)**
 
 ## Licence
 
@@ -30,14 +30,20 @@
 	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 	SOFTWARE.
 
-## Install dependencies
+## Build
 
-To build pdf booklets and xhtml files from this repo you must install dependencies:
+### make way
 
-1. download and install *Libraries and tools for free EDA suites (gEDA/gschem and pcb-rnd)* from [https://bitbucket.org/OpCode-eu-org/eda-libs](https://bitbucket.org/OpCode-eu-org/eda-libs) with its dependencies:
-    1. `git clone https://bitbucket.org/OpCode-eu-org/eda-libs && cd eda-libs`
-    2. `make installLibs; sudo make installTools; sudo make installDependencies`
-2. run `make init` in main dir of this repo
-3. run `sudo make installDependencies` in main dir of this repo
+1. run `make init` in main dir of this repo
+2. run `sudo make installDependencies` in main dir of this repo
+3. run `make all` to build all documents
+4. results will be write into `output-www` directory
 
-After this you can build all document by run `make all` or single document by run `make dokumentName` in source dir for this document (for example `cd vademecum; make vademecum`).
+You can also build single document by run `make dokumentName` in source dir for this document (for example `cd vademecum; make vademecum`).
+
+### act way
+
+You can use [act](https://github.com/nektos/act) to locally run [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)
+
+1. run `act --reuse` in main dir of this repo
+2. use `docker cp` to copy output directory (`output-www`) from container to host system.

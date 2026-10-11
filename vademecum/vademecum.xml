@@ -16,8 +16,11 @@
 <div id="page_menu">
 	<ul id="toc"><li>Spis treści</li></ul>
 	<p id="menu_extra">
-		<a href="http://www.opcode.eu.org/"><img src="lib/opcode.svg" alt="OpCode WWW site" title="Strona należy do serwisu OpCode.eu.org"/></a>
 		<a href="vademecum.pdf"><img src="lib/pdfFile.svg" alt="Pobierz jako PDF" title="Pobierz jako PDF"/></a>
+		<a href="vademecum.tar.xz"><img src="lib/tarFile.svg" alt="Pobierz wersję offline" title="Pobierz wersję offline"/></a>
+		<a href="https://bitbucket.org/OpCode-eu-org/opcode-vip/src/master/"><img src="lib/gitRepo.svg" alt="Źródła strony (git repo)" title="Źródła strony (git repo)"/></a>
+		<br />
+		<a href="http://www.opcode.eu.org/"><img style="height: 80px;" src="lib/opcode.svg" alt="OpCode WWW site" title="Strona należy do serwisu OpCode.eu.org"/></a>
 	</p>
 </div>
 <p id="updateInfo">(aktualizacja: 2026-07-04)</p>

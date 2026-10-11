@@ -30,21 +30,28 @@ export PATH := $(MAINDIR)/TextUtils/convert:$(PATH)
 
 .PHONY: help init installDependencies all upload serve
 help:
-	@ cd $(MAINDIR) && awk '/^#/ {x=0} x==1 {print $0} /^## Install/ {x=1}' README.md
+	@ cd $(MAINDIR) && awk '/^## / {x=0} x==1 {print $0} /^## Build/ {x=1}' README.md
 
 init: | checkout-submodules
 	@ echo "init done"
 
 installDependencies:
 	cd $(MAINDIR)/TextUtils && make installDependencies
-	@ if ! command -v sch2img.sh > /dev/null; then \
-		echo "Cant't find sch2img.sh in PATH"; \
-		echo "You should download and install EDA libs (with dependencies!) from https://bitbucket.org/OpCode-eu-org/eda-libs"; \
-		return 3; \
-	fi
+	apt install -y  texlive-latex-extra
+	command -v sch2img.sh > /dev/null || make installEDAlibs
+
+installEDAlibs:
+	$(eval TMPDIR := $(shell mktemp -d))
+	git clone https://bitbucket.org/OpCode-eu-org/eda-libs "$(TMPDIR)/eda-libs"
+	cd "$(TMPDIR)/eda-libs" && sudo make installTools
+	cd "$(TMPDIR)/eda-libs" && sudo make installDependencies
+	cd "$(TMPDIR)/eda-libs" && make installLibs
+	rm -fr "$(TMPDIR)"
 
 all:
-	[ "$(MAINDIR)" = "$(PWD)" ] && (cd vademecum    && $(MAKE) -f ../Makefile buildAll) || true
+	[ "$(realpath $(MAINDIR))" = "$(realpath $(PWD))" ] # fail when run from wrong directory
+	(cd vademecum    && $(MAKE) -f ../Makefile buildAll)
+	(cd output-www; rm -f offline.tar.xz; tar -chJf ../tmp-build/offline.tar.xz .; mv ../tmp-build/offline.tar.xz .; ln -sf offline.tar.xz vademecum.tar.xz)
 
 serve:
 	cd $(OUTDIR) && python3 -m http.server

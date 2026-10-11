@@ -1,0 +1,61 @@
+name: Build and deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Set up Chromium
+        uses: browser-actions/setup-chrome@v2
+        with:
+          chrome-version: 138
+        id: setup-chrome
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y make git
+          make installDependencies
+          
+          # `apt install chromium` on Ubuntu doesn't actually install chromium ...
+          # so we use `setup-chrome` step and create simple run script here:
+          echo 'exec ${{ steps.setup-chrome.outputs.chrome-path }} --no-sandbox "$@"' > /usr/local/bin/chromium
+          chmod +x /usr/local/bin/chromium
+
+      - name: Run build script via Make
+        run: |
+          make all
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './output-www'
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
