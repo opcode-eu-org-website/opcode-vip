@@ -36,8 +36,8 @@ init: | checkout-submodules
 	@ echo "init done"
 
 installDependencies:
-	cd $(MAINDIR)/TextUtils && make installDependencies
-	apt install -y  texlive-latex-extra
+	cd $(MAINDIR)/TextUtils && sudo make installDependencies
+	sudo apt install -y  texlive-latex-extra
 	command -v sch2img.sh > /dev/null || make installEDAlibs
 
 installEDAlibs:

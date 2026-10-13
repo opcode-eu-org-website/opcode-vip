@@ -42,6 +42,8 @@ jobs:
 
       - name: Run build script via Make
         run: |
+          # GitHub Action has trouble using `/tmp` ... at least for getting output from chromium
+          export TMPDIR=${{ runner.temp }}
           make all
 
       - name: Upload artifact
