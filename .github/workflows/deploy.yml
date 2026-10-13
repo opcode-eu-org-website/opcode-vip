@@ -45,6 +45,7 @@ jobs:
           # GitHub Action has trouble using `/tmp` ... at least for getting output from chromium
           export TMPDIR=${{ runner.temp }}
           make all
+          (cd output-www; ln -sf vademecum.xhtml index.xhtml)
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
