@@ -1,6 +1,6 @@
 [submodule "TextUtils"]
 	path = TextUtils
-	url = ../TextUtils
+	url = https://bitbucket.org/OpCode-eu-org/textutils.git
 [submodule "OpCode-core"]
 	path = OpCode-core
 	url = ../OpCode-core
