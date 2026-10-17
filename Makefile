@@ -24,29 +24,18 @@ MAINDIR     := $(abspath $(dir $(lastword $(MAKEFILE_LIST))))
 OUTDIR      := $(MAINDIR)/output-www
 TEXBUILDDIR := $(MAINDIR)/tmp-build
 LIBFILESDIR := $(MAINDIR)/OpCode-core/lib
-SVGICONURL  := https://bytebucket.org/OpCode-eu-org/svgiconset/raw/HEAD/other/
-export PATH := $(MAINDIR)/TextUtils/convert:$(PATH)
 
+CORE := $(MAINDIR)/OpCode-core
+include $(shell if [ ! -f "$(CORE)/Makefile" ]; then git submodule update --init "$(CORE)" > /dev/null; fi; echo "$(CORE)/Makefile")
 
-.PHONY: help init installDependencies all upload serve
-help:
-	@ cd $(MAINDIR) && awk '/^## / {x=0} x==1 {print $0} /^## Build/ {x=1}' README.md
+.PHONY: init installDependencies all upload serve
 
 init: | checkout-submodules
 	@ echo "init done"
 
 installDependencies:
-	cd $(MAINDIR)/TextUtils && sudo make installDependencies
-	sudo apt install -y  texlive-latex-extra
-	command -v sch2img.sh > /dev/null || make installEDAlibs
-
-installEDAlibs:
-	$(eval TMPDIR := $(shell mktemp -d))
-	git clone https://bitbucket.org/OpCode-eu-org/eda-libs "$(TMPDIR)/eda-libs"
-	cd "$(TMPDIR)/eda-libs" && sudo make installTools
-	cd "$(TMPDIR)/eda-libs" && sudo make installDependencies
-	cd "$(TMPDIR)/eda-libs" && make installLibs
-	rm -fr "$(TMPDIR)"
+	$(SUDO_CMD) make installCoreDependencies
+	$(SUDO_CMD) apt install -y  texlive-latex-extra
 
 all:
 	[ "$(realpath $(MAINDIR))" = "$(realpath $(PWD))" ] # fail when run from wrong directory
@@ -59,21 +48,6 @@ serve:
 upload:
 	cd $(OUTDIR); ln -sf vademecum.xhtml index.xhtml
 	cd $(OUTDIR); rsync -rLc --delete -v -e "ssh" ./ www.opcode.eu.org:/srv/WebPages/vip/
-
-#
-# submodules
-#
-
-.PHONY: checkout-submodules
-
-checkout-submodules:
-	git submodule update --init --recursive
-
-#
-# include core makefile from TextUtils
-#
-
--include $(MAINDIR)/TextUtils/makefiles/buildWebSite.mk
 
 #
 # addionals files

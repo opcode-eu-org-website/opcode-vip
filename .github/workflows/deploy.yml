@@ -2,8 +2,7 @@ name: Build and deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - master
+    branches: [ master, dev ]
 
 permissions:
   contents: read
@@ -33,7 +32,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y make git
-          make installDependencies
+          sudo TMPDIR=${{ runner.temp }} make installDependencies
           
           # `apt install chromium` on Ubuntu doesn't actually install chromium ...
           # so we use `setup-chrome` step and create simple run script here:
@@ -42,7 +41,6 @@ jobs:
 
       - name: Run build script via Make
         run: |
-          # GitHub Action has trouble using `/tmp` ... at least for getting output from chromium
           export TMPDIR=${{ runner.temp }}
           make all
           (cd output-www; ln -sf vademecum.xhtml index.xhtml)
